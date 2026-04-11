@@ -37,11 +37,6 @@
 	user << browse_rsc('html/character_ui/dusty/voice/voice_accent.png', "voice_accent.png")
 	user << browse_rsc('html/character_ui/dusty/voice/voice_colour.png', "voice_colour.png")
 	user << browse_rsc('html/character_ui/dusty/voice/voice_colour_blob.png', "voice_colour_blob.png")
-	// Family
-	user << browse_rsc('html/character_ui/dusty/family/0_family_bg.png', "0_family_bg.png")
-	user << browse_rsc('html/character_ui/dusty/family/family_type.png', "family_type.png")
-	user << browse_rsc('html/character_ui/dusty/family/gender_pref.png', "gender_pref.png")
-	user << browse_rsc('html/character_ui/dusty/family/spouse_pref.png', "spouse_pref.png")
 	// Flavour
 	user << browse_rsc('html/character_ui/dusty/flavour/0_flavour_bg.png', "0_flavour_bg.png")
 	user << browse_rsc('html/character_ui/dusty/flavour/flavour_culture.png', "flavour_culture.png")
@@ -60,21 +55,15 @@
 	user << browse_rsc('html/character_ui/dusty/loadout/loadout_item1.png', "loadout_item1.png")
 	user << browse_rsc('html/character_ui/dusty/loadout/loadout_item2.png', "loadout_item2.png")
 	user << browse_rsc('html/character_ui/dusty/loadout/loadout_item3.png', "loadout_item3.png")
-	// Triumphs
-	user << browse_rsc('html/character_ui/dusty/triumphs/0_triumphs_bg.png', "0_triumphs_bg.png")
-	user << browse_rsc('html/character_ui/dusty/triumphs/triumphs_display.png', "triumphs_display.png")
-	user << browse_rsc('html/character_ui/dusty/triumphs/triumphs_shop.png', "triumphs_shop.png")
-	user << browse_rsc('html/character_ui/dusty/triumphs/triumphs_shop_hover.png', "triumphs_shop_hover.png")
 	// Headshot
 	user << browse_rsc('html/character_ui/dusty/character_headshot/headshot_bg.png', "headshot_bg.png")
+	user << browse_rsc('html/character_ui/dusty/character_headshot/nsfw_headshot_bg.png', "nsfw_headshot_bg.png")
 	// OOC
 	user << browse_rsc('html/character_ui/dusty/ooc/0_ooc_bg.png', "0_ooc_bg.png")
 	user << browse_rsc('html/character_ui/dusty/ooc/ooc_notes.png', "ooc_notes.png")
 	user << browse_rsc('html/character_ui/dusty/ooc/ooc_notes_hover.png', "ooc_notes_hover.png")
 	user << browse_rsc('html/character_ui/dusty/ooc/ooc_extra.png', "ooc_extra.png")
 	user << browse_rsc('html/character_ui/dusty/ooc/ooc_extra_hover.png', "ooc_extra_hover.png")
-	user << browse_rsc('html/character_ui/dusty/ooc/ooc_specialroles.png', "ooc_specialroles.png")
-	user << browse_rsc('html/character_ui/dusty/ooc/ooc_specialroles_hover.png', "ooc_specialroles_hover.png")
 	// Features
 	user << browse_rsc('html/character_ui/dusty/features/0_features_bg.png', "0_features_bg.png")
 	user << browse_rsc('html/character_ui/dusty/features/features_bodytype_f.png', "features_bodytype_f.png")
@@ -83,11 +72,6 @@
 	user << browse_rsc('html/character_ui/dusty/features/features_button_hover.png', "features_button_hover.png")
 	user << browse_rsc('html/character_ui/dusty/features/features_random.png', "features_random.png")
 	user << browse_rsc('html/character_ui/dusty/features/features_random_hover.png', "features_random_hover.png")
-	// Be Special
-	user << browse_rsc('html/character_ui/dusty/bespecial/bespecial_no.png', "bespecial_no.png")
-	user << browse_rsc('html/character_ui/dusty/bespecial/bespecial_no_hover.png', "bespecial_no_hover.png")
-	user << browse_rsc('html/character_ui/dusty/bespecial/bespecial_yes.png', "bespecial_yes.png")
-	user << browse_rsc('html/character_ui/dusty/bespecial/bespecial_yes_hover.png', "bespecial_yes_hover.png")
 	// Misc Buttons
 	user << browse_rsc('html/character_ui/dusty/misc_buttons/ready_order.png', "ready_order.png")
 	user << browse_rsc('html/character_ui/dusty/misc_buttons/ready_order_hover.png', "ready_order_hover.png")
@@ -132,11 +116,6 @@
 	user << browse_rsc('html/character_ui/grimshart/voice/voice_accent.png', "voice_accent.png")
 	user << browse_rsc('html/character_ui/grimshart/voice/voice_colour.png', "voice_colour.png")
 	user << browse_rsc('html/character_ui/grimshart/voice/voice_colour_blob.png', "voice_colour_blob.png")
-	// Family
-	user << browse_rsc('html/character_ui/grimshart/family/0_family_bg.png', "0_family_bg.png")
-	user << browse_rsc('html/character_ui/grimshart/family/family_type.png', "family_type.png")
-	user << browse_rsc('html/character_ui/grimshart/family/gender_pref.png', "gender_pref.png")
-	user << browse_rsc('html/character_ui/grimshart/family/spouse_pref.png', "spouse_pref.png")
 	// Flavour
 	user << browse_rsc('html/character_ui/grimshart/flavour/0_flavour_bg.png', "0_flavour_bg.png")
 	user << browse_rsc('html/character_ui/grimshart/flavour/flavour_culture.png', "flavour_culture.png")
@@ -155,21 +134,15 @@
 	user << browse_rsc('html/character_ui/grimshart/loadout/loadout_item1.png', "loadout_item1.png")
 	user << browse_rsc('html/character_ui/grimshart/loadout/loadout_item2.png', "loadout_item2.png")
 	user << browse_rsc('html/character_ui/grimshart/loadout/loadout_item3.png', "loadout_item3.png")
-	// Triumphs
-	user << browse_rsc('html/character_ui/grimshart/triumphs/0_triumphs_bg.png', "0_triumphs_bg.png")
-	user << browse_rsc('html/character_ui/grimshart/triumphs/triumphs_display.png', "triumphs_display.png")
-	user << browse_rsc('html/character_ui/grimshart/triumphs/triumphs_shop.png', "triumphs_shop.png")
-	user << browse_rsc('html/character_ui/grimshart/triumphs/triumphs_shop_hover.png', "triumphs_shop_hover.png")
 	// Headshot
 	user << browse_rsc('html/character_ui/grimshart/character_headshot/headshot_bg.png', "headshot_bg.png")
+	user << browse_rsc('html/character_ui/grimshart/character_headshot/nsfw_headshot_bg.png', "nsfw_headshot_bg.png")
 	// OOC
 	user << browse_rsc('html/character_ui/grimshart/ooc/0_ooc_bg.png', "0_ooc_bg.png")
 	user << browse_rsc('html/character_ui/grimshart/ooc/ooc_notes.png', "ooc_notes.png")
 	user << browse_rsc('html/character_ui/grimshart/ooc/ooc_notes_hover.png', "ooc_notes_hover.png")
 	user << browse_rsc('html/character_ui/grimshart/ooc/ooc_extra.png', "ooc_extra.png")
 	user << browse_rsc('html/character_ui/grimshart/ooc/ooc_extra_hover.png', "ooc_extra_hover.png")
-	user << browse_rsc('html/character_ui/grimshart/ooc/ooc_specialroles.png', "ooc_specialroles.png")
-	user << browse_rsc('html/character_ui/grimshart/ooc/ooc_specialroles_hover.png', "ooc_specialroles_hover.png")
 	// Features
 	user << browse_rsc('html/character_ui/grimshart/features/0_features_bg.png', "0_features_bg.png")
 	user << browse_rsc('html/character_ui/grimshart/features/features_bodytype_f.png', "features_bodytype_f.png")
@@ -178,11 +151,6 @@
 	user << browse_rsc('html/character_ui/grimshart/features/features_button_hover.png', "features_button_hover.png")
 	user << browse_rsc('html/character_ui/grimshart/features/features_random.png', "features_random.png")
 	user << browse_rsc('html/character_ui/grimshart/features/features_random_hover.png', "features_random_hover.png")
-	// Be Special
-	user << browse_rsc('html/character_ui/grimshart/bespecial/bespecial_no.png', "bespecial_no.png")
-	user << browse_rsc('html/character_ui/grimshart/bespecial/bespecial_no_hover.png', "bespecial_no_hover.png")
-	user << browse_rsc('html/character_ui/grimshart/bespecial/bespecial_yes.png', "bespecial_yes.png")
-	user << browse_rsc('html/character_ui/grimshart/bespecial/bespecial_yes_hover.png', "bespecial_yes_hover.png")
 	// Misc Buttons
 	user << browse_rsc('html/character_ui/grimshart/misc_buttons/ready_order.png', "ready_order.png")
 	user << browse_rsc('html/character_ui/grimshart/misc_buttons/ready_order_hover.png', "ready_order_hover.png")
@@ -227,11 +195,6 @@
 	user << browse_rsc('html/character_ui/parchment/voice/voice_accent.png', "voice_accent.png")
 	user << browse_rsc('html/character_ui/parchment/voice/voice_colour.png', "voice_colour.png")
 	user << browse_rsc('html/character_ui/parchment/voice/voice_colour_blob.png', "voice_colour_blob.png")
-	// Family
-	user << browse_rsc('html/character_ui/parchment/family/0_family_bg.png', "0_family_bg.png")
-	user << browse_rsc('html/character_ui/parchment/family/family_type.png', "family_type.png")
-	user << browse_rsc('html/character_ui/parchment/family/gender_pref.png', "gender_pref.png")
-	user << browse_rsc('html/character_ui/parchment/family/spouse_pref.png', "spouse_pref.png")
 	// Flavour
 	user << browse_rsc('html/character_ui/parchment/flavour/0_flavour_bg.png', "0_flavour_bg.png")
 	user << browse_rsc('html/character_ui/parchment/flavour/flavour_culture.png', "flavour_culture.png")
@@ -250,21 +213,15 @@
 	user << browse_rsc('html/character_ui/parchment/loadout/loadout_item1.png', "loadout_item1.png")
 	user << browse_rsc('html/character_ui/parchment/loadout/loadout_item2.png', "loadout_item2.png")
 	user << browse_rsc('html/character_ui/parchment/loadout/loadout_item3.png', "loadout_item3.png")
-	// Triumphs
-	user << browse_rsc('html/character_ui/parchment/triumphs/0_triumphs_bg.png', "0_triumphs_bg.png")
-	user << browse_rsc('html/character_ui/parchment/triumphs/triumphs_display.png', "triumphs_display.png")
-	user << browse_rsc('html/character_ui/parchment/triumphs/triumphs_shop.png', "triumphs_shop.png")
-	user << browse_rsc('html/character_ui/parchment/triumphs/triumphs_shop_hover.png', "triumphs_shop_hover.png")
 	// Headshot
 	user << browse_rsc('html/character_ui/parchment/character_headshot/headshot_bg.png', "headshot_bg.png")
+	user << browse_rsc('html/character_ui/parchment/character_headshot/nsfw_headshot_bg.png', "nsfw_headshot_bg.png")
 	// OOC
 	user << browse_rsc('html/character_ui/parchment/ooc/0_ooc_bg.png', "0_ooc_bg.png")
 	user << browse_rsc('html/character_ui/parchment/ooc/ooc_notes.png', "ooc_notes.png")
 	user << browse_rsc('html/character_ui/parchment/ooc/ooc_notes_hover.png', "ooc_notes_hover.png")
 	user << browse_rsc('html/character_ui/parchment/ooc/ooc_extra.png', "ooc_extra.png")
 	user << browse_rsc('html/character_ui/parchment/ooc/ooc_extra_hover.png', "ooc_extra_hover.png")
-	user << browse_rsc('html/character_ui/parchment/ooc/ooc_specialroles.png', "ooc_specialroles.png")
-	user << browse_rsc('html/character_ui/parchment/ooc/ooc_specialroles_hover.png', "ooc_specialroles_hover.png")
 	// Features
 	user << browse_rsc('html/character_ui/parchment/features/0_features_bg.png', "0_features_bg.png")
 	user << browse_rsc('html/character_ui/parchment/features/features_bodytype_f.png', "features_bodytype_f.png")
@@ -273,11 +230,6 @@
 	user << browse_rsc('html/character_ui/parchment/features/features_button_hover.png', "features_button_hover.png")
 	user << browse_rsc('html/character_ui/parchment/features/features_random.png', "features_random.png")
 	user << browse_rsc('html/character_ui/parchment/features/features_random_hover.png', "features_random_hover.png")
-	// Be Special
-	user << browse_rsc('html/character_ui/parchment/bespecial/bespecial_no.png', "bespecial_no.png")
-	user << browse_rsc('html/character_ui/parchment/bespecial/bespecial_no_hover.png', "bespecial_no_hover.png")
-	user << browse_rsc('html/character_ui/parchment/bespecial/bespecial_yes.png', "bespecial_yes.png")
-	user << browse_rsc('html/character_ui/parchment/bespecial/bespecial_yes_hover.png', "bespecial_yes_hover.png")
 	// Misc Buttons
 	user << browse_rsc('html/character_ui/parchment/misc_buttons/ready_order.png', "ready_order.png")
 	user << browse_rsc('html/character_ui/parchment/misc_buttons/ready_order_hover.png', "ready_order_hover.png")
@@ -322,11 +274,6 @@
 	user << browse_rsc('html/character_ui/paper/voice/voice_accent.png', "voice_accent.png")
 	user << browse_rsc('html/character_ui/paper/voice/voice_colour.png', "voice_colour.png")
 	user << browse_rsc('html/character_ui/paper/voice/voice_colour_blob.png', "voice_colour_blob.png")
-	// Family
-	user << browse_rsc('html/character_ui/paper/family/0_family_bg.png', "0_family_bg.png")
-	user << browse_rsc('html/character_ui/paper/family/family_type.png', "family_type.png")
-	user << browse_rsc('html/character_ui/paper/family/gender_pref.png', "gender_pref.png")
-	user << browse_rsc('html/character_ui/paper/family/spouse_pref.png', "spouse_pref.png")
 	// Flavour
 	user << browse_rsc('html/character_ui/paper/flavour/0_flavour_bg.png', "0_flavour_bg.png")
 	user << browse_rsc('html/character_ui/paper/flavour/flavour_culture.png', "flavour_culture.png")
@@ -345,21 +292,15 @@
 	user << browse_rsc('html/character_ui/paper/loadout/loadout_item1.png', "loadout_item1.png")
 	user << browse_rsc('html/character_ui/paper/loadout/loadout_item2.png', "loadout_item2.png")
 	user << browse_rsc('html/character_ui/paper/loadout/loadout_item3.png', "loadout_item3.png")
-	// Triumphs
-	user << browse_rsc('html/character_ui/paper/triumphs/0_triumphs_bg.png', "0_triumphs_bg.png")
-	user << browse_rsc('html/character_ui/paper/triumphs/triumphs_display.png', "triumphs_display.png")
-	user << browse_rsc('html/character_ui/paper/triumphs/triumphs_shop.png', "triumphs_shop.png")
-	user << browse_rsc('html/character_ui/paper/triumphs/triumphs_shop_hover.png', "triumphs_shop_hover.png")
 	// Headshot
 	user << browse_rsc('html/character_ui/paper/character_headshot/headshot_bg.png', "headshot_bg.png")
+	user << browse_rsc('html/character_ui/paper/character_headshot/nsfw_headshot_bg.png', "nsfw_headshot_bg.png")
 	// OOC
 	user << browse_rsc('html/character_ui/paper/ooc/0_ooc_bg.png', "0_ooc_bg.png")
 	user << browse_rsc('html/character_ui/paper/ooc/ooc_notes.png', "ooc_notes.png")
 	user << browse_rsc('html/character_ui/paper/ooc/ooc_notes_hover.png', "ooc_notes_hover.png")
 	user << browse_rsc('html/character_ui/paper/ooc/ooc_extra.png', "ooc_extra.png")
 	user << browse_rsc('html/character_ui/paper/ooc/ooc_extra_hover.png', "ooc_extra_hover.png")
-	user << browse_rsc('html/character_ui/paper/ooc/ooc_specialroles.png', "ooc_specialroles.png")
-	user << browse_rsc('html/character_ui/paper/ooc/ooc_specialroles_hover.png', "ooc_specialroles_hover.png")
 	// Features
 	user << browse_rsc('html/character_ui/paper/features/0_features_bg.png', "0_features_bg.png")
 	user << browse_rsc('html/character_ui/paper/features/features_bodytype_f.png', "features_bodytype_f.png")
@@ -368,11 +309,6 @@
 	user << browse_rsc('html/character_ui/paper/features/features_button_hover.png', "features_button_hover.png")
 	user << browse_rsc('html/character_ui/paper/features/features_random.png', "features_random.png")
 	user << browse_rsc('html/character_ui/paper/features/features_random_hover.png', "features_random_hover.png")
-	// Be Special
-	user << browse_rsc('html/character_ui/paper/bespecial/bespecial_no.png', "bespecial_no.png")
-	user << browse_rsc('html/character_ui/paper/bespecial/bespecial_no_hover.png', "bespecial_no_hover.png")
-	user << browse_rsc('html/character_ui/paper/bespecial/bespecial_yes.png', "bespecial_yes.png")
-	user << browse_rsc('html/character_ui/paper/bespecial/bespecial_yes_hover.png', "bespecial_yes_hover.png")
 	// Misc Buttons
 	user << browse_rsc('html/character_ui/paper/misc_buttons/ready_order.png', "ready_order.png")
 	user << browse_rsc('html/character_ui/paper/misc_buttons/ready_order_hover.png', "ready_order_hover.png")

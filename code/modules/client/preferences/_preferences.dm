@@ -494,11 +494,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		.preview-bg  { top: 50px;  left: 8px;   width: 99px;  height: 83px; background-image: url('charpreview_bg.png'); }
 		.body-bg     { top: 58px;  left: 110px; width: 118px; height: 75px; background-image: url('0_body_bg.png'); }
 		.voice-bg    { top: 137px; left: 2px;   width: 107px; height: 41px; background-image: url('0_voice_bg.png'); }
-		.family-bg   { top: 137px; left: 114px; width: 86px;  height: 74px; background-image: url('0_family_bg.png'); }
 		.flavour-bg  { top: 137px; left: 201px; width: 65px;  height: 95px; background-image: url('0_flavour_bg.png'); }
-		.loadout-bg  { top: 181px; left: 3px;   width: 64px;  height: 74px; background-image: url('0_loadout_bg.png'); }
-		.triumphs-bg { top: 182px; left: 74px;  width: 37px;  height: 34px; background-image: url('0_triumphs_bg.png'); }
-		.headshot-bg { top: 213px; left: 119px; width: 76px;  height: 76px; background-image: url('headshot_bg.png'); }
+		.loadout-bg  { top: 213px; left: 3px;   width: 64px;  height: 74px; background-image: url('0_loadout_bg.png'); }
+		.headshot-bg { top: 137px; left: 114px; width: 86px;  height: 74px; background-image: url('headshot_bg.png'); }
+		.nsfw-headshot-bg { top: 213px; left: 114px; width: 86px;  height: 76px; background-image: url('nsfw_headshot_bg.png'); }
 		.ooc-bg      { top: 236px; left: 201px; width: 54px;  height: 48px; background-image: url('0_ooc_bg.png'); }
 
 		.features-bg { top: 60px; left: 231px; width: 36px; height: 48px; background-image: url('0_features_bg.png'); }
@@ -521,11 +520,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		.ooc-notes:hover { background-image: url('ooc_notes_hover.png'); }
 		.ooc-extra { top: 270px; left: 207px; width: 40px; height: 10px; background-image: url('ooc_extra.png'); }
 		.ooc-extra:hover { background-image: url('ooc_extra_hover.png'); }
-		.btn-roles { top: 284px; left: 200px; width: 55px; height: 30px; background-image: url('ooc_specialroles.png'); }
-		.btn-roles:hover { background-image: url('ooc_specialroles_hover.png'); }
-
-		.tri-shop { top: 202px; left: 75px; width: 34px; height: 26px; background-image: url('triumphs_shop.png'); }
-		.tri-shop:hover { background-image: url('triumphs_shop_hover.png'); }
 
 		.clickable-text {
 			font-weight: bold;
@@ -558,11 +552,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			.auto-shrink { font-size: 7px; }
 		}
 
-		#bespecial   { top: 230px; left: 76px; width: 34px; height: 23px; background-image: url('bespecial_no.png'); }
-		#bespecial:hover {background-image: url('bespecial_no_hover.png');}
-		#bespecial.yes:hover {background-image: url('bespecial_yes_hover.png');}
-		#bespecial.yes { background-image: url('bespecial_yes.png'); }
-
 		.menu-ready  { top: 258px; left: 4px;   width: 88px; height: 10px; background-image: url('ready_order.png'); }
 		.menu-ready:hover { background-image: url('ready_order_hover.png'); }
 		.menu-change { top: 269px; left: 4px;   width: 69px; height: 10px; background-image: url('change_character.png'); }
@@ -581,7 +570,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 		.menu-keybinds {
 			top: 280px;
-			left: 78px;
+			left: 73px;
 			width: 39px;
 			height: 10px;
 			background-image: url('keybinds.png');
@@ -592,7 +581,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 		.menu-toggles {
 			top: 269px;
-			left: 83px;
+			left: 78px;
 			width: 34px;
 			height: 10px;
 			background-image: url('toggles.png');
@@ -695,22 +684,11 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			}
 		}
 
-		function updateHeadshot(url) {
-			var img = document.getElementById('headshot-img');
+		function updateImagePreview(imageId, url) {
+			var img = document.getElementById(imageId);
 			if(img) {
 				img.src = url || '';
 				img.style.display = url ? 'block' : 'none';
-			}
-		}
-
-		function updateBeSpecial(isActive) {
-			var elem = document.getElementById('bespecial');
-			if(elem) {
-				if(isActive) {
-					elem.classList.add('yes');
-				} else {
-					elem.classList.remove('yes');
-				}
 			}
 		}
 
@@ -781,11 +759,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			if('voicetype' in data) updateField('char-voicetype', data.voicetype || '');
 			if('accent' in data) updateField('char-accent', data.accent || '');
 			if('moan' in data) updateField('char-moan', data.moan || '');
-			if('triumphs' in data) updateField('char-triumphs', data.triumphs || '0');
 			if('culture' in data) updateField('char-culture', data.culture || 'None');
 
-			if('headshot' in data) updateHeadshot(data.headshot);
-			if('bespecial' in data) updateBeSpecial(data.bespecial === '1');
+			if('headshot' in data) updateImagePreview('headshot-img', data.headshot);
+			if('nsfw_headshot' in data) updateImagePreview('nsfw-headshot-img', data.nsfw_headshot);
 			if('preview_north' in data) updatePreviewImage('preview-north', data.preview_north);
 			if('preview_south' in data) updatePreviewImage('preview-south', data.preview_south);
 			if('preview_east' in data) updatePreviewImage('preview-east', data.preview_east);
@@ -828,13 +805,18 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	</div>
 	<div class="sprite body-bg"></div>
 	<div class="sprite voice-bg"></div>
-	<div class="sprite family-bg"></div>
 	<div class="sprite flavour-bg"></div>
 	<div class="sprite loadout-bg"></div>
-	<div class="sprite triumphs-bg"></div>
-	<div class="sprite headshot-bg" style="padding: 3px; box-sizing: border-box;">
+	<div class="sprite headshot-bg" style="padding: 14px 3px 3px; box-sizing: border-box;">
 		<a href='?_src_=prefs;preference=headshot;task=input' style="display: block; width: 100%; height: 100%;">
 			<img id="headshot-img" src="[headshot_link || ""]"
+				 style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; image-rendering: auto;"
+				 onerror="this.style.display='none';">
+		</a>
+	</div>
+	<div class="sprite nsfw-headshot-bg" style="padding: 14px 3px 3px; box-sizing: border-box;">
+		<a href='?_src_=prefs;preference=nsfw_headshot;task=input' style="display: block; width: 100%; height: 100%;">
+			<img id="nsfw-headshot-img" src="[nsfw_headshot_link || ""]"
 				 style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; image-rendering: auto;"
 				 onerror="this.style.display='none';">
 		</a>
@@ -904,16 +886,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		<div id="char-gender" class="clickable-text auto-shrink" style="width:53px; height:9px;">[gender == MALE ? "M" : "F"]</div>
 	</div></a>
 
-	<a href='?_src_=prefs;preference=family'><div class="sprite" style="top:150px; left:120px; width:73px; height:9px; background-image: url('family_type.png');">
-		<div id="char-family" class="clickable-text auto-shrink" style="width:73px; height:9px;">[family ? family : "None"]</div>
-	</div></a>
-	<a href='?_src_=prefs;preference=gender_choice'><div class="sprite" style="top:169px; left:120px; width:73px; height:9px; background-image: url('gender_pref.png');">
-		<div id="char-genderpref" class="clickable-text auto-shrink" style="width:73px; height:9px;">[gender_choice ? gender_choice : "Any"]</div>
-	</div></a>
-	<a href='?_src_=prefs;preference=setspouse'><div class="sprite" style="top:188px; left:120px; width:73px; height:9px; background-image: url('spouse_pref.png');">
-		<div id="char-spouse" class="clickable-text auto-shrink" style="width:73px; height:9px;">[setspouse ? setspouse : "None"]</div>
-	</div></a>
-
 	<a href='?_src_=prefs;preference=culture;task=input'><div class="sprite" style="top:150px; left:207px; width:51px; height:9px; background-image: url('flavour_culture.png');">
 		<div id="char-culture" class="clickable-text auto-shrink" style="width:51px; height:9px;">[culture ? culture::name : "None"]</div>
 	</div></a>
@@ -925,24 +897,16 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		<div id="char-moan" class="clickable-text auto-shrink" style="width:42px; height:9px;">[moan_selection]</div>
 	</div></a>
 
-	<a href='?_src_=prefs;preference=loadout_item;task=input'><div class="sprite" style="top:194px; left:10px; width:51px; height:9px; background-image: url('loadout_item1.png');">
+	<a href='?_src_=prefs;preference=loadout_item;task=input'><div class="sprite" style="top:226px; left:10px; width:51px; height:9px; background-image: url('loadout_item1.png');">
 		<div id="char-loadout1" class="clickable-text auto-shrink" style="width:51px; height:9px;">Open Loadout Menu</div>
 	</div></a>
 
-	<div class="sprite" style="top:195px; left:82px; width:22px; height:7px; background-image: url('triumphs_display.png');">
-		<a href='?_src_=prefs;preference=triumphs;task=menu' style="text-decoration: none; display: block; width: 100%; height: 100%;">
-			<div id="char-triumphs" class="clickable-text" style="width:22px; height:7px; font-size: 5px;">[user.get_triumphs() ? "\Roman [user.get_triumphs()]" : "0"]</div>
-		</a>
-	</div>
-
-	<a href='?_src_=prefs;preference=triumph_buy_menu'><div class="sprite tri-shop"></div></a>
 	<a href='?_src_=prefs;preference=descriptors;task=menu'><div class="sprite flav-desc"></div></a>
 	<a href='?_src_=prefs;preference=flavortext;task=input'><div class="sprite flav-text"></div></a>
 	<a href='?_src_=prefs;preference=misc;task=menu'><div class="sprite flav-misc"></div></a>
 	<a href='?_src_=prefs;preference=ooc_preview;task=input'><div class="sprite flav-prev"></div></a>
 	<a href='?_src_=prefs;preference=ooc_notes;task=input'><div class="sprite ooc-notes"></div></a>
 	<a href='?_src_=prefs;preference=ooc_extra;task=input'><div class="sprite ooc-extra"></div></a>
-	<a href='?_src_=prefs;preference=antag;task=menu'><div class="sprite btn-roles"></div></a>
 	<a href='?_src_=prefs;preference=customizers;task=menu'><div class="sprite f-btn"></div></a>
 	<a href='?_src_=prefs;preference=randomiseappearanceprefs;'><div class="sprite f-random"></div></a>
 
@@ -953,7 +917,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			<div id="voice-blob" class="sprite v-blob" style="background-color: [voice_color];"></div>
 		</a>
 	</div>
-	<a href='?_src_=prefs;preference=bespecial'><div id="bespecial" class="sprite [next_special_trait ? "yes" : ""]"></div></a>
 	<a href='?_src_=prefs;preference=multi;task=menu'><div class="sprite menu-ready"></div></a>
 	<a href='?_src_=prefs;preference=changeslot;'><div class="sprite menu-change"></div></a>
 	<a href='?_src_=prefs;preference=keybinds;task=menu'><div class="sprite menu-keybinds"></div></a>
@@ -1033,6 +996,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		params["triumphs"] = user.get_triumphs() ? "\Roman [user.get_triumphs()]" : "0"
 	if(update_all || ("headshot" in fields_to_update))
 		params["headshot"] = headshot_link || ""
+	if(update_all || ("nsfw_headshot" in fields_to_update))
+		params["nsfw_headshot"] = nsfw_headshot_link || ""
 	if(update_all || ("voice_color" in fields_to_update))
 		params["voice_color"] = voice_color
 	if(update_all || ("bespecial" in fields_to_update))
