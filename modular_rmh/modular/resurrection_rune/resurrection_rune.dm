@@ -191,7 +191,9 @@
 			remove_linked_mind(linked_mind)
 			return
 		prune_deleted_linked_body_state(linked_mind)
-		if(linked_mind.current && !istype(linked_mind.current, /mob/living/brain))
+		var/mob/living/carbon/current_body = get_current_linkable_body(linked_mind)
+		if(current_body)
+			replace_linked_body(linked_mind, current_body)
 			continue
 		if(linked_mind in resurrecting)
 			continue
@@ -209,10 +211,25 @@
 	if(!linked_mind)
 		return FALSE
 
+	// Client handoffs can briefly still point at a lobby mob during spawn. Only
+	// sever a link if the mind itself is explicitly sitting in a new-player body.
 	var/mob/current_mob = linked_mind.current
-	if(isnull(current_mob?.client))
+	if(!current_mob)
 		return FALSE
-	return isnewplayer(current_mob.client.mob)
+	return isnewplayer(current_mob)
+
+/datum/resurrection_rune_controller/proc/get_current_linkable_body(datum/mind/linked_mind)
+	if(!linked_mind)
+		return null
+
+	var/mob/living/carbon/current_body = linked_mind.current
+	if(!istype(current_body))
+		return null
+	if(istype(current_body, /mob/living/brain))
+		return null
+	if(QDELETED(current_body))
+		return null
+	return current_body
 
 /datum/resurrection_rune_controller/proc/queue_body_remake(datum/mind/linked_mind)
 	to_chat(linked_mind.get_ghost(TRUE, TRUE), span_blue("Somewhere, you are being remade anew..."))
@@ -226,7 +243,7 @@
 	if(!(linked_mind in linked_users_minds))
 		resurrecting -= linked_mind
 		return
-	if(linked_mind.current && !istype(linked_mind.current, /mob/living/brain))
+	if(get_current_linkable_body(linked_mind))
 		resurrecting -= linked_mind
 		return
 
@@ -312,6 +329,8 @@
 		return
 
 	var/mob/living/carbon/old_body = linked_body_by_mind[linked_mind]
+	if(old_body == new_body && (new_body in linked_users))
+		return
 	if(old_body && old_body != new_body)
 		unregister_linked_body(old_body)
 
