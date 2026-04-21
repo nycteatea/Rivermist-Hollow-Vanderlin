@@ -1,3 +1,5 @@
+#define ERP_SUBDUE_DISARM_SUCCESS_CHANCE 30
+
 /datum/ai_behavior/basic_melee_attack
 	action_cooldown = 0.2 SECONDS // We gotta check unfortunately often because we're in a race condition with nextmove
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT | AI_BEHAVIOR_REQUIRE_REACH | AI_BEHAVIOR_CAN_PLAN_DURING_EXECUTION
@@ -25,13 +27,24 @@
 		return TRUE
 
 	if(targetting_datum.human_has_any_held_item(human_target))
-		for(var/obj/item/held_item as anything in human_target.held_items)
-			if(!held_item)
-				continue
-			human_target.dropItemToGround(held_item, force = FALSE, silent = FALSE)
-		human_target.Stun(2)
-		human_target.visible_message(span_danger("[attacker] disarms [human_target]!"), \
-			span_userdanger("[attacker] disarms me!"), span_hear("I hear someone getting punished!"), COMBAT_MESSAGE_RANGE)
+		var/static/datum/intent/unarmed/shove/disarm_intent = new()
+		var/datum/intent/cached_intent = attacker.used_intent
+		attacker.used_intent = disarm_intent
+		var/disarm_was_defended = human_target.checkdefense(disarm_intent, attacker)
+		attacker.used_intent = cached_intent
+
+		if(!disarm_was_defended)
+			if(!prob(ERP_SUBDUE_DISARM_SUCCESS_CHANCE))
+				human_target.visible_message(span_danger("[attacker] swats at [human_target]'s hands, but fails to disarm them!"), \
+					span_userdanger("[attacker] swats at my hands, but I keep hold of my weapon!"), span_hear("I hear a rough struggle over a weapon!"), COMBAT_MESSAGE_RANGE)
+			else
+				for(var/obj/item/held_item as anything in human_target.held_items)
+					if(!held_item)
+						continue
+					human_target.dropItemToGround(held_item, force = FALSE, silent = FALSE)
+				human_target.Stun(2)
+				human_target.visible_message(span_danger("[attacker] disarms [human_target]!"), \
+					span_userdanger("[attacker] disarms me!"), span_hear("I hear someone getting punished!"), COMBAT_MESSAGE_RANGE)
 	else
 		var/prob2defend
 		var/obj/item/mainhand = human_target.get_active_held_item()
@@ -65,6 +78,8 @@
 	attacker.next_click = world.time + attacker.melee_attack_cooldown
 	SEND_SIGNAL(attacker, COMSIG_MOB_BREAK_SNEAK)
 	return TRUE
+
+#undef ERP_SUBDUE_DISARM_SUCCESS_CHANCE
 
 /datum/ai_behavior/basic_melee_attack/perform(delta_time, datum/ai_controller/controller, target_key, targetting_datum_key, hiding_location_key)
 	. = ..()

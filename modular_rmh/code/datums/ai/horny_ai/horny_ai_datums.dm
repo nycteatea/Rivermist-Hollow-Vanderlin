@@ -1,4 +1,7 @@
 #define HORNY_INTERACTION_TIMEOUT (5 MINUTES)
+#define HORNY_ACTION_BLEED_HEAL_AMOUNT 30
+#define HORNY_ACTION_BLEED_CLOT_TICKS 10
+#define BB_HORNY_BLEED_HEAL_DONE "BB_horny_bleed_heal_done"
 
 /datum/ai_behavior/horny
 	action_cooldown = 1.5 SECONDS
@@ -46,6 +49,7 @@
 	controller.set_blackboard_key(BB_HORNY_TARGET_ATTACK_COUNT, 0)
 	controller.clear_blackboard_key(BB_HORNY_AGGRO_TARGET)
 	controller.clear_blackboard_key(BB_HORNY_INITIAL_STRIP_DONE)
+	controller.clear_blackboard_key(BB_HORNY_BLEED_HEAL_DONE)
 	controller.clear_blackboard_key(BB_HORNY_SEEK_START_TIME)
 	controller.set_blackboard_key(BB_HORNY_STAND_UP_COUNTER, 0)
 	controller.set_blackboard_key(BB_HORNY_ACTIONLESS_TICKS, 0)
@@ -350,6 +354,54 @@
 
 	return TRUE
 
+/datum/ai_behavior/horny/proc/heal_horny_action_bleeding(mob/living/participant)
+	if(!participant || QDELETED(participant))
+		return FALSE
+	if(participant.get_bleed_rate() <= 0)
+		return FALSE
+
+	var/list/wounds = participant.get_wounds()
+	if(!length(wounds))
+		return FALSE
+
+	var/processed_any = FALSE
+	for(var/datum/wound/wound as anything in wounds)
+		if(QDELETED(wound) || !wound.bleed_rate)
+			continue
+		processed_any = TRUE
+		for(var/i in 1 to HORNY_ACTION_BLEED_CLOT_TICKS)
+			if(QDELETED(wound))
+				break
+			wound.on_life()
+
+	if(!processed_any)
+		return FALSE
+
+	var/heal_budget = HORNY_ACTION_BLEED_HEAL_AMOUNT
+	for(var/datum/wound/wound as anything in wounds)
+		if(heal_budget <= 0)
+			break
+		if(QDELETED(wound) || !wound.bleed_rate)
+			continue
+		var/amount_healed = wound.heal_wound(heal_budget)
+		if(amount_healed)
+			heal_budget -= amount_healed
+
+	participant.update_damage_overlays()
+	return TRUE
+
+/datum/ai_behavior/horny/proc/try_heal_horny_action_bleeding(datum/ai_controller/controller, mob/living/basic_mob, mob/living/target_living)
+	if(!controller || controller.blackboard[BB_HORNY_BLEED_HEAL_DONE])
+		return
+
+	var/healed_any = FALSE
+	healed_any = heal_horny_action_bleeding(basic_mob) || healed_any
+	healed_any = heal_horny_action_bleeding(target_living) || healed_any
+	if(!healed_any)
+		return
+
+	controller.set_blackboard_key(BB_HORNY_BLEED_HEAL_DONE, TRUE)
+
 /datum/ai_behavior/horny/proc/start_horny_action(datum/ai_controller/controller, mob/living/basic_mob, mob/living/target_living, datum/sex_session/session, target_key)
 	if(!session)
 		return
@@ -375,6 +427,8 @@
 		session.set_current_force(force)
 		session.set_current_speed(speed)
 		target_living.apply_status_effect(/datum/status_effect/debuff/mob_fucked)
+		if(!isnull(session.current_action))
+			try_heal_horny_action_bleeding(controller, basic_mob, target_living)
 		if(isnull(session.current_action))
 			var/actionless_ticks = controller.blackboard[BB_HORNY_ACTIONLESS_TICKS]
 			if(isnull(actionless_ticks))
@@ -965,6 +1019,7 @@
 	basic_mob.stop_pulling()
 	controller.clear_blackboard_key(BB_HORNY_TARGET_ATTACK_COUNT)
 	controller.clear_blackboard_key(BB_HORNY_INITIAL_STRIP_DONE)
+	controller.clear_blackboard_key(BB_HORNY_BLEED_HEAL_DONE)
 	controller.clear_blackboard_key(BB_HORNY_SEEK_START_TIME)
 	controller.clear_blackboard_key(BB_HORNY_STAND_UP_COUNTER)
 	controller.clear_blackboard_key(BB_HORNY_ACTIONLESS_TICKS)
@@ -1001,4 +1056,7 @@
 	//controller.CancelActions()
 
 #undef HORNY_INTERACTION_TIMEOUT
+#undef HORNY_ACTION_BLEED_HEAL_AMOUNT
+#undef HORNY_ACTION_BLEED_CLOT_TICKS
+#undef BB_HORNY_BLEED_HEAL_DONE
 
