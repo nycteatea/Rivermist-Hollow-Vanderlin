@@ -405,6 +405,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 		if(QDELETED(alarm))
 			continue
 		qdel(alarm)
+	all_alarms.Cut()
 
 /obj/structure/rousman_alarm
 	name = ""
@@ -417,6 +418,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	var/obj/structure/rousman_hole/hole
 
 /obj/structure/rousman_alarm/Destroy()
+	hole?.all_alarms -= src
 	hole = null
 	return ..()
 

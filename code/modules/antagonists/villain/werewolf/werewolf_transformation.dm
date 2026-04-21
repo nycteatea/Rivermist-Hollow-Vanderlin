@@ -334,8 +334,12 @@
 /datum/antagonist/werewolf/proc/remove_werewolf(forced)
 	SIGNAL_HANDLER
 
-	var/mob/living/carbon/human/werewolf_user = owner.current
+	var/mob/living/carbon/human/werewolf_user = owner?.current
 	if(!transformed)
+		return
+	if(!istype(werewolf_user))
+		transformed = FALSE
+		transformation_in_progress = FALSE
 		return
 	if(!forced && HAS_TRAIT(werewolf_user, TRAIT_NO_TRANSFORM))
 		return
@@ -348,9 +352,13 @@
 	var/mob/living/carbon/human/werewolf_user = status_owner
 	var/mob/living/carbon/human/caster_mob = status_caster_mob
 	if(!istype(werewolf_user) || !istype(caster_mob))
+		if(istype(werewolf_user))
+			QDEL_NULL(werewolf_user.skin_armor)
 		transformed = FALSE
 		transformation_in_progress = FALSE
 		return
+
+	QDEL_NULL(werewolf_user.skin_armor)
 
 	for(var/obj/item/dropped_item in werewolf_user)
 		werewolf_user.dropItemToGround(dropped_item, silent = TRUE)

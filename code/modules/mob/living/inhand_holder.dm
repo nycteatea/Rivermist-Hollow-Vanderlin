@@ -64,8 +64,11 @@
 	appearance = L?.appearance
 	plane = ABOVE_HUD_PLANE
 
+/obj/item/mob_holder/proc/is_inside_storage_organ()
+	return istype(loc, /obj/item/organ)
+
 /obj/item/mob_holder/proc/is_in_hole_storage()
-	if(!istype(loc, /obj/item/organ))
+	if(!is_inside_storage_organ())
 		return FALSE
 
 	var/obj/item/organ/storage_organ = loc
@@ -79,7 +82,7 @@
 		if(del_on_release && !destroying)
 			qdel(src)
 		return FALSE
-	if(!destroying && is_in_hole_storage() && !can_release_from_hole_storage())
+	if(!destroying && is_inside_storage_organ())
 		return FALSE
 	if(isliving(loc))
 		var/mob/living/L = loc
@@ -130,8 +133,13 @@
 	return allow_internal_release
 
 /obj/item/mob_holder/internal_womb/release(del_on_release = TRUE)
-	if(allow_internal_release)
-		remove_from_hole_storage()
+	if(is_inside_storage_organ())
+		if(!allow_internal_release)
+			return FALSE
+		if(is_in_hole_storage() && !remove_from_hole_storage())
+			return FALSE
+		if(is_inside_storage_organ())
+			return FALSE
 	return ..()
 
 /obj/item/mob_holder/internal_womb/relaymove(mob/user)

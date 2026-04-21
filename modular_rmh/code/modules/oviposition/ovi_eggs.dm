@@ -170,7 +170,7 @@
 	internal_hatch_holder_bulk = 2
 	internal_hatch_triggers_contractions = TRUE
 	internal_hatch_auto_birth = TRUE
-	internal_hatch_birth_delay = 1 SECONDS
+	internal_hatch_birth_delay = 20 SECONDS
 	internal_hatch_message = "Something alive hatches inside my %CONTAINER%, forcing it to clench around the newborn."
 	internal_contraction_message = "My %CONTAINER% clenches in sharp contractions around the hatchling inside."
 	internal_birth_message = "%CARRIER% doubles over as a newborn forces its way out of %CONTAINER%!"

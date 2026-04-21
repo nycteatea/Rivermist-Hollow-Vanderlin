@@ -180,7 +180,7 @@
 */
 /datum/component/body_storage/proc/handle_removal(datum/source, obj/item/removed_item, target_layer, removal_reason = BODYSTORAGE_REMOVE_MANUAL)
 	if(!target_layer)
-		target_layer = find_item_layer(removed_item)
+		target_layer = find_item_layer(source, removed_item)
 	if(!removed_item?.can_remove_from_body_storage(removal_reason))
 		return FALSE
 	if(check_item_in_layer(source, removed_item, target_layer))

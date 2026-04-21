@@ -121,7 +121,7 @@ GLOBAL_LIST_INIT(reverse_slave_phrases_translations, list(
 	if(!ismob(user))
 		return
 	if(istype(I, /obj/item/clothing/ring/slave_control))
-		bind_collar(src, I, user)
+		bind_collar(I, user)
 	return ..()
 
 /obj/item/clothing/neck/slave_collar/proc/bind_collar(obj/item/clothing/ring/slave_control/s_r, mob/living/user, master_ring = FALSE)
