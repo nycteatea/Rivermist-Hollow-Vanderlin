@@ -541,6 +541,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(ismob(loc))
 		var/mob/m = loc
 		m.temporarilyRemoveItemFromInventory(src, TRUE)
+	if(length(enchantments))
+		remove_all_enchantments()
 
 	// Handle cleaning up our actions list
 	for(var/datum/action/action as anything in actions)

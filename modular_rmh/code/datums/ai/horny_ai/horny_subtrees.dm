@@ -72,17 +72,7 @@
 				continue
 			if(horny_ai_is_valid_aggro_target(living_pawn, targetting_datum, retaliator))
 				return TRUE
-
-	if(locate(/datum/ai_planning_subtree/aggro_find_target) in controller.planning_subtrees || locate(/datum/ai_planning_subtree/minotaur_targeting) in controller.planning_subtrees)
-		var/search_range = controller.blackboard[BB_AGGRO_RANGE]
-		if(isnull(search_range))
-			search_range = 9
-		for(var/mob/living/potential_target in hearers(search_range, living_pawn) - living_pawn)
-			if(potential_target == current_horny_target)
-				continue
-			if(horny_ai_is_valid_aggro_target(living_pawn, targetting_datum, potential_target))
-				return TRUE
-
+	// Let the aggro field and threat blackboard wake us up instead of doing another hearers() sweep here.
 	return FALSE
 
 /datum/ai_planning_subtree/proc/horny_ai_is_valid_aggro_target(mob/living/living_pawn, datum/targetting_datum/targetting_datum, atom/target)

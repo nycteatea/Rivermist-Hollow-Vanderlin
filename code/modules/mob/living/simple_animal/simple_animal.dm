@@ -864,7 +864,11 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			M.visible_message("<span class='danger'>[M] falls off [src]!</span>")
 		else
 			return
-	..()
+	if(QDELETED(M) || M.buckled != src)
+		return FALSE
+	. = ..()
+	if(!.)
+		return
 	M.adjust_experience(/datum/attribute/skill/misc/riding, GET_MOB_ATTRIBUTE_VALUE(M, STAT_INTELLIGENCE), FALSE)
 	update_appearance(UPDATE_OVERLAYS)
 

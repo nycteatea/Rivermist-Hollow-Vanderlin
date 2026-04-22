@@ -325,6 +325,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/tmp/current_slot = 1
 	/// List storing ERP preference values
 	var/list/erp_preferences
+	/// Incremented whenever ERP preference data changes so runtime caches can cheaply detect stale values.
+	var/tmp/erp_preferences_revision = 0
 	/// List storing undie preference values
 	var/list/smallclothes_preferences = list()
 	/// Assoc list of culinary preferences, where the key is the type of the culinary preference, and value is food/drink typepath

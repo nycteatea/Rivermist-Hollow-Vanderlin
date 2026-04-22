@@ -23,6 +23,9 @@
 /datum/targetting_datum/proc/can_engage_target(mob/living/living_mob, atom/target)
 	return can_attack(living_mob, target) || should_disarm(living_mob, target)
 
+/datum/targetting_datum/proc/can_quickly_engage_target(mob/living/living_mob, atom/target)
+	return can_engage_target(living_mob, target)
+
 /datum/targetting_datum/proc/is_horny_mob_family_allowed(mob/living/living_mob, mob/living/carbon/human/human_target)
 	if(!living_mob || !human_target)
 		return FALSE
@@ -30,26 +33,16 @@
 	var/family_flag = living_mob.ai_controller?.horny_pref_family_flag
 	if(!family_flag)
 		return FALSE
-
-	var/list/erp_preferences = human_target.client?.prefs?.erp_preferences
-	if(!erp_preferences)
+	if(!should_apply_mob_erp_target_pref(living_mob, human_target))
 		return FALSE
 
-	var/allowed_families = erp_preferences[/datum/erp_preference/bitflag/horny_mob_types]
-	if(isnull(allowed_families))
-		allowed_families = HORNY_MOB_TYPE_ALL
-
+	var/allowed_families = human_target.get_cached_horny_mob_family_flags()
 	return !!(allowed_families & family_flag)
 
 /datum/targetting_datum/proc/get_horny_mob_pref_flags(mob/living/carbon/human/human_target)
 	if(!human_target)
 		return NONE
-
-	var/list/erp_preferences = human_target.client?.prefs?.erp_preferences
-	if(!erp_preferences)
-		return NONE
-
-	return erp_preferences[/datum/erp_preference/bitflag/horny_mobs] || NONE
+	return human_target.get_cached_horny_mob_pref_flags()
 
 /datum/targetting_datum/proc/has_any_horny_mob_pref_enabled(mob/living/carbon/human/human_target)
 	return !!get_horny_mob_pref_flags(human_target)
@@ -231,6 +224,57 @@
 
 /datum/targetting_datum/basic
 
+/datum/targetting_datum/basic/can_quickly_engage_target(mob/living/living_mob, atom/the_target)
+	if(isturf(the_target) || !the_target)
+		return FALSE
+	var/mob/living/simple_animal/attacker = living_mob
+	if(istype(attacker))
+		if(attacker.binded == TRUE)
+			return FALSE
+
+	if(ismob(the_target))
+		var/mob/mob_target = the_target
+		if(mob_target.status_flags & GODMODE)
+			return FALSE
+
+	if(living_mob.see_invisible < the_target.invisibility)
+		return FALSE
+
+	if(HAS_TRAIT(the_target, TRAIT_IMPERCEPTIBLE))
+		return FALSE
+
+	if(!isturf(the_target.loc))
+		return FALSE
+
+	if(!isliving(the_target))
+		return FALSE
+
+	var/mob/living/living_target = the_target
+	if(living_target.stat >= DEAD)
+		return FALSE
+	if(is_horny_target_now_hostile(living_mob, living_target))
+		return TRUE
+	if(faction_check(living_mob, living_target))
+		return FALSE
+	if(should_prioritize_horny_targets(living_mob) && is_selected_horny_target(living_mob, living_target))
+		return FALSE
+
+	var/can_attack_target = TRUE
+	if(HAS_TRAIT(living_target, TRAIT_PACIFISM) || living_target.surrendering)
+		can_attack_target = FALSE
+
+	if(ishuman(living_target))
+		var/mob/living/carbon/human/human_target = living_target
+		if(human_target.handcuffed)
+			return FALSE
+		if((human_target.body_position == LYING_DOWN) && human_has_any_held_item(human_target) && human_target.ckey)
+			return TRUE
+
+	if((living_target.body_position == LYING_DOWN) && !living_target.get_active_held_item() && living_target.ckey && !living_target.cmode)
+		return FALSE
+
+	return can_attack_target
+
 /datum/targetting_datum/basic/can_attack(mob/living/living_mob, atom/the_target)
 	if(isturf(the_target) || !the_target ) // bail out on invalids
 		return FALSE
@@ -320,7 +364,7 @@
 	if(!is_horny_mob_family_allowed(living_mob, human_target))
 		return FALSE
 
-	var/mobs_flags = human_target.client?.prefs?.erp_preferences[/datum/erp_preference/bitflag/horny_mobs]
+	var/mobs_flags = get_horny_mob_pref_flags(human_target)
 	if(!mobs_flags)
 		return FALSE
 

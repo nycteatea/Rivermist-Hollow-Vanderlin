@@ -64,6 +64,7 @@
 	if(target && target != user)
 		UnregisterSignal(target, COMSIG_PARENT_QDELETING)
 	stop_current_action()
+	unregister_sex_session(src)
 	// Remove from collective
 	if(session_updater)
 		qdel(session_updater)
@@ -84,8 +85,6 @@
 	current_action = null
 	user = null
 	target = null
-
-	GLOB.sex_sessions -= src
 	. = ..()
 
 
