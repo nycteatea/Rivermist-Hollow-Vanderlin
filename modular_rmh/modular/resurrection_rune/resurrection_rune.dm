@@ -191,6 +191,12 @@
 			remove_linked_mind(linked_mind)
 			return
 		prune_deleted_linked_body_state(linked_mind)
+		var/mob/living/carbon/temporary_shape_source_body = get_active_noncarbon_shapeshift_source_body(linked_mind)
+		if(temporary_shape_source_body)
+			resurrecting -= linked_mind
+			replace_linked_body(linked_mind, temporary_shape_source_body)
+			clear_linked_user_rescue_state(temporary_shape_source_body)
+			continue
 		var/mob/living/carbon/current_body = get_current_linkable_body(linked_mind)
 		if(current_body)
 			replace_linked_body(linked_mind, current_body)
@@ -222,14 +228,65 @@
 	if(!linked_mind)
 		return null
 
-	var/mob/living/carbon/current_body = linked_mind.current
-	if(!istype(current_body))
+	var/mob/living/current_body = linked_mind.current
+	if(is_linkable_body(current_body))
+		return current_body
+	return get_active_noncarbon_shapeshift_source_body(linked_mind)
+
+/datum/resurrection_rune_controller/proc/is_linkable_body(mob/living/body)
+	if(!istype(body, /mob/living/carbon))
+		return FALSE
+	if(istype(body, /mob/living/brain))
+		return FALSE
+	if(QDELETED(body))
+		return FALSE
+	return TRUE
+
+/datum/resurrection_rune_controller/proc/get_active_noncarbon_shapeshift_source_body(datum/mind/linked_mind)
+	if(!linked_mind)
 		return null
-	if(istype(current_body, /mob/living/brain))
+
+	var/mob/living/current_body = linked_mind.current
+	if(!istype(current_body))
 		return null
 	if(QDELETED(current_body))
 		return null
-	return current_body
+	if(is_linkable_body(current_body))
+		return null
+
+	// Rat-style shapeshifts keep the real carbon body inside a temporary non-carbon mob.
+	for(var/datum/status_effect/shapechange_mob/shapechange in current_body.status_effects)
+		var/mob/living/source_body = shapechange.caster_mob
+		if(!is_linkable_body(source_body))
+			continue
+		if(get_mind(source_body, TRUE) != linked_mind)
+			continue
+		return source_body
+
+	return null
+
+/datum/resurrection_rune_controller/proc/get_linked_mind_for_body(mob/living/carbon/body)
+	if(!body)
+		return null
+
+	var/datum/mind/body_mind = body.mind
+	if(body_mind && linked_body_by_mind[body_mind] == body)
+		return body_mind
+
+	for(var/datum/mind/linked_mind as anything in linked_body_by_mind)
+		if(linked_body_by_mind[linked_mind] == body)
+			return linked_mind
+
+	return null
+
+/datum/resurrection_rune_controller/proc/is_active_noncarbon_shapeshift_source_body(mob/living/carbon/body)
+	if(!body)
+		return FALSE
+
+	var/datum/mind/linked_mind = get_linked_mind_for_body(body)
+	if(!linked_mind)
+		return FALSE
+	return get_active_noncarbon_shapeshift_source_body(linked_mind) == body
 
 /datum/resurrection_rune_controller/proc/queue_body_remake(datum/mind/linked_mind)
 	to_chat(linked_mind.get_ghost(TRUE, TRUE), span_blue("Somewhere, you are being remade anew..."))
@@ -381,6 +438,10 @@
 		return
 	if(!(target in linked_users))
 		return
+	if(is_active_noncarbon_shapeshift_source_body(target))
+		resurrecting -= target
+		clear_linked_user_rescue_state(target)
+		return
 	if(target in resurrecting)
 		clear_linked_user_rescue_state(target)
 		return
@@ -425,6 +486,8 @@
 
 /datum/resurrection_rune_controller/proc/get_rescue_stage(mob/living/carbon/target)
 	if(!target)
+		return RUNE_STAGE_NONE
+	if(is_active_noncarbon_shapeshift_source_body(target))
 		return RUNE_STAGE_NONE
 
 	var/turf/target_turf = get_turf(target)
@@ -584,6 +647,8 @@
 		return FALSE
 	if(!(user in linked_users))
 		return FALSE
+	if(is_active_noncarbon_shapeshift_source_body(user))
+		return FALSE
 	if(user in resurrecting)
 		return FALSE
 	return TRUE
@@ -638,6 +703,10 @@
 	var/mob/living/carbon/body = user
 	if(QDELETED(body))
 		body = null
+	if(is_active_noncarbon_shapeshift_source_body(body))
+		clear_linked_user_rescue_state(body)
+		resurrecting -= user
+		return
 	var/turf/destination_turf = sub_rune?.get_resurrection_destination(body)
 	var/turf/return_turf = get_turf(body)
 	if(!body || !destination_turf)
