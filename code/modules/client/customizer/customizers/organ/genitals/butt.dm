@@ -19,8 +19,10 @@
 /datum/customizer_choice/organ/genitals/butt/validate_entry(datum/preferences/prefs, datum/customizer_entry/entry)
 	..()
 	var/datum/customizer_entry/organ/genitals/butt/butt_entry = entry
-	var/max_butt_size = prefs.get_max_butt_size()
-	butt_entry.butt_size = prefs.sanitize_body_size_choice(butt_entry.butt_size, MIN_BUTT_SIZE, max_butt_size, DEFAULT_BUTT_SIZE)
+	var/max_butt_size = BUTT_SIZE_MEDIUM
+	if(istype(prefs, /datum/preferences))
+		max_butt_size = prefs.get_max_butt_size()
+	butt_entry.butt_size = sanitize_body_size_by_max(butt_entry.butt_size, MIN_BUTT_SIZE, max_butt_size, DEFAULT_BUTT_SIZE)
 
 /datum/customizer_choice/organ/genitals/butt/imprint_organ_dna(datum/organ_dna/organ_dna, datum/customizer_entry/entry, datum/preferences/prefs)
 	..()

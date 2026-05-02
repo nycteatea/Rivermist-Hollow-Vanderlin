@@ -72,6 +72,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/invisimin,				/*allows our mob to go invisible/visible*/
 	/client/proc/toggle_specific_triumph_buy, /*toggle whether specific triumphs can be bought*/
 	/client/proc/toggle_jobs_for_persistent, /*toggles jobs for the persistent server*/
+	/client/proc/manage_resurrection_runes,
 	/client/proc/wave_creation_tools, /*custom job manage, custom wave manage and custom outfit manage*/
 //	/datum/admins/proc/show_traitor_panel,	/*interface which shows a mob's mind*/ -Removed due to rare practical use. Moved to debug verbs ~Errorage
 //	/datum/admins/proc/show_player_panel,	/*shows an interface for individual players, with various links (links require additional flags*/

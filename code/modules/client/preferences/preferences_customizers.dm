@@ -148,6 +148,11 @@
 /datum/preferences/proc/get_max_belly_size()
 	return has_generous_figure_size_unlock() ? MAX_BELLY_SIZE : BELLY_SIZE_MEDIUM
 
+/proc/sanitize_body_size_by_max(size, min_size, max_size, default_size)
+	if(isnum(size) && round(size) > max_size)
+		return max_size
+	return sanitize_integer(size, min_size, max_size, default_size)
+
 /datum/preferences/proc/get_named_body_size_choices(list/named_sizes, max_size)
 	var/list/allowed_sizes = list()
 	if(!islist(named_sizes))
@@ -158,9 +163,7 @@
 	return allowed_sizes
 
 /datum/preferences/proc/sanitize_body_size_choice(size, min_size, max_size, default_size)
-	if(isnum(size) && round(size) > max_size)
-		return max_size
-	return sanitize_integer(size, min_size, max_size, default_size)
+	return sanitize_body_size_by_max(size, min_size, max_size, default_size)
 
 /datum/preferences/proc/get_breast_size_choices()
 	return get_named_body_size_choices(BREAST_SIZES_BY_NAME, get_max_breast_size())

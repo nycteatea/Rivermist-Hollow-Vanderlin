@@ -22,8 +22,10 @@
 /datum/customizer_choice/organ/genitals/belly/validate_entry(datum/preferences/prefs, datum/customizer_entry/entry)
 	..()
 	var/datum/customizer_entry/organ/genitals/belly/belly_entry = entry
-	var/max_belly_size = prefs.get_max_belly_size()
-	belly_entry.belly_size = prefs.sanitize_body_size_choice(belly_entry.belly_size, MIN_BELLY_SIZE, max_belly_size, DEFAULT_BELLY_SIZE)
+	var/max_belly_size = BELLY_SIZE_MEDIUM
+	if(istype(prefs, /datum/preferences))
+		max_belly_size = prefs.get_max_belly_size()
+	belly_entry.belly_size = sanitize_body_size_by_max(belly_entry.belly_size, MIN_BELLY_SIZE, max_belly_size, DEFAULT_BELLY_SIZE)
 
 /datum/customizer_choice/organ/genitals/belly/imprint_organ_dna(datum/organ_dna/organ_dna, datum/customizer_entry/entry, datum/preferences/prefs)
 	..()

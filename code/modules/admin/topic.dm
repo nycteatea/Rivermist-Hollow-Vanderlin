@@ -22,6 +22,9 @@
 	if(!CheckAdminHref(href, href_list))
 		return
 
+	if(handle_resurrection_rune_admin_topic(src, href_list))
+		return
+
 	if(href_list["ahelp"])
 		if(!check_rights(R_ADMIN, TRUE))
 			return

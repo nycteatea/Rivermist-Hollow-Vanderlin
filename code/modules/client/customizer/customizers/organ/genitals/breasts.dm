@@ -19,8 +19,10 @@
 /datum/customizer_choice/organ/genitals/breasts/validate_entry(datum/preferences/prefs, datum/customizer_entry/entry)
 	..()
 	var/datum/customizer_entry/organ/genitals/breasts/breasts_entry = entry
-	var/max_breast_size = prefs.get_max_breast_size()
-	breasts_entry.breast_size = prefs.sanitize_body_size_choice(breasts_entry.breast_size, MIN_BREASTS_SIZE, max_breast_size, DEFAULT_BREASTS_SIZE)
+	var/max_breast_size = BREAST_SIZE_LARGE
+	if(istype(prefs, /datum/preferences))
+		max_breast_size = prefs.get_max_breast_size()
+	breasts_entry.breast_size = sanitize_body_size_by_max(breasts_entry.breast_size, MIN_BREASTS_SIZE, max_breast_size, DEFAULT_BREASTS_SIZE)
 
 /datum/customizer_choice/organ/genitals/breasts/imprint_organ_dna(datum/organ_dna/organ_dna, datum/customizer_entry/entry, datum/preferences/prefs)
 	..()

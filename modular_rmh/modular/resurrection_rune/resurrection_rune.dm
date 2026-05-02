@@ -22,6 +22,16 @@
 			continue
 		return rune
 
+/proc/find_resurrection_rune_by_mind(datum/mind/linked_mind)
+	if(!linked_mind)
+		return
+
+	for(var/obj/structure/resurrection_rune/rune as anything in GLOB.global_resurrunes)
+		if(!rune.resrunecontroler)
+			continue
+		if(linked_mind in rune.resrunecontroler.linked_users_minds)
+			return rune
+
 /proc/find_resurrection_rune_destination_marker_by_tag(rune_tag)
 	if(!rune_tag || rune_tag == RUNE_LINK_NONE)
 		return
@@ -135,6 +145,47 @@
 	if(rune_controller.can_offer_mob_erp_rescue(carbon_owner))
 		rune_controller.trigger_mob_erp_escape(carbon_owner)
 
+/datum/action/innate/resurrection_rune_return
+	name = "Return to the Rune"
+	desc = "Let the rune remake your lost body."
+	button_icon_state = "shieldsparkles"
+	var/datum/resurrection_rune_controller/rune_controller
+	var/datum/mind/linked_mind
+
+/datum/action/innate/resurrection_rune_return/New(datum/resurrection_rune_controller/controller, datum/mind/new_linked_mind)
+	rune_controller = controller
+	linked_mind = new_linked_mind
+	. = ..(controller)
+
+/datum/action/innate/resurrection_rune_return/Destroy()
+	rune_controller = null
+	linked_mind = null
+	return ..()
+
+/datum/action/innate/resurrection_rune_return/IsAvailable()
+	. = ..()
+	if(!.)
+		return FALSE
+	if(!isobserver(owner))
+		return FALSE
+	if(!rune_controller)
+		return FALSE
+	if(!linked_mind)
+		return FALSE
+
+	var/mob/dead/observer/ghost_owner = owner
+	return rune_controller.can_offer_ghost_return(linked_mind, ghost_owner)
+
+/datum/action/innate/resurrection_rune_return/Activate()
+	. = ..()
+	if(!rune_controller)
+		return
+	if(!linked_mind)
+		return
+
+	var/mob/dead/observer/ghost_owner = owner
+	rune_controller.trigger_ghost_return(linked_mind, ghost_owner)
+
 
 /datum/resurrection_rune_controller
 	var/obj/structure/resurrection_rune/control/control_rune
@@ -145,6 +196,7 @@
 	var/list/linked_body_by_mind = list()
 	var/list/resurrecting = list()
 	var/list/rescue_actions = list()
+	var/list/ghost_return_actions = list()
 	var/list/hard_crit_deadlines = list()
 	var/list/mob_erp_escape_deadlines = list()
 	// If the body is completely gone, rebuild this kind of shell at the rune.
@@ -160,6 +212,7 @@
 	for(var/mob/living/carbon/linked_user as anything in linked_users)
 		clear_linked_user_rescue_state(linked_user)
 		unregister_linked_user_signals(linked_user)
+	clear_all_ghost_return_actions()
 
 	control_rune = null
 	sub_rune = null
@@ -169,6 +222,7 @@
 	linked_body_by_mind = null
 	resurrecting = null
 	rescue_actions = null
+	ghost_return_actions = null
 	hard_crit_deadlines = null
 	mob_erp_escape_deadlines = null
 	return ..()
@@ -181,11 +235,12 @@
 		return
 	if(resurrections_disabled())
 		clear_all_linked_user_rescue_states()
+		clear_all_ghost_return_actions()
 		return
 	if(!linked_users_minds.len)
 		return
 
-	// Linked souls that fully lost their body get remade at the rune after a short delay.
+	// Linked souls that fully lost their body can choose to be remade at the rune.
 	for(var/datum/mind/linked_mind as anything in linked_users_minds)
 		if(should_remove_linked_mind(linked_mind))
 			remove_linked_mind(linked_mind)
@@ -193,17 +248,19 @@
 		prune_deleted_linked_body_state(linked_mind)
 		var/mob/living/carbon/temporary_shape_source_body = get_active_noncarbon_shapeshift_source_body(linked_mind)
 		if(temporary_shape_source_body)
+			clear_ghost_return_action(linked_mind)
 			resurrecting -= linked_mind
 			replace_linked_body(linked_mind, temporary_shape_source_body)
 			clear_linked_user_rescue_state(temporary_shape_source_body)
 			continue
 		var/mob/living/carbon/current_body = get_current_linkable_body(linked_mind)
 		if(current_body)
+			clear_ghost_return_action(linked_mind)
 			replace_linked_body(linked_mind, current_body)
 			continue
 		if(linked_mind in resurrecting)
 			continue
-		queue_body_remake(linked_mind)
+		ensure_ghost_return_action(linked_mind)
 
 	process_mob_erp_escape_offers()
 	process_hard_crit_timeouts()
@@ -288,8 +345,69 @@
 		return FALSE
 	return get_active_noncarbon_shapeshift_source_body(linked_mind) == body
 
+/datum/resurrection_rune_controller/proc/can_offer_ghost_return(datum/mind/linked_mind, mob/dead/observer/ghost)
+	if(!linked_mind)
+		return FALSE
+	if(!(linked_mind in linked_users_minds))
+		return FALSE
+	if(resurrections_disabled())
+		return FALSE
+	if(linked_mind in resurrecting)
+		return FALSE
+	if(get_current_linkable_body(linked_mind))
+		return FALSE
+	if(ghost && ghost.mind != linked_mind)
+		return FALSE
+	return TRUE
+
+/datum/resurrection_rune_controller/proc/ensure_ghost_return_action(datum/mind/linked_mind)
+	if(!can_offer_ghost_return(linked_mind))
+		clear_ghost_return_action(linked_mind)
+		return FALSE
+
+	var/mob/dead/observer/ghost = linked_mind.get_ghost(TRUE, TRUE)
+	if(!ghost)
+		return FALSE
+
+	var/datum/action/innate/resurrection_rune_return/return_action = ghost_return_actions[linked_mind]
+	if(QDELETED(return_action))
+		return_action = null
+	if(!return_action)
+		return_action = new(src, linked_mind)
+		ghost_return_actions[linked_mind] = return_action
+		to_chat(ghost, span_blue("The rune can remake your body. Answer it when you are ready."))
+
+	return_action.Grant(ghost)
+	return TRUE
+
+/datum/resurrection_rune_controller/proc/clear_ghost_return_action(datum/mind/linked_mind)
+	var/datum/action/innate/resurrection_rune_return/return_action = ghost_return_actions[linked_mind]
+	if(!return_action)
+		return
+
+	ghost_return_actions.Remove(linked_mind)
+	qdel(return_action)
+
+/datum/resurrection_rune_controller/proc/clear_all_ghost_return_actions()
+	if(!ghost_return_actions?.len)
+		return
+
+	var/list/actions_to_clear = ghost_return_actions.Copy()
+	for(var/datum/mind/linked_mind as anything in actions_to_clear)
+		clear_ghost_return_action(linked_mind)
+
+/datum/resurrection_rune_controller/proc/trigger_ghost_return(datum/mind/linked_mind, mob/dead/observer/ghost)
+	if(!can_offer_ghost_return(linked_mind, ghost))
+		clear_ghost_return_action(linked_mind)
+		return FALSE
+
+	clear_ghost_return_action(linked_mind)
+	queue_body_remake(linked_mind)
+	return TRUE
+
 /datum/resurrection_rune_controller/proc/queue_body_remake(datum/mind/linked_mind)
 	to_chat(linked_mind.get_ghost(TRUE, TRUE), span_blue("Somewhere, you are being remade anew..."))
+	clear_ghost_return_action(linked_mind)
 	resurrecting |= linked_mind
 	addtimer(CALLBACK(src, PROC_REF(spawn_new_body), linked_mind), RUNE_REBUILD_DELAY)
 
@@ -334,13 +452,29 @@
 	if(!user.mind)
 		return FALSE
 
-	unlink_mind_from_other_resurrection_runes(user.mind, sub_rune)
-	if(user in linked_users)
-		return FALSE
+	return add_linked_mind(user.mind)
 
-	if(!(user.mind in linked_users_minds))
-		linked_users_minds += user.mind
-	replace_linked_body(user.mind, user)
+/datum/resurrection_rune_controller/proc/add_linked_mind(datum/mind/linked_mind)
+	if(!linked_mind)
+		return FALSE
+	if(linked_mind in linked_users_minds)
+		var/mob/living/carbon/existing_body = get_current_linkable_body(linked_mind)
+		if(existing_body)
+			clear_ghost_return_action(linked_mind)
+			replace_linked_body(linked_mind, existing_body)
+		else
+			ensure_ghost_return_action(linked_mind)
+		return TRUE
+
+	unlink_mind_from_other_resurrection_runes(linked_mind, sub_rune)
+	if(!(linked_mind in linked_users_minds))
+		linked_users_minds += linked_mind
+	var/mob/living/carbon/current_body = get_current_linkable_body(linked_mind)
+	if(current_body)
+		clear_ghost_return_action(linked_mind)
+		replace_linked_body(linked_mind, current_body)
+	else
+		ensure_ghost_return_action(linked_mind)
 	return TRUE
 
 /datum/resurrection_rune_controller/proc/remove_user(mob/living/carbon/user)
@@ -349,13 +483,14 @@
 	if(!(user in linked_users))
 		return FALSE
 
-	var/datum/mind/linked_mind = user.mind
+	var/datum/mind/linked_mind = get_linked_mind_for_body(user)
 	unregister_linked_body(user)
 
 	if(linked_mind)
 		linked_users_minds -= linked_mind
 		linked_body_by_mind.Remove(linked_mind)
 		resurrecting -= linked_mind
+		clear_ghost_return_action(linked_mind)
 
 	return TRUE
 
@@ -405,6 +540,7 @@
 	linked_users_minds -= linked_mind
 	linked_body_by_mind.Remove(linked_mind)
 	resurrecting -= linked_mind
+	clear_ghost_return_action(linked_mind)
 
 /datum/resurrection_rune_controller/proc/register_linked_user_signals(mob/living/carbon/user)
 	RegisterSignal(user, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(handle_linked_user_update))
@@ -1249,6 +1385,262 @@
 		to_chat(src, span_blue("You are protected from Death."))
 		return TRUE
 	return FALSE
+
+/proc/get_resurrection_rune_admin_mind(mob/target)
+	if(!target)
+		return
+	if(isobserver(target))
+		return target.mind
+	return get_mind(target, TRUE)
+
+/proc/get_resurrection_rune_admin_mind_label(datum/mind/linked_mind)
+	if(!linked_mind)
+		return "No mind"
+
+	var/name = linked_mind.name || "Unknown"
+	var/key = linked_mind.key || "no key"
+	var/current_body = linked_mind.current ? "[linked_mind.current]" : "bodyless"
+	return "[name] ([key]) - [current_body]"
+
+/proc/get_resurrection_rune_admin_rune_options()
+	var/list/rune_options = list()
+	for(var/obj/structure/resurrection_rune/rune as anything in GLOB.global_resurrunes)
+		rune_options["[rune.get_management_name()] ([REF(rune)])"] = rune
+	return rune_options
+
+/proc/select_resurrection_rune_for_admin(prompt = "Choose a resurrection rune.")
+	var/list/rune_options = get_resurrection_rune_admin_rune_options()
+	if(!rune_options.len)
+		to_chat(usr, span_warning("No resurrection runes exist."))
+		return
+
+	var/selected_name = input(usr, prompt, "Resurrection Runes") as null|anything in rune_options
+	if(!selected_name)
+		return
+	return rune_options[selected_name]
+
+/proc/get_resurrection_rune_admin_online_mind_options()
+	var/list/mind_options = list()
+	var/list/seen_minds = list()
+	for(var/mob/player_mob as anything in GLOB.player_list)
+		var/datum/mind/linked_mind = get_resurrection_rune_admin_mind(player_mob)
+		if(!linked_mind)
+			continue
+		if(linked_mind in seen_minds)
+			continue
+		seen_minds += linked_mind
+		mind_options["[get_resurrection_rune_admin_mind_label(linked_mind)] ([REF(linked_mind)])"] = linked_mind
+	return mind_options
+
+/proc/select_resurrection_rune_admin_online_mind(prompt = "Choose a player or ghost.")
+	var/list/mind_options = get_resurrection_rune_admin_online_mind_options()
+	if(!mind_options.len)
+		to_chat(usr, span_warning("No online players with minds found."))
+		return
+
+	var/selected_name = input(usr, prompt, "Resurrection Runes") as null|anything in mind_options
+	if(!selected_name)
+		return
+	return mind_options[selected_name]
+
+/proc/get_resurrection_rune_admin_linked_mind_options(obj/structure/resurrection_rune/only_rune = null)
+	var/list/mind_options = list()
+	for(var/obj/structure/resurrection_rune/rune as anything in GLOB.global_resurrunes)
+		if(only_rune && rune != only_rune)
+			continue
+		if(!rune.resrunecontroler)
+			continue
+		for(var/datum/mind/linked_mind as anything in rune.resrunecontroler.linked_users_minds)
+			mind_options["[get_resurrection_rune_admin_mind_label(linked_mind)] - [rune.get_management_name()] ([REF(linked_mind)])"] = linked_mind
+	return mind_options
+
+/proc/select_resurrection_rune_admin_linked_mind(obj/structure/resurrection_rune/only_rune = null, prompt = "Choose a linked mind.")
+	var/list/mind_options = get_resurrection_rune_admin_linked_mind_options(only_rune)
+	if(!mind_options.len)
+		to_chat(usr, span_warning("No linked minds found."))
+		return
+
+	var/selected_name = input(usr, prompt, "Resurrection Runes") as null|anything in mind_options
+	if(!selected_name)
+		return
+	return mind_options[selected_name]
+
+/proc/get_resurrection_rune_player_panel_section(datum/admins/admin_holder, mob/target)
+	if(!admin_holder || !target)
+		return ""
+
+	var/datum/mind/linked_mind = get_resurrection_rune_admin_mind(target)
+	var/current_link = "No mind"
+	if(linked_mind)
+		var/obj/structure/resurrection_rune/current_rune = find_resurrection_rune_by_mind(linked_mind)
+		current_link = current_rune ? current_rune.get_management_name() : "None"
+
+	return "<br>Resurrection Rune: [current_link] \[<a href='?_src_=holder;[HrefToken()];runeadminplayer=[REF(target)]'>Manage</a>\]"
+
+/proc/handle_resurrection_rune_admin_topic(datum/admins/admin_holder, list/href_list)
+	if(!href_list["runeadminplayer"])
+		return FALSE
+	if(!check_rights(R_ADMIN))
+		return TRUE
+
+	var/mob/target = locate(href_list["runeadminplayer"]) in GLOB.mob_list
+	if(!target)
+		to_chat(usr, span_warning("That mob no longer exists."))
+		return TRUE
+
+	admin_holder.manage_player_resurrection_rune(target)
+	return TRUE
+
+/datum/admins/proc/manage_player_resurrection_rune(mob/target)
+	if(!check_rights(R_ADMIN))
+		return
+	if(!target)
+		to_chat(usr, span_warning("That mob no longer exists."))
+		return
+
+	var/datum/mind/linked_mind = get_resurrection_rune_admin_mind(target)
+	if(!linked_mind)
+		to_chat(usr, span_warning("[target] has no mind to manage."))
+		return
+
+	var/obj/structure/resurrection_rune/current_rune = find_resurrection_rune_by_mind(linked_mind)
+	var/current_text = current_rune ? current_rune.get_management_name() : "None"
+	var/action = input(usr, "Current rune link: [current_text]", "Resurrection Rune: [target]") as null|anything in list("Link to Rune", "Unlink from Runes", "Cancel")
+	switch(action)
+		if("Link to Rune")
+			var/obj/structure/resurrection_rune/selected_rune = select_resurrection_rune_for_admin("Link [get_resurrection_rune_admin_mind_label(linked_mind)] to which rune?")
+			if(!selected_rune)
+				return
+			admin_link_mind_to_resurrection_rune(linked_mind, selected_rune)
+		if("Unlink from Runes")
+			admin_unlink_mind_from_resurrection_runes(linked_mind)
+		else
+			return
+
+	show_player_panel_next(target)
+
+/proc/admin_link_mind_to_resurrection_rune(datum/mind/linked_mind, obj/structure/resurrection_rune/rune)
+	if(!linked_mind)
+		to_chat(usr, span_warning("No mind selected."))
+		return FALSE
+	if(!rune?.resrunecontroler)
+		to_chat(usr, span_warning("That rune has no controller."))
+		return FALSE
+	if(!rune.resrunecontroler.add_linked_mind(linked_mind))
+		to_chat(usr, span_warning("Failed to link [get_resurrection_rune_admin_mind_label(linked_mind)] to [rune.get_management_name()]."))
+		return FALSE
+
+	var/target_label = get_resurrection_rune_admin_mind_label(linked_mind)
+	log_admin("[key_name(usr)] linked [target_label] to resurrection rune [rune.get_management_name()].")
+	message_admins("[key_name_admin(usr)] linked [target_label] to resurrection rune [rune.get_management_name()].")
+	to_chat(usr, span_notice("Linked [target_label] to [rune.get_management_name()]."))
+	return TRUE
+
+/proc/admin_unlink_mind_from_resurrection_runes(datum/mind/linked_mind)
+	if(!linked_mind)
+		to_chat(usr, span_warning("No mind selected."))
+		return FALSE
+
+	var/obj/structure/resurrection_rune/current_rune = find_resurrection_rune_by_mind(linked_mind)
+	if(!current_rune)
+		to_chat(usr, span_warning("[get_resurrection_rune_admin_mind_label(linked_mind)] is not linked to any resurrection rune."))
+		return FALSE
+
+	var/target_label = get_resurrection_rune_admin_mind_label(linked_mind)
+	unlink_mind_from_other_resurrection_runes(linked_mind, null)
+	log_admin("[key_name(usr)] unlinked [target_label] from all resurrection runes.")
+	message_admins("[key_name_admin(usr)] unlinked [target_label] from all resurrection runes.")
+	to_chat(usr, span_notice("Unlinked [target_label] from all resurrection runes."))
+	return TRUE
+
+/datum/admins/proc/show_resurrection_rune_links(obj/structure/resurrection_rune/rune)
+	if(!check_rights(R_ADMIN))
+		return
+	if(!rune?.resrunecontroler)
+		to_chat(usr, span_warning("That rune has no controller."))
+		return
+
+	var/list/rune_info = list("<b>[rune.get_management_name()]</b><br>")
+	if(!rune.resrunecontroler.linked_users_minds.len)
+		rune_info += "No linked minds.<br>"
+	else
+		for(var/datum/mind/linked_mind as anything in rune.resrunecontroler.linked_users_minds)
+			var/mob/living/carbon/linked_body = rune.resrunecontroler.linked_body_by_mind[linked_mind]
+			var/body_text = linked_body ? "[linked_body] ([linked_body.type])" : "no stored carbon body"
+			rune_info += "[get_resurrection_rune_admin_mind_label(linked_mind)] - [body_text]<br>"
+
+	usr << browse(rune_info.Join(), "window=resurrection_rune_links;size=600x420")
+
+/datum/admins/proc/manage_selected_resurrection_rune(obj/structure/resurrection_rune/rune)
+	if(!check_rights(R_ADMIN))
+		return
+	if(!rune?.resrunecontroler)
+		to_chat(usr, span_warning("That rune has no controller."))
+		return
+
+	var/toggle_label = rune.disabled_res ? "Enable Resurrections" : "Disable Resurrections"
+	var/action = input(usr, "Manage [rune.get_management_name()].", "Resurrection Runes") as null|anything in list("View Linked Minds", "Link Player/Mind", "Unlink Linked Mind", toggle_label, "Jump to Rune", "Cancel")
+	switch(action)
+		if("View Linked Minds")
+			show_resurrection_rune_links(rune)
+		if("Link Player/Mind")
+			var/datum/mind/linked_mind = select_resurrection_rune_admin_online_mind("Link which player or ghost to [rune.get_management_name()]?")
+			if(linked_mind)
+				admin_link_mind_to_resurrection_rune(linked_mind, rune)
+		if("Unlink Linked Mind")
+			var/datum/mind/linked_mind = select_resurrection_rune_admin_linked_mind(rune, "Unlink which mind from [rune.get_management_name()]?")
+			if(linked_mind)
+				admin_unlink_mind_from_resurrection_runes(linked_mind)
+		if("Enable Resurrections")
+			rune.disabled_res = FALSE
+			log_admin("[key_name(usr)] enabled resurrection rune [rune.get_management_name()].")
+			message_admins("[key_name_admin(usr)] enabled resurrection rune [rune.get_management_name()].")
+		if("Disable Resurrections")
+			rune.disabled_res = TRUE
+			rune.resrunecontroler.clear_all_linked_user_rescue_states()
+			rune.resrunecontroler.clear_all_ghost_return_actions()
+			log_admin("[key_name(usr)] disabled resurrection rune [rune.get_management_name()].")
+			message_admins("[key_name_admin(usr)] disabled resurrection rune [rune.get_management_name()].")
+		if("Jump to Rune")
+			var/turf/rune_turf = get_turf(rune)
+			if(rune_turf)
+				usr.client.jumptoturf(rune_turf)
+		else
+			return
+
+/datum/admins/proc/manage_resurrection_runes()
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/action = input(usr, "What do you want to manage?", "Resurrection Runes") as null|anything in list("Manage a Rune", "Link Player/Mind", "Unlink Linked Mind", "Cancel")
+	switch(action)
+		if("Manage a Rune")
+			var/obj/structure/resurrection_rune/rune = select_resurrection_rune_for_admin()
+			if(rune)
+				manage_selected_resurrection_rune(rune)
+		if("Link Player/Mind")
+			var/datum/mind/linked_mind = select_resurrection_rune_admin_online_mind()
+			if(!linked_mind)
+				return
+			var/obj/structure/resurrection_rune/rune = select_resurrection_rune_for_admin("Link [get_resurrection_rune_admin_mind_label(linked_mind)] to which rune?")
+			if(rune)
+				admin_link_mind_to_resurrection_rune(linked_mind, rune)
+		if("Unlink Linked Mind")
+			var/datum/mind/linked_mind = select_resurrection_rune_admin_linked_mind()
+			if(linked_mind)
+				admin_unlink_mind_from_resurrection_runes(linked_mind)
+		else
+			return
+
+/client/proc/manage_resurrection_runes()
+	set category = "Admin.Admin"
+	set name = "Manage Resurrection Runes"
+	set desc = "Manage resurrection rune links and rune state."
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	holder?.manage_resurrection_runes()
 
 /datum/job/roguetown/vampire
 	rune_linked = RUNE_LINK_VAMPIRE
