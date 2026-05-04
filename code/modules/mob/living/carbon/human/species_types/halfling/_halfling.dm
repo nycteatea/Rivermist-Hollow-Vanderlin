@@ -134,6 +134,8 @@
 		/datum/customizer/organ/genitals/butt/human,
 		/datum/customizer/bodypart_feature/piercing,
 		/datum/customizer/organ/genitals/testicles/human,
+		/datum/customizer/bodypart_feature/body_hair,
+		/datum/customizer/bodypart_feature/pubic_hair,
 	)
 
 	body_markings = list(

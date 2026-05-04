@@ -109,6 +109,7 @@
 		/datum/customizer/organ/genitals/belly/animal,
 		/datum/customizer/organ/genitals/butt/animal,
 		/datum/customizer/organ/genitals/testicles/anthro,
+		/datum/customizer/bodypart_feature/pubic_hair,
 	)
 
 	bodypart_features = list(

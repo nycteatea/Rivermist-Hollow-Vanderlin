@@ -79,6 +79,7 @@
 		handle_environment()
 		handle_hygiene()
 		handle_comfy()
+		handle_body_hair_growth()
 		if(dna?.species)
 			dna.species.spec_life(src) // for mutantraces
 

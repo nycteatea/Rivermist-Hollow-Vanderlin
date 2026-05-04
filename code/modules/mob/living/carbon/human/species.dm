@@ -934,17 +934,6 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 				lip_overlay.pixel_y += offsets[OFFSET_FACE][2]
 			standing += lip_overlay
 
-		if(species?.hairyness)
-			var/limb_icon
-			// Not use_female_sprites for limb icons
-			if(H.gender == MALE)
-				limb_icon = species.limbs_icon_m
-			else
-				limb_icon = species.limbs_icon_f
-			var/mutable_appearance/bodyhair_overlay = mutable_appearance(limb_icon, "[species?.hairyness]", -FRONT_MUTATIONS_LAYER)
-			bodyhair_overlay.color = H.get_hair_color()
-			standing += bodyhair_overlay
-
 	//Underwear
 	/*if(!(NO_UNDERWEAR in species_traits))
 		var/hide_top = FALSE

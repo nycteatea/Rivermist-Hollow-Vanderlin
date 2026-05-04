@@ -4,6 +4,7 @@
 	var/natural_color = "#FFFFFF"
 	var/hair_dye_gradient = /datum/hair_gradient/none
 	var/hair_dye_color = "#FFFFFF"
+	var/natural_accessory_type
 
 	var/static/list/extensions
 

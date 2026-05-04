@@ -63,6 +63,24 @@
 #define BODYPART_FEATURE_PIERCINGS "piercings"
 #define BODYPART_FEATURE_UNDERWEAR "underwear"
 #define BODYPART_FEATURE_LEGWEAR "legwear"
+#define BODYPART_FEATURE_BODY_HAIR "bodyhair"
+#define BODYPART_FEATURE_PUBIC_HAIR "pubichair"
+
+#define HAIRINESS_SHAVED 1
+#define HAIRINESS_STUBBLE 2
+#define HAIRINESS_SOME_HAIR 3
+#define HAIRINESS_HAIRY 4
+#define HAIRINESS_VERY_HAIRY 5
+
+#define HAIRINESS_MINIMUM HAIRINESS_SHAVED
+#define HAIRINESS_MAXIMUM HAIRINESS_VERY_HAIRY
+
+#define HAIR_GROOMING_SHAVED "shaved"
+#define HAIR_GROOMING_TRIMMED "trimmed"
+#define HAIR_GROOMING_NATURAL "natural"
+#define HAIR_GROOMING_STYLED "styled"
+
+#define BODY_HAIR_GROWTH_INTERVAL (60 MINUTES)
 
 //flags for requirements for a surgery step
 #define SURGERY_BLOODY (1<<0)

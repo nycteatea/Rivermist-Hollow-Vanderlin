@@ -78,6 +78,7 @@
 		/datum/customizer/organ/genitals/belly/human,
 		/datum/customizer/organ/genitals/butt/human,
 		/datum/customizer/organ/genitals/testicles/human,
+		/datum/customizer/bodypart_feature/pubic_hair,
 	)
 
 	swap_male_clothes_but_not_offsets  = TRUE

@@ -10,6 +10,7 @@
 
 /datum/customizer_choice/bodypart_feature/hair/customize_feature(datum/bodypart_feature/feature, mob/living/carbon/human/human, datum/preferences/prefs, datum/customizer_entry/hair/entry)
 	var/datum/bodypart_feature/hair/hair_feature = feature
+	hair_feature.natural_accessory_type = entry.accessory_type
 	hair_feature.hair_color = entry.hair_color
 	hair_feature.accessory_colors = entry.hair_color
 	hair_feature.natural_color = entry.natural_color

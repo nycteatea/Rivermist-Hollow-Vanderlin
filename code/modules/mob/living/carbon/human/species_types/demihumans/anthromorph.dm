@@ -131,6 +131,7 @@
 		/datum/customizer/organ/genitals/butt/animal,
 		/datum/customizer/organ/genitals/testicles/anthro,
 		/datum/customizer/organ/horns/tusks,
+		/datum/customizer/bodypart_feature/pubic_hair,
 		)
 	body_marking_sets = list(
 		/datum/body_marking_set/none,

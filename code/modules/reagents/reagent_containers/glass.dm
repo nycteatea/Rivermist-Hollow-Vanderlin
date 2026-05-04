@@ -150,7 +150,7 @@
 			message_admins("[ADMIN_LOOKUPFLW(user)] splashed (thrown) [english_list(reagents.reagent_list)] on [M] at [ADMIN_VERBOSEJMP(M)].")
 
 		SEND_SIGNAL(user, COMSIG_SPLASHED_MOB, M, reagents.reagent_list)
-		reagents.reaction(M, TOUCH)
+		reagents.reaction(M, TOUCH, 1, 1, user.zone_selected)
 		chem_splash(M.loc, 2, list(reagents))
 		playsound(M, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 		log_combat(user, M, "splashed", R)

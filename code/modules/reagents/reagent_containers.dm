@@ -93,7 +93,7 @@
 
 /obj/item/reagent_containers/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
-	SplashReagents(hit_atom, TRUE)
+	SplashReagents(hit_atom, TRUE, throwingdatum?.target_zone)
 
 /obj/item/reagent_containers/heating_act()
 	reagents.expose_temperature(1000)
@@ -269,7 +269,7 @@
 	if(target.CanPass(src, get_turf(src)) && thrownby && HAS_TRAIT(thrownby, TRAIT_BOOZE_SLIDER))
 		. = TRUE
 
-/obj/item/reagent_containers/proc/SplashReagents(atom/target, thrown = FALSE)
+/obj/item/reagent_containers/proc/SplashReagents(atom/target, thrown = FALSE, target_zone = null)
 	if(!reagents || !reagents.total_volume || !spillable)
 		return
 
@@ -285,7 +285,7 @@
 
 		if(thrownby)
 			log_combat(thrownby, M, "splashed", R)
-		reagents.reaction(target, TOUCH)
+		reagents.reaction(target, TOUCH, 1, 1, target_zone)
 
 	else if(bartender_check(target) && thrown)
 		visible_message("<span class='notice'>[src] lands onto the [target.name] without spilling a single drop.</span>")

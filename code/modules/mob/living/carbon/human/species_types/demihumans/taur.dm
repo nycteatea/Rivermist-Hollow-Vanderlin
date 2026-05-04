@@ -63,8 +63,8 @@
 		/obj/item/bodypart/taur/ant,
 		/obj/item/bodypart/taur/wasp,
 		/obj/item/bodypart/taur/insect,
-		// Include jdeer taur type for taur-kin species, allowing players to select it as their taur body.
-		/obj/item/bodypart/taur/jdeer
+		/obj/item/bodypart/taur/jdeer,
+		/datum/customizer/bodypart_feature/pubic_hair,
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID

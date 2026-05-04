@@ -61,6 +61,7 @@
 		else
 			arousal_modifier = ", soft and flaccid"
 	var/used_name
+	var/pubic_hair_adjective = H.get_pubic_hair_organ_adjective()
 	if(penis.erect_state != ERECT_STATE_HARD && penis.sheath_type != SHEATH_TYPE_NONE)
 		switch(penis.sheath_type)
 			if(SHEATH_TYPE_NORMAL)
@@ -71,7 +72,15 @@
 			if(SHEATH_TYPE_SLIT)
 				used_name = "a genital slit"
 	else
-		used_name = "[adjective] [penis.name][arousal_modifier]"
+		used_name = "[adjective] [pubic_hair_adjective ? "[pubic_hair_adjective] " : ""][penis.name][arousal_modifier]"
+	if(pubic_hair_adjective)
+		switch(used_name)
+			if("a fat sheath")
+				used_name = "a fat, [pubic_hair_adjective] sheath"
+			if("a sheath")
+				used_name = "a [pubic_hair_adjective] sheath"
+			if("a genital slit")
+				used_name = "a [pubic_hair_adjective] genital slit"
 	return "[used_name]"
 
 /datum/mob_descriptor/testicles
@@ -107,7 +116,8 @@
 			adjective = "an average"
 		if(3)
 			adjective = "a large"
-	return "[adjective] pair of balls"
+	var/pubic_hair_adjective = H.get_pubic_hair_organ_adjective()
+	return "[adjective][pubic_hair_adjective ? ", [pubic_hair_adjective]" : ""] pair of balls"
 
 /datum/mob_descriptor/butt
 	name = "butt"
@@ -172,20 +182,17 @@
 	switch(vagina.accessory_type)
 		if(/datum/sprite_accessory/genitals/vagina/human)
 			vagina_type = "plain vagina"
-		if(/datum/sprite_accessory/genitals/vagina/hairy)
-			vagina_type = "hairy vagina"
-		if(/datum/sprite_accessory/genitals/vagina/trimmed)
-			vagina_type = "trimmed vagina"
 		if(/datum/sprite_accessory/genitals/vagina/spade)
 			vagina_type = "spade vagina"
-		if(/datum/sprite_accessory/genitals/vagina/furred)
-			vagina_type = "furred vagina"
 		if(/datum/sprite_accessory/genitals/vagina/gaping)
 			vagina_type = "gaping vagina"
 		if(/datum/sprite_accessory/genitals/vagina/cloaca)
 			vagina_type = "cloaca"
-		if(/datum/sprite_accessory/genitals/vagina/goblin)
-			vagina_type = "extremely hairy vagina"
+	var/pubic_hair_adjective = H.get_pubic_hair_organ_adjective()
+	if(pubic_hair_adjective)
+		if(vagina_type == "plain vagina")
+			vagina_type = "vagina"
+		vagina_type = "[pubic_hair_adjective] [vagina_type]"
 	var/list/arousal_data = list()
 	SEND_SIGNAL(H, COMSIG_SEX_GET_AROUSAL, arousal_data)
 	switch(arousal_data["arousal"])

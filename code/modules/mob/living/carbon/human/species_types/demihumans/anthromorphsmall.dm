@@ -145,6 +145,7 @@
 		/datum/customizer/organ/genitals/belly/animal,
 		/datum/customizer/organ/genitals/butt/animal,
 		/datum/customizer/organ/genitals/testicles/anthro,
+		/datum/customizer/bodypart_feature/pubic_hair,
 		)
 	body_marking_sets = list(
 		/datum/body_marking_set/none,

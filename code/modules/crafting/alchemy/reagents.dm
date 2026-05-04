@@ -109,6 +109,66 @@
 	M.regenerate_icons()
 	..()
 
+/datum/reagent/medicine/hair_growth
+	name = "Hair Growth Potion"
+	description = "Encourages shaved and trimmed hair to return toward its natural length."
+	reagent_state = LIQUID
+	color = "#5b7f35"
+	taste_description = "bitter roots"
+	scent_description = "cut grass"
+	metabolization_rate = REAGENTS_METABOLISM * 5
+	alpha = 173
+
+/datum/reagent/medicine/hair_growth/reaction_mob(mob/living/M, method = TOUCH, reac_volume, show_message = TRUE, touch_protection = 0, target_zone = null)
+	if(!(method & (TOUCH|PATCH|VAPOR)))
+		return ..()
+	if(!ishuman(M))
+		return ..()
+	if(!target_zone)
+		return TRUE
+	var/mob/living/carbon/human/human = M
+	if(human.grow_hair_at_zone(target_zone) && show_message)
+		to_chat(human, span_notice("A prickling warmth spreads over your [parse_zone(target_zone)] as your hair begins to grow."))
+	return TRUE
+
+/datum/reagent/medicine/hair_growth/on_mob_life(mob/living/carbon/M)
+	if(!ishuman(M))
+		return ..()
+	var/mob/living/carbon/human/human = M
+	if(human.grow_hair_toward_natural_targets() && current_cycle == 0)
+		to_chat(human, span_notice("Warmth spreads under your skin as your hair begins to grow."))
+	..()
+
+/datum/reagent/medicine/hair_removal
+	name = "Hair Removal Potion"
+	description = "Strips away hair from the area it touches."
+	reagent_state = LIQUID
+	color = "#756f8f"
+	taste_description = "sharp soap"
+	scent_description = "crushed nettles"
+	metabolization_rate = REAGENTS_METABOLISM * 5
+	alpha = 173
+
+/datum/reagent/medicine/hair_removal/reaction_mob(mob/living/M, method = TOUCH, reac_volume, show_message = TRUE, touch_protection = 0, target_zone = null)
+	if(!(method & (TOUCH|PATCH|VAPOR)))
+		return ..()
+	if(!ishuman(M))
+		return ..()
+	if(!target_zone)
+		return TRUE
+	var/mob/living/carbon/human/human = M
+	if(human.remove_hair_at_zone(target_zone) && show_message)
+		to_chat(human, span_warning("A cool fizz spreads over your [parse_zone(target_zone)] as your hair falls away."))
+	return TRUE
+
+/datum/reagent/medicine/hair_removal/on_mob_life(mob/living/carbon/M)
+	if(!ishuman(M))
+		return ..()
+	var/mob/living/carbon/human/human = M
+	if(human.remove_all_hair() && current_cycle == 0)
+		to_chat(human, span_warning("A tingling chill spreads under your skin as your hair falls away."))
+	..()
+
 //Someone please remember to change this to actually do mana at some point?
 /datum/reagent/medicine/manapot
 	name = "Mana Potion"

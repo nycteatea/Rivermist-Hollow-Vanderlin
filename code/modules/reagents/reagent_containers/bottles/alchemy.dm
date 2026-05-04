@@ -22,6 +22,14 @@
 /obj/item/reagent_containers/glass/bottle/stampot
 	list_reagents = list(/datum/reagent/medicine/stampot = 75)
 
+/obj/item/reagent_containers/glass/bottle/hairgrowthpot
+	name = "Hair Growth Potion"
+	list_reagents = list(/datum/reagent/medicine/hair_growth = 75)
+
+/obj/item/reagent_containers/glass/bottle/hairremovalpot
+	name = "Hair Removal Potion"
+	list_reagents = list(/datum/reagent/medicine/hair_removal = 75)
+
 /obj/item/reagent_containers/glass/bottle/strongstampot
 	list_reagents = list(/datum/reagent/medicine/strongstam = 75)
 
@@ -72,6 +80,14 @@
 
 /obj/item/reagent_containers/glass/bottle/vial/genderpot
 	list_reagents = list(/datum/reagent/medicine/gender_potion = 5)
+
+/obj/item/reagent_containers/glass/bottle/vial/hairgrowthpot
+	name = "Hair Growth Potion"
+	list_reagents = list(/datum/reagent/medicine/hair_growth = 25)
+
+/obj/item/reagent_containers/glass/bottle/vial/hairremovalpot
+	name = "Hair Removal Potion"
+	list_reagents = list(/datum/reagent/medicine/hair_removal = 25)
 
 /obj/item/reagent_containers/glass/bottle/vial/strongpoison
 	list_reagents = list(/datum/reagent/strongpoison = 25)
