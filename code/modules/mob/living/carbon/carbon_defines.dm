@@ -90,6 +90,8 @@
 	var/advsetup = 0
 	/// Pulse is shared across all hearts and circulation effects.
 	var/pulse = PULSE_NORM
+	/// Used to handle heartbeat sounds.
+	var/heartbeat_sound = BEAT_NONE
 	/// How long an external heart pump counts for circulation.
 	var/heart_pump_duration = 5 SECONDS
 	/// CPR/blood circulation pump record: time key mapped to effectiveness.
@@ -127,6 +129,10 @@
 	var/list/datum/injury/all_injuries
 	/// Descriptive string used in combat messages
 	var/wound_message = ""
+	/// Last time we got mouth to mouthed
+	COOLDOWN_DECLARE(last_mtom)
+	/// Last time we got CPR'd
+	COOLDOWN_DECLARE(last_cpr)
 
 	/// if they get a mana pool
 	has_initial_mana_pool = TRUE

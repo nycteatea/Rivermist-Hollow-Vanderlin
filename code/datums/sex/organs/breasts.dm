@@ -16,7 +16,7 @@
 	additional_blocker = "bra"
 	organ_sizeable = TRUE
 
-/obj/item/organ/genitals/filling_organ/breasts/Insert(mob/living/M, special, drop_if_replaced)
+/obj/item/organ/genitals/filling_organ/breasts/Insert(mob/living/M, special, drop_if_replaced, new_zone = null)
 	. = ..()
 	if(M.breast_milk)
 		reagent_to_make = M.breast_milk

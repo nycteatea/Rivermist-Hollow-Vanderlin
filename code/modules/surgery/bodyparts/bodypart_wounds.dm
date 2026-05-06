@@ -477,7 +477,7 @@
 	if(has_wound(/datum/wound/fracture))
 		returned_flags |= SURGERY_BROKEN
 	if(skeletonized)
-		returned_flags |= SURGERY_INCISED | SURGERY_RETRACTED | SURGERY_DRILLED //ehh... we have access to whatever organ is there
+		returned_flags |= SURGERY_INCISED | SURGERY_DRILLED //ehh... we have access to whatever organ is there
 	return returned_flags
 
 /obj/item/bodypart/proc/is_retracted()

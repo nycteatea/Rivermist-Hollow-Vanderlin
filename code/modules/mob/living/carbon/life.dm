@@ -30,7 +30,6 @@
 
 		handle_wounds()
 		handle_embedded_objects()
-		handle_blood()
 		handle_roguebreath()
 		update_stress()
 		handle_nausea()
@@ -41,13 +40,12 @@
 		if((blood_volume > BLOOD_VOLUME_SURVIVE) || HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
 			if(!heart_attacking)
 				if(oxyloss)
-					adjustOxyLoss(-1.6)
+					adjustOxyLoss(-5)
 			else
 				if(getOxyLoss() < 20)
 					heart_attacking = FALSE
 
 		handle_sleep()
-		handle_brain_damage()
 
 	check_cremation()
 
@@ -65,7 +63,6 @@
 		return
 	handle_wounds()
 	handle_embedded_objects()
-	handle_blood()
 
 	check_cremation()
 
@@ -245,17 +242,29 @@
 		return
 	if(stat < DEAD)
 		var/list/already_processed_life = list()
+		var/list/organlist
 		var/obj/item/organ/organ
-		for(var/thing in internal_organs)
+		for(var/organ_slot in GLOB.organ_process_order)
 			if(QDELETED(src))
 				break
-			organ = thing
-			// Reagent metabolization can shuffle organs during life processing.
-			if(QDELETED(organ) || already_processed_life[organ] || (organ.owner != src))
-				continue
-			if(organ.needs_processing)
-				organ.on_life(delta_time, times_fired)
-			already_processed_life[organ] = TRUE
+			organlist = LAZYACCESS(internal_organs_slot, organ_slot)
+			for(var/thing in organlist)
+				if(QDELETED(src))
+					break
+				organ = thing
+				// Reagent metabolization can shuffle organs during life processing.
+				if(QDELETED(organ) || already_processed_life[organ] || (organ.owner != src))
+					continue
+				if(organ.needs_processing)
+					organ.on_life(delta_time, times_fired)
+				already_processed_life[organ] = TRUE
+		var/datum/organ_process/organ_process
+		for(var/thing in GLOB.organ_process_datum_order)
+			if(QDELETED(src))
+				break
+			organ_process = GLOB.organ_processes_by_slot[thing]
+			if(organ_process.needs_process(src))
+				organ_process.handle_process(src, delta_time, times_fired)
 	else
 		var/obj/item/organ/organ
 		for(var/thing in internal_organs)
@@ -400,30 +409,6 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 	return fullness
 
-/////////
-//LIVER//
-/////////
-
-///Decides if the liver is failing or not.
-/mob/living/carbon/proc/handle_liver()
-	if(!dna)
-		return
-	var/obj/item/organ/liver/liver = getorganslot(ORGAN_SLOT_LIVER)
-	if(!liver)
-		liver_failure()
-
-/mob/living/carbon/proc/undergoing_liver_failure()
-	var/obj/item/organ/liver/liver = getorganslot(ORGAN_SLOT_LIVER)
-	if(liver && (liver.organ_flags & ORGAN_FAILING))
-		return TRUE
-
-/mob/living/carbon/proc/liver_failure()
-	reagents.end_metabolization(src, keep_liverless = TRUE) //Stops trait-based effects on reagents, to prevent permanent buffs
-	reagents.metabolize(src, can_overdose=FALSE, liverless = TRUE)
-	if(HAS_TRAIT(src, TRAIT_NOMETABOLISM))
-		return
-	adjustToxLoss(4, TRUE,  TRUE)
-
 
 /////////////
 //CREMATION//
@@ -560,6 +545,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 	return TRUE
 
+/// Brain is poopy (hardcrit)
 /mob/living/proc/undergoing_nervous_system_failure()
 	return FALSE
 
@@ -621,7 +607,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			adjust_energy(sleepy_mod * (max_energy * 0.004))
 		if(hydration > 0 || yess)
 			if(!bleed_rate)
-				blood_volume = min(blood_volume + (4 * sleepy_mod), BLOOD_VOLUME_NORMAL)
+				adjust_bloodvolume(4 * sleepy_mod, BLOOD_VOLUME_NORMAL)
 			for(var/obj/item/bodypart/affecting as anything in bodyparts)
 				//for context, it takes 5 small cuts (0.4 x 5) or 3 normal cuts (0.8 x 3) for a bodypart to not be able to heal itself
 				if(affecting.get_bleed_rate() >= 2)

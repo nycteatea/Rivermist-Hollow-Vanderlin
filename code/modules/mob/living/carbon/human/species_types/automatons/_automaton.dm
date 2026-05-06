@@ -4,7 +4,7 @@
 
 /mob/living/carbon/human/species/automaton/vessel/LateInitialize()
 	. = ..()
-	AddComponent(/datum/component/ghost_vessel, /obj/item/reagent_containers/lux)
+	AddComponent(/datum/component/ghost_vessel, /obj/item/riddleofsteel)
 
 /mob/living/carbon/human/species/automaton/prefilled_vessel/LateInitialize()
 	. = ..()
@@ -61,9 +61,11 @@
 	species_traits = list(
 		NO_UNDERWEAR,
 		NOTRANSSTING,
-		NOBLOOD
+		NOBLOOD,
 	)
 	inherent_traits = list(
+		TRAIT_BLOODLOSS_IMMUNE,
+		TRAIT_NORMALIZED_BLOOD,
 		TRAIT_NOMOOD,
 		TRAIT_NOMETABOLISM,
 		TRAIT_NOHUNGER,
@@ -103,6 +105,7 @@
 
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain/automaton,
+		ORGAN_SLOT_SPLEEN = /obj/item/organ/spleen,
 		ORGAN_SLOT_HEART = /obj/item/organ/heart/automaton,
 		ORGAN_SLOT_EYES = /obj/item/organ/eyes/automaton,
 		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,

@@ -211,7 +211,6 @@
 		for(var/obj/item/organ/I as anything in int_organs)
 			I.Insert(O, 1)
 
-
 	var/obj/item/bodypart/chest/torso = O.get_bodypart(BODY_ZONE_CHEST)
 	if(length(cavity_objects) && torso)
 		if(!torso.cavity_items)

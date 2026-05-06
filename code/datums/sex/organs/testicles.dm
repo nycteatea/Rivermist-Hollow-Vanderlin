@@ -26,7 +26,7 @@
 	visible_organ = FALSE
 	accessory_type = /datum/sprite_accessory/none
 
-/obj/item/organ/genitals/filling_organ/testicles/Insert(mob/living/M, special, drop_if_replaced)
+/obj/item/organ/genitals/filling_organ/testicles/Insert(mob/living/M, special, drop_if_replaced, new_zone = null)
 	if(M.cum)
 		reagent_to_make = M.cum
 	if(!virility)

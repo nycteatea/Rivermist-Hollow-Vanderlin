@@ -299,6 +299,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	var/obj/item/bodypart/was_bodypart = bodypart_owner
 	var/mob/living/was_owner = owner
 	LAZYREMOVE(bodypart_owner.wounds, src)
+	SEND_SIGNAL(was_bodypart, COMSIG_BODYPART_WOUND_REMOVED, src)
 	bodypart_owner = null //honestly shouldn't be nulling the owner before calling on loss procs
 	owner = null
 	on_bodypart_loss(was_bodypart, was_owner)
@@ -381,15 +382,15 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 /datum/wound/proc/on_death()
 	return
 
-/// Heals this wound by the given amount, and deletes it if it's healed completely
-/datum/wound/proc/heal_wound(heal_amount)
+/// Heals this wound by the given amount, and deletes it if it's healed completely. Extra args passed to subtypes for checks.
+/datum/wound/proc/heal_wound(heal_amount, datum/source, forced = FALSE)
 	// Wound cannot be healed normally, whp is null
 	if(isnull(whp) || !heal_amount)
 		return FALSE
 	var/amount_healed = min(whp, round(heal_amount, DAMAGE_PRECISION))
 	whp -= amount_healed
 	if(whp <= 0)
-		if(!should_persist())
+		if(!forced && !should_persist())
 			if(bodypart_owner)
 				remove_from_bodypart(src)
 			else if(owner)
@@ -710,7 +711,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	/// Multiplier that wound pain is increased by
 	var/upgrade_pain = 0
 
-/datum/wound/dynamic/heal_wound(heal_amount)
+/datum/wound/dynamic/heal_wound(heal_amount, datum/source, forced = FALSE)
 	. = ..()
 	if(!. || QDELETED(src))
 		return

@@ -62,7 +62,7 @@
 	oviposition_lay_verb = "coughs up"
 	oviposition_lay_action = "cough up"
 
-/obj/item/organ/genitals/filling_organ/Insert(mob/living/carbon/M, special, drop_if_replaced) //update size cap n shit on insert
+/obj/item/organ/genitals/filling_organ/Insert(mob/living/carbon/M, special, drop_if_replaced, new_zone = null) //update size cap n shit on insert
 	. = ..()
 	if(organ_sizeable)
 		max_reagents = storage_per_size + (storage_per_size * organ_size)

@@ -231,7 +231,7 @@ DEFINE_BITFIELD(organ_flags, list(
 
 // ~organ requirements
 /// Normally 50% of the default blood volume (230cl)
-#define DEFAULT_TOTAL_BLOOD_REQ	BLOOD_VOLUME_NORMAL * 0.33
+#define DEFAULT_TOTAL_BLOOD_REQ	BLOOD_VOLUME_NORMAL * 0.5
 #define DEFAULT_TOTAL_OXYGEN_REQ 50
 #define DEFAULT_TOTAL_NUTRIMENT_REQ	HUNGER_FACTOR
 #define DEFAULT_TOTAL_HYDRATION_REQ THIRST_FACTOR
@@ -264,7 +264,6 @@ DEFINE_BITFIELD(organ_flags, list(
 /// Maximum germ level any atom can normally achieve
 #define GERM_LEVEL_MAXIMUM 1000
 
-
 /// Germ levels for carbon mob hygiene
 #define GERM_LEVEL_START_MIN 0
 #define GERM_LEVEL_START_MAX 100
@@ -292,11 +291,11 @@ DEFINE_BITFIELD(organ_flags, list(
 /// We need to take at least this much brainloss gained at once to roll for brain traumas, any less it won't roll
 #define TRAUMA_ROLL_THRESHOLD 4.5
 /// Brainloss caused by mildly low blood oxygenation
-#define BRAIN_DAMAGE_LOW_OXYGENATION 1.1
+#define BRAIN_DAMAGE_LOW_OXYGENATION 1.5
 /// Brainloss caused by lower than low blood oxygenation
-#define BRAIN_DAMAGE_LOWER_OXYGENATION 2.2
+#define BRAIN_DAMAGE_LOWER_OXYGENATION 3
 /// Brainloss caused by a complete lack of oxygen flow
-#define BRAIN_DAMAGE_LOWEST_OXYGENATION 3.3
+#define BRAIN_DAMAGE_LOWEST_OXYGENATION 4.5
 
 // ~pulse levels, very simplified.
 #define PULSE_NONE 0   // So !M.pulse checks would be possible.

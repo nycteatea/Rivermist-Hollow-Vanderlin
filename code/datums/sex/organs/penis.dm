@@ -19,7 +19,7 @@
 /obj/item/organ/genitals/penis/Initialize()
 	. = ..()
 
-/obj/item/organ/genitals/penis/Insert(mob/living/M, special, drop_if_replaced)
+/obj/item/organ/genitals/penis/Insert(mob/living/M, special, drop_if_replaced, new_zone = null)
 	. = ..()
 	RegisterSignal(M, COMSIG_SEX_AROUSAL_CHANGED, PROC_REF(on_arousal_changed), TRUE)
 	RegisterSignal(M, COMSIG_SET_ERECT_STATE, PROC_REF(set_hard), TRUE)

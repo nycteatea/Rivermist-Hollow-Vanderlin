@@ -431,6 +431,177 @@
 	rotprocess = SHELFLIFE_EXTREME
 	faretype = FARE_NEUTRAL
 	portable = FALSE
+	item_weight = 150 GRAMS
+
+/*	.............   Grilled Sunreed   ................ */
+/obj/item/reagent_containers/food/snacks/produce/vegetable/sunreed_cooked
+	name = "grilled sunreed"
+	desc = "Sunreed cooked to soften it somewhat."
+	icon = 'icons/roguetown/items/food.dmi'
+	icon_state = "maize_cooked"
+	bitesize = 5
+	nutrition = COOKED_VEGGIE_NUTRITION
+	foodtype = VEGETABLES
+	tastes = list("softened sunreed" = 1)
+	rotprocess = SHELFLIFE_LONG
+	faretype = FARE_NEUTRAL
+	item_weight = 150 GRAMS
+
+/obj/item/reagent_containers/food/snacks/produce/vegetable/sunreed_cooked/attackby(obj/item/I, mob/living/user, list/modifiers)
+	if(modified || !is_type_in_list(I, list(
+		/obj/item/reagent_containers/food/snacks/butterslice)))
+		return ..()
+	var/obj/item/reagent_containers/food/snacks/S = I
+	short_cooktime = (50 - ((GET_MOB_SKILL_VALUE_OLD(user, /datum/attribute/skill/craft/cooking))*8))
+	playsound(user, 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
+	if(!do_after(user, short_cooktime, src, display_over_user=TRUE))
+		return FALSE
+	modified = TRUE
+	user.mind.add_sleep_experience(/datum/attribute/skill/craft/cooking, (GET_MOB_ATTRIBUTE_VALUE(user, STAT_INTELLIGENCE)*0.2))
+	user.nobles_seen_servant_work()
+	S.reagents?.trans_to(src, S.reagents.total_volume)
+	LAZYADDASSOC(bonus_reagents, /datum/reagent/consumable/nutriment, S.nutrition * 0.75)
+	LAZYADDASSOC(bonus_reagents, /datum/reagent/consumable/nutriment/vitamin, S.nutrition * 0.25)
+	tastes |= S.tastes
+	desc = "[desc] Butter melts over the top."
+	name = "buttered [name]"
+	add_overlay("maize_buttered")
+	qdel(I)
+	return ..()
+
+/*	.............   Cocaumole   ................ */
+
+/obj/item/reagent_containers/food/snacks/cocaumole
+	name = "cocaumole"
+	icon_state = "cocaumole"
+	desc = "The delicious gooey inside of a cocaudo. Makes for great topping."
+	bitesize = 3
+	slices_num = 3
+	slice_batch = TRUE
+	slice_sound = TRUE
+	slice_path = /obj/item/reagent_containers/food/snacks/cocaumole/slice
+	nutrition = COOKED_VEGGIE_NUTRITION
+	foodtype = VEGETABLES
+	tastes = list("savory goo" = 1)
+	rotprocess = SHELFLIFE_DECENT
+	faretype = FARE_NEUTRAL
+	portable = FALSE
+	item_weight = 300 GRAMS
+
+/obj/item/reagent_containers/food/snacks/cocaumole/slice
+	name = "cocaumole slice"
+	icon_state = "cocaumole_slice"
+	bitesize = 1
+	slices_num = null
+	slice_batch = FALSE
+	slice_path = null
+	nutrition = COOKED_VEGGIE_NUTRITION/3
+	item_weight = 100 GRAMS
+
+/*	.............   Drowsbane Jam   ................ */
+
+/obj/item/reagent_containers/food/snacks/drowsbanejam
+	name = "drowsbane jam"
+	icon_state = "salsa"
+	desc = "A tantalizingly spicy jam. Incredibly toxic to dark-elves."
+	bitesize = 3
+	slices_num = 3
+	slice_batch = TRUE
+	slice_sound = TRUE
+	slice_path = /obj/item/reagent_containers/food/snacks/drowsbanejam/slice
+	nutrition = COOKED_VEGGIE_NUTRITION
+	foodtype = VEGETABLES
+	tastes = list("infernal spice" = 1)
+	rotprocess = SHELFLIFE_DECENT
+	faretype = FARE_NEUTRAL
+	portable = FALSE
+	list_reagents = list(/datum/reagent/drowsbane = 10)
+	item_weight = 200 GRAMS
+
+/obj/item/reagent_containers/food/snacks/drowsbanejam/slice
+	name = "drowsbane jam slice"
+	icon_state = "salsa_slice"
+	bitesize = 1
+	slices_num = 0
+	slice_batch = FALSE
+	nutrition = COOKED_VEGGIE_NUTRITION/3
+	item_weight = 70 GRAMS
+
+/*	.............   Baked Pompkaun  ................ */
+/obj/item/reagent_containers/food/snacks/fruit/pompkaun_goo/cooked
+	name = "baked pompkaun goo"
+	desc = "Mixed pompkaun goo and seeds, baked to perfection."
+	icon = 'icons/roguetown/items/food.dmi'
+	icon_state = "pompkaun_cooked"
+	bitesize = 3
+	nutrition = (FRUIT_NUTRITION) * COOK_MOD
+	foodtype = FRUIT
+	tastes = list("sweet pompkaun goo" = 1)
+	rotprocess = SHELFLIFE_DECENT
+	faretype = FARE_NEUTRAL
+	portable = FALSE
+	item_weight = 200 GRAMS
+
+/*-------\
+| Salads |
+\-------*/
+
+/obj/item/reagent_containers/food/snacks/salad
+	name = "salad"
+	desc = "Cut fresh vegetables, loved by peasants and health-conscious nobles alike."
+	icon = 'icons/roguetown/items/cooking.dmi' //This is so it can grab bowl sprites. Salad sprites are stored there also. Check bowl code in NeuFood.dm for details.
+	icon_state = ""
+	bitesize = 5
+	dropshrink = 0.8
+	nutrition = (VEGGIE_NUTRITION) * COOK_MOD
+	foodtype = VEGETABLES
+	trash = /obj/item/reagent_containers/glass/bowl
+	tastes = list("fresh cabbage" = 1)
+	rotprocess = null
+	faretype = FARE_NEUTRAL
+	portable = FALSE
+	item_weight = 250 GRAMS
+
+/obj/item/reagent_containers/food/snacks/salad/attackby(obj/item/I, mob/living/user, list/modifiers)
+	if(modified || !is_type_in_list(I, list(
+		/obj/item/reagent_containers/food/snacks/onion_fried,
+		/obj/item/reagent_containers/food/snacks/produce/vegetable/potato/fried,
+		/obj/item/reagent_containers/food/snacks/cooked/frysteak,
+		/obj/item/reagent_containers/food/snacks/produce/vegetable/sunreed_cooked)))
+		return ..()
+	var/obj/item/reagent_containers/food/snacks/S = I
+	short_cooktime = (50 - ((GET_MOB_SKILL_VALUE_OLD(user, /datum/attribute/skill/craft/cooking))*8))
+	playsound(user, 'sound/foley/chopping_block.ogg', 40, TRUE, -1)
+	if(!do_after(user, short_cooktime, src, display_over_user=TRUE))
+		return FALSE
+	modified = TRUE
+	user.mind.add_sleep_experience(/datum/attribute/skill/craft/cooking, (GET_MOB_ATTRIBUTE_VALUE(user, STAT_INTELLIGENCE)*0.5))
+	user.nobles_seen_servant_work()
+	S.reagents?.trans_to(src, S.reagents.total_volume)
+	LAZYADDASSOC(bonus_reagents, /datum/reagent/consumable/nutriment, S.nutrition * 0.75)
+	LAZYADDASSOC(bonus_reagents, /datum/reagent/consumable/nutriment/vitamin, S.nutrition * 0.25)
+	tastes |= S.tastes
+	foodtype |= S.foodtype
+	faretype++
+
+	if(istype(I, /obj/item/reagent_containers/food/snacks/onion_fried))
+		name = "[name] with onions"
+		desc = "[desc] Fried onions have been minced overtop."
+		add_overlay("onion_salad")
+	else if(istype(I, /obj/item/reagent_containers/food/snacks/produce/vegetable/potato/fried))
+		name = "[name] with potatoes"
+		desc = "[desc] Fried potato wedges have been placed overtop."
+		add_overlay("potato_salad")
+	else if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/frysteak))
+		name = "[name] with meat"
+		desc = "[desc] Perhaps counterintuitively, frysteak has been chopped overtop."
+		add_overlay("meat_salad")
+	else if(istype(I, /obj/item/reagent_containers/food/snacks/produce/vegetable/sunreed_cooked)) //Of note, in cooking.dmi I have stored overlays for greyscaled fruit and dressing. I've been coding this food so long, that I can't be bothered to add them. But YOU can. Credit for 7erracotta for the sprites.
+		name = "[name] with sunreed"
+		desc = "[desc] Crunchy sunreed has been scatered overtop."
+		add_overlay("corn_salad")
+	qdel(I)
+	return ..()
 
 /*---------------\
 | Chicken meals |

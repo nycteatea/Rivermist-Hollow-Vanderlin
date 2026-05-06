@@ -16,6 +16,16 @@
 /mob/proc/getorganslot(slot)
 	return
 
+
+/**
+ * Get a list of organ objects from the mob matching the passed in typepath
+ *
+ * Arguments:
+ * * typepath The typepath of the organ to get
+ */
+/mob/proc/getorganlist(typepath)
+	return
+
 /**
  * Get all organs relating to a specific slot
  *

@@ -95,9 +95,11 @@
 	qdel(table)
 	return new_node
 
-/mob/living/proc/create_chimeric_node()
+/mob/living/proc/create_chimeric_node(moves = TRUE)
 	var/obj/item/chimeric_node/new_node = generate_chimeric_node_from_mob()
-	new_node.forceMove(get_turf(src))
+	if(moves)
+		new_node.forceMove(get_turf(src))
+	return new_node
 
 /datum/chimeric_table/proc/get_likelihood_text(weight)
 	if(weight <= 0)

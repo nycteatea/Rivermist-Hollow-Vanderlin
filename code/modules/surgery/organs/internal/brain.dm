@@ -20,13 +20,21 @@
 	organ_flags = ORGAN_VITAL
 	attack_verb = list("attacked", "slapped", "whacked")
 
-	///The brain's organ variables are significantly more different than the other organs, with half the decay rate for balance reasons, and twice the maxHealth
-	decay_factor = STANDARD_ORGAN_DECAY	/ 2		//30 minutes of decaying to result in a fully damaged brain, since a fast decay rate would be unfun gameplay-wise
+	maxHealth = BRAIN_DAMAGE_DEATH
+	healing_factor = BRAIN_DAMAGE_DEATH/200
+	low_threshold = BRAIN_DAMAGE_DEATH * 0.25
+	high_threshold = BRAIN_DAMAGE_DEATH * 0.75
 
-	maxHealth	= BRAIN_DAMAGE_DEATH
-	low_threshold = 45
-	high_threshold = 120
+	// the volume shouldn't worry you, the chest is full of organs - also getting shot in the heart sucks
+	organ_volume = 0.5
+	max_blood_storage = 100
+	current_blood = 100
+	blood_req = 5
+	oxygen_req = 5
+	nutriment_req = 5
+	hydration_req = 2.5
 
+	/// This is stuff
 	var/damage_threshold_value = BRAIN_DAMAGE_DEATH / 10
 	var/suicided = FALSE
 	var/mob/living/brain/brainmob = null
@@ -35,10 +43,9 @@
 	//two variables necessary for calculating whether we get a brain trauma or not
 	var/damage_delta = 0
 
-
 	var/list/datum/brain_trauma/traumas = list()
 
-/obj/item/organ/brain/Insert(mob/living/carbon/C, special = FALSE, drop_if_replaced = FALSE, no_id_transfer = FALSE)
+/obj/item/organ/brain/Insert(mob/living/carbon/C, special = FALSE, drop_if_replaced = FALSE, new_zone = null, no_id_transfer = FALSE)
 	. = ..()
 
 	name = "brain"
@@ -200,7 +207,7 @@
 	return TRUE
 
 /obj/item/organ/brain/prepare_eat(mob/living/carbon/human/H)
-	if( HAS_TRAIT(H, TRAIT_ROTMAN))//braaaaaains... otherwise, too important to eat.
+	if(HAS_TRAIT(H, TRAIT_ROTMAN))//braaaaaains... otherwise, too important to eat.
 		return ..()
 	return FALSE
 
@@ -221,32 +228,6 @@
 		C.dna.copy_dna(brainmob.stored_dna)
 	if(L.mind?.current)
 		L.mind.transfer_to(brainmob)
-//	to_chat(brainmob, "<span class='notice'>I feel slightly disoriented. That's normal when you're just a brain.</span>")
-
-/obj/item/organ/brain/attackby(obj/item/O, mob/user, list/modifiers)
-	user.changeNext_move(CLICK_CD_MELEE)
-
-	if((organ_flags & ORGAN_FAILING) && O.is_drainable()) //attempt to heal the brain
-		. = TRUE //don't do attack animation.
-		if(brain_death || brainmob?.health <= HEALTH_THRESHOLD_DEAD) //if the brain is fucked anyway, do nothing
-			to_chat(user, "<span class='warning'>[src] is far too damaged, there's nothing else we can do for it!</span>")
-			return
-
-		user.visible_message("<span class='notice'>[user] starts to pour the contents of [O] onto [src].</span>", "<span class='notice'>I start to slowly pour the contents of [O] onto [src].</span>")
-		if(!do_after(user, 6 SECONDS, src, (IGNORE_HELD_ITEM)))
-			to_chat(user, "<span class='warning'>I failed to pour [O] onto [src]!</span>")
-			return
-
-		user.visible_message("<span class='notice'>[user] pours the contents of [O] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink.</span>", "<span class='notice'>I pour the contents of [O] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink.</span>")
-		setOrganDamage(damage - (0.05 * maxHealth))	//heals a small amount, and by using "setorgandamage", we clear the failing variable if that was up
-		O.reagents.clear_reagents()
-		return
-
-	if(brainmob) //if we aren't trying to heal the brain, pass the attack onto the brainmob.
-		O.attack(brainmob, user) //Oh noooeeeee
-
-	if(O.force != 0 && !(O.item_flags & NOBLUDGEON))
-		setOrganDamage(maxHealth) //fails the brain as the brain was attacked, they're pretty fragile.
 
 /obj/item/organ/brain/examine(mob/user)
 	. = ..()
@@ -289,8 +270,6 @@
 		to_chat(user, "<span class='warning'>You're going to need to remove [C.p_their()] head cover first!</span>")
 		return
 
-//since these people will be dead M != usr
-
 	if(!target_has_brain)
 		if(!C.get_bodypart(BODY_ZONE_HEAD) || !user.temporarilyRemoveItemFromInventory(src))
 			return
@@ -305,13 +284,13 @@
 			to_chat(C, "<span class='notice'>[user] inserts [src] into your head.</span>")
 			to_chat(user, "<span class='notice'>I insert [src] into [C]'s head.</span>")
 		else
-			to_chat(user, "<span class='notice'>I insert [src] into your head.</span>"	)
+			to_chat(user, "<span class='notice'>I insert [src] into your head.</span>")
 
 		Insert(C)
 	else
 		..()
 
-/obj/item/organ/brain/Destroy() //copypasted from MMIs.
+/obj/item/organ/brain/Destroy()
 	if(brainmob)
 		QDEL_NULL(brainmob)
 	QDEL_LIST(traumas)
@@ -326,39 +305,40 @@
 
 /obj/item/organ/brain/check_damage_thresholds(mob/M)
 	. = ..()
-	//if we're not more injured than before, return without gambling for a trauma
+	// if we're not more injured than before, return without gambling for a trauma
 	if(damage <= prev_damage)
 		return
-	damage_delta = damage - prev_damage
-	if(damage > BRAIN_DAMAGE_MILD)
-		if(prob(damage_delta * (1 + max(0, (damage - BRAIN_DAMAGE_MILD)/100)))) //Base chance is the hit damage; for every point of damage past the threshold the chance is increased by 1% //learn how to do your bloody math properly goddamnit
-			gain_trauma_type(BRAIN_TRAUMA_MILD)
-	if(damage > BRAIN_DAMAGE_SEVERE)
-		if(prob(damage_delta * (1 + max(0, (damage - BRAIN_DAMAGE_SEVERE)/100)))) //Base chance is the hit damage; for every point of damage past the threshold the chance is increased by 1%
-			if(prob(20))
-				gain_trauma_type(BRAIN_TRAUMA_SPECIAL)
-			else
-				gain_trauma_type(BRAIN_TRAUMA_SEVERE)
-
-	if (owner)
-		if(owner.stat < UNCONSCIOUS) //conscious or soft-crit
-			var/brain_message
-			if(prev_damage < BRAIN_DAMAGE_MILD && damage >= BRAIN_DAMAGE_MILD)
-				brain_message = "<span class='warning'>I feel lightheaded.</span>"
-			else if(prev_damage < BRAIN_DAMAGE_SEVERE && damage >= BRAIN_DAMAGE_SEVERE)
-				brain_message = "<span class='warning'>I feel less in control of your thoughts.</span>"
-			else if(prev_damage < (BRAIN_DAMAGE_DEATH - 20) && damage >= (BRAIN_DAMAGE_DEATH - 20))
-				brain_message = "<span class='warning'>I can feel your mind flickering on and off...</span>"
-
-			if(.)
-				. += "\n[brain_message]"
-			else
-				return brain_message
-
-/obj/item/organ/brain/alien
-	name = "alien brain"
-	desc = ""
-	icon_state = "brain-x"
+	var/damage_delta = damage - prev_damage
+	// Safeguard to prevent traumas from low damage
+	if((damage_delta >= TRAUMA_ROLL_THRESHOLD) && (damage >= BRAIN_DAMAGE_MILD))
+		var/is_boosted = FALSE
+		var/intelligence_modifier = (owner ? -(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_INTELLIGENCE)-ATTRIBUTE_MIDDLING) : 0)
+		if(damage >= BRAIN_DAMAGE_SEVERE)
+			// Base chance is the hit damage, plus intelligence mod; for every point of damage past the threshold the chance is increased by 1%
+			if(prob((damage_delta+intelligence_modifier) * (1 + max(0, (damage - BRAIN_DAMAGE_SEVERE)/100))))
+				if(prob(20 + (is_boosted * 30) - (intelligence_modifier * 2)))
+					gain_trauma_type(BRAIN_TRAUMA_SPECIAL, is_boosted ? TRAUMA_RESILIENCE_SURGERY : null, natural_gain = TRUE)
+				else
+					gain_trauma_type(BRAIN_TRAUMA_SEVERE, natural_gain = TRUE)
+		else
+			// Base chance is the hit damage, plus intelligence mod; for every point of damage past the threshold the chance is increased by 1%
+			if(prob((damage_delta+intelligence_modifier) * (1 + max(0, (damage - BRAIN_DAMAGE_MILD)/100))))
+				gain_trauma_type(BRAIN_TRAUMA_MILD, natural_gain = TRUE)
+	if(owner)
+		if(damage >= BRAIN_DAMAGE_DEATH && prev_damage < BRAIN_DAMAGE_DEATH && (organ_flags & ORGAN_VITAL))
+			owner.death()
+			return
+		var/brain_message
+		if(prev_damage < BRAIN_DAMAGE_MILD && damage >= BRAIN_DAMAGE_MILD)
+			brain_message = span_warning("I feel lightheaded.")
+		else if(prev_damage < BRAIN_DAMAGE_SEVERE && damage >= BRAIN_DAMAGE_SEVERE)
+			brain_message = span_warning("I feel less in control of my thoughts.")
+		else if(prev_damage < (BRAIN_DAMAGE_DEATH - 20) && damage >= (BRAIN_DAMAGE_DEATH - 20) && damage < BRAIN_DAMAGE_DEATH)
+			brain_message = span_warning("I can feel my mind flickering on and off...")
+		if(.)
+			. += "\n[brain_message]"
+		else
+			return brain_message
 
 /obj/item/organ/brain/can_heal(delta_time, times_fired)
 	. = TRUE
@@ -439,7 +419,7 @@
 		if(istype(BT, brain_trauma_type) && (BT.resilience <= resilience))
 			. += BT
 
-/obj/item/organ/brain/proc/can_gain_trauma(datum/brain_trauma/trauma, resilience)
+/obj/item/organ/brain/proc/can_gain_trauma(datum/brain_trauma/trauma, resilience, natural_gain = FALSE)
 	if(!ispath(trauma))
 		trauma = trauma.type
 	if(!initial(trauma.can_gain))
@@ -451,8 +431,8 @@
 	for(var/X in traumas)
 		if(istype(X, trauma))
 			return FALSE
-		var/datum/brain_trauma/T = X
-		if(resilience == T.resilience)
+		var/datum/brain_trauma/existing_trauma = X
+		if(resilience == existing_trauma.resilience)
 			resilience_tier_count++
 
 	var/max_traumas
@@ -461,6 +441,8 @@
 			max_traumas = TRAUMA_LIMIT_BASIC
 		if(TRAUMA_RESILIENCE_SURGERY)
 			max_traumas = TRAUMA_LIMIT_SURGERY
+		if(TRAUMA_RESILIENCE_WOUND)
+			max_traumas = TRAUMA_LIMIT_WOUND
 		if(TRAUMA_RESILIENCE_LOBOTOMY)
 			max_traumas = TRAUMA_LIMIT_LOBOTOMY
 		if(TRAUMA_RESILIENCE_MAGIC)
@@ -468,18 +450,16 @@
 		if(TRAUMA_RESILIENCE_ABSOLUTE)
 			max_traumas = TRAUMA_LIMIT_ABSOLUTE
 
-	if(resilience_tier_count >= max_traumas)
+	if(natural_gain && resilience_tier_count >= max_traumas)
 		return FALSE
 	return TRUE
 
-//Proc to use when directly adding a trauma to the brain, so extra args can be given
 /obj/item/organ/brain/proc/gain_trauma(datum/brain_trauma/trauma, resilience, ...)
 	var/list/arguments = list()
 	if(args.len > 2)
 		arguments = args.Copy(3)
 	. = brain_gain_trauma(trauma, resilience, arguments)
 
-//Direct trauma gaining proc. Necessary to assign a trauma to its brain. Avoid using directly.
 /obj/item/organ/brain/proc/brain_gain_trauma(datum/brain_trauma/trauma, resilience, list/arguments)
 	if(!can_gain_trauma(trauma, resilience))
 		return
@@ -487,7 +467,7 @@
 	var/datum/brain_trauma/actual_trauma
 	if(ispath(trauma))
 		if(!LAZYLEN(arguments))
-			actual_trauma = new trauma() //arglist with an empty list runtimes for some reason
+			actual_trauma = new trauma()
 		else
 			actual_trauma = new trauma(arglist(arguments))
 	else
@@ -507,20 +487,20 @@
 	. = actual_trauma
 	SSblackbox.record_feedback("tally", "traumas", 1, actual_trauma.type)
 
-//Add a random trauma of a certain subtype
-/obj/item/organ/brain/proc/gain_trauma_type(brain_trauma_type = /datum/brain_trauma, resilience)
+/obj/item/organ/brain/proc/gain_trauma_type(brain_trauma_type = /datum/brain_trauma, resilience, natural_gain = FALSE)
 	var/list/datum/brain_trauma/possible_traumas = list()
-	for(var/datum/brain_trauma/BT as anything in subtypesof(brain_trauma_type))
-		if(can_gain_trauma(BT, resilience) && initial(BT.random_gain))
-			possible_traumas += BT
+	for(var/trauma_type in subtypesof(brain_trauma_type))
+		var/datum/brain_trauma/brain_trauma = trauma_type
+		if(can_gain_trauma(brain_trauma, resilience, natural_gain) && initial(brain_trauma.random_gain))
+			possible_traumas += brain_trauma
 
 	if(!LAZYLEN(possible_traumas))
 		return
 
 	var/trauma_type = pick(possible_traumas)
-	gain_trauma(trauma_type, resilience)
+	return gain_trauma(trauma_type, resilience)
 
-//Cure a random trauma of a certain resilience level
+
 /obj/item/organ/brain/proc/cure_trauma_type(brain_trauma_type = /datum/brain_trauma, resilience = TRAUMA_RESILIENCE_BASIC)
 	var/list/traumas = get_traumas_type(brain_trauma_type, resilience)
 	if(LAZYLEN(traumas))
@@ -531,25 +511,10 @@
 	for(var/X in traumas)
 		qdel(X)
 
-/obj/item/organ/brain/applyOrganDamage(d, maximum)
-	. = ..()
-	if(!owner)
-		return
-	if(damage >= 60)
-		owner.add_stress(/datum/stress_event/brain_damage)
-	else
-		owner.remove_stress(/datum/stress_event/brain_damage)
-
-/obj/item/organ/brain/before_organ_replacement(obj/item/organ/replacement)
-	. = ..()
-	var/obj/item/organ/brain/replacement_brain = replacement
-	if(!istype(replacement_brain))
-		return
-
-	// Transfer over traumas as well
-	for(var/datum/brain_trauma/trauma as anything in traumas)
-		cure_trauma_type(trauma)
-		replacement_brain.gain_trauma_type(trauma)
+/obj/item/organ/brain/alien
+	name = "alien brain"
+	desc = ""
+	icon_state = "brain-x"
 
 /obj/item/organ/brain/smooth
 	icon_state = "brain-smooth"

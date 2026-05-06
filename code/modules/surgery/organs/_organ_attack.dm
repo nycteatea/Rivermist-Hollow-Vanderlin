@@ -129,7 +129,8 @@
 	if(!germ_level)
 		to_chat(user, span_notice("\The [src] is free of miasma."))
 		return
-	owner.custom_pain("OH GOD! My [src] is being STABBED!", 30, FALSE, owner.get_bodypart(current_zone))
+	if(owner)
+		owner.custom_pain("OH GOD! My [src] is being STABBED!", 30, FALSE, owner.get_bodypart(current_zone))
 
 	var/time = 6 SECONDS
 	time *= (SKILL_MIDDLING/max(GET_MOB_SKILL_VALUE(user, /datum/attribute/skill/misc/medicine), 1))

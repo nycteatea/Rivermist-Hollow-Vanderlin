@@ -1,25 +1,16 @@
 /datum/wound/artery
-	name = "severed artery"
-	check_name = "<span class='artery'><B>ARTERY</B></span>"
-	severity = WOUND_SEVERITY_CRITICAL
-	crit_message = "Blood sprays from %VICTIM's %BODYPART!"
-	sound_effect = 'sound/combat/crit.ogg'
-	whp = 50
-	sewn_whp = 20
-	bleed_rate = ARTERY_LIMB_BLEEDRATE
-	sewn_bleed_rate = 0.2
-	clotting_threshold = null
-	sewn_clotting_threshold = null
-	woundpain = 35
-	sewn_woundpain = 20
-	mob_overlay = "s1"
-	sewn_overlay = "cut"
+	name = "Torn Artery"
+	sound_effect = list('sound/gore/artery1.ogg', \
+						'sound/gore/artery2.ogg', \
+						'sound/gore/artery3.ogg')
+	severity = WOUND_SEVERITY_SEVERE
+	critical = TRUE
+	mortal = FALSE
 	can_sew = TRUE
 	can_cauterize = TRUE
-	critical = TRUE
-	sleep_healing = 0
 	embed_chance = 0
 	werewolf_infection_probability = 0
+	sleep_healing = 0
 	associated_bclasses = ARTERY_BCLASSES
 	min_damage = 5
 	min_damage_dividend = 0
@@ -45,16 +36,6 @@
 	if(istype(other, /datum/wound/artery) && (type == other.type))
 		return FALSE
 	return TRUE
-
-/datum/wound/artery/on_mob_gain(mob/living/affected)
-	. = ..()
-	affected.emote("paincrit", TRUE)
-	affected.Slowdown(20)
-	shake_camera(affected, 2, 2)
-
-/datum/wound/artery/on_bodypart_gain(obj/item/bodypart/affected)
-	. = ..()
-	affected.temporary_crit_paralysis(10 SECONDS)
 
 /datum/wound/artery/apply_to_bodypart(obj/item/bodypart/affected, silent, crit_message)
 	. = ..()

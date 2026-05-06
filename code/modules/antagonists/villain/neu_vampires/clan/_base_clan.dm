@@ -27,6 +27,7 @@ And it also helps for the character set panel
 
 	/// List of traits that are applied to members of this Clan
 	var/list/clane_traits = list(
+		TRAIT_BLOODDRINKER,
 		TRAIT_STRONGBITE,
 		TRAIT_NOENERGY,
 		TRAIT_NOHUNGER,

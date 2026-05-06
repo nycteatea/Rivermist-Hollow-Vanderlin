@@ -648,7 +648,6 @@
 
 	return interactable_items
 
-
 /**
  * returns the efficiency for a specific organ slot
  *

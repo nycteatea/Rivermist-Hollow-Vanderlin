@@ -30,10 +30,9 @@
 /datum/component/abberant_eater/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOB_ITEM_ATTACK, PROC_REF(try_eat))
 	RegisterSignal(parent, COMSIG_LIVING_POSTBITE_SELF, PROC_REF(eat_turf))
-	RegisterSignal(parent, COMSIG_LIVING_DISEMBOWELED, PROC_REF(drop_eaten_shit))
 
 /datum/component/abberant_eater/UnregisterFromParent()
-	UnregisterSignal(parent, list(COMSIG_MOB_ITEM_ATTACK, COMSIG_LIVING_POSTBITE_SELF, COMSIG_LIVING_DISEMBOWELED))
+	UnregisterSignal(parent, list(COMSIG_MOB_ITEM_ATTACK, COMSIG_LIVING_POSTBITE_SELF))
 
 /datum/component/abberant_eater/proc/try_eat(mob/living/user, mob/living/M, obj/item/source)
 	if(user.cmode)
@@ -64,8 +63,11 @@
 	SEND_SIGNAL(user, COMSIG_MOB_FOOD_EAT, source)
 	source.on_consume(user)
 	if(keeps_items)
-		source.forceMove(user)
-		eaten_shit |= source
+		var/mob/living/carbon/human/human = parent
+		var/obj/item/bodypart/bodypart_affected = human.get_bodypart(BODY_ZONE_CHEST)
+		if(bodypart_affected)
+			source.forceMove(bodypart_affected)
+			LAZYADD(bodypart_affected.cavity_items, source)
 	else
 		qdel(source)
 

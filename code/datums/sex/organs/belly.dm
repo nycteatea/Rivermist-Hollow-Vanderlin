@@ -13,7 +13,7 @@
 	. = ..()
 	resting_size = organ_size
 
-/obj/item/organ/genitals/belly/Insert(mob/living/M, special, drop_if_replaced)
+/obj/item/organ/genitals/belly/Insert(mob/living/M, special, drop_if_replaced, new_zone = null)
 	. = ..()
 	resting_size = CLAMP(organ_size, MIN_BELLY_SIZE, MAX_BELLY_SIZE)
 	if(!GetComponent(/datum/component/belly_fullness))

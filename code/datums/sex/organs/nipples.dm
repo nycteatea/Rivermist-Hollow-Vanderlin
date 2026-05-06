@@ -4,7 +4,7 @@
     zone = BODY_ZONE_CHEST
     altnames = list("nip", "bud", "nipple") //used in thought messages.
 
-/obj/item/organ/genitals/nipple/Insert(mob/living/M, special, drop_if_replaced)
+/obj/item/organ/genitals/nipple/Insert(mob/living/M, special, drop_if_replaced, new_zone = null)
 	. = ..()
 	add_bodystorage(M, null, /datum/component/body_storage/nipple)
 

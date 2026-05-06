@@ -44,6 +44,9 @@
 		TRAIT_ZOMBIE_IMMUNE,
 		TRAIT_ROTMAN,
 		TRAIT_CABAL,
+		TRAIT_BLOODDRINKER,
+		TRAIT_NASTY_EATER,
+		TRAIT_NOMETABOLISM,
 	)
 	/// Traits applied to the owner when we are cured and turn into just "rotmen"
 	var/static/list/traits_rotman = list(
@@ -55,6 +58,7 @@
 		TRAIT_TOXIMMUNE,
 		TRAIT_ZOMBIE_IMMUNE,
 		TRAIT_ROTMAN,
+		TRAIT_NASTY_EATER,
 	)
 	var/mutable_appearance/rotflies
 
@@ -234,6 +238,7 @@
 	zombie.modifier_set_stat_to("[type]", STAT_CONSTITUTION, 15)
 
 	zombie.bloodpool = 0 // Again, just in case.
+	zombie.adjustOrganLoss(ORGAN_SLOT_BRAIN, -200)
 
 	zombie.ghostize()
 

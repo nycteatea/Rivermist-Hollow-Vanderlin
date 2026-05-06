@@ -233,35 +233,32 @@
 	reagent_state = LIQUID
 	color = "#000067"
 
-/datum/reagent/sleep_potion/on_mob_life(mob/living/carbon/human/C)
+/datum/reagent/sleep_potion/on_mob_life(mob/living/carbon/human/C, efficiency)
+	. = ..()
 	switch(current_cycle)
-		if(0 to 5)
-			current_cycle++
+		if(1 to 6)
 			return
 
-		if(6)
-			current_cycle++
+		if(7)
 			to_chat(C, span_warning("You feel overwhelmingly sleepy."))
 			C.apply_status_effect(/datum/status_effect/debuff/sleepytime)
 			C.emote("yawn", forced = TRUE)
 			return
 
-		if(7 to 15)
-			current_cycle++
+		if(8 to 16)
 			C.set_eye_blur(10)
 
-			if(prob(10))
+			if(prob(10 * efficiency))
 				C.emote("yawn", forced = TRUE)
 
 			return
 
-		if(16)
-			current_cycle++
+		if(17)
 			to_chat(C, span_notice("Your eyes finally close as sleep takes you."))
 			C.Sleeping(600)
 			return
 
-		if(17 to INFINITY)
+		if(18 to INFINITY)
 			return
 
 /datum/alch_cauldron_recipe/sleep_potion
@@ -292,7 +289,8 @@
     reagent_state = LIQUID
     color = "#6a00ffc6"
 
-/datum/reagent/destroy_clothes/on_mob_life(mob/living/carbon/human/C)
+/datum/reagent/destroy_clothes/on_mob_life(mob/living/carbon/human/C, efficiency)
+    . = ..()
     if(!C)
         return
 
@@ -408,31 +406,28 @@
     reagent_state = LIQUID
     color = "#B0B0B0CC"
 
-/datum/reagent/paralyze_potion/on_mob_life(mob/living/carbon/human/C)
+/datum/reagent/paralyze_potion/on_mob_life(mob/living/carbon/human/C, efficiency)
+    . = ..()
     switch(current_cycle)
-        if(0 to 4)
-            current_cycle++
+        if(1 to 5)
             return
 
-        if(5)
-            current_cycle++
+        if(6)
             to_chat(C, span_warning("Your muscles begin to stiffen!"))
             return
 
-        if(6 to 10)
-            current_cycle++
-            if(prob(30))
+        if(7 to 11)
+            if(prob(30 * efficiency))
                 C.emote("tremble", forced = TRUE)
             return
 
-        if(11)
-            current_cycle++
+        if(12)
             var/paralyze_duration = pick(600, 900)
             C.Paralyze(paralyze_duration)
             to_chat(C, span_warning("You are completely paralyzed!"))
             return
 
-        if(12 to INFINITY)
+        if(13 to INFINITY)
             return
 
 /obj/item/reagent_containers/glass/bottle/vial/paralyze_potion

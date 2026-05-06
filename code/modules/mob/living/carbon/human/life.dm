@@ -72,8 +72,6 @@
 					if(part)
 						part.create_injury(WOUND_SLASH, 5, TRUE)
 					adjustToxLoss(10)
-		handle_heart()
-		handle_liver()
 		update_stamina()
 		update_energy()
 		handle_environment()
@@ -426,18 +424,6 @@
 		if(CH.clothing_flags & BLOCK_GAS_SMOKE_EFFECT)
 			return TRUE
 	return ..()
-
-/mob/living/carbon/human/proc/handle_heart()
-	var/we_breath = !HAS_TRAIT_FROM(src, TRAIT_NOBREATH, SPECIES_TRAIT)
-
-	if(!undergoing_cardiac_arrest())
-		return
-
-	if(we_breath)
-		adjustOxyLoss(8)
-		Unconscious(80)
-	// Tissues die without blood circulation
-	adjustBruteLoss(2)
 
 /mob/living/carbon/human/proc/handle_vamp_dreams()
 	if(!HAS_TRAIT(src, TRAIT_VAMP_DREAMS))

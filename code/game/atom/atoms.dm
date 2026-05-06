@@ -903,8 +903,9 @@
 /atom/proc/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)
 	germ_level = clamp(germ_level + add_germs, minimum_germs, maximum_germs)
 
+/// Force set the germ level
 /atom/proc/set_germ_level(germs)
-	var/delta = germs - germ_level
+	var/delta = (germs - germ_level)
 	return adjust_germ_level(delta)
 
 ///Resets the atom's color to null, and then sets it to the highest priority colour available

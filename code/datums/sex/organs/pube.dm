@@ -5,7 +5,7 @@
 	name = "pube"
 	altnames = list("pelvis", "pubes") //used in thought messages.
 
-/obj/item/organ/genitals/pubes/Insert(mob/living/M, special, drop_if_replaced)
+/obj/item/organ/genitals/pubes/Insert(mob/living/M, special, drop_if_replaced, new_zone = null)
 	. = ..()
 	add_bodystorage(M, null, /datum/component/body_storage/pubes)
 

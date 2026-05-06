@@ -28,7 +28,8 @@
 		BODY_ZONE_R_LEG,
 		BODY_ZONE_HEAD,
 	)
-	time = 3 SECONDS
+	minimum_time = 2 SECONDS
+	maximum_time = 4 SECONDS
 	requires_bodypart = FALSE //need a missing limb
 	requires_missing_bodypart = TRUE
 	requires_bodypart_type = NONE
@@ -127,7 +128,8 @@
 		BODY_ZONE_R_LEG,
 		BODY_ZONE_L_LEG,
 	)
-	time = 15 SECONDS
+	minimum_time = 14 SECONDS
+	maximum_time = 18 SECONDS
 	requires_bodypart = TRUE
 	requires_bodypart_type = BODYPART_ROBOTIC
 	skill_min = SKILL_LEVEL_NOVICE
@@ -157,7 +159,8 @@
 		/obj/item/bodypart/taur = 80,
 	)
 	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
-	time = 3 SECONDS
+	minimum_time = 2 SECONDS
+	maximum_time = 4 SECONDS
 	requires_bodypart = FALSE
 	requires_missing_bodypart = FALSE
 	requires_bodypart_type = NONE
