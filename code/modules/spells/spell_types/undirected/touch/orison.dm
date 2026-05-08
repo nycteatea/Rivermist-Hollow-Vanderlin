@@ -180,7 +180,7 @@
 /datum/action/cooldown/spell/undirected/touch/orison/proc/handle_xp(mob/living/carbon/human/user, base_xp)
 	if(user && associated_skill)
 		var/skill_level = GET_MOB_SKILL_VALUE_OLD(user, associated_skill)
-		if(skill_level <= SKILL_LEVEL_EXPERT)
+		if(skill_level <= SKILL_RANK_EXPERT)
 			adjust_experience(user, associated_skill, base_xp)
 
 /datum/action/cooldown/spell/undirected/touch/orison/lesser

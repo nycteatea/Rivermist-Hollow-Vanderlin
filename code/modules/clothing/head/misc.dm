@@ -57,7 +57,7 @@
 	desc = "A traditional monk's headband, for those disciples who prefer the sweat out of their eyes."
 	icon_state = "headband"
 	color = "#48443b"
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/misc/sewing/mending
 	resistance_flags = FIRE_PROOF
 	armor = ARMOR_HEAD_PSYDON //Higher-tier protection for pugilist-centric classes. Fits the 'glass cannon' style, and prevents instant death through a glancing headshot on the intended archetype.
 	blade_dulling = DULLING_BASHCHOP
@@ -122,7 +122,7 @@
 	armor = list("blunt" = 16, "slash" = 19, "stab" = 15,  "piercing" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_TWIST)
 	anvilrepair = null
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/craft/tanning/patching
 	blocksound = SOFTHIT
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide
@@ -370,8 +370,8 @@
 	body_parts_covered = HEAD_NECK
 	prevent_crits = ALL_EXCEPT_BLUNT
 	block2add = FOV_BEHIND
-	anvilrepair = /datum/attribute/skill/craft/armorsmithing
-	sewrepair = FALSE
+	anvilrepair = /datum/attribute/skill/craft/armor_repair
+	sewrepair = null
 
 /obj/item/clothing/head/roguehood/psydon
 	item_weight = 90 GRAMS

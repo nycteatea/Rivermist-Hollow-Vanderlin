@@ -303,6 +303,8 @@
 	var/admin_title = null
 	/// Visual job title override applied to this mob, useful for disguises.
 	var/disguise_title_override = null
+	/// If true, this mob is indexed for recipe-book source data.
+	var/indexed = FALSE
 
 	VAR_PROTECTED/base_strength = 10
 	VAR_PROTECTED/base_perception = 10

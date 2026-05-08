@@ -167,7 +167,7 @@
     strip_delay = 20
     var/max_storage = 8
     var/empty_when_dropped = FALSE
-    sewrepair = TRUE
+    sewrepair = /datum/attribute/skill/craft/tanning/patching
     component_type = /datum/component/storage/concrete/grid/potion_belt
 
 //Проверка на тип предмета, что вкладывают в пояс рукой
@@ -360,13 +360,13 @@
 	icon_state = "artibackpack"
 	item_state = "artibackpack"
 	resistance_flags = FIRE_PROOF
-	sewrepair = FALSE
+	sewrepair = null
 	//for those curious, yes the artibackpack preserves organs and food. Check _organ.dm and snacks.dm
 
 /obj/item/storage/backpack/backpack/artibackpack/porter
 	name = "humdrum"
 	desc = "A absurdly oversized backpack with complex bronze pipework coursing through it. It hums and vibrates constantly."
-	sewrepair = TRUE //Kobold thing, trust.
+	sewrepair = /datum/attribute/skill/craft/tanning/patching //Kobold thing, trust.
 	component_type = /datum/component/storage/concrete/grid/porter
 
 /obj/item/storage/backpack/satchel/surgbag
@@ -436,7 +436,7 @@
 	item_state = "knife"
 	strip_delay = 20
 	var/max_storage = 8
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/craft/tanning/patching
 	component_type = /datum/component/storage/concrete/grid/belt/knife_belt
 	empty_when_dropped = FALSE
 

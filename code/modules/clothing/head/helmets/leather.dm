@@ -10,7 +10,7 @@
 	resistance_flags = FLAMMABLE // Made of leather
 	smeltresult = /obj/item/fertilizer/ash
 	anvilrepair = null
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/craft/tanning/patching
 	sellprice = VALUE_LEATHER_HELMET
 
 	armor = ARMOR_LEATHER_BAD
@@ -151,7 +151,7 @@
 	desc = "A dainty looking feathered hat that is actually quite heavy and thick, Duelists from Silvermoon are known to value winning fights without dirtying the white feather on top"
 	icon_state = "duelisthat"
 	item_state = "duelisthat"
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/craft/tanning/patching
 	prevent_crits =  MINOR_CRITICALS
 	body_parts_covered = HEAD|HAIR
 	dynamic_hair_suffix = ""

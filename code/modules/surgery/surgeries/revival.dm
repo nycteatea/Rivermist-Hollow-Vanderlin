@@ -22,8 +22,8 @@
 	minimum_time = 7 SECONDS
 	maximum_time = 13 SECONDS
 	surgery_flags = SURGERY_BLOODY | SURGERY_INCISED | SURGERY_CLAMPED | SURGERY_RETRACTED | SURGERY_BROKEN
-	skill_min = SKILL_LEVEL_EXPERT
-	skill_median = SKILL_LEVEL_MASTER
+	skill_min = SKILL_RANK_EXPERT
+	skill_median = SKILL_RANK_MASTER
 	preop_sound = 'sound/surgery/organ2.ogg'
 	success_sound = 'sound/surgery/organ1.ogg'
 	var/tainted_lux = FALSE

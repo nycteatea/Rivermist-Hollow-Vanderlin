@@ -7,7 +7,7 @@
 	bloody_icon_state = "bodyblood"
 	alternate_worn_layer = UNDER_CLOAK_LAYER
 	strip_delay = 20
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/craft/tanning/patching
 	item_weight = 750 GRAMS
 	/// Max amount of ammo to hold
 	var/max_storage

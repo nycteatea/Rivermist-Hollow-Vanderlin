@@ -12,8 +12,8 @@
 	maximum_time = 1.5 SECONDS
 	surgery_flags = SURGERY_BLOODY
 	surgery_flags_blocked = SURGERY_INCISED
-	skill_min = SKILL_LEVEL_NOVICE
-	skill_median = SKILL_LEVEL_APPRENTICE
+	skill_min = SKILL_RANK_NOVICE
+	skill_median = SKILL_RANK_APPRENTICE
 	preop_sound = 'sound/surgery/scalpel1.ogg'
 	success_sound = 'sound/surgery/scalpel2.ogg'
 
@@ -46,8 +46,8 @@
 	minimum_time = 2.2 SECONDS
 	maximum_time = 2.5 SECONDS
 	surgery_flags_blocked = SURGERY_CLAMPED
-	skill_min = SKILL_LEVEL_NOVICE
-	skill_median = SKILL_LEVEL_JOURNEYMAN
+	skill_min = SKILL_RANK_NOVICE
+	skill_median = SKILL_RANK_JOURNEYMAN
 	preop_sound = 'sound/surgery/hemostat1.ogg'
 
 /datum/surgery_step/clamp/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
@@ -76,8 +76,8 @@
 	minimum_time = 2.2 SECONDS
 	maximum_time = 3.5 SECONDS
 	surgery_flags_blocked = SURGERY_RETRACTED
-	skill_min = SKILL_LEVEL_NOVICE
-	skill_median = SKILL_LEVEL_JOURNEYMAN
+	skill_min = SKILL_RANK_NOVICE
+	skill_median = SKILL_RANK_JOURNEYMAN
 	preop_sound = 'sound/surgery/retractor1.ogg'
 
 /datum/surgery_step/retract/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
@@ -105,8 +105,8 @@
 	minimum_time = 2.2 SECONDS
 	maximum_time = 3.5 SECONDS
 	surgery_flags = SURGERY_BLOODY
-	skill_min = SKILL_LEVEL_NOVICE
-	skill_median = SKILL_LEVEL_APPRENTICE
+	skill_min = SKILL_RANK_NOVICE
+	skill_median = SKILL_RANK_APPRENTICE
 
 /datum/surgery_step/cauterize/validate_bodypart(mob/user, mob/living/carbon/target, obj/item/bodypart/bodypart, target_zone)
 	. = ..()
@@ -160,8 +160,8 @@
 	maximum_time = 5.5 SECONDS
 	surgery_flags = SURGERY_INCISED | SURGERY_RETRACTED
 	surgery_flags_blocked = SURGERY_BROKEN
-	skill_min = SKILL_LEVEL_NOVICE
-	skill_median = SKILL_LEVEL_EXPERT
+	skill_min = SKILL_RANK_NOVICE
+	skill_median = SKILL_RANK_EXPERT
 	preop_sound = 'sound/surgery/scalpel1.ogg'
 	success_sound = 'sound/surgery/organ2.ogg'
 

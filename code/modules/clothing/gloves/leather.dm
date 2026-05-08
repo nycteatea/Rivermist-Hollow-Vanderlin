@@ -68,7 +68,7 @@
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/craft/tanning/patching
 
 /obj/item/clothing/gloves/leather/otavan/inqgloves
 	name = "inquisitorial leather gloves"

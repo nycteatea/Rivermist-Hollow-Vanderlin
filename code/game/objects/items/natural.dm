@@ -459,6 +459,8 @@
 		/datum/attunement/earth = -0.1,
 	)
 	item_weight = 20 GRAMS
+	item_flags = OBTAINED_DATA
+	obtained_from = list(list("Killing a Sylph", /mob/living/simple_animal/hostile/retaliate/fae/sylph))
 
 /obj/item/natural/elementalshard
 	name = "elemental shard"
@@ -477,6 +479,8 @@
 		/datum/attunement/earth = -0.2,
 	)
 	item_weight = 30 GRAMS
+	item_flags = OBTAINED_DATA
+	obtained_from = list(list("Killing a Sylph", /mob/living/simple_animal/hostile/retaliate/fae/sylph))
 
 /obj/item/natural/elementalfragment
 	name = "elemental fragment"
@@ -495,6 +499,8 @@
 		/datum/attunement/earth = -0.15,
 	)
 	item_weight = 25 GRAMS
+	item_flags = OBTAINED_DATA
+	obtained_from = list(list("Killing a Sylph", /mob/living/simple_animal/hostile/retaliate/fae/sylph))
 
 /obj/item/natural/elementalrelic
 	name = "elemental relic"
@@ -513,6 +519,8 @@
 		/datum/attunement/earth = -0.1,
 	)
 	item_weight = 35 GRAMS
+	item_flags = OBTAINED_DATA
+	obtained_from = list(list("Killing a Sylph", /mob/living/simple_animal/hostile/retaliate/fae/sylph))
 
 //Nullmagic
 /obj/item/natural/voidstone

@@ -16,7 +16,7 @@
 	max_integrity = 300
 	equip_sound = 'sound/blank.ogg'
 
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/craft/tanning/patching
 	fiber_salvage = TRUE
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured

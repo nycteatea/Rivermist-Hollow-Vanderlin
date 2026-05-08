@@ -8,8 +8,8 @@
 	surgery_flags = SURGERY_INCISED | SURGERY_RETRACTED
 	possible_locs = list(BODY_ZONE_PRECISE_MOUTH)
 	requires_bodypart_type = BODYPART_ORGANIC
-	skill_min = SKILL_LEVEL_EXPERT
-	skill_median = SKILL_LEVEL_MASTER
+	skill_min = SKILL_RANK_EXPERT
+	skill_median = SKILL_RANK_MASTER
 
 /datum/surgery_step/extract_tooth/validate_bodypart(mob/user, mob/living/carbon/target, obj/item/bodypart/mouth/bodypart, target_zone)
 	. = ..()

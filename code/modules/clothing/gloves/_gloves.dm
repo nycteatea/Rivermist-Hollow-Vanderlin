@@ -27,10 +27,10 @@
 	strip_delay = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/misc/sewing/mending
 	anvilrepair = null
 	smeltresult = /obj/item/fertilizer/ash
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/misc/sewing/mending
 	fiber_salvage = FALSE
 	salvage_amount = 1
 

@@ -88,6 +88,8 @@
 	grind_results = list(/datum/reagent/flour = 10)
 	dropshrink = 0.9
 	mill_result = /obj/item/reagent_containers/powder/flour
+	item_flags = OBTAINED_DATA
+	obtained_from = list(list("Threshing wheat stalks", /obj/item/natural/chaff/wheat))
 
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat/examine(mob/user)
 	var/farminglvl = GET_MOB_SKILL_VALUE_OLD(user, /datum/attribute/skill/labor/farming)
@@ -106,6 +108,8 @@
 	bitesize_mod = 2
 	tastes = list("oat" = 1)
 	grind_results = list(/datum/reagent/flour = 10)
+	item_flags = OBTAINED_DATA
+	obtained_from = list(list("Threshing oat stalks", /obj/item/natural/chaff/oat))
 
 /obj/item/reagent_containers/food/snacks/produce/grain/oat/examine(mob/user)
 	var/farminglvl = GET_MOB_SKILL_VALUE_OLD(user, /datum/attribute/skill/labor/farming)

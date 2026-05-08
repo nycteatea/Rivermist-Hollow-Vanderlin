@@ -33,8 +33,8 @@
 	requires_bodypart = FALSE //need a missing limb
 	requires_missing_bodypart = TRUE
 	requires_bodypart_type = NONE
-	skill_min = SKILL_LEVEL_APPRENTICE
-	skill_median = SKILL_LEVEL_JOURNEYMAN
+	skill_min = SKILL_RANK_APPRENTICE
+	skill_median = SKILL_RANK_JOURNEYMAN
 	var/bodypart_status = BODYPART_ORGANIC
 
 /datum/surgery_step/add_prosthetic/tool_check(mob/user, obj/item/tool)
@@ -132,8 +132,8 @@
 	maximum_time = 18 SECONDS
 	requires_bodypart = TRUE
 	requires_bodypart_type = BODYPART_ROBOTIC
-	skill_min = SKILL_LEVEL_NOVICE
-	skill_median = SKILL_LEVEL_EXPERT
+	skill_min = SKILL_RANK_NOVICE
+	skill_median = SKILL_RANK_EXPERT
 	surgery_flags = NONE
 	preop_sound = 'sound/foley/sewflesh.ogg'
 	success_sound = 'sound/items/wood_sharpen.ogg'
@@ -164,8 +164,8 @@
 	requires_bodypart = FALSE
 	requires_missing_bodypart = FALSE
 	requires_bodypart_type = NONE
-	skill_min = SKILL_LEVEL_JOURNEYMAN
-	skill_median = SKILL_LEVEL_EXPERT
+	skill_min = SKILL_RANK_JOURNEYMAN
+	skill_median = SKILL_RANK_EXPERT
 
 /datum/surgery_step/add_taur/validate_bodypart(mob/user, mob/living/carbon/target, obj/item/bodypart/bodypart, target_zone)
 	var/obj/item/bodypart/left_leg = target.get_bodypart(BODY_ZONE_L_LEG)

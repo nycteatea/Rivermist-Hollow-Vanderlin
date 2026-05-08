@@ -134,7 +134,7 @@
 	desc = "A wide-brimmed leather hat, adorned with a crimson-dyed feather. Death has come to your little town."
 	icon_state = "inqhat"
 	item_state = "inqhat"
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/craft/tanning/patching
 
 /obj/item/clothing/head/leather/inqhat/vigilante
 	name = "fancy hat"

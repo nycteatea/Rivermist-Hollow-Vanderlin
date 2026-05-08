@@ -39,8 +39,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = /datum/attribute/skill/craft/armorsmithing
+	sewrepair = null
+	anvilrepair = /datum/attribute/skill/craft/armor_repair
 	clothing_flags = CANT_SLEEP_IN
 	smeltresult = null
 	melting_material = /datum/material/iron
@@ -61,8 +61,8 @@
 	body_parts_covered = FACE
 	block2add = FALSE
 	slot_flags = ITEM_SLOT_MASK
-	sewrepair = FALSE
-	anvilrepair = /datum/attribute/skill/craft/armorsmithing
+	sewrepair = null
+	anvilrepair = /datum/attribute/skill/craft/armor_repair
 	clothing_flags = FALSE
 	sellprice = VALUE_GOLD_ITEM
 
@@ -79,8 +79,8 @@
 	body_parts_covered = FACE
 	block2add = FALSE
 	slot_flags = ITEM_SLOT_MASK
-	sewrepair = FALSE
-	anvilrepair = /datum/attribute/skill/craft/armorsmithing
+	sewrepair = null
+	anvilrepair = /datum/attribute/skill/craft/armor_repair
 	clothing_flags = FALSE
 	sellprice = VALUE_SILVER_ITEM
 
@@ -101,8 +101,8 @@
 	body_parts_covered = FACE
 	block2add = FALSE
 	slot_flags = ITEM_SLOT_MASK
-	sewrepair = FALSE
-	anvilrepair = /datum/attribute/skill/craft/armorsmithing
+	sewrepair = null
+	anvilrepair = /datum/attribute/skill/craft/armor_repair
 	clothing_flags = FALSE
 	sellprice = VALUE_GOLD_ITEM
 
@@ -119,8 +119,8 @@
 	body_parts_covered = FACE
 	block2add = FALSE
 	slot_flags = ITEM_SLOT_MASK
-	sewrepair = FALSE
-	anvilrepair = /datum/attribute/skill/craft/armorsmithing
+	sewrepair = null
+	anvilrepair = /datum/attribute/skill/craft/armor_repair
 	clothing_flags = FALSE
 	sellprice = VALUE_SILVER_ITEM
 
@@ -144,8 +144,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 70
 
@@ -165,8 +165,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 95
 
@@ -186,8 +186,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 35
 
@@ -207,8 +207,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 30
 
@@ -228,8 +228,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 80
 
@@ -249,8 +249,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 70
 
@@ -270,8 +270,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 50
 
@@ -291,8 +291,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 100
 
@@ -312,8 +312,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 70
 
@@ -333,8 +333,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 95
 
@@ -354,8 +354,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 35
 
@@ -375,8 +375,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 30
 
@@ -396,8 +396,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 80
 
@@ -417,8 +417,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 70
 
@@ -438,8 +438,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 50
 
@@ -459,8 +459,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = FALSE
+	sewrepair = null
+	anvilrepair = null
 	clothing_flags = CANT_SLEEP_IN
 	sellprice = 100
 
@@ -611,7 +611,7 @@
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	body_parts_covered = FACE|EARS|EYES|MOUTH|NECK
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/misc/sewing/mending
 	gas_transfer_coefficient = 0.3
 
 /obj/item/clothing/face/phys
@@ -624,7 +624,7 @@
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	body_parts_covered = FACE|EARS|EYES|MOUTH|NECK
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/misc/sewing/mending
 	gas_transfer_coefficient = 0.3
 
 /obj/item/clothing/face/courtphysician
@@ -637,7 +637,7 @@
 	flags_inv = HIDEFACE|HIDEFACIALHAIR
 	body_parts_covered = FACE|EARS|EYES|MOUTH|NECK
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
-	sewrepair = TRUE
+	sewrepair = /datum/attribute/skill/misc/sewing/mending
 	gas_transfer_coefficient = 0.3
 	icon = 'icons/roguetown/clothing/courtphys.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/courtphys.dmi'
@@ -662,8 +662,8 @@
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	experimental_onhip = TRUE
-	sewrepair = FALSE
-	anvilrepair = /datum/attribute/skill/craft/armorsmithing
+	sewrepair = null
+	anvilrepair = /datum/attribute/skill/craft/armor_repair
 	smeltresult = /obj/item/ingot/copper
 	melting_material = /datum/material/copper
 

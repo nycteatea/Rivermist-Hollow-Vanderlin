@@ -53,9 +53,9 @@
 	/// Skill used to perform this surgery step
 	var/datum/attribute/skill/skill_used = /datum/attribute/skill/misc/medicine
 	/// Necessary skill MINIMUM to perform this surgery step, of skill_used
-	var/skill_min = SKILL_LEVEL_NOVICE
+	var/skill_min = SKILL_RANK_NOVICE
 	/// Skill median used to apply success and speed bonuses
-	var/skill_median = SKILL_LEVEL_JOURNEYMAN
+	var/skill_median = SKILL_RANK_JOURNEYMAN
 
 	/// Requirement threshold for the diceroll as a baseline
 	var/dice_requirement = 25
@@ -103,7 +103,7 @@
 				break
 		if(!found_intent)
 			return FALSE
-	if(skill_used && skill_min && (GET_MOB_SKILL_VALUE(user, skill_used) < skill_min))
+	if(skill_used && skill_min && (GET_MOB_SKILL_VALUE_OLD(user, skill_used) < skill_min))
 		return FALSE
 	return TRUE
 
@@ -326,7 +326,7 @@
 	var/requirement = dice_requirement
 
 	if(skill_used)
-		var/skill_level = GET_MOB_SKILL_VALUE(user, skill_used) || 0
+		var/skill_level = floor(GET_MOB_SKILL_VALUE_OLD(user, skill_used)) || 0
 		var/skill_delta = (skill_level - skill_median) * 0.5
 		requirement += skill_delta
 
@@ -353,10 +353,10 @@
 			continue
 		if(nearby.stat != CONSCIOUS)
 			continue
-		var/overseer_skill = GET_MOB_SKILL_VALUE(nearby, /datum/attribute/skill/misc/medicine)
+		var/overseer_skill = GET_MOB_SKILL_VALUE_OLD(nearby, /datum/attribute/skill/misc/medicine)
 		if(overseer_skill <= skill_median)
 			continue
-		if(overseer_skill <= GET_MOB_SKILL_VALUE(user, /datum/attribute/skill/misc/medicine))
+		if(overseer_skill <= GET_MOB_SKILL_VALUE_OLD(user, /datum/attribute/skill/misc/medicine))
 			continue
 		var/bonus = (overseer_skill - skill_median) * 0.25
 		if(bonus > best_bonus)

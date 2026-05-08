@@ -45,7 +45,7 @@
 		playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
 		if(!do_after(user, used_time, src))
 			return
-		var/drops = 1 + round(lerp(0, 3, GET_MOB_SKILL_VALUE_OLD(user, /datum/attribute/skill/labor/butchering) / SKILL_LEVEL_LEGENDARY))
+		var/drops = 1 + round(lerp(0, 3, GET_MOB_SKILL_VALUE_OLD(user, /datum/attribute/skill/labor/butchering) / SKILL_RANK_LEGENDARY))
 		var/amt2raise = GET_MOB_ATTRIBUTE_VALUE(user, STAT_INTELLIGENCE)/3
 		for(var/i in 1 to drops)
 			var/choose_type = pickweight(food_type)
