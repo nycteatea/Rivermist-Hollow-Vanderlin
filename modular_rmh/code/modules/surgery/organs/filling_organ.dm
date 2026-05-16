@@ -112,13 +112,21 @@
 
 	//debuff checks
 	if(bloatable) //its bloatable.
-		if(reagents.total_volume > (reagents.maximum_volume/3)) //more than 1/3 full, light bloat.
-			if(!reagents.total_volume > (reagents.maximum_volume/2)) //more than half full, heavy bloat.
-				if(!owner.has_status_effect(/datum/status_effect/debuff/bloatone) && !owner.has_status_effect(/datum/status_effect/debuff/bloattwo))
-					owner.apply_status_effect(/datum/status_effect/debuff/bloatone)
-			else
-				if(!owner.has_status_effect(/datum/status_effect/debuff/bloattwo))
-					owner.apply_status_effect(/datum/status_effect/debuff/bloattwo)
+		if(reagents.total_volume > (reagents.maximum_volume/3) && !(reagents.total_volume > (reagents.maximum_volume/2))) //more than 1/3 full, light bloat.
+			if(!owner.has_status_effect(/datum/status_effect/debuff/bloatone))
+				owner.apply_status_effect(/datum/status_effect/debuff/bloatone)
+			if(owner.has_status_effect(/datum/status_effect/debuff/bloattwo))
+				owner.remove_status_effect(/datum/status_effect/debuff/bloattwo)
+		if(reagents.total_volume > (reagents.maximum_volume/2)) //more than half full, heavy bloat.
+			if(!owner.has_status_effect(/datum/status_effect/debuff/bloattwo))
+				owner.apply_status_effect(/datum/status_effect/debuff/bloattwo)
+				if(owner.has_status_effect(/datum/status_effect/debuff/bloatone))
+					owner.remove_status_effect(/datum/status_effect/debuff/bloatone)
+		if(reagents.total_volume < (reagents.maximum_volume/3))
+			if(owner.has_status_effect(/datum/status_effect/debuff/bloatone))
+				owner.remove_status_effect(/datum/status_effect/debuff/bloatone)
+			if(owner.has_status_effect(/datum/status_effect/debuff/bloattwo))
+				owner.remove_status_effect(/datum/status_effect/debuff/bloattwo)
 
 	if(damage > low_threshold)
 		if(prob(3))
