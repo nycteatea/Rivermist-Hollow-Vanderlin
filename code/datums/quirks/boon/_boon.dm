@@ -330,6 +330,12 @@
 /datum/quirk/boon/iron_arm_right
 	name = "Iron Arm (R)"
 	desc = "I lost my right arm long ago, but the iron arm doesn't bleed as much and work close enough."
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_arm_right,
+		/datum/quirk/boon/steel_arm_right,
+		/datum/quirk/boon/gold_arm_right,
+		/datum/quirk/boon/bronze_arm_right,
+	)
 	point_value = -1
 
 /datum/quirk/boon/iron_arm_right/on_spawn()
@@ -346,6 +352,12 @@
 /datum/quirk/boon/iron_arm_left
 	name = "Iron Arm (L)"
 	desc = "I lost my left arm long ago, but the iron arm doesn't bleed as much and work close enough."
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_arm_left,
+		/datum/quirk/boon/steel_arm_left,
+		/datum/quirk/boon/gold_arm_left,
+		/datum/quirk/boon/bronze_arm_left,
+	)
 	point_value = -1
 
 /datum/quirk/boon/iron_arm_left/on_spawn()
@@ -362,6 +374,12 @@
 /datum/quirk/boon/steel_arm_right
 	name = "Steel Arm (R)"
 	desc = "I lost my right arm long ago, but the steel arm doesn't bleed as much and work close enough."
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_arm_right,
+		/datum/quirk/boon/iron_arm_right,
+		/datum/quirk/boon/gold_arm_right,
+		/datum/quirk/boon/bronze_arm_right,
+	)
 	point_value = -2
 
 /datum/quirk/boon/steel_arm_right/on_spawn()
@@ -379,6 +397,12 @@
 	name = "Steel Arm (L)"
 	desc = "I lost my left arm long ago, but the steel arm doesn't bleed as much and work close enough."
 	point_value = -2
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_arm_left,
+		/datum/quirk/boon/iron_arm_left,
+		/datum/quirk/boon/gold_arm_left,
+		/datum/quirk/boon/bronze_arm_left,
+	)
 
 /datum/quirk/boon/steel_arm_left/on_spawn()
 	if(!ishuman(owner))
@@ -395,7 +419,12 @@
 	name = "Gold Arm (R)"
 	desc = "I lost my right arm long ago, but the gold arm doesn't bleed as much and work close enough."
 	point_value = -2
-
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_arm_right,
+		/datum/quirk/boon/iron_arm_right,
+		/datum/quirk/boon/steel_arm_right,
+		/datum/quirk/boon/bronze_arm_right,
+	)
 /datum/quirk/boon/gold_arm_right/on_spawn()
 	if(!ishuman(owner))
 		return
@@ -411,6 +440,12 @@
 	name = "Gold Arm (L)"
 	desc = "I lost my left arm long ago, but the gold arm doesn't bleed as much and work close enough."
 	point_value = -2
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_arm_left,
+		/datum/quirk/boon/iron_arm_left,
+		/datum/quirk/boon/steel_arm_left,
+		/datum/quirk/boon/bronze_arm_left,
+	)
 
 /datum/quirk/boon/gold_arm_left/on_spawn()
 	if(!ishuman(owner))
@@ -426,6 +461,12 @@
 /datum/quirk/boon/bronze_arm_right
 	name = "Bronze Arm (R)"
 	desc = "I lost my right arm long ago, but the bronze arm doesn't bleed as much and work close enough."
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_arm_right,
+		/datum/quirk/boon/iron_arm_right,
+		/datum/quirk/boon/steel_arm_right,
+		/datum/quirk/boon/gold_arm_right,
+	)
 	point_value = -2
 
 /datum/quirk/boon/bronze_arm_right/on_spawn()
@@ -442,6 +483,12 @@
 /datum/quirk/boon/bronze_arm_left
 	name = "Bronze Arm (L)"
 	desc = "I lost my left arm long ago, but the bronze arm doesn't bleed as much and work close enough."
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_arm_left,
+		/datum/quirk/boon/iron_arm_left,
+		/datum/quirk/boon/steel_arm_left,
+		/datum/quirk/boon/gold_arm_left,
+	)
 	point_value = -2
 
 /datum/quirk/boon/bronze_arm_left/on_spawn()
@@ -459,6 +506,14 @@
 /datum/quirk/boon/iron_leg_right
 	name = "Iron Leg (R)"
 	desc = "I lost my right leg long ago, but the iron leg doesn't bleed as much and work close enough."
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_leg_right,
+		/datum/quirk/boon/steel_leg_right,
+		/datum/quirk/boon/gold_leg_right,
+		/*
+		/datum/quirk/boon/bronze_leg_right,
+		*/
+	)
 	point_value = -1
 
 /datum/quirk/boon/iron_leg_right/on_spawn()
@@ -475,6 +530,14 @@
 /datum/quirk/boon/iron_leg_left
 	name = "Iron Leg (L)"
 	desc = "I lost my left leg long ago, but the iron leg doesn't bleed as much and work close enough."
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_leg_left,
+		/datum/quirk/boon/steel_leg_left,
+		/datum/quirk/boon/gold_leg_left,
+		/*
+		/datum/quirk/boon/bronze_leg_left,
+		*/
+	)
 	point_value = -1
 
 /datum/quirk/boon/iron_leg_left/on_spawn()
@@ -491,6 +554,14 @@
 /datum/quirk/boon/steel_leg_right
 	name = "Steel Leg (R)"
 	desc = "I lost my right leg long ago, but the steel leg doesn't bleed as much and work close enough."
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_leg_right,
+		/datum/quirk/boon/iron_leg_right,
+		/datum/quirk/boon/gold_leg_right,
+		/*
+		/datum/quirk/boon/bronze_leg_right,
+		*/
+	)
 	point_value = -2
 
 /datum/quirk/boon/steel_leg_right/on_spawn()
@@ -507,6 +578,14 @@
 /datum/quirk/boon/steel_leg_left
 	name = "Steel Leg (L)"
 	desc = "I lost my left leg long ago, but the steel leg doesn't bleed as much and work close enough."
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_leg_left,
+		/datum/quirk/boon/iron_leg_left,
+		/datum/quirk/boon/gold_leg_left,
+		/*
+		/datum/quirk/boon/bronze_leg_left,
+		*/
+	)
 	point_value = -2
 
 /datum/quirk/boon/steel_leg_left/on_spawn()
@@ -523,6 +602,14 @@
 /datum/quirk/boon/gold_leg_right
 	name = "Gold Leg (R)"
 	desc = "I lost my right leg long ago, but the gold leg doesn't bleed as much and work close enough."
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_leg_right,
+		/datum/quirk/boon/iron_leg_right,
+		/datum/quirk/boon/steel_leg_right,
+		/*
+		/datum/quirk/boon/bronze_leg_right,
+		*/
+	)
 	point_value = -2
 
 /datum/quirk/boon/gold_leg_right/on_spawn()
@@ -539,6 +626,14 @@
 /datum/quirk/boon/gold_leg_left
 	name = "Gold Leg (L)"
 	desc = "I lost my left leg long ago, but the gold leg doesn't bleed as much and work close enough."
+	incompatible_quirks = list(
+		/datum/quirk/vice/wooden_leg_left,
+		/datum/quirk/boon/iron_leg_left,
+		/datum/quirk/boon/steel_leg_left,
+		/*
+		/datum/quirk/boon/bronze_leg_left,
+		*/
+	)
 	point_value = -2
 
 /datum/quirk/boon/gold_leg_left/on_spawn()

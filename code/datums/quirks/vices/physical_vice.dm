@@ -85,6 +85,12 @@
 /datum/quirk/vice/wooden_arm_right
 	name = "Wooden Arm (R)"
 	desc = "I lost my right arm long ago, but the wooden arm doesn't bleed as much."
+	incompatible_quirks = list(
+		/datum/quirk/boon/iron_arm_right,
+		/datum/quirk/boon/steel_arm_right,
+		/datum/quirk/boon/gold_arm_right,
+		/datum/quirk/boon/bronze_arm_right,
+	)
 	point_value = 3
 
 /datum/quirk/vice/wooden_arm_right/on_spawn()
@@ -101,6 +107,12 @@
 /datum/quirk/vice/wooden_arm_left
 	name = "Wooden Arm (L)"
 	desc = "I lost my left arm long ago, but the wooden arm doesn't bleed as much."
+	incompatible_quirks = list(
+		/datum/quirk/boon/iron_arm_left,
+		/datum/quirk/boon/steel_arm_left,
+		/datum/quirk/boon/gold_arm_left,
+		/datum/quirk/boon/bronze_arm_left,
+	)
 	point_value = 3
 
 /datum/quirk/vice/wooden_arm_left/on_spawn()
@@ -118,6 +130,14 @@
 	name = "Wooden Leg (R)"
 	desc = "I lost my right leg long ago, but the wooden leg doesn't bleed as much."
 	point_value = 3
+	incompatible_quirks = list(
+		/datum/quirk/boon/iron_leg_right,
+		/datum/quirk/boon/steel_leg_right,
+		/datum/quirk/boon/gold_leg_right,
+		/*
+		/datum/quirk/boon/bronze_leg_right,
+		*/
+	)
 
 /datum/quirk/vice/wooden_leg_right/on_spawn()
 	if(!ishuman(owner))
@@ -133,6 +153,14 @@
 /datum/quirk/vice/wooden_leg_left
 	name = "Wooden Leg (L)"
 	desc = "I lost my left leg long ago, but the wooden leg doesn't bleed as much."
+	incompatible_quirks = list(
+		/datum/quirk/boon/iron_leg_left,
+		/datum/quirk/boon/steel_leg_left,
+		/datum/quirk/boon/gold_leg_left,
+		/*
+		/datum/quirk/boon/bronze_leg_left,
+		*/
+	)
 	point_value = 3
 
 /datum/quirk/vice/wooden_leg_left/on_spawn()
