@@ -4182,7 +4182,6 @@
 #include "modular_rmh\code\modules\jobs\job_types\traders\waterdeep_guard.dm"
 #include "modular_rmh\code\modules\jobs\job_types\traders\waterdeep_merchant.dm"
 #include "modular_rmh\code\modules\mapping\property_template.dm"
-#include "modular_rmh\code\modules\mapping\trap_pocket_dimensions.dm"
 #include "modular_rmh\code\modules\mapping\mapping_helpers\access_helper.dm"
 #include "modular_rmh\code\modules\mob\abyssal_monsters.dm"
 #include "modular_rmh\code\modules\mob\hedghog.dm"
