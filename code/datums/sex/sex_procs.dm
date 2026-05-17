@@ -502,6 +502,7 @@
 	var/tmp/cached_horny_mob_pref_flags = NONE
 	var/tmp/cached_horny_mob_family_flags = NONE
 	var/tmp/cached_allow_belly_inflation = null
+	var/tmp/cached_nonmatching_horny_mobs_are_nonlethal = null
 
 	///npc organs to use
 	var/ball_organ = /obj/item/organ/genitals/filling_organ/testicles
@@ -535,13 +536,21 @@
 	erp_preferences_revision_seen = -1
 	cached_horny_mob_pref_flags = NONE
 	cached_horny_mob_family_flags = NONE
+	cached_nonmatching_horny_mobs_are_nonlethal = null
 	cache_allow_belly_inflation_pref(client?.prefs)
+	cache_nonmatching_horny_mobs_are_nonlethal_pref(client?.prefs)
 
 /mob/living/proc/cache_allow_belly_inflation_pref(datum/preferences/prefs)
 	if(!prefs?.erp_preferences)
 		return
 	var/datum/erp_preference/boolean/allow_belly_inflation/belly_pref = new
 	cached_allow_belly_inflation = belly_pref.get_value(prefs)
+
+/mob/living/proc/cache_nonmatching_horny_mobs_are_nonlethal_pref(datum/preferences/prefs)
+	if(!prefs?.erp_preferences)
+		return
+	var/datum/erp_preference/boolean/nonmatching_horny_mobs_are_nonlethal/nonlethal_pref = new
+	cached_nonmatching_horny_mobs_are_nonlethal = nonlethal_pref.get_value(prefs)
 
 /mob/living/proc/refresh_erp_preference_cache()
 	var/datum/preferences/prefs = client?.prefs
@@ -551,9 +560,11 @@
 	erp_preferences_revision_seen = current_revision
 	cached_horny_mob_pref_flags = NONE
 	cached_horny_mob_family_flags = NONE
+	cached_nonmatching_horny_mobs_are_nonlethal = null
 	if(!prefs?.erp_preferences)
 		return
 	cache_allow_belly_inflation_pref(prefs)
+	cache_nonmatching_horny_mobs_are_nonlethal_pref(prefs)
 	cached_horny_mob_pref_flags = prefs.erp_preferences[/datum/erp_preference/bitflag/horny_mobs] || NONE
 	var/allowed_families = prefs.erp_preferences[/datum/erp_preference/bitflag/horny_mob_types]
 	if(isnull(allowed_families))
@@ -563,6 +574,10 @@
 /mob/living/proc/get_cached_allow_belly_inflation()
 	refresh_erp_preference_cache()
 	return cached_allow_belly_inflation == TRUE
+
+/mob/living/proc/get_cached_nonmatching_horny_mobs_are_nonlethal()
+	refresh_erp_preference_cache()
+	return cached_nonmatching_horny_mobs_are_nonlethal == TRUE
 
 /mob/living/proc/get_cached_horny_mob_pref_flags()
 	refresh_erp_preference_cache()

@@ -45,3 +45,9 @@
 	description = "If you want mobs to breed you when possible"
 	default_value = FALSE
 	category = "Mobs"
+
+/datum/erp_preference/boolean/nonmatching_horny_mobs_are_nonlethal
+	name = "Out-of-scope horny mobs disarm"
+	description = "If enabled, horny mobs outside your enabled mob prefs will try to disarm or subdue you instead of damaging you."
+	default_value = TRUE
+	category = "Mobs"
