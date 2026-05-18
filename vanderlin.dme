@@ -4238,6 +4238,7 @@
 #include "modular_rmh\code\modules\spells\spell_types\pointed\conjure\mounts\summon_horse.dm"
 #include "modular_rmh\code\modules\spells\spell_types\undirected\battle_song.dm"
 #include "modular_rmh\code\modules\spells\spell_types\undirected\giant_shape.dm"
+#include "modular_rmh\code\modules\spells\spell_types\undirected\rogue_smokebomb.dm"
 #include "modular_rmh\code\modules\spells\spell_types\undirected\seelie_glamour.dm"
 #include "modular_rmh\code\modules\spells\spell_types\undirected\wild_rage.dm"
 #include "modular_rmh\code\modules\spells\spell_types\undirected\conjure_item\aphrodisiac_bomb.dm"

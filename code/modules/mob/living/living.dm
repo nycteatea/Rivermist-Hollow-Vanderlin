@@ -2641,7 +2641,11 @@
 				if(M.m_intent == MOVE_INTENT_SNEAK)
 					emote("huh")
 					to_chat(M, "<span class='danger'>[src] sees me! I'm found!</span>")
+					playsound(loc, 'modular_rmh/sound/effects/mgsalert.ogg', 100, FALSE) //found people already emit noise by breaking stealth.
+					M.apply_status_effect(/datum/status_effect/debuff/stealthcd)
+					MOBTIMER_SET(M, MT_INVISIBILITY)
 					MOBTIMER_SET(M, MT_FOUNDSNEAK)
+					M.update_sneak_invis(reset = TRUE)
 			else
 				if(M.m_intent == MOVE_INTENT_SNEAK)
 					if(M.client?.prefs.showrolls)

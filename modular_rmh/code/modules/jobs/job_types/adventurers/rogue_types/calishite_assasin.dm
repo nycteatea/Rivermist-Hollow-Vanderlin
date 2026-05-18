@@ -33,6 +33,7 @@
 	traits = list(
 		TRAIT_DODGEEXPERT,
 		TRAIT_STEELHEARTED,
+		TRAIT_BLINDFIGHTING,
 	)
 
 	languages = list(/datum/language/zalad)
