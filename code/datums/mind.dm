@@ -326,6 +326,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	RegisterSignal(current, COMSIG_MOB_DEATH, PROC_REF(set_death_time))
 	if(active || force_key_move)
 		current.key = key		//now transfer the key to link the client to our new body
+	current.refresh_erp_preference_cache()
 	current.update_fov_angles()
 
 	SEND_SIGNAL(src, COMSIG_MIND_TRANSFERRED, old_current)

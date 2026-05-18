@@ -10,7 +10,9 @@
 	var/category = "General"
 
 /datum/erp_preference/proc/get_value(datum/preferences/prefs)
-	var/list/stored_preferences = prefs?.ensure_erp_preferences()
+	return get_value_from_list(prefs?.ensure_erp_preferences())
+
+/datum/erp_preference/proc/get_value_from_list(list/stored_preferences)
 	var/stored_value = stored_preferences?[type]
 	if(isnull(stored_value))
 		return get_default_value()

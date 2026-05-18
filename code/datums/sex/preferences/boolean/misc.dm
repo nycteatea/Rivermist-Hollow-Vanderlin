@@ -34,6 +34,12 @@
 	default_value = FALSE
 	category = "General"
 
+/datum/erp_preference/boolean/allow_player_erp_when_disconnected
+	name = "Allow ERP While Disconnected"
+	description = "If other players can start and continue sex interactions with your character while you are disconnected"
+	default_value = FALSE
+	category = "General"
+
 /datum/erp_preference/boolean/allow_mob_oviposition
 	name = "Allow mob oviposition"
 	description = "If you want mobs to perform oviposition when possible"

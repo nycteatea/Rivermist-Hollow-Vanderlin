@@ -3587,6 +3587,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 /datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, character_setup = FALSE)
 	if(QDELETED(character) || !ishuman(character))
 		return
+	character.cache_erp_preferences_from_prefs(src)
 	character.age = age
 	character.gender = gender
 	character.dna.features = features.Copy()

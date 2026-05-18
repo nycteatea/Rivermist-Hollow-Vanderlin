@@ -15,7 +15,10 @@
 		CRASH("ERP preference [type] has a default value outside its allowed range.")
 
 /datum/erp_preference/numeric/get_value(datum/preferences/prefs)
-	var/stored_value = prefs?.erp_preferences?[type]
+	return get_value_from_list(prefs?.erp_preferences)
+
+/datum/erp_preference/numeric/get_value_from_list(list/stored_preferences)
+	var/stored_value = stored_preferences?[type]
 	if(!isnum(stored_value))
 		return get_default_value()
 	return clamp(stored_value, min_value, max_value)

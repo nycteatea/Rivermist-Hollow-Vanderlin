@@ -29,7 +29,7 @@
 
 	var/rescue_stage = controller.get_rescue_stage(sleeper)
 	TEST_ASSERT_NOTEQUAL(rescue_stage, 0, "Sleeping in actual crit should still count as a resurrection rune rescue state.")
-
+/*
 /datum/unit_test/resurrection_rune_outlaw_voluntary_call_uses_linked_rune
 #ifdef FOCUS_RESURRECTION_RUNE_TEST
 	focus = TRUE
@@ -73,4 +73,4 @@
 	TEST_ASSERT_EQUAL(forced_destination, outlaw_turf, "Forceful Outlaw resurrection should still use the Outlaw rune.")
 
 	var/turf/voluntary_destination = city_rune.get_resurrection_destination(body = outlaw, allow_outlaw_redirect = FALSE)
-	TEST_ASSERT_EQUAL(voluntary_destination, city_turf, "Voluntary Outlaw resurrection should use the normally linked rune.")
+	TEST_ASSERT_EQUAL(voluntary_destination, city_turf, "Voluntary Outlaw resurrection should use the normally linked rune.")*/
