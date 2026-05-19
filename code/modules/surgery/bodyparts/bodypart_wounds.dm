@@ -142,7 +142,7 @@
 		return FALSE
 
 	if(dam < 5)
-		return
+		return FALSE
 
 	var/do_crit = (reduce_crit >= 100) ? FALSE : TRUE
 
@@ -203,6 +203,22 @@
 
 	if(dam < 5)
 		return FALSE
+
+	var/from_behind = FALSE
+	if(user && (owner.dir == turn(get_dir(owner,user), 180)))
+		from_behind = TRUE
+	if(owner.resting)
+		dam += 15
+	if(user && (from_behind || user.alpha <= 15))//Dreamkeep change -- Attacks from stealth should be much more likely to crit
+		if(user.mind && !HAS_TRAIT(owner, TRAIT_BLINDFIGHTING) && !user.has_status_effect(/datum/status_effect/debuff/stealthcd))
+			var/sneakmult = user.get_skill_level(/datum/skill/misc/sneaking)
+			dam *= max(1,sneakmult)
+			dam += 15
+			user.apply_status_effect(/datum/status_effect/debuff/stealthcd)
+			animate(user, alpha = 255, time = 1 SECONDS, easing = EASE_IN) // shitcode to prevent infinite attacks from invisibility
+			to_chat(src, span_userdanger("SNEAK ATTACK!!!"))
+			to_chat(user, span_userdanger("SNEAK ATTACK!!!"))
+			user.adjust_experience(/datum/skill/misc/sneaking, user.STAINT * 5, TRUE)
 
 	var/list/crit_classes
 	if(bclass in GLOB.dislocation_bclasses)
@@ -299,6 +315,22 @@
 	if(dam < 5)
 		return FALSE
 
+	var/from_behind = FALSE
+	if(user && (owner.dir == turn(get_dir(owner,user), 180)))
+		from_behind = TRUE
+	if(owner.resting)
+		dam += 15
+	if(user && (from_behind || user.alpha <= 15))//Dreamkeep change -- Attacks from stealth should be much more likely to crit
+		if(user.mind && !HAS_TRAIT(owner, TRAIT_BLINDFIGHTING) && !user.has_status_effect(/datum/status_effect/debuff/stealthcd))
+			var/sneakmult = user.get_skill_level(/datum/skill/misc/sneaking)
+			dam *= max(1,sneakmult)
+			dam += 15
+			user.apply_status_effect(/datum/status_effect/debuff/stealthcd)
+			animate(user, alpha = 255, time = 1 SECONDS, easing = EASE_IN) // shitcode to prevent infinite attacks from invisibility
+			to_chat(src, span_userdanger("SNEAK ATTACK!!!"))
+			to_chat(user, span_userdanger("SNEAK ATTACK!!!"))
+			user.adjust_experience(/datum/skill/misc/sneaking, user.STAINT * 5, TRUE)
+
 	var/list/crit_classes
 	if(bclass in GLOB.cbt_classes)
 		LAZYADD(crit_classes, "cbt")
@@ -394,10 +426,26 @@
 	var/static/list/tonguestab_zones = list(BODY_ZONE_PRECISE_MOUTH)
 	var/static/list/nosestab_zones = list(BODY_ZONE_PRECISE_NOSE)
 	var/static/list/earstab_zones = list(BODY_ZONE_PRECISE_EARS)
-	var/static/list/knockout_zones = list(BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_MOUTH)
+	var/static/list/knockout_zones = list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_MOUTH)
 
 	if(dam < 5)
 		return FALSE
+
+	var/from_behind = FALSE
+	if(user && (owner.dir == turn(get_dir(owner,user), 180)))
+		from_behind = TRUE
+	if(owner.resting)
+		dam += 15
+	if(user && (from_behind || user.alpha <= 15))//Dreamkeep change -- Attacks from stealth should be much more likely to crit
+		if(user.mind && !HAS_TRAIT(owner, TRAIT_BLINDFIGHTING) && !user.has_status_effect(/datum/status_effect/debuff/stealthcd))
+			var/sneakmult = user.get_skill_level(/datum/skill/misc/sneaking)
+			dam *= max(1,sneakmult)
+			dam += 15
+			user.apply_status_effect(/datum/status_effect/debuff/stealthcd)
+			animate(user, alpha = 255, time = 1 SECONDS, easing = EASE_IN) // shitcode to prevent infinite attacks from invisibility
+			to_chat(src, span_userdanger("SNEAK ATTACK!!!"))
+			to_chat(user, span_userdanger("SNEAK ATTACK!!!"))
+			user.adjust_experience(/datum/skill/misc/sneaking, user.STAINT * 5, TRUE)
 
 	var/list/crit_classes
 	if(bclass in GLOB.dislocation_bclasses)
@@ -413,7 +461,6 @@
 	if(user?.stat_roll(STAT_FORTUNE, 2, 10))
 		dam += 10
 
-	var/from_behind = FALSE
 	if(user)
 		if((owner.dir == REVERSE_DIR(get_dir(owner, user))))
 			from_behind = TRUE
@@ -449,7 +496,7 @@
 			if(!owner.stat && (zone_precise in knockout_zones) && !(bclass in GLOB.no_knockout_bclasses) && prob(used))
 				owner.next_attack_msg += " [span_crit("<b>Critical hit!</b> [owner] is knocked out[from_behind ? " FROM BEHIND" : ""]!")]"
 				owner.flash_fullscreen("whiteflash3")
-				owner.Unconscious(15 SECONDS + (from_behind * 15 SECONDS))
+				owner.Unconscious(15 SECONDS + (from_behind * 30 SECONDS))
 				if(owner.client)
 					winset(owner.client, "outputwindow.output", "max-lines=1")
 					winset(owner.client, "outputwindow.output", "max-lines=100")

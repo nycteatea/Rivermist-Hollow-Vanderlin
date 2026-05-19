@@ -39,7 +39,9 @@
 		target_organ = target.getorganslot(hole_id)
 		user.visible_message(span_warning("[user] starts inserting \the [dildo] between [target]'s boobs..."))
 
-	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), 20, TRUE, ignore_walls = FALSE)
+	if(user.rogue_sneaking || user.m_intent == MOVE_INTENT_SNEAK || user.alpha <= 100)
+		sex_volume *= 0.5
+	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), sex_volume, TRUE, ignore_walls = FALSE)
 
 
 /datum/sex_action/hole_storage/boobs_store/on_perform(mob/living/user, mob/living/target)
@@ -128,7 +130,9 @@
 		target_organ = target.getorganslot(hole_id)
 		user.visible_message(span_warning("[user] starts removing items from between [target]'s boobs..."))
 
-	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), 20, TRUE, ignore_walls = FALSE)
+	if(user.rogue_sneaking || user.m_intent == MOVE_INTENT_SNEAK || user.alpha <= 100)
+		sex_volume *= 0.5
+	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), sex_volume, TRUE, ignore_walls = FALSE)
 
 
 /datum/sex_action/hole_storage/boobs_remove/on_perform(mob/living/user, mob/living/target)
