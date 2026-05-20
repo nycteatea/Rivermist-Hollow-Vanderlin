@@ -4987,12 +4987,6 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/desert/darkpath,
 /area)
-"TB" = (
-/obj/structure/ship_wheel{
-	dir = 8
-	},
-/turf/open/floor/ruinedwood/turned,
-/area/ship/topdeck)
 "TC" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/fluff/canopy,
@@ -92070,7 +92064,7 @@ GA
 CM
 CM
 GA
-TB
+GA
 GA
 CM
 CM
