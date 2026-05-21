@@ -122,3 +122,38 @@
 
 	var/datum/sex_action/sex/vaginal/action = allocate(/datum/sex_action/sex/vaginal)
 	TEST_ASSERT(!action.can_fit_item_in_hole(receiver, ORGAN_SLOT_VAGINA, penis, FALSE), "Insertive sex storage should be unavailable when the target layer is blocked.")
+
+/datum/unit_test/body_storage_admin_revive_preserves_stored_items
+#ifdef FOCUS_BODY_STORAGE_TEST
+	focus = TRUE
+#endif
+
+/datum/unit_test/body_storage_admin_revive_preserves_stored_items/Run()
+	var/mob/living/carbon/human/test_subject = allocate(/mob/living/carbon/human)
+
+	var/obj/item/organ/genitals/filling_organ/vagina/vagina = allocate(/obj/item/organ/genitals/filling_organ/vagina)
+	test_subject.dna.organ_dna[ORGAN_SLOT_VAGINA] = vagina.create_organ_dna()
+	vagina.Insert(test_subject, TRUE, TRUE)
+
+	var/obj/item/organ/guts/guts = test_subject.getorganslot(ORGAN_SLOT_GUTS)
+	TEST_ASSERT_NOTNULL(guts, "Test subject spawned without guts to exercise stomach/oral storage.")
+
+	var/obj/item/vaginal_item = allocate(/obj/item)
+	vaginal_item.body_storage_bulk = 1
+	SEND_SIGNAL(vagina, COMSIG_BODYSTORAGE_FORCE_INSERT, vaginal_item, STORAGE_LAYER_INNER)
+
+	var/obj/item/gut_item = allocate(/obj/item)
+	gut_item.body_storage_bulk = 1
+	SEND_SIGNAL(guts, COMSIG_BODYSTORAGE_FORCE_INSERT, gut_item, STORAGE_LAYER_DEEP)
+
+	test_subject.revive(ADMIN_HEAL_ALL)
+
+	var/obj/item/organ/genitals/filling_organ/vagina/revived_vagina = test_subject.getorganslot(ORGAN_SLOT_VAGINA)
+	TEST_ASSERT_NOTNULL(revived_vagina, "Admin revive should regenerate the stored vagina.")
+	TEST_ASSERT(vaginal_item in revived_vagina.contents, "Admin revive should preserve items stored in regenerated genital storage.")
+	TEST_ASSERT_EQUAL(SEND_SIGNAL(revived_vagina, COMSIG_BODYSTORAGE_FIND_ITEM_LAYER, vaginal_item), STORAGE_LAYER_INNER, "Admin revive should preserve genital storage layers.")
+
+	var/obj/item/organ/guts/revived_guts = test_subject.getorganslot(ORGAN_SLOT_GUTS)
+	TEST_ASSERT_NOTNULL(revived_guts, "Admin revive should regenerate guts.")
+	TEST_ASSERT(gut_item in revived_guts.contents, "Admin revive should preserve items stored in regenerated stomach/oral storage.")
+	TEST_ASSERT_EQUAL(SEND_SIGNAL(revived_guts, COMSIG_BODYSTORAGE_FIND_ITEM_LAYER, gut_item), STORAGE_LAYER_DEEP, "Admin revive should preserve stomach/oral storage layers.")
