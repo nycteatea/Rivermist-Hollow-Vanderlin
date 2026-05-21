@@ -91,9 +91,12 @@
 		var/mob/living/living_target = target
 		if(living_target.stat == DEAD)
 			return FALSE
-		if(living_target.rogue_sneaking)
+		if(living_target.alpha <= 100 || living_target.rogue_sneaking)
+			return FALSE
+			/* leave this for normal checks to expose instead of double checking i guess.
 			var/extra_chance = (living_pawn.health <= living_pawn.maxHealth * 0.5) ? 30 : 0
 			if(!living_pawn.npc_detect_sneak(living_target, extra_chance))
 				return FALSE
+			*/
 
 	return TRUE
