@@ -152,6 +152,7 @@
 
 	if (prob(probby))
 		// whoops it saw us
+		target.apply_status_effect(/datum/status_effect/debuff/stealthcd)
 		MOBTIMER_SET(target, MT_FOUNDSNEAK)
 		to_chat(target, span_danger("[src] sees me! I'm found!"))
 		target.update_sneak_invis(TRUE)
