@@ -1954,7 +1954,14 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 
 	var/actual_damage = Iforce
 	if(Iforce)
-
+		if(from_behind && user.mind && !HAS_TRAIT(src, TRAIT_BLINDFIGHTING) && !user.has_status_effect(/datum/status_effect/debuff/stealthcd))//Backstabs do increased damage; Sneak attacks have a higher crit chance. Combined, a stealthy backstab should be very damaging.
+			var/sneakmult = GET_MOB_SKILL_VALUE_OLD(user, /datum/attribute/skill/misc/sneaking)
+			Iforce *= max(1,sneakmult)
+			Iforce += 15
+			user.apply_status_effect(/datum/status_effect/debuff/stealthcd)
+			to_chat(src, span_userdanger("BACKSTAB!!! THE ATTACK DEALS GREATER DAMAGE!"))
+			to_chat(user, span_userdanger("BACKSTAB!!! MY ATTACK DOES GREATER DAMAGE!"))
+			user.adjust_experience(/datum/skill/misc/sneaking, user.STAINT * 5, TRUE)
 		var/weakness = H.check_weakness(I, user)
 		actual_damage = apply_damage(Iforce * weakness, I.damtype, def_zone, armor_block, H)
 		H.next_attack_msg.Cut()
