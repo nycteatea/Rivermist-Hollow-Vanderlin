@@ -352,6 +352,10 @@
 			return FALSE
 		if(M.stat == DEAD)
 			return FALSE
+	if(isliving(the_target))
+		var/mob/living/living_target = the_target
+		if(living_target.alpha <= 100 || living_target.rogue_sneaking)
+			return FALSE
 	if(living_mob.see_invisible < the_target.invisibility)//Target's invisible to us, forget it
 		return FALSE
 

@@ -691,8 +691,10 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 			continue
 		if(istype(organ, /obj/item/organ/artery)) ///these are children of the limbs not to be messed with
 			continue
+		var/list/transfer_items = organ.extract_body_storage_contents_for_regeneration()
 		organ.Remove(C, TRUE)
 		QDEL_NULL(organ)
+		release_body_storage_transfer_items(transfer_items, C.drop_location())
 	var/list/source_key_list = color_key_source_list_from_carbon(C)
 	for(var/slot in slots_to_iterate)
 		var/obj/item/organ/oldorgan = C.getorganslot(slot) //used in removing
@@ -729,14 +731,17 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 		if((slot in optional_organ_slots) && !C.dna.organ_dna[slot])
 			should_have = FALSE
 
+		var/list/transfer_items
 		if(oldorgan && (!should_have || replace_current) && !(oldorgan.zone in excluded_zones))
 			if(slot == ORGAN_SLOT_BRAIN)
 				var/obj/item/organ/brain/brain = oldorgan
 				if(!brain.decoy_override)//"Just keep it if it's fake" - confucius, probably
+					transfer_items = oldorgan.extract_body_storage_contents_for_regeneration()
 					brain.Remove(C,TRUE, TRUE) //brain argument used so it doesn't cause any... sudden death.
 					QDEL_NULL(brain)
 					oldorgan = null //now deleted
 			else
+				transfer_items = oldorgan.extract_body_storage_contents_for_regeneration()
 				for(var/obj/item/organ/old_paired in C.getorganslotlist(slot))
 					old_paired.Remove(C, TRUE)
 					QDEL_NULL(old_paired)
@@ -766,6 +771,12 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 		else if(!C.dna.organ_dna[slot] && neworgan)
 			var/datum/organ_dna/new_dna = neworgan.create_organ_dna()
 			C.dna.organ_dna[slot] = new_dna
+
+		if(length(transfer_items))
+			if(used_neworgan && neworgan)
+				transfer_items = neworgan.restore_body_storage_contents_after_regeneration(transfer_items)
+			if(length(transfer_items))
+				release_body_storage_transfer_items(transfer_items, C.drop_location())
 
 /datum/species/proc/is_organ_slot_allowed(mob/living/carbon/human/human, organ_slot)
 	return TRUE

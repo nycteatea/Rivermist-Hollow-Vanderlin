@@ -40,8 +40,6 @@
 		user.visible_message(span_warning("[user] starts inserting \the [dildo] between [target]'s boobs..."))
 
 	var/used_sex_volume = sex_volume
-	if(user.rogue_sneaking || user.m_intent == MOVE_INTENT_SNEAK || user.alpha <= 100)
-		used_sex_volume *= 0.5
 	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), used_sex_volume, TRUE, ignore_walls = FALSE)
 
 
@@ -77,6 +75,13 @@
 				to_chat(user, sex_session.spanify_force("My boobs have too much between them to stuff \the [dildo] in."))
 			else
 				user.visible_message(sex_session.spanify_force("[target]'s boobs have too much between them to stuff \the [dildo] in."))
+			sex_session.stop_current_action(src)
+			return
+		if(INSERT_FEEDBACK_BLOCKED)
+			if(self)
+				to_chat(user, sex_session.spanify_force("My boobs are blocked."))
+			else
+				user.visible_message(sex_session.spanify_force("[target]'s boobs are blocked."))
 			sex_session.stop_current_action(src)
 			return
 		if(FALSE)
@@ -132,8 +137,6 @@
 		user.visible_message(span_warning("[user] starts removing items from between [target]'s boobs..."))
 
 	var/used_sex_volume = sex_volume
-	if(user.rogue_sneaking || user.m_intent == MOVE_INTENT_SNEAK || user.alpha <= 100)
-		used_sex_volume *= 0.5
 	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), used_sex_volume, TRUE, ignore_walls = FALSE)
 
 

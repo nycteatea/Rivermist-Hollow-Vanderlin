@@ -79,10 +79,14 @@
 #define QUEST_MAP_REWARD_DESERT 1.3
 #define QUEST_MAP_REWARD_FROZEN 1.8
 #define QUEST_MAP_REWARD_UNDERDARK 2.5
+#define QUEST_MAP_REWARD_SCALE 2
 
-// Distance bonus config: up to 25% extra reward based on distance from ledger to spawn point.
+// Distance bonus config: base bonus is up to 25% extra reward based on distance from ledger to spawn point.
+// Final bonus scales this base value by QUEST_DISTANCE_BONUS_SCALE and doubles it again across z-levels.
 #define QUEST_DISTANCE_BONUS_MAX_MULT 0.25
 #define QUEST_DISTANCE_BONUS_MAX_RANGE 150
+#define QUEST_DISTANCE_BONUS_SCALE 4
+#define QUEST_DISTANCE_BONUS_CROSS_Z_SCALE 2
 
 // Quest ambush chance config.
 // Ambush chance (%) = clamp(QUEST_AMBUSH_BASE_CHANCE * difficulty_modifier, MIN, MAX).

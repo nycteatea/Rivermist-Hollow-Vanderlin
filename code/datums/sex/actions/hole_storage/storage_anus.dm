@@ -40,13 +40,11 @@
 		target_organ = target.getorganslot(hole_id)
 		user.visible_message(span_warning("[user] starts inserting \the [dildo] in [target]'s ass..."))
 
-	var/used_sex_volume = sex_volume
-	if(user.rogue_sneaking || user.m_intent == MOVE_INTENT_SNEAK || user.alpha <= 100)
-		used_sex_volume *= 0.5
-	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), used_sex_volume, TRUE, ignore_walls = FALSE)
+	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), sex_volume, TRUE, ignore_walls = FALSE)
 
 
 /datum/sex_action/hole_storage/anus_store/on_perform(mob/living/user, mob/living/target)
+	. = ..()
 	var/pain_amt = 4 //base pain amt to use
 	var/self = (user == target)
 	if(!target_organ)
@@ -113,6 +111,13 @@
 				to_chat(user, sex_session.spanify_force("I feel like \the [dildo] might fit if I just use more force."))
 			else
 				user.visible_message(sex_session.spanify_force("I feel like \the [dildo] might fit in [target]'s ass if I just use more force."))
+		if(INSERT_FEEDBACK_BLOCKED)
+			if(self)
+				to_chat(user, sex_session.spanify_force("My ass is blocked."))
+			else
+				user.visible_message(sex_session.spanify_force("[target]'s ass is blocked."))
+			sex_session.stop_current_action(src)
+			return
 		if(FALSE)
 			if(self)
 				to_chat(user, sex_session.spanify_force("I fail to stuff \the [dildo] in my ass."))
@@ -163,13 +168,12 @@
 		target_organ = target.getorganslot(hole_id)
 		user.visible_message(span_warning("[user] starts removing items from [target]'s ass..."))
 
-	var/used_sex_volume = sex_volume
-	if(user.rogue_sneaking || user.m_intent == MOVE_INTENT_SNEAK || user.alpha <= 100)
-		used_sex_volume *= 0.5
-	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), used_sex_volume, TRUE, ignore_walls = FALSE)
+
+	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), sex_volume, TRUE, ignore_walls = FALSE)
 
 
 /datum/sex_action/hole_storage/anus_remove/on_perform(mob/living/user, mob/living/target)
+	. = ..()
 	var/pain_amt = 2 //base pain amt to use
 
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
@@ -243,13 +247,12 @@
 
 	to_chat(user, span_warning("I brace myself and start pushing out items from deep inside my ass..."))
 
-	var/used_sex_volume = sex_volume
-	if(user.rogue_sneaking || user.m_intent == MOVE_INTENT_SNEAK || user.alpha <= 100)
-		used_sex_volume *= 0.5
-	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), used_sex_volume, TRUE, ignore_walls = FALSE)
+
+	playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), sex_volume, TRUE, ignore_walls = FALSE)
 
 
 /datum/sex_action/hole_storage/anus_remove_deep/on_perform(mob/living/user, mob/living/target)
+	. = ..()
 	var/pain_amt = 1 //base pain amt to use
 
 	if(!target_organ)

@@ -46,6 +46,16 @@
 
 	var/list/outer_overlays = list()
 
+/// Temporary record for moving stored items from an old organ to its regenerated replacement.
+/datum/body_storage_transfer_item
+	var/obj/item/stored_item
+	var/storage_layer
+
+/datum/body_storage_transfer_item/New(obj/item/new_stored_item, new_storage_layer)
+	. = ..()
+	stored_item = new_stored_item
+	storage_layer = new_storage_layer
+
 /datum/component/body_storage/Initialize(obj/item/organ/org, location, mob/living/organ_owner)
 	. = ..()
 	organ_storing = org
@@ -152,10 +162,16 @@
 	if(!available_layers[target_layer])
 		return FALSE
 
+	if(!incoming_item)
+		return FALSE
+
 	if(incoming_item.body_storage_bulk > max_insert_size)
 		return FALSE
 
 	var/list/t_layer = all_layers[target_layer]
+
+	if(!override && is_body_storage_insertion_blocked(incoming_item, target_layer))
+		return INSERT_FEEDBACK_BLOCKED
 
 	if(LAZYLEN(t_layer) >= layer_storage_max_num[target_layer]) //hard cap
 		return FALSE
@@ -175,6 +191,27 @@
 		if((layer_storage_max_bulk[target_layer] - layer_storage_cur_bulk[target_layer]) / layer_storage_max_bulk[target_layer] < 0.2)
 			return INSERT_FEEDBACK_ALMOST_FULL
 		return INSERT_FEEDBACK_OK
+
+/datum/component/body_storage/proc/is_body_storage_insertion_blocked(obj/item/incoming_item, target_layer)
+	return has_layer_insertion_blocker(incoming_item, target_layer) || has_equipped_insertion_blocker()
+
+/datum/component/body_storage/proc/has_layer_insertion_blocker(obj/item/incoming_item, target_layer)
+	for(var/blocker_layer in all_layers)
+		var/list/blocker_layer_contents = all_layers[blocker_layer]
+		for(var/obj/item/stored_item as anything in blocker_layer_contents)
+			if(stored_item == incoming_item)
+				continue
+			if(stored_item.blocks_body_storage_insertion(src, incoming_item, target_layer, blocker_layer))
+				return TRUE
+	return FALSE
+
+/datum/component/body_storage/proc/has_equipped_insertion_blocker()
+	if(!owner || !applied_slot)
+		return FALSE
+	for(var/obj/item/equipped_item as anything in owner.get_equipped_items())
+		if(equipped_item.blocks_body_storage_slot(applied_slot))
+			return TRUE
+	return FALSE
 
 /**
  * Tries to remove an item from a hole
@@ -209,6 +246,35 @@
 		var/mob/living/carbon/carbon_owner = owner
 		carbon_owner.update_carry_weight()
 	notify_storage_changed()
+
+/datum/component/body_storage/proc/extract_contents_for_organ_regeneration()
+	var/list/transfer_items = list()
+	for(var/storage_layer in all_layers)
+		var/list/layer_contents = all_layers[storage_layer]
+		if(!length(layer_contents))
+			continue
+		for(var/obj/item/stored_item as anything in layer_contents.Copy())
+			var/datum/body_storage_transfer_item/transfer_item = new(stored_item, storage_layer)
+			transfer_items += transfer_item
+			remove_from_storage(parent, stored_item, storage_layer)
+			stored_item.moveToNullspace()
+
+	return transfer_items
+
+/datum/component/body_storage/proc/restore_contents_after_organ_regeneration(list/transfer_items)
+	if(!length(transfer_items))
+		return null
+
+	var/list/unrestored_items = list()
+	for(var/datum/body_storage_transfer_item/transfer_item as anything in transfer_items)
+		if(!transfer_item?.stored_item || QDELETED(transfer_item.stored_item))
+			continue
+		if(!available_layers[transfer_item.storage_layer])
+			unrestored_items += transfer_item
+			continue
+		insert_in_storage(parent, transfer_item.stored_item, transfer_item.storage_layer)
+
+	return unrestored_items
 
 /**
  * Swaps a random item between two layers. Layers should be different
@@ -415,6 +481,30 @@
 		AddComponent(hole_type, src, location, the_mob)
 		if(the_mob)
 			SEND_SIGNAL(the_mob, COMSIG_LIVING_ORGAN_CHANGED, src, location || slot, TRUE)
+
+/obj/item/organ/proc/extract_body_storage_contents_for_regeneration()
+	var/datum/component/body_storage/storage = GetComponent(/datum/component/body_storage)
+	if(!storage)
+		return null
+	return storage.extract_contents_for_organ_regeneration()
+
+/obj/item/organ/proc/restore_body_storage_contents_after_regeneration(list/transfer_items)
+	var/datum/component/body_storage/storage = GetComponent(/datum/component/body_storage)
+	if(!storage)
+		return transfer_items
+	return storage.restore_contents_after_organ_regeneration(transfer_items)
+
+/proc/release_body_storage_transfer_items(list/transfer_items, atom/release_location)
+	if(!length(transfer_items))
+		return
+
+	for(var/datum/body_storage_transfer_item/transfer_item as anything in transfer_items)
+		if(!transfer_item?.stored_item || QDELETED(transfer_item.stored_item))
+			continue
+		if(release_location)
+			transfer_item.stored_item.forceMove(release_location)
+		else
+			transfer_item.stored_item.moveToNullspace()
 
 /obj/item/organ/proc/on_body_storage_inserted(obj/item/inserted_item, target_layer)
 	return
