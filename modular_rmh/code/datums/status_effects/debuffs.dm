@@ -252,14 +252,13 @@
 	. = ..()
 	if(!owner)
 		return
-
+	if(!ishuman(owner))
+		return
 	if(!MOBTIMER_FINISHED(owner, "chafing_loins", rand(20,90)SECONDS))
 		return
 
 	MOBTIMER_SET(owner, "chafing_loins")
 
-	if(!ishuman(owner))
-		return
 	var/mob/living/carbon/human/human = owner
 	if(human.underwear)
 		if(rand(5))
