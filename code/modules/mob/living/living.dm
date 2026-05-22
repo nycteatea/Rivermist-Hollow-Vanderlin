@@ -2666,7 +2666,7 @@
 			if(M.mind)
 				probby -= (GET_MOB_SKILL_VALUE_OLD(M, /datum/attribute/skill/misc/sneaking) * 10)
 
-			probby += 100 * M.get_encumbrance()
+			probby += 100 * M.encumbrance
 			if (M.stat_roll(STAT_FORTUNE,5,10,TRUE))
 				probby += (10 - GET_MOB_ATTRIBUTE_VALUE(M, STAT_FORTUNE)) * 5 // drop 5% chance for every bit of fortune we're missing
 			if (M.stat_roll(STAT_FORTUNE,5,10))
