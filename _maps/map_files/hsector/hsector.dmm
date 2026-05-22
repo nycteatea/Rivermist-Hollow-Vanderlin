@@ -307,12 +307,6 @@
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/ruinedwood/turned,
 /area/indoors/town/rmh/farm/house)
-"aeX" = (
-/obj/structure/stairs/stone{
-	dir = 1
-	},
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/roofs)
 "aeY" = (
 /turf/closed/wall/mineral/decowood,
 /area/indoors/town/rmh/miner)
@@ -619,6 +613,10 @@
 /obj/structure/flora/grass/fullgrass,
 /turf/open/floor/grass,
 /area/outdoors/town/rmh/livingquart)
+"akH" = (
+/obj/item/grown/log/tree/stick,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "akU" = (
 /turf/open/floor/naturalstone,
 /area/under/rmh_bedrock)
@@ -925,6 +923,12 @@
 	},
 /turf/open/floor/metal/barograte,
 /area/outdoors/town/rmh)
+"aqT" = (
+/obj/structure/flora/grass/crawlvines,
+/obj/structure/barricade/wooden,
+/obj/structure/alizeria/decor/barricade1,
+/turf/open/floor/cobble,
+/area/under/town/rmh/basement/tavern)
 "aqU" = (
 /obj/structure/barricade/wooden/crude,
 /turf/closed/wall/mineral/wooddark,
@@ -1184,10 +1188,12 @@
 "auV" = (
 /turf/open/floor/rooftop/green/corner1,
 /area/outdoors/rmh_air)
-"ava" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/cobble/alt,
+"avb" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 9
+	},
+/obj/effect/spawner/map_spawner/loot/dungeon/misc,
+/turf/open/floor/cobblerock,
 /area/under/town/rmh/basement)
 "ave" = (
 /obj/structure/carpet/green,
@@ -1199,17 +1205,6 @@
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
-"avp" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-w"
-	},
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/obj/effect/spawner/map_spawner/loot/cheap_clutter_spawner,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "avv" = (
 /obj/effect/decal/edge_corner{
 	dir = 2;
@@ -1264,9 +1259,6 @@
 	},
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement/basement)
-"avR" = (
-/turf/closed/wall/mineral/stonebrick,
-/area/outdoors/town/rmh/ruinedzone)
 "avV" = (
 /obj/structure/fluff/railing/border/north,
 /turf/closed/wall/mineral/roofwall/middle{
@@ -1425,6 +1417,10 @@
 "ayW" = (
 /turf/open/floor/dirt/road,
 /area/outdoors/rmh_field/north_mountain)
+"azl" = (
+/obj/machinery/light/fueled/torchholder/c,
+/turf/open/floor/wood,
+/area/under/town/rmh/basement/farm)
 "azn" = (
 /turf/open/floor/rooftop/green/east,
 /area/outdoors/town/rmh)
@@ -1515,11 +1511,6 @@
 /obj/structure/stalagmite,
 /turf/open/floor/naturalstone,
 /area/under/cavewet)
-"aBj" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/paper,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "aBm" = (
 /obj/structure/rack/shelf/biggest,
 /obj/structure/fluff/walldeco/alizeria/plants2{
@@ -1547,6 +1538,12 @@
 "aBK" = (
 /turf/open/floor/ruinedwood,
 /area/under/rmh_dungeon/catacombs_church)
+"aBY" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 9
+	},
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "aCh" = (
 /turf/closed/wall/mineral/wood,
 /area/indoors/town/rmh)
@@ -1647,6 +1644,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/catacombs_church)
+"aEv" = (
+/obj/structure/fluff/walldeco/vinez{
+	opacity = 1
+	},
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "aEM" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -1722,6 +1725,10 @@
 	},
 /turf/open/floor/tile/brownbrick,
 /area/indoors/town/rmh/magician)
+"aFY" = (
+/obj/item/natural/stone,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "aGa" = (
 /obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
@@ -1742,6 +1749,10 @@
 /obj/structure/chair/wood/alt/fancy,
 /turf/open/floor/carpet/purple,
 /area/indoors/town/rmh/bank)
+"aGr" = (
+/obj/structure/flora/grass/crawlvines,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/roofs)
 "aGC" = (
 /obj/structure/fluff/railing/border/east,
 /obj/structure/fluff/railing/wood/east,
@@ -1763,9 +1774,16 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/indoors/town/rmh)
 "aGQ" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
+"aGT" = (
 /obj/structure/flora/grass/crawlvines,
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
+/obj/structure/barricade/wooden,
+/obj/structure/alizeria/decor/barricade3,
+/turf/open/floor/cobble,
+/area/under/town/rmh/basement/tavern)
 "aGX" = (
 /obj/effect/decal/edge{
 	dir = 8;
@@ -1800,12 +1818,6 @@
 	},
 /turf/open/floor/tile/bfloorz,
 /area/indoors/town/rmh/tavern)
-"aHI" = (
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/turf/open/floor/cobble/alt,
-/area/under/rmh_dungeon/catacombs_town)
 "aHL" = (
 /turf/open/water/pond,
 /area/under/rmh_dungeon/catacombs_town)
@@ -1977,6 +1989,10 @@
 	},
 /turf/open/floor/blocks,
 /area/under/town/rmh/basement/tavern)
+"aKK" = (
+/obj/structure/flora/grass/fullgrass,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "aKM" = (
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/cobble,
@@ -2540,6 +2556,10 @@
 /obj/effect/landmark/start/swamp_witch,
 /turf/open/floor/twig,
 /area/indoors/town/rmh/witch)
+"aXd" = (
+/obj/item/natural/rock/random_ore,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "aXo" = (
 /turf/open/floor/grass/healthy,
 /area/outdoors/exposed/town/rmh/farm)
@@ -2559,17 +2579,15 @@
 	},
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_air)
-"aXP" = (
-/obj/structure/flora/grass/jungle{
-	color = "#92967a"
-	},
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "aXR" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/openspace,
 /area/outdoors/town/rmh)
+"aXX" = (
+/obj/structure/fake_machine/scomm,
+/turf/open/floor/cobble/mossy,
+/area/outdoors/exposed/town/rmh/farm)
 "aXZ" = (
 /obj/effect/decal/cobbleedge{
 	dir = 2
@@ -2655,6 +2673,9 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/blocks,
 /area/indoors/town/rmh/witch)
+"aZQ" = (
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "aZT" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb,
@@ -2687,6 +2708,11 @@
 /obj/structure/water_pipe,
 /turf/closed/wall/mineral/pipe,
 /area/indoors/town/rmh)
+"baz" = (
+/obj/structure/flora/grass/crawlvines,
+/obj/structure/vine,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "baA" = (
 /turf/open/floor/tile/masonic{
 	dir = 8
@@ -2956,10 +2982,6 @@
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/west)
-"bgA" = (
-/obj/structure/fake_machine/scomm,
-/turf/open/floor/cobblerock,
-/area/outdoors/exposed/town/rmh/farm)
 "bgB" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10;
@@ -3036,10 +3058,6 @@
 	},
 /turf/open/floor/churchmarble,
 /area/indoors/town/rmh/library)
-"bid" = (
-/obj/item/natural/bundle/stoneblock,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "bip" = (
 /obj/structure/fluff/stonecoffin{
 	color = "#7d8591"
@@ -3056,11 +3074,6 @@
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/dirt/road,
 /area/under/rmh_dungeon/catacombs_town)
-"biK" = (
-/obj/item/natural/rock/random_ore,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "biL" = (
 /obj/structure/flora/grass/fullgrass,
 /turf/open/floor/dirt,
@@ -3245,18 +3258,6 @@
 /obj/item/natural/stone,
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement/tavern)
-"blO" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 2
-	},
-/obj/effect/decal/cobbleedge/alt{
-	dir = 6;
-	pixel_y = -8
-	},
-/obj/structure/flora/grass/crawlvines,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "bma" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border/west,
@@ -3303,11 +3304,6 @@
 	},
 /turf/open/floor/cobble/mossy,
 /area/outdoors/town/rmh)
-"bmw" = (
-/obj/structure/rack,
-/obj/item/reagent_containers/glass/bottle,
-/turf/open/floor/cobble,
-/area/under/town/rmh/basement/farm)
 "bmB" = (
 /obj/structure/fluff/railing/wood/east,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3431,6 +3427,13 @@
 	},
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/catacombs_town)
+"boS" = (
+/obj/structure/fluff/walldeco/vinez{
+	opacity = 1
+	},
+/obj/item/natural/stone,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "boU" = (
 /obj/structure/fluff/railing/wood/north{
 	layer = 2.7;
@@ -3465,6 +3468,12 @@
 "bqc" = (
 /turf/closed/wall/mineral/craftstone,
 /area/indoors/town/rmh/magician)
+"bqi" = (
+/obj/structure/flora/grass/jungle{
+	color = "#92967a"
+	},
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "bqk" = (
 /obj/item/natural/rock{
 	pixel_x = -8;
@@ -3530,6 +3539,10 @@
 /obj/effect/spawner/map_spawner/loot/dungeon/tools,
 /turf/open/floor/blocks,
 /area/under/cavewet)
+"brz" = (
+/obj/structure/fermentation_keg/kgsunsake,
+/turf/open/floor/wood,
+/area/under/town/rmh/basement/farm)
 "brD" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -4052,10 +4065,6 @@
 /obj/item/natural/rock/random_ore,
 /turf/open/floor/dirt,
 /area/outdoors/rmh_river)
-"bAW" = (
-/obj/item/natural/rock,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
 "bBx" = (
 /obj/structure/chair/stool,
 /turf/open/floor/cobble/mossy,
@@ -4139,6 +4148,13 @@
 	},
 /turf/open/floor/herringbone,
 /area/outdoors/town/rmh)
+"bDe" = (
+/obj/structure/fluff/walldeco/vinez{
+	opacity = 1
+	},
+/obj/item/grown/log/tree/stick,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "bDo" = (
 /obj/structure/vine,
 /turf/open/water/swamp,
@@ -4178,9 +4194,10 @@
 /turf/open/floor/grass,
 /area/outdoors/rmh_field/west)
 "bEC" = (
-/obj/structure/stairs,
-/turf/open/floor/ruinedwood,
-/area/under/town/rmh/basement/farm)
+/obj/effect/decal/cleanable/debris/stone,
+/obj/structure/vine,
+/turf/open/floor/dirt,
+/area/under/town/rmh/basement)
 "bEL" = (
 /obj/structure/table/wood/counter/end,
 /obj/item/reagent_containers/glass/bucket/wooden{
@@ -4306,6 +4323,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
+"bHq" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "bHA" = (
 /obj/structure/flora/tree/pine{
 	icon_state = "pine3"
@@ -5031,6 +5053,18 @@
 /obj/item/fishingrod/fisher,
 /turf/open/floor/sand/sandstone,
 /area/outdoors/rmh_river)
+"bVe" = (
+/obj/structure/wild_plant/nospread/poppy,
+/turf/open/floor/dirt/road,
+/area/outdoors/rmh_field/oldmill)
+"bVk" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-w"
+	},
+/obj/item/natural/stone,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "bVu" = (
 /obj/structure/flora/tree/pine,
 /turf/open/floor/dirt,
@@ -5188,10 +5222,6 @@
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh)
-"bXT" = (
-/obj/structure/flora/grass/thorn_bush,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
 "bXW" = (
 /obj/structure/spider/stickyweb/mirespider,
 /turf/open/floor/church,
@@ -5382,6 +5412,17 @@
 	},
 /turf/open/floor/cobblerock,
 /area/indoors/cave/rmh_cave/minotaur)
+"cbl" = (
+/obj/item/key/soilson{
+	pixel_x = -5;
+	pixel_y = 28
+	},
+/obj/item/key/butcher{
+	pixel_y = 26;
+	pixel_x = 8
+	},
+/turf/open/floor/woodturned,
+/area/indoors/town/rmh/farm/house)
 "cbv" = (
 /obj/structure/flora/tree/burnt,
 /turf/open/floor/grass,
@@ -5404,6 +5445,11 @@
 "cbK" = (
 /turf/closed/wall/mineral/pipe,
 /area/indoors/town/rmh)
+"cbM" = (
+/obj/item/natural/rock,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "cbS" = (
 /obj/item/grown/log/tree,
 /obj/item/grown/log/tree{
@@ -5471,10 +5517,6 @@
 /obj/structure/fluff/railing/border/east,
 /turf/open/floor/cobblerock,
 /area/outdoors/town/rmh/roofs)
-"cdu" = (
-/obj/structure/flora/grass/thorn_bush,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "cdv" = (
 /obj/effect/landmark/mapGenerator/underdark{
 	endTurfY = 255
@@ -5568,6 +5610,10 @@
 	},
 /turf/open/floor/churchmarble,
 /area/indoors/town/rmh/chapel)
+"cfc" = (
+/obj/structure/fake_machine/scomm,
+/turf/open/floor/cobblerock,
+/area/outdoors/exposed/town/rmh/farm)
 "cfl" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/reagent_containers/powder/salt,
@@ -5659,14 +5705,6 @@
 /obj/structure/flora/grass/herb/matricaria,
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh)
-"cgy" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 5
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/spawner/map_spawner/loot/dungeon/misc,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "cgD" = (
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/churchmarble,
@@ -5738,14 +5776,6 @@
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/arena)
-"chI" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-w"
-	},
-/obj/item/natural/stoneblock,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "chS" = (
 /obj/structure/table/wood/counter/end/right,
 /obj/item/clothing/ring/gold,
@@ -5781,6 +5811,11 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/garrison)
+"cif" = (
+/obj/structure/rack,
+/obj/item/reagent_containers/glass/bottle,
+/turf/open/floor/cobble,
+/area/under/town/rmh/basement/farm)
 "cin" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/spider/stickyweb/solo,
@@ -6032,6 +6067,15 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/indoors/town/rmh/windmill)
+"cml" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-e"
+	},
+/obj/item/natural/stoneblock,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "cmr" = (
 /obj/item/natural/rock/coal,
 /turf/open/floor/hexstone,
@@ -6083,6 +6127,10 @@
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
+"cnm" = (
+/obj/structure/fermentation_keg,
+/turf/open/floor/cobble,
+/area/under/town/rmh/basement/farm)
 "cnp" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/cobblerock,
@@ -6117,10 +6165,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/outdoors/town/rmh)
-"cof" = (
-/obj/structure/fermentation_keg,
-/turf/open/floor/wood,
-/area/under/town/rmh/basement/farm)
 "cok" = (
 /obj/structure/fluff/railing/border,
 /obj/item/bin{
@@ -6163,16 +6207,17 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/outdoors/rmh_river)
+"coE" = (
+/obj/structure/flora/grass/jungle{
+	color = "#92967a"
+	},
+/obj/structure/vine,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "cpk" = (
 /obj/structure/water_pipe,
 /turf/open/floor/metal/alt,
 /area/under/town/rmh/basement/pump)
-"cpt" = (
-/obj/structure/fluff/walldeco/vinez{
-	opacity = 1
-	},
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "cpA" = (
 /obj/effect/decal/cleanable/debris/wood,
 /turf/open/floor/ruinedwood/turned,
@@ -6284,10 +6329,6 @@
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/dirt/road,
 /area/outdoors/town/rmh/livingquart)
-"csd" = (
-/obj/structure/fermentation_keg,
-/turf/open/floor/cobble,
-/area/under/town/rmh/basement/farm)
 "csh" = (
 /obj/structure/fluff/railing/tall/palisade{
 	dir = 8
@@ -6471,10 +6512,6 @@
 /obj/effect/landmark/quest_spawner/hard,
 /turf/open/floor/church/pale,
 /area/under/rmh_dungeon/catacombs_town)
-"cuM" = (
-/obj/effect/spawner/map_spawner/loot/dungeon/misc,
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
 "cvb" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/dirt/road,
@@ -6669,14 +6706,6 @@
 /obj/structure/flora/grass/bush/wall/green,
 /turf/open/floor/dirt/road,
 /area/outdoors/town/rmh/roofs)
-"cyI" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 9
-	},
-/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
-/obj/structure/vine,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "czo" = (
 /obj/structure/fluff/railing/border/east,
 /obj/structure/fluff/railing/border,
@@ -6689,10 +6718,6 @@
 	},
 /turf/open/floor/grass,
 /area/outdoors/rmh_air)
-"czN" = (
-/obj/structure/vine,
-/turf/open/openspace,
-/area/under/town/rmh/basement)
 "czV" = (
 /obj/structure/door/stone{
 	name = "Old Crypt"
@@ -7068,10 +7093,6 @@
 /obj/item/weapon/shovel/small,
 /turf/open/floor/dirt/road,
 /area/outdoors/exposed/town/rmh/farm)
-"cIh" = (
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "cIl" = (
 /obj/structure/flora/grass/crawlvines,
 /obj/item/fertilizer/bone_meal,
@@ -7196,10 +7217,6 @@
 /obj/item/natural/stone,
 /turf/open/floor/naturalstone,
 /area/outdoors/town/rmh/roofs)
-"cKy" = (
-/obj/structure/fermentation_keg/gronmead,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement/farm)
 "cKG" = (
 /obj/effect/decal/alizeria/decals/wooddecal4,
 /turf/open/floor/ruinedwood/alizeria/tiles/wood29{
@@ -7678,10 +7695,6 @@
 /obj/item/alch/sinew,
 /turf/open/floor/church/pale,
 /area/under/rmh_dungeon/catacombs_town)
-"cSk" = (
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement/tavern)
 "cSs" = (
 /obj/item/bin{
 	icon = 'modular_rmh/icons/obj/structures/yashiki.dmi';
@@ -7841,9 +7854,21 @@
 	},
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/minotaur)
+"cVt" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-w"
+	},
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "cVy" = (
 /turf/open/openspace,
 /area/outdoors/beach/rmh_beach)
+"cVT" = (
+/obj/item/natural/stone,
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "cVW" = (
 /turf/open/floor/tile/tilerg,
 /area/indoors/town/rmh/bath)
@@ -7909,6 +7934,12 @@
 	},
 /turf/open/floor/metal/barograte/open,
 /area/outdoors/mountains/rmh_mountains)
+"cWU" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 1
+	},
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "cWX" = (
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/bank)
@@ -7947,6 +7978,14 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood,
 /area/indoors/cave/rmh_cave/mine)
+"cXx" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-w"
+	},
+/obj/effect/spawner/map_spawner/loot/dungeon/misc,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "cXB" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/cobble,
@@ -8832,11 +8871,6 @@
 /obj/structure/carpet/blue,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/magician)
-"dnf" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "dng" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/debris/stone,
@@ -8996,8 +9030,8 @@
 /turf/open/floor/wood,
 /area/under/town/rmh/basement/tavern)
 "dpj" = (
-/obj/structure/vine,
-/turf/closed/wall/mineral/stone,
+/obj/structure/flora/grass/crawlvines,
+/turf/open/floor/cobble/alt,
 /area/outdoors/town/rmh/ruinedzone)
 "dpk" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -9081,10 +9115,6 @@
 /obj/item/natural/bundle/stoneblock,
 /turf/open/floor/cobblerock,
 /area/under/cavewet)
-"dqi" = (
-/obj/item/fertilizer/bone_meal,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "dqj" = (
 /obj/effect/decal/edge{
 	color = "#7a684b";
@@ -9148,6 +9178,10 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/crafters_guild)
+"dqW" = (
+/obj/structure/flora/grass/bush/green,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "drk" = (
 /obj/structure/water_pipe,
 /turf/open/floor/metal/barograte/open,
@@ -9192,8 +9226,10 @@
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/cave_druid)
 "dsf" = (
-/obj/structure/flora/grass/bush/wall/green,
-/turf/open/floor/grass/healthy,
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/vine,
+/turf/open/floor/dirt,
 /area/outdoors/town/rmh/ruinedzone)
 "dsk" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -9719,6 +9755,12 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile,
 /area/indoors/town/rmh/town_hall)
+"dAj" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 5
+	},
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "dAl" = (
 /turf/open/floor/volcanic,
 /area/indoors/cave/rmh_cave/northern)
@@ -9734,12 +9776,6 @@
 /mob/living/simple_animal/hostile/retaliate/headless,
 /turf/open/floor/cobblerock,
 /area/indoors/cave/east)
-"dAz" = (
-/obj/structure/stairs{
-	dir = 4
-	},
-/turf/open/floor/ruinedwood,
-/area/under/town/rmh/basement/farm)
 "dAG" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/forcefield/strong{
@@ -9841,6 +9877,10 @@
 /obj/item/natural/rock/coal,
 /turf/open/floor/cobblerock,
 /area/indoors/cave/rmh_cave/west)
+"dCo" = (
+/obj/structure/flora/grass/thorn_bush,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "dCr" = (
 /obj/effect/decal/wood/herringbone2{
 	dir = 8
@@ -9964,10 +10004,6 @@
 	},
 /turf/open/floor/ruinedwood/turned,
 /area/outdoors/rmh_river)
-"dDU" = (
-/obj/item/natural/stone,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "dDV" = (
 /obj/effect/decal/edge{
 	dir = 4;
@@ -9994,10 +10030,6 @@
 /obj/effect/decal/wood/herringbone,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/rmh)
-"dEh" = (
-/obj/structure/wild_plant/nospread/poppy,
-/turf/open/floor/dirt,
-/area/outdoors/rmh_field/oldmill)
 "dEj" = (
 /obj/machinery/light/fueled/hearth,
 /obj/machinery/light/fueled/oven/north,
@@ -10092,6 +10124,13 @@
 "dFV" = (
 /turf/open/floor/grass,
 /area/outdoors/town/rmh)
+"dFY" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 5
+	},
+/obj/structure/vine,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "dGb" = (
 /obj/structure/stairs{
 	dir = 4
@@ -10444,10 +10483,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/indoors/cave/rmh_cave/west)
-"dMA" = (
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "dMC" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fake_machine/scomm{
@@ -10473,6 +10508,10 @@
 "dML" = (
 /turf/open/floor/tile/tilerg,
 /area/under/town/rmh/basement/bank)
+"dMN" = (
+/obj/structure/vine,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "dMP" = (
 /obj/item/natural/cloth,
 /turf/open/floor/cobble/alt,
@@ -10571,13 +10610,6 @@
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/rmh)
-"dNC" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 9
-	},
-/obj/structure/vine,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "dND" = (
 /obj/structure/door/town{
 	resident_key_amount = 2
@@ -10672,10 +10704,6 @@
 	mineralChance = 25
 	},
 /area/indoors/cave/rmh_cave/east)
-"dOA" = (
-/obj/item/natural/rock/random_ore,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "dOB" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -10779,6 +10807,10 @@
 	color = "#b3afaf"
 	},
 /area/indoors/town/rmh)
+"dQB" = (
+/obj/structure/rack,
+/turf/open/floor/dirt/road,
+/area/outdoors/exposed/town/rmh/farm)
 "dQG" = (
 /obj/structure/bed/wool,
 /obj/item/bedsheet/wool,
@@ -10977,13 +11009,6 @@
 /obj/structure/flora/grass/fullgrass,
 /turf/open/floor/grass/healthy,
 /area/indoors/cave/rmh_cave/cave_druid)
-"dTH" = (
-/obj/structure/fluff/walldeco/vinez{
-	opacity = 1
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "dUh" = (
 /obj/structure/flora/alizeria/decor/leavesr,
 /obj/structure/fluff/railing/wood,
@@ -11040,6 +11065,10 @@
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/cobble,
 /area/outdoors/rmh_field/rmh_mageporch)
+"dUS" = (
+/obj/structure/wild_plant/nospread/poppy,
+/turf/open/floor/dirt,
+/area/outdoors/rmh_field/oldmill)
 "dUW" = (
 /obj/structure/carpet/purple,
 /turf/open/floor/woodturned,
@@ -11055,11 +11084,6 @@
 /obj/structure/flora/grass/herb/euphorbia,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/east)
-"dVz" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/structure/flora/grass,
-/turf/open/floor/dirt,
-/area/under/town/rmh/basement)
 "dVE" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -11111,13 +11135,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/herringbone,
 /area/under/rmh_dungeon/jergal)
-"dVQ" = (
-/obj/structure/handcart{
-	dir = 8
-	},
-/obj/item/storage/sack,
-/turf/open/floor/dirt/road,
-/area/outdoors/exposed/town/rmh/farm)
 "dVT" = (
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/cave/rmh_cave/greenskins)
@@ -11133,6 +11150,18 @@
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/churchmarble,
 /area/indoors/town/rmh/library)
+"dWb" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-w"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/obj/effect/spawner/map_spawner/loot/cheap_jewelry_spawner,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "dWf" = (
 /turf/open/floor/dirt,
 /area/outdoors/rmh_field/tavel/forest)
@@ -11171,14 +11200,6 @@
 "dXa" = (
 /turf/closed/wall/mineral/wood,
 /area/indoors/town/rmh/tavern)
-"dXe" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-e"
-	},
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "dXg" = (
 /obj/structure/chair/bench/church/smallbench{
 	dir = 1;
@@ -11247,10 +11268,6 @@
 /obj/structure/curtain/red,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/farm/house)
-"dYF" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh)
 "dZd" = (
 /obj/structure/chair/bench/couchamagenta/r,
 /obj/effect/landmark/start/tavern_wench,
@@ -11304,10 +11321,6 @@
 /obj/structure/flora/newtree,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/east)
-"eat" = (
-/obj/structure/fermentation_keg/kgsunsake,
-/turf/open/floor/wood,
-/area/under/town/rmh/basement/farm)
 "eay" = (
 /obj/effect/decal/borderfall{
 	dir = 1;
@@ -11317,6 +11330,9 @@
 	dir = 1
 	},
 /area/indoors/town/rmh/town_hall)
+"eaz" = (
+/turf/closed/wall/mineral/stone/window/moss,
+/area/outdoors/town/rmh/ruinedzone)
 "eaB" = (
 /obj/structure/table/wood/large_new{
 	dir = 5;
@@ -11385,10 +11401,6 @@
 /obj/structure/closet/crate/drawer,
 /turf/open/floor/tile/bfloorz,
 /area/indoors/town/rmh/craft/clinic)
-"eby" = (
-/obj/machinery/light/fueled/firebowl/stump,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh)
 "ebz" = (
 /obj/structure/spider/stickyweb,
 /turf/closed/wall/mineral/wooddark,
@@ -11531,6 +11543,10 @@
 /obj/structure/flora/grass/crawlvines,
 /turf/open/floor/herringbone,
 /area/under/rmh_dungeon/jergal)
+"eee" = (
+/obj/structure/flora/tree/newtree2,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh)
 "ees" = (
 /obj/effect/decal/mossy{
 	dir = 1
@@ -11564,13 +11580,6 @@
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/openspace,
 /area/indoors/town/rmh/bath)
-"eeH" = (
-/obj/structure/fluff/walldeco/vinez{
-	opacity = 1
-	},
-/obj/item/grown/log/tree/stick,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "eeJ" = (
 /obj/effect/decal/edge_corner{
 	dir = 2;
@@ -11578,6 +11587,10 @@
 	},
 /turf/open/floor/tile/bath,
 /area/indoors/town/rmh/bath)
+"eeQ" = (
+/obj/item/natural/bundle/stoneblock,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/ruinedzone)
 "eeU" = (
 /obj/effect/decal/edge{
 	dir = 4
@@ -11601,6 +11614,10 @@
 /obj/item/key/guest,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
+"efu" = (
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh)
 "efw" = (
 /obj/structure/flora/tree/pine{
 	icon_state = "pine3"
@@ -11980,10 +11997,6 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/concrete,
 /area/under/town/rmh/basement/mages)
-"emy" = (
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "emE" = (
 /obj/structure/bars/pipe{
 	pixel_x = 25;
@@ -12134,6 +12147,10 @@
 /obj/item/reagent_containers/glass/bucket/wooden/alter,
 /turf/open/floor/wood,
 /area/indoors/cave/rmh_cave/west)
+"epj" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "epv" = (
 /mob/living/simple_animal/hostile/retaliate/infernal/imp{
 	del_on_deaggro = 0
@@ -12328,6 +12345,9 @@
 "esE" = (
 /turf/open/floor/ruinedwood/two,
 /area/under/town/rmh/basement/townhall)
+"etc" = (
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "etm" = (
 /turf/open/openspace,
 /area/outdoors/rmh_air)
@@ -12630,6 +12650,11 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/rmh)
+"eyl" = (
+/obj/item/grown/log/tree/stick,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "eyp" = (
 /obj/structure/bars/passage{
 	redstone_id = "underdungeon1";
@@ -12736,6 +12761,10 @@
 	},
 /turf/closed/wall/mineral/craftstone,
 /area/indoors/town/rmh/cell)
+"eAi" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/cobble,
+/area/under/town/rmh/basement/farm)
 "eAj" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/outdoors/rmh_air)
@@ -12979,6 +13008,15 @@
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/churchmarble,
 /area/indoors/town/rmh/chapel/basement)
+"eFB" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-w"
+	},
+/obj/item/natural/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "eFC" = (
 /obj/effect/decal/edge_corner{
 	dir = 4;
@@ -13194,11 +13232,6 @@
 	dir = 8
 	},
 /area/under/rmh_dungeon/jergal)
-"eIl" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/structure/vine,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "eIn" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -13230,6 +13263,10 @@
 "eIE" = (
 /turf/open/floor/rooftop/green/west,
 /area/outdoors/town/rmh/roofs)
+"eIF" = (
+/obj/item/grown/log/tree/stick,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh)
 "eIM" = (
 /obj/structure/door/viewport{
 	dir = 8;
@@ -13529,9 +13566,8 @@
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement/townhall)
 "eOe" = (
-/obj/structure/fermentation_keg/beer,
-/turf/open/floor/wood,
-/area/under/town/rmh/basement/farm)
+/turf/closed/wall/mineral/stone/moss,
+/area/outdoors/town/rmh/roofs)
 "eOn" = (
 /obj/structure/fluff/railing/wood/west,
 /obj/effect/decal/edge_corner{
@@ -13572,16 +13608,18 @@
 /obj/item/tablecloth/silk,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
+"eOq" = (
+/obj/machinery/light/fueled/torchholder/c,
+/obj/structure/stairs{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood,
+/area/under/town/rmh/basement/farm)
 "eOQ" = (
 /obj/structure/flora/grass,
 /obj/structure/flora/alizeria/decor/leavesr,
 /turf/open/floor/dirt/road,
 /area/outdoors/rmh_field/west)
-"eOU" = (
-/obj/item/grown/log/tree/stick,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh)
 "ePc" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
@@ -14074,10 +14112,9 @@
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/druid)
 "eXb" = (
-/obj/item/natural/stone,
-/obj/structure/flora/grass/crawlvines,
+/obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/roofs)
+/area/outdoors/town/rmh/ruinedzone)
 "eXg" = (
 /obj/effect/decal/cobbleedge/mossy{
 	dir = 4;
@@ -14085,13 +14122,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/indoors/town/rmh)
-"eXh" = (
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/obj/effect/spawner/map_spawner/loot/cheap_jewelry_spawner,
-/turf/open/floor/cobble/alt,
-/area/under/rmh_dungeon/catacombs_town)
 "eXi" = (
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement)
@@ -14152,10 +14182,6 @@
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/tavern)
-"eYo" = (
-/obj/structure/fermentation_keg/random/water,
-/turf/open/floor/cobble,
-/area/under/town/rmh/basement/farm)
 "eYp" = (
 /obj/effect/decal/alizeria/decals/wooddecal4,
 /turf/open/floor/rooftop,
@@ -14235,6 +14261,10 @@
 	},
 /turf/open/floor/ruinedwood/turned,
 /area/outdoors/rmh_platz)
+"eZJ" = (
+/obj/structure/flora/tree/newtree,
+/turf/open/floor/grass/healthy,
+/area/outdoors/rmh_field/west)
 "eZK" = (
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/wood,
@@ -14270,6 +14300,10 @@
 "fai" = (
 /turf/closed/wall/mineral/decorstone,
 /area/outdoors/rmh_field/rmh_mageporch)
+"far" = (
+/obj/structure/fermentation_keg/whitewine,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement/farm)
 "fat" = (
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/church/gold,
@@ -14369,6 +14403,10 @@
 	dir = 1
 	},
 /area/indoors/town/rmh/bank)
+"fcy" = (
+/obj/structure/fermentation_keg/gronmead,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement/farm)
 "fcE" = (
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/dirt/road,
@@ -14744,11 +14782,6 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/garrison)
-"fkE" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "fkL" = (
 /obj/structure/fluff/railing/border/north,
 /turf/open/openspace,
@@ -14895,6 +14928,14 @@
 /obj/structure/stairs,
 /turf/open/floor/ruinedwood,
 /area/outdoors/rmh_river)
+"fnJ" = (
+/obj/structure/rack,
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/obj/item/reagent_containers/glass/bottle,
+/turf/open/floor/wood,
+/area/under/town/rmh/basement/farm)
 "fnL" = (
 /obj/effect/decal/cobblerockedge{
 	dir = 4
@@ -14981,10 +15022,6 @@
 /obj/item/soap,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/magician)
-"fqS" = (
-/obj/structure/flora/grass,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "fqW" = (
 /obj/structure/fluff/railing/border/east,
 /obj/structure/fluff/walldeco/church/line{
@@ -15132,6 +15169,14 @@
 	},
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/indoors/town/rmh/tavern)
+"ftd" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 6
+	},
+/obj/structure/flora/grass/crawlvines,
+/obj/structure/vine,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "ftf" = (
 /obj/effect/decal/edge{
 	dir = 8;
@@ -15145,10 +15190,6 @@
 	},
 /turf/open/floor/blocks/green,
 /area/under/town/rmh/sewer)
-"ftp" = (
-/obj/structure/rack/shelf/biggest,
-/turf/open/floor/cobble,
-/area/under/town/rmh/basement/farm)
 "ftx" = (
 /obj/structure/essence_node{
 	essence_type = /datum/thaumaturgical_essence/order
@@ -15446,15 +15487,6 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/dirt,
 /area/outdoors/exposed/town/rmh/farm)
-"fzR" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-w"
-	},
-/obj/item/natural/stone,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "fzS" = (
 /obj/effect/decal/edge{
 	dir = 2;
@@ -15632,13 +15664,9 @@
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/farm/house)
 "fCS" = (
-/obj/structure/fluff/railing/wood/north{
-	plane = -6;
-	pixel_y = 7
-	},
-/obj/item/grown/log/tree/stick,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh)
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/roofs)
 "fCT" = (
 /obj/effect/decal/edge{
 	dir = 9;
@@ -15710,6 +15738,11 @@
 /obj/structure/barricade/wooden,
 /turf/open/floor/dirt,
 /area/indoors/town/rmh/windmill)
+"fEa" = (
+/obj/item/grown/log/tree/stick,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "fEn" = (
 /obj/structure/fluff/customsign{
 	name = "STOREHOUSE";
@@ -15753,12 +15786,6 @@
 "fFh" = (
 /turf/open/floor/tile/brick,
 /area/indoors/town/rmh/craft/apothecary)
-"fFl" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/item/fertilizer/bone_meal,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "fFt" = (
 /obj/structure/fluff/walldeco/bath/wallpipes/innie{
 	dir = 5
@@ -15772,6 +15799,10 @@
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/dirt,
 /area/under/rmh_dungeon/catacombs_town)
+"fFG" = (
+/obj/structure/fermentation_keg/random/water,
+/turf/open/floor/cobble,
+/area/under/town/rmh/basement/farm)
 "fFH" = (
 /obj/effect/decal/cleanable/debris/wood,
 /turf/open/floor/cobble/mossy,
@@ -15816,16 +15847,15 @@
 /obj/item/trash/candle,
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/catacombs)
+"fGV" = (
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/ruinedzone)
 "fHg" = (
 /obj/structure/chair/wood/alt/fancy/chair5{
 	dir = 4
 	},
 /turf/open/floor/church,
 /area/indoors/town/rmh/library)
-"fHp" = (
-/obj/item/natural/rock/random_ore,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement/tavern)
 "fHs" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/clothing/cloak/stole/red,
@@ -15965,6 +15995,11 @@
 /obj/item/pestle,
 /turf/open/floor/church/green,
 /area/indoors/town/rmh/magician)
+"fJE" = (
+/obj/item/natural/stoneblock,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt,
+/area/under/town/rmh/basement)
 "fJK" = (
 /obj/structure/curtain/black,
 /obj/structure/table/wood/reinforced,
@@ -16127,13 +16162,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement/farm)
-"fNA" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "fNC" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/chair/stool/bar,
@@ -16174,6 +16202,10 @@
 	dir = 1
 	},
 /area/indoors/town/rmh/chapel/basement)
+"fOF" = (
+/obj/item/natural/rock,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "fOG" = (
 /obj/structure/fluff/railing/wood/north{
 	layer = 2.7;
@@ -16264,12 +16296,6 @@
 /obj/item/weapon/shovel,
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/farm/ambar)
-"fPM" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/structure/barricade/wooden,
-/obj/structure/alizeria/decor/barricade1,
-/turf/open/floor/cobble,
-/area/under/town/rmh/basement/tavern)
 "fPQ" = (
 /turf/closed/wall/mineral/wooddark/end{
 	dir = 8
@@ -16280,11 +16306,6 @@
 /obj/structure/spider/stickyweb/mirespider,
 /turf/open/floor/mushroom,
 /area/under/rmh_dungeon/underdarkmaze)
-"fQa" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/structure/fluff/statue/alizeriadecor/stolb3,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "fQb" = (
 /obj/effect/decal/edge_corner{
 	dir = 4;
@@ -16469,16 +16490,6 @@
 	},
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/west)
-"fSc" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 4
-	},
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "fSl" = (
 /obj/effect/landmark/mapGenerator/cave{
 	endTurfX = 255;
@@ -16640,10 +16651,13 @@
 	},
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/druid)
-"fUK" = (
-/obj/structure/vine,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
+"fUQ" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 2
+	},
+/obj/item/natural/stone,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "fUS" = (
 /obj/machinery/light/fueled/wallfire/candle/weak/r{
 	pixel_x = 0
@@ -16886,17 +16900,21 @@
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement/tavern)
 "gau" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-w"
+	},
+/obj/structure/flora/grass/crawlvines,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/dirt,
+/obj/item/statue/bronze/bust{
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/turf/open/floor/cobblerock,
 /area/under/town/rmh/basement)
 "gax" = (
 /turf/closed/wall/mineral/wood,
 /area/indoors/cave/rmh_cave/mine)
-"gaA" = (
-/obj/structure/flora/grass/crawlvines,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/roofs)
 "gaK" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -17056,6 +17074,11 @@
 	},
 /turf/closed/wall/mineral/stone,
 /area/under/rmh_dungeon/catacombs_church)
+"gdj" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/paper,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/ruinedzone)
 "gdo" = (
 /turf/closed/wall/mineral/decostone/moss/end,
 /area/indoors/town/rmh/bank)
@@ -17327,10 +17350,6 @@
 "ghJ" = (
 /turf/open/floor/churchrough,
 /area/under/town/rmh/basement/merchant)
-"ghL" = (
-/obj/machinery/light/fueled/torchholder/c,
-/turf/open/floor/wood,
-/area/under/town/rmh/basement/farm)
 "ghO" = (
 /obj/structure/bookcase/random/legends,
 /turf/closed/wall/mineral/decostone/long,
@@ -17498,10 +17517,6 @@
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/west)
-"gjH" = (
-/obj/item/natural/stone,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "gjI" = (
 /obj/effect/decal/cleanable/debris/wood,
 /turf/open/floor/cobble/mossy,
@@ -17545,6 +17560,10 @@
 	},
 /turf/open/floor/hexstone,
 /area/indoors/town/rmh/craft/blacksmith)
+"gku" = (
+/obj/structure/rack/shelf/biggest,
+/turf/open/floor/wood,
+/area/under/town/rmh/basement/farm)
 "gkx" = (
 /obj/effect/decal/edge_corner{
 	dir = 2;
@@ -17642,6 +17661,10 @@
 	wallclimb = 0
 	},
 /area/indoors/town/rmh/garrison/wall)
+"glW" = (
+/obj/item/grown/log/tree/stick,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "gma" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-e";
@@ -17653,6 +17676,11 @@
 	},
 /turf/open/floor/cobblerock,
 /area/outdoors/town/rmh)
+"gmb" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/ruinedzone)
 "gmc" = (
 /obj/effect/decal/borderfall{
 	dir = 4;
@@ -17853,6 +17881,11 @@
 /mob/living/simple_animal/hostile/retaliate/saigabuck,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/north)
+"goJ" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/cleanable/dirt/paper,
+/turf/open/floor/dirt,
+/area/under/town/rmh/basement)
 "goM" = (
 /turf/open/floor/metal/alt,
 /area/under/town/rmh/basement/artificer)
@@ -17992,6 +18025,14 @@
 "grc" = (
 /turf/closed/wall/mineral/wooddark,
 /area/indoors/town)
+"grj" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-e"
+	},
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "grp" = (
 /obj/structure/fluff/walldeco/selune_banner/ban2{
 	pixel_x = 32
@@ -18006,10 +18047,6 @@
 /obj/effect/decal/cleanable/dirt/paper,
 /turf/open/floor/herringbone,
 /area/under/rmh_dungeon/jergal)
-"grs" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/roofs)
 "grw" = (
 /obj/effect/decal/cleanable/debris/stone,
 /turf/closed/mineral,
@@ -18092,10 +18129,6 @@
 /obj/item/bin/water,
 /turf/open/floor/cobblerock,
 /area/outdoors/town/rmh)
-"gsC" = (
-/obj/item/natural/bundle/stoneblock,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "gsE" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -18158,14 +18191,14 @@
 	dir = 8
 	},
 /area/indoors/town/rmh/craft/tailor)
-"gts" = (
-/obj/structure/closet/crate/chest/wicker,
-/turf/open/floor/grass/healthy,
-/area/outdoors/exposed/town/rmh/farm)
 "gty" = (
 /obj/item/natural/stone,
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/jergal)
+"gtA" = (
+/obj/structure/rack/shelf/biggest,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement/farm)
 "gtE" = (
 /obj/structure/fluff/walldeco/bath/wallpipes,
 /turf/open/floor/metal,
@@ -18275,6 +18308,10 @@
 /obj/structure/flora/grass/fullgrass,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/north_mountain)
+"gvT" = (
+/obj/structure/vine,
+/turf/open/floor/naturalstone,
+/area/outdoors/town/rmh/roofs)
 "gwa" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/reagent_containers/glass/cup/wooden,
@@ -18700,16 +18737,6 @@
 	},
 /turf/open/floor/cobble,
 /area/outdoors/town/rmh)
-"gCa" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-w"
-	},
-/obj/effect/decal/cobbleedge/alt{
-	dir = 6
-	},
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "gCj" = (
 /obj/structure/flora/grass/crawlvines,
 /obj/item/natural/stoneblock,
@@ -19178,6 +19205,14 @@
 	dir = 4
 	},
 /area/under/rmh_dungeon/jergal)
+"gJd" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 9
+	},
+/obj/item/natural/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "gJe" = (
 /obj/structure/door/fancy{
 	name = "Guard's Chambers"
@@ -19473,19 +19508,11 @@
 /obj/structure/flora/grass/herb/valeriana,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/west)
-"gOw" = (
-/obj/structure/flora/tree/newtree2,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh)
 "gOK" = (
 /obj/structure/stairs,
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/ruinedwood,
 /area/under/town/rmh/basement/tavern)
-"gON" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
 "gOQ" = (
 /turf/open/water/swamp,
 /area/outdoors/bog)
@@ -19774,9 +19801,9 @@
 /turf/open/floor/twig,
 /area/indoors/shelter/woods)
 "gVa" = (
-/obj/structure/vine,
+/obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
+/area/under/town/rmh/basement)
 "gVd" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -19904,10 +19931,6 @@
 	},
 /turf/open/floor/carpet/purple,
 /area/indoors/town/rmh/bank)
-"gWJ" = (
-/obj/item/natural/rock/random_ore,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "gWP" = (
 /obj/structure/flora/grass/swampweed,
 /turf/open/floor/grass,
@@ -20091,9 +20114,9 @@
 /turf/open/openspace,
 /area/outdoors/rmh_field/druid)
 "hax" = (
-/obj/structure/flora/grass/bush/wall/tall/green,
+/obj/item/natural/rock/random_ore,
 /turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
+/area/outdoors/town/rmh)
 "haD" = (
 /obj/structure/fermentation_keg,
 /turf/open/floor/dirt/road,
@@ -20190,15 +20213,6 @@
 "hcR" = (
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement/lab)
-"hdc" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-e"
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/vine,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "hdw" = (
 /obj/structure/fluff/walldeco/vinez/offset,
 /turf/open/floor/cobble,
@@ -20633,6 +20647,9 @@
 /obj/effect/mapping_helpers/access/keyset/church/priest,
 /turf/open/floor/concrete,
 /area/indoors/town/rmh/chapel/basement)
+"hkU" = (
+/turf/closed/wall/mineral/stonebrick,
+/area/outdoors/town/rmh/ruinedzone)
 "hkV" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -20640,10 +20657,11 @@
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/jergal)
 "hkY" = (
-/obj/structure/fluff/statue/alizeriadecor/stolb3,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/roofs)
+/obj/structure/flora/grass/jungle{
+	color = "#92967a"
+	},
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "hkZ" = (
 /obj/effect/decal/alizeria/decals/wooddecal1,
 /turf/open/floor/woodturned,
@@ -21099,6 +21117,12 @@
 /obj/effect/spawner/map_spawner/loot/cheap_tableware_spawner,
 /turf/open/floor/church,
 /area/under/rmh_dungeon/jergal)
+"htc" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/roofs)
 "htj" = (
 /obj/structure/ladder,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -21192,6 +21216,14 @@
 /obj/effect/decal/cleanable/debris/wood,
 /turf/open/floor/wood,
 /area/indoors)
+"huA" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/map_spawner/loot/dungeon/misc,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "huB" = (
 /obj/effect/decal/edge{
 	dir = 10;
@@ -21395,10 +21427,6 @@
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town)
-"hzq" = (
-/obj/structure/fermentation_keg/whitewine,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement/farm)
 "hzt" = (
 /turf/open/floor/dirt,
 /area/indoors)
@@ -21756,6 +21784,10 @@
 /obj/item/grown/log/tree/small,
 /turf/open/floor/cobblerock,
 /area/indoors/cave/rmh_cave/west)
+"hGa" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/cobble,
+/area/under/town/rmh/basement/farm)
 "hGh" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -21810,6 +21842,10 @@
 "hHi" = (
 /turf/closed/wall/mineral/roofwall/outercorner,
 /area/indoors/town/rmh/farm/house)
+"hHk" = (
+/obj/structure/vine,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "hHI" = (
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/indoors/town/rmh)
@@ -21900,10 +21936,6 @@
 	},
 /turf/open/floor/cobble/alt,
 /area/indoors/town/rmh/cell)
-"hJP" = (
-/obj/structure/flora/grass/crawlvines,
-/turf/open/floor/dirt,
-/area/under/town/rmh/basement)
 "hJR" = (
 /obj/structure/flora/grass/water,
 /turf/open/water/swamp/deep,
@@ -21924,6 +21956,10 @@
 	},
 /turf/open/floor/ruinedwood/alizeria/tiles/wood21,
 /area/indoors/town/rmh/farm/house)
+"hKe" = (
+/obj/item/natural/stone,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/roofs)
 "hKo" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/royalblack,
@@ -22132,6 +22168,10 @@
 	color = "#b3afaf"
 	},
 /area/indoors/town/rmh/merchant)
+"hNJ" = (
+/obj/structure/fermentation_keg/jagt,
+/turf/open/floor/wood,
+/area/under/town/rmh/basement/farm)
 "hNK" = (
 /obj/item/natural/rock,
 /turf/open/floor/blocks,
@@ -22234,14 +22274,18 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/town_hall)
+"hPC" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-e"
+	},
+/obj/structure/flora/grass/crawlvines,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "hPD" = (
 /obj/structure/flora/driftwood,
 /turf/open/water/clean,
 /area/outdoors/rmh_magelake)
-"hPG" = (
-/obj/item/natural/rock/random_ore,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh)
 "hPP" = (
 /obj/structure/fluff/railing/corner{
 	dir = 9
@@ -22542,9 +22586,9 @@
 	},
 /area/indoors/cave/east)
 "hVw" = (
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/cobble,
-/area/under/town/rmh/basement/farm)
+/obj/structure/flora/grass/crawlvines,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "hVx" = (
 /obj/structure/flora/grass/fullgrass,
 /turf/open/floor/grass/healthy,
@@ -22591,6 +22635,12 @@
 /obj/structure/flora/grass/bush/wall,
 /turf/open/floor/dirt,
 /area/under/rmh_dungeon/jergal)
+"hWJ" = (
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/turf/open/floor/blocks,
+/area/under/rmh_dungeon/catacombs_town)
 "hWP" = (
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement/tavern)
@@ -22758,10 +22808,6 @@
 /obj/item/candle/yellow,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/living)
-"hZS" = (
-/obj/structure/flora/grass,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh)
 "hZV" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/dirt,
@@ -22827,6 +22873,12 @@
 "iaD" = (
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/oldmill)
+"iaE" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/fertilizer/bone_meal,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "iaJ" = (
 /obj/structure/fluff/canopy/green,
 /obj/structure/table/wood/large/corner_new{
@@ -23139,10 +23191,20 @@
 	},
 /turf/open/floor/church,
 /area/under/rmh_dungeon/underdarkmaze)
+"iet" = (
+/obj/structure/flora/grass/thorn_bush,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "iex" = (
 /obj/item/natural/stone,
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh/livingquart)
+"ieA" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10
+	},
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "ieB" = (
 /obj/effect/decal/edge_corner{
 	color = "#7a684b";
@@ -23588,8 +23650,12 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/shelter/woods)
 "imT" = (
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/dirt,
+/area/under/town/rmh/basement)
 "imV" = (
 /obj/item/natural/stone,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -23617,19 +23683,6 @@
 /obj/structure/fluff/railing/corner,
 /turf/open/openspace,
 /area/indoors/town/rmh/magician)
-"inf" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-w"
-	},
-/obj/structure/flora/grass/crawlvines,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/item/statue/bronze/bust{
-	pixel_y = 0;
-	pixel_x = -32
-	},
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "inh" = (
 /mob/living/simple_animal/hostile/retaliate/cow,
 /obj/effect/decal/cobbleedge{
@@ -23670,6 +23723,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/church/gold,
 /area/under/rmh_dungeon/catacombs_town)
+"inX" = (
+/obj/structure/flora/grass/crawlvines,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "inZ" = (
 /obj/structure/door/window{
 	name = "Greenhouse"
@@ -23943,6 +24003,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/hexstone,
 /area/under/town/rmh/basement/blacksmith)
+"irt" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/vine,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "iru" = (
 /turf/open/water/river{
 	dir = 8
@@ -24060,11 +24126,6 @@
 	},
 /turf/open/floor/cobble/alt,
 /area/outdoors/town/rmh)
-"isO" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/structure/vine,
-/turf/open/floor/dirt,
-/area/under/town/rmh/basement)
 "isY" = (
 /obj/structure/table/stone_small,
 /obj/item/storage/backpack/satchel/surgbag/shit,
@@ -24347,6 +24408,12 @@
 "ixl" = (
 /turf/open/floor/ruinedwood/darker,
 /area/under/tomb/indoors/church)
+"ixp" = (
+/obj/effect/decal/cleanable/dirt/paper{
+	dir = 1
+	},
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "ixu" = (
 /obj/effect/decal/cleanable/debris/stone,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -24789,6 +24856,21 @@
 /obj/item/natural/stoneblock,
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/jergal)
+"iEv" = (
+/obj/item/natural/stoneblock,
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/dirt,
+/area/under/town/rmh/basement)
+"iEA" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "iEB" = (
 /obj/effect/decal/edge{
 	dir = 4;
@@ -24824,14 +24906,6 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/farm/house)
-"iFi" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-w"
-	},
-/obj/effect/spawner/map_spawner/loot/dungeon/misc,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "iFy" = (
 /obj/structure/closet/crate/chest/neu_iron,
 /turf/open/floor/wood,
@@ -24981,12 +25055,6 @@
 /obj/item/natural/rock,
 /turf/open/floor/naturalstone,
 /area/under/rmh_dungeon/catacombs_town)
-"iHN" = (
-/obj/structure/stairs/stone{
-	dir = 1
-	},
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "iHP" = (
 /obj/structure/door/weak/bolt{
 	dir = 4
@@ -25227,10 +25295,6 @@
 /obj/item/natural/stone,
 /turf/open/floor/cobblerock,
 /area/indoors/cave/rmh_cave/minotaur)
-"iMT" = (
-/obj/structure/flora/grass/bush/green,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "iMY" = (
 /obj/structure/stairs{
 	dir = 1
@@ -25398,6 +25462,18 @@
 	},
 /turf/open/openspace,
 /area/indoors/town/rmh/tavern)
+"iPZ" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-w"
+	},
+/obj/effect/decal/cleanable/debris/stone,
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/obj/effect/spawner/map_spawner/loot/cheap_candle_spawner,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "iQe" = (
 /turf/open/floor/cobble,
 /area/indoors/town/rmh/chapel/basement)
@@ -25562,6 +25638,13 @@
 /obj/item/weapon/whip,
 /turf/open/floor/tile,
 /area/under/town/rmh/basement/bdsm)
+"iSy" = (
+/obj/item/statue/bronze/bust{
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/turf/open/floor/cobble/alt,
+/area/under/rmh_dungeon/catacombs_town)
 "iSI" = (
 /obj/structure/fluff/railing/wood{
 	plane = -6
@@ -25738,6 +25821,11 @@
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/cobblerock,
 /area/outdoors/town/rmh/roofs)
+"iVd" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/vine,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "iVm" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
@@ -25758,10 +25846,9 @@
 /area/indoors/town/rmh/cell)
 "iVG" = (
 /obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-e"
+	dir = 9
 	},
-/obj/structure/flora/grass/crawlvines,
+/obj/structure/vine,
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement)
 "iVH" = (
@@ -26131,10 +26218,6 @@
 /obj/structure/flora/grass/crawlvines,
 /turf/open/floor/blocks,
 /area/under/rmh_dungeon/catacombs_town)
-"jdw" = (
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "jdD" = (
 /obj/effect/decal/edge_corner{
 	dir = 8;
@@ -26224,6 +26307,10 @@
 	},
 /turf/open/floor/tile/bfloorz,
 /area/indoors/town/rmh/bath)
+"jep" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "jez" = (
 /turf/closed/wall/mineral/stonebrick,
 /area/under/rmh_dungeon/catacombs_town)
@@ -26325,10 +26412,6 @@
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/closed/wall/mineral/decostone/cand,
 /area/under/rmh_dungeon/jergal)
-"jgr" = (
-/obj/item/grown/log/tree/stick,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
 "jgz" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/flora/grass/fullgrass,
@@ -26339,6 +26422,10 @@
 	},
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh/roofs)
+"jgJ" = (
+/obj/structure/stairs,
+/turf/open/floor/ruinedwood,
+/area/under/town/rmh/basement/farm)
 "jhf" = (
 /obj/structure/stalagmite,
 /turf/open/floor/naturalstone,
@@ -26534,6 +26621,11 @@
 "jlw" = (
 /turf/closed/wall/mineral/wooddark,
 /area/indoors/town/rmh/witch)
+"jlC" = (
+/obj/item/natural/stone,
+/obj/structure/flora/grass/crawlvines,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/roofs)
 "jlI" = (
 /obj/effect/decal/cobbleedge{
 	pixel_y = 0;
@@ -26601,10 +26693,6 @@
 /obj/structure/flora/grass/herb/atropa,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/west)
-"jmS" = (
-/obj/item/grown/log/tree/stick,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh)
 "jmT" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/fluff/railing/corner/south_east,
@@ -26742,10 +26830,6 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/wood,
 /area/indoors)
-"jpq" = (
-/obj/structure/flora/tree/newtree,
-/turf/open/floor/grass/healthy,
-/area/outdoors/rmh_field/west)
 "jpw" = (
 /turf/closed/wall/mineral/stone/moss{
 	density = 0;
@@ -26973,10 +27057,6 @@
 /obj/structure/roguerock,
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/minotaur)
-"juq" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/wood,
-/area/under/town/rmh/basement/farm)
 "jut" = (
 /obj/structure/fluff/railing/wood/east,
 /turf/open/floor/grass/healthy,
@@ -27590,6 +27670,10 @@
 /obj/effect/decal/remains/mole,
 /turf/open/floor/naturalstone,
 /area/under/cavewet)
+"jGI" = (
+/obj/structure/door/viewport/stone/broken,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/ruinedzone)
 "jHc" = (
 /turf/open/floor/dirt,
 /area/indoors/cave/rmh_cave/east)
@@ -27886,6 +27970,10 @@
 /obj/effect/decal/cleanable/debris/wood,
 /turf/open/floor/dirt/road,
 /area/outdoors/rmh_field/west)
+"jKJ" = (
+/obj/item/natural/bundle/stoneblock,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "jKW" = (
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/dirt/road,
@@ -27895,9 +27983,9 @@
 /turf/open/floor/concrete,
 /area/under/rmh_dungeon/catacombs_town)
 "jLp" = (
-/obj/structure/rack/shelf/biggest,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement/farm)
+/obj/structure/flora/grass/crawlvines,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "jLv" = (
 /turf/closed/wall/mineral/craftstone,
 /area/indoors/town/rmh/bank)
@@ -27985,15 +28073,6 @@
 /obj/structure/fluff/railing/wood/east,
 /turf/open/floor/ruinedwood,
 /area/outdoors/town/rmh/roofs)
-"jNB" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-e"
-	},
-/obj/effect/decal/cleanable/debris/stone,
-/obj/effect/decal/cleanable/dirt/paper,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "jNI" = (
 /obj/structure/table/wood/plain/alto,
 /obj/effect/decal/carpet{
@@ -28505,19 +28584,10 @@
 /obj/item/natural/bundle/stoneblock,
 /turf/open/floor/cobble,
 /area/under/rmh_dungeon/jergal)
-"jVJ" = (
-/obj/structure/flora/field/poppy,
-/turf/open/floor/dirt/road,
-/area/outdoors/rmh_field/oldmill)
 "jVR" = (
 /obj/structure/fluff/walldeco/bath/wallpipes,
 /turf/open/floor/metal/alt,
 /area/indoors/town/rmh/bath)
-"jVU" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "jVW" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 4
@@ -28540,6 +28610,10 @@
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/openspace,
 /area/indoors/town/rmh/magician)
+"jWo" = (
+/obj/structure/flora/field/poppy,
+/turf/open/floor/dirt/road,
+/area/outdoors/rmh_field/west)
 "jWp" = (
 /obj/structure/fluff/walldeco/vinez/l,
 /obj/item/grown/log/tree/small,
@@ -28882,9 +28956,6 @@
 	dir = 4
 	},
 /area/indoors/town/rmh/living)
-"kda" = (
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "kdr" = (
 /obj/structure/rack,
 /obj/effect/spawner/map_spawner/loot/dungeon/weapons,
@@ -28899,11 +28970,10 @@
 "kdK" = (
 /turf/open/floor/grass,
 /area/outdoors/town/rmh/livingquart)
-"kdQ" = (
-/obj/item/natural/stone,
-/obj/effect/decal/cleanable/dirt/dust,
+"kdP" = (
+/obj/structure/fake_machine/scomm/l,
 /turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/roofs)
+/area/indoors/cave/rmh_cave/west)
 "kdV" = (
 /obj/effect/decal/cleanable/debris/wood,
 /turf/open/floor/ruinedwood/turned,
@@ -28924,11 +28994,6 @@
 /obj/structure/flora/alizeria/decor/leavesr,
 /turf/open/floor/grass,
 /area/outdoors/town/rmh)
-"keu" = (
-/obj/item/grown/log/tree/stick,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "kez" = (
 /obj/item/natural/stone,
 /turf/open/floor/grass,
@@ -29053,8 +29118,8 @@
 /area/indoors/town/rmh/merchant)
 "kgu" = (
 /obj/structure/flora/grass/crawlvines,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "kgF" = (
 /obj/item/grown/log/tree/stick,
 /turf/open/floor/grass,
@@ -29442,6 +29507,11 @@
 	},
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh/roofs)
+"kne" = (
+/obj/structure/flora/grass/crawlvines,
+/obj/structure/vine,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "knj" = (
 /obj/effect/decal/alizeria/decals/wooddecal1,
 /obj/machinery/light/fueled/wallfire/candle{
@@ -29670,6 +29740,18 @@
 /obj/structure/window,
 /turf/open/floor/ruinedwood/darker,
 /area/under/rmh_dungeon/jergal)
+"kra" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-e"
+	},
+/obj/effect/decal/cobbleedge/alt{
+	dir = 1
+	},
+/obj/item/natural/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "krc" = (
 /obj/effect/decal/edge{
 	color = "#7a684b";
@@ -29688,6 +29770,11 @@
 "krr" = (
 /turf/open/floor/blocks/stonered/tiny,
 /area/indoors/town/rmh/crafters_guild)
+"krF" = (
+/obj/item/natural/rock/random_ore,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "krT" = (
 /obj/structure/mannequin{
 	pixel_y = 23;
@@ -29750,6 +29837,10 @@
 "ksY" = (
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/living)
+"kte" = (
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/dirt,
+/area/under/town/rmh/basement)
 "ktg" = (
 /obj/structure/fluff/railing/wood/west,
 /obj/structure/fluff/railing/wood/north{
@@ -30063,15 +30154,14 @@
 /obj/structure/stairs,
 /turf/open/floor/ruinedwood,
 /area/indoors/cave/rmh_cave/mine)
-"kyv" = (
-/obj/item/natural/rock,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "kyx" = (
 /obj/structure/flora/grass/thorn_bush,
 /turf/open/floor/dirt,
 /area/outdoors/rmh_field/north)
+"kyE" = (
+/obj/item/natural/stone,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "kyG" = (
 /obj/structure/table/wood/crafted,
 /obj/item/weapon/knife/villager,
@@ -30091,6 +30181,12 @@
 	},
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement/tavern)
+"kyM" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/ruinedzone)
 "kyO" = (
 /obj/effect/decal/edge_corner{
 	dir = 4;
@@ -30121,13 +30217,6 @@
 /obj/item/natural/rock,
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/to_underdark)
-"kzj" = (
-/obj/structure/fluff/walldeco/vinez{
-	opacity = 1
-	},
-/obj/structure/vine,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "kzo" = (
 /obj/machinery/loom{
 	pixel_y = 23
@@ -30244,13 +30333,6 @@
 /obj/item/reagent_containers/glass/bucket/wooden/alter,
 /turf/open/floor/dirt/road,
 /area/outdoors/exposed/town/rmh/farm)
-"kAq" = (
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/obj/effect/spawner/map_spawner/loot/dungeon/materials,
-/turf/open/floor/cobblerock,
-/area/under/rmh_dungeon/catacombs_town)
 "kAv" = (
 /turf/open/floor/hexstone,
 /area/indoors/town/rmh/craft/blacksmith)
@@ -30329,11 +30411,12 @@
 /turf/open/floor/cobble,
 /area/outdoors/town/rmh)
 "kCl" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 1
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-w"
 	},
-/turf/open/floor/dirt,
+/obj/item/natural/stoneblock,
+/turf/open/floor/cobblerock,
 /area/under/town/rmh/basement)
 "kCn" = (
 /obj/structure/table/wood/reinf_long{
@@ -30370,9 +30453,6 @@
 "kCP" = (
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/farm/ambar)
-"kCS" = (
-/turf/open/floor/wood,
-/area/under/town/rmh/basement/farm)
 "kCT" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/fluff/railing/wood/west,
@@ -30716,6 +30796,11 @@
 /obj/effect/decal/cobbleedge/alt,
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement/tavern)
+"kIW" = (
+/obj/item/natural/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "kJi" = (
 /obj/effect/decal/cleanable/debris/stone,
 /obj/structure/flora/grass/crawlvines,
@@ -30924,9 +31009,6 @@
 /obj/item/fertilizer/bone_meal,
 /turf/open/floor/cobble,
 /area/under/rmh_dungeon/catacombs_church)
-"kMS" = (
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
 "kMU" = (
 /obj/structure/fluff/railing/corner{
 	dir = 9
@@ -30952,10 +31034,6 @@
 "kNn" = (
 /turf/closed/mineral/random/high_valuable,
 /area/indoors/cave/rmh_cave/southern)
-"kNp" = (
-/obj/structure/flora/grass/crawlvines,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "kNt" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4;
@@ -31610,6 +31688,12 @@
 	},
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement/farm)
+"kYL" = (
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/turf/open/floor/naturalstone,
+/area/under/rmh_dungeon/catacombs_town)
 "kYM" = (
 /obj/machinery/light/fueled/torchholder/hotspring{
 	pixel_y = 32
@@ -31650,6 +31734,10 @@
 /obj/structure/fluff/railing/wood/east,
 /turf/open/floor/cobblerock,
 /area/outdoors/rmh_eilistraee)
+"kZJ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/ruinedzone)
 "kZK" = (
 /obj/structure/flora/grass/bush/green{
 	layer = 4
@@ -32050,10 +32138,6 @@
 /obj/structure/flora/newbranch/connector,
 /turf/open/openspace,
 /area/indoors/shelter/woods)
-"lgl" = (
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/dirt,
-/area/under/town/rmh/basement)
 "lgt" = (
 /obj/structure/fluff/railing/border/east,
 /turf/open/floor/ruinedwood,
@@ -32294,17 +32378,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble/alt,
 /area/under/rmh_dungeon/catacombs_town)
-"ljG" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-w"
-	},
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/obj/effect/spawner/map_spawner/loot/common,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "ljP" = (
 /obj/machinery/light/fueled/lanternpost/fixed{
 	dir = 1
@@ -33352,10 +33425,6 @@
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/garrison)
-"lDw" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "lDB" = (
 /obj/structure/table/wood/counter/alt,
 /obj/item/weapon/knife/villager{
@@ -33414,6 +33483,11 @@
 /obj/effect/decal/wood/herringbone,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors)
+"lEk" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
+/area/under/town/rmh/basement)
 "lEl" = (
 /turf/open/openspace,
 /area/under/rmh_dungeon/catacombs_town)
@@ -33440,6 +33514,10 @@
 /obj/structure/chair/stool/bar,
 /turf/open/floor/carpet/stellar,
 /area/indoors/town/rmh/tavern)
+"lFh" = (
+/obj/item/grown/log/tree/stick,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "lFl" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /obj/structure/lootable_structure/grain_barrel,
@@ -34145,11 +34223,6 @@
 "lPO" = (
 /turf/open/floor/ruinedwood/alt,
 /area/under/rmh_dungeon/catacombs_church)
-"lPT" = (
-/obj/item/natural/stoneblock,
-/obj/structure/vine,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "lQd" = (
 /obj/structure/fermentation_keg,
 /obj/structure/fluff/walldeco/bath/wallpipes,
@@ -34194,10 +34267,6 @@
 "lRe" = (
 /turf/closed/wall/mineral/wood,
 /area/outdoors/rmh_platz)
-"lRf" = (
-/obj/structure/flora/grass/crawlvines,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "lRp" = (
 /turf/closed/wall/mineral/roofwall/innercorner{
 	dir = 1
@@ -34993,14 +35062,6 @@
 /obj/item/broom,
 /turf/open/floor/ruinedwood/herringbone,
 /area/indoors/town/rmh/farm/house)
-"meY" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 9
-	},
-/obj/item/natural/stone,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "mfg" = (
 /obj/structure/fluff/steamvent,
 /obj/structure/fake_machine/scomm/l,
@@ -35358,10 +35419,6 @@
 /obj/item/natural/stone,
 /turf/open/floor/cobblerock,
 /area/outdoors/rmh_field/north_mountain)
-"mlg" = (
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
 "mli" = (
 /obj/structure/window,
 /turf/open/floor/woodturned,
@@ -35370,6 +35427,10 @@
 /obj/structure/fermentation_keg/random,
 /turf/open/floor/cobble,
 /area/indoors/cave/rmh_cave/greenskins)
+"mll" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt,
+/area/under/town/rmh/basement)
 "mlr" = (
 /obj/effect/decal/cobbleedge{
 	icon = 'icons/obj/rune.dmi';
@@ -35453,10 +35514,6 @@
 /obj/structure/fluff/globe,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors)
-"mng" = (
-/obj/structure/flora/grass/fullgrass,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
 "mnp" = (
 /obj/structure/flora/grass/crawlvines,
 /obj/effect/decal/cleanable/debris/stone,
@@ -35501,11 +35558,9 @@
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/loudmouth)
 "mnK" = (
-/obj/structure/fluff/walldeco/vinez{
-	opacity = 1
-	},
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh)
+/obj/structure/flora/grass/crawlvines,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/roofs)
 "mnZ" = (
 /obj/effect/decal/edge{
 	dir = 10;
@@ -36318,13 +36373,6 @@
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/open/floor/herringbone,
 /area/under/rmh_dungeon/jergal)
-"mDx" = (
-/obj/item/statue/bronze/bust{
-	pixel_y = 0;
-	pixel_x = -32
-	},
-/turf/open/floor/cobble/alt,
-/area/under/rmh_dungeon/catacombs_town)
 "mDy" = (
 /obj/item/natural/stoneblock,
 /turf/open/floor/churchrough,
@@ -36605,6 +36653,16 @@
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/ruinedwood/turned,
 /area/outdoors/town/rmh)
+"mHR" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-w"
+	},
+/obj/effect/decal/cobbleedge/alt{
+	dir = 6
+	},
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "mHT" = (
 /obj/effect/decal/edge{
 	color = "#7a684b";
@@ -36712,13 +36770,6 @@
 /obj/item/ore/coal,
 /turf/open/floor/hexstone,
 /area/indoors/cave/rmh_cave/minotaur)
-"mJJ" = (
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/obj/effect/spawner/map_spawner/loot/cheap_tableware_spawner,
-/turf/open/floor/cobble,
-/area/under/rmh_dungeon/catacombs_town)
 "mJK" = (
 /obj/effect/decal/cobbleedge{
 	pixel_y = 0;
@@ -36857,7 +36908,7 @@
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh)
 "mMl" = (
-/turf/closed/wall/mineral/stone,
+/turf/open/floor/dirt,
 /area/outdoors/town/rmh/ruinedzone)
 "mMu" = (
 /obj/structure/fluff/railing/corner{
@@ -36869,6 +36920,13 @@
 /obj/structure/flora/tree/newtree2,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/oldmill)
+"mMy" = (
+/obj/structure/flora/grass/crawlvines,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "mMz" = (
 /obj/structure/flora/grass/fullgrass,
 /turf/open/floor/grass,
@@ -36887,11 +36945,6 @@
 	},
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh)
-"mMM" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "mMY" = (
 /obj/structure/fluff/railing/corner{
 	dir = 9
@@ -36899,6 +36952,13 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/garrison)
+"mNb" = (
+/obj/structure/fluff/walldeco/vinez{
+	opacity = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "mNm" = (
 /obj/effect/decal/cobblerockedge{
 	dir = 6
@@ -37311,6 +37371,17 @@
 	dir = 4
 	},
 /area/outdoors/town/rmh/roofs)
+"mUO" = (
+/obj/structure/vine,
+/turf/open/openspace,
+/area/under/town/rmh/basement)
+"mUP" = (
+/obj/item/statue/bronze/bust{
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/turf/open/floor/cobble,
+/area/under/rmh_dungeon/catacombs_town)
 "mVj" = (
 /obj/effect/decal/edge{
 	dir = 8;
@@ -37331,10 +37402,6 @@
 	},
 /turf/open/floor/ruinedwood/alizeria/tiles/wood27,
 /area/indoors/town/rmh/living)
-"mVq" = (
-/obj/item/natural/stoneblock,
-/turf/open/floor/dirt,
-/area/under/town/rmh/basement)
 "mVs" = (
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/blocks,
@@ -37474,6 +37541,10 @@
 "mXP" = (
 /turf/open/water/swamp,
 /area/outdoors/rmh_field/druid)
+"mXZ" = (
+/obj/structure/fermentation_keg/beer,
+/turf/open/floor/wood,
+/area/under/town/rmh/basement/farm)
 "mYc" = (
 /obj/structure/spider/stickyweb/solo,
 /turf/open/floor/cobblerock,
@@ -37524,8 +37595,8 @@
 /turf/open/floor/grass/healthy,
 /area/outdoors/exposed/town/rmh/farm)
 "mZs" = (
-/obj/structure/flora/grass/bush/green,
-/turf/open/floor/dirt/road,
+/obj/item/grown/log/tree/stick,
+/turf/open/floor/cobble/alt,
 /area/outdoors/town/rmh/ruinedzone)
 "mZt" = (
 /obj/effect/decal/cleanable/debris/stone,
@@ -37670,6 +37741,9 @@
 "ncX" = (
 /turf/open/floor/carpet/inn,
 /area/indoors/town/rmh/tavern)
+"ndc" = (
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "ndf" = (
 /turf/closed/wall/mineral/stone,
 /area/under/town/rmh/basement/bdsm)
@@ -37764,6 +37838,11 @@
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh)
+"nfq" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/structure/vine,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "nft" = (
 /turf/closed/wall/mineral/wooddark,
 /area/outdoors/town/rmh/roofs)
@@ -37819,9 +37898,6 @@
 /obj/structure/mirror/fancy,
 /turf/open/floor/tile/diamond/purple,
 /area/under/town/rmh/basement/tavern)
-"nfU" = (
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
 "ngd" = (
 /obj/structure/table/wood/treestump{
 	pixel_x = -8
@@ -37963,12 +38039,6 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/ruinedwood/alizeria/tiles/wood4,
 /area/under/town/rmh/basement/farm)
-"nhP" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10
-	},
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "nhQ" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/fluff/railing/wood{
@@ -38661,15 +38731,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
-"nwb" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-e"
-	},
-/obj/item/natural/stoneblock,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "nwm" = (
 /obj/effect/decal/cleanable/debris/stone,
 /obj/item/natural/stone,
@@ -38718,6 +38779,10 @@
 /obj/structure/flora/driftwood,
 /turf/open/water/clean,
 /area/indoors/cave/rmh_cave/northern)
+"nxj" = (
+/obj/item/natural/rock/random_ore,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "nxq" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/masonic/single,
@@ -39089,9 +39154,9 @@
 /turf/open/floor/cobblerock,
 /area/indoors/cave/rmh_cave/mine)
 "nDY" = (
-/obj/item/natural/rock,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
+/obj/structure/fermentation_keg,
+/turf/open/floor/wood,
+/area/under/town/rmh/basement/farm)
 "nDZ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/flora/grass/crawlvines,
@@ -39175,9 +39240,6 @@
 	},
 /turf/open/openspace,
 /area/indoors/town/rmh)
-"nFJ" = (
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "nFL" = (
 /obj/structure/flora/grass/fullgrass,
 /turf/open/floor/grass/healthy,
@@ -39213,6 +39275,10 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/wood,
 /area/under/town/rmh/basement/farm)
+"nGh" = (
+/obj/item/natural/rock,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "nGw" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -39316,6 +39382,10 @@
 /obj/effect/landmark/start/guild_master_wizard,
 /turf/open/openspace,
 /area/outdoors/rmh_air)
+"nIR" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "nJh" = (
 /obj/structure/fluff/railing/wood/west,
 /obj/machinery/light/fueled/wallfire/candle{
@@ -39546,9 +39616,6 @@
 	},
 /turf/open/floor/blocks,
 /area/under/rmh_dungeon/arena)
-"nMi" = (
-/turf/closed/wall/mineral/stone/moss,
-/area/outdoors/town/rmh/ruinedzone)
 "nMA" = (
 /obj/effect/decal/edge{
 	dir = 2;
@@ -39612,6 +39679,12 @@
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/garrison)
+"nNG" = (
+/obj/item/natural/stoneblock,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "nNT" = (
 /obj/item/natural/bundle/stoneblock,
 /turf/open/floor/cobblerock,
@@ -40183,8 +40256,8 @@
 /turf/open/floor/cobble/alt,
 /area/under/town/rmh/basement/bdsm)
 "nWH" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt,
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/cobble/alt,
 /area/outdoors/town/rmh/ruinedzone)
 "nWL" = (
 /turf/open/floor/cobble/alt,
@@ -40258,13 +40331,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/under/rmh_dungeon/catacombs_town)
-"nXC" = (
-/obj/structure/flora/grass/jungle{
-	color = "#92967a"
-	},
-/obj/structure/vine,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
 "nXF" = (
 /turf/open/floor/dirt,
 /area/outdoors/rmh_field/druid)
@@ -40792,13 +40858,6 @@
 /obj/structure/flora/grass/crawlvines,
 /turf/open/floor/grass,
 /area/outdoors/exposed/rmh/chapel)
-"ofx" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 5
-	},
-/obj/structure/vine,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "ofD" = (
 /obj/item/gem/opal,
 /turf/open/floor/hexstone,
@@ -40962,10 +41021,6 @@
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/indoors/town/rmh/merchant)
-"oiA" = (
-/obj/structure/vine,
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
 "oiB" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -40979,6 +41034,10 @@
 	},
 /turf/open/floor/cobblerock,
 /area/outdoors/town/rmh)
+"oiD" = (
+/obj/item/natural/stoneblock,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "oiO" = (
 /turf/closed/wall/mineral/stonebrick,
 /area/under/town/rmh/basement/pump)
@@ -41259,6 +41318,11 @@
 	},
 /turf/open/floor/blocks/newstone,
 /area/indoors/town/rmh/craft/artificer)
+"oni" = (
+/obj/structure/rack,
+/obj/item/storage/sack,
+/turf/open/floor/cobble,
+/area/under/town/rmh/basement/farm)
 "onk" = (
 /obj/structure/flora/grass/thorn_bush,
 /turf/open/floor/grass,
@@ -41296,10 +41360,6 @@
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/herringbone,
 /area/under/rmh_dungeon/jergal)
-"ood" = (
-/obj/item/grown/log/tree/stick,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "ooj" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -41506,11 +41566,6 @@
 	},
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/mine)
-"oqz" = (
-/obj/item/natural/stoneblock,
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/dirt,
-/area/under/town/rmh/basement)
 "oqG" = (
 /obj/structure/bed/inn,
 /obj/item/bedsheet/pelt,
@@ -41528,11 +41583,6 @@
 /obj/structure/chair/stool,
 /turf/open/floor/churchmarble/green,
 /area/indoors/town/rmh/craft/apothecary)
-"ore" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "ory" = (
 /obj/structure/fluff/railing/stonehedge{
 	dir = 2
@@ -41622,6 +41672,11 @@
 	},
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/druid)
+"otk" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/storage/sack,
+/turf/open/floor/wood,
+/area/under/town/rmh/basement/farm)
 "otl" = (
 /obj/effect/decal/cobblerockedge{
 	dir = 6
@@ -41713,6 +41768,14 @@
 /obj/effect/spawner/map_spawner/treeorbush,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field)
+"ouv" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/obj/effect/spawner/map_spawner/loot/cheap_jewelry_spawner,
+/turf/open/floor/cobblerock,
+/area/under/rmh_dungeon/catacombs_town)
 "ouA" = (
 /obj/structure/stalagmite{
 	icon_state = "stalagmite3"
@@ -41752,6 +41815,10 @@
 	},
 /turf/open/floor/hexstone,
 /area/outdoors/rmh_field/rmh_mageporch)
+"ovi" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/wood,
+/area/under/town/rmh/basement/farm)
 "ovm" = (
 /turf/closed/wall/mineral/wooddark/horizontal,
 /area/indoors/town/rmh/cell)
@@ -41919,14 +41986,6 @@
 "oxB" = (
 /turf/open/floor/woodturned,
 /area/under/town/rmh/basement/tavern)
-"oxG" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/obj/effect/spawner/map_spawner/loot/cheap_jewelry_spawner,
-/turf/open/floor/cobblerock,
-/area/under/rmh_dungeon/catacombs_town)
 "oxU" = (
 /obj/machinery/light/fueled/lanternpost/fixed{
 	dir = 1
@@ -42070,6 +42129,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/naturalstone,
 /area/under/cavewet)
+"ozY" = (
+/obj/item/natural/stone,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "oAe" = (
 /obj/structure/fluff/littlebanners/bluered{
 	pixel_y = 28
@@ -42079,10 +42142,6 @@
 	},
 /turf/open/floor/cobble,
 /area/outdoors/town/rmh)
-"oAi" = (
-/obj/structure/rack,
-/turf/open/floor/dirt/road,
-/area/outdoors/exposed/town/rmh/farm)
 "oAk" = (
 /obj/structure/chair/stool/bar,
 /obj/machinery/light/fueled/torchholder/c,
@@ -42532,13 +42591,9 @@
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/tavern)
 "oIt" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-e"
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
+/obj/structure/flora/field/poppy,
+/turf/open/floor/dirt/road,
+/area/outdoors/rmh_field/oldmill)
 "oIw" = (
 /obj/item/natural/stone,
 /obj/effect/decal/cleanable/debris/stone,
@@ -42787,6 +42842,12 @@
 	},
 /turf/open/floor/grass,
 /area/outdoors/exposed/town/rmh/farm)
+"oMa" = (
+/obj/structure/stairs{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood,
+/area/under/town/rmh/basement/farm)
 "oMf" = (
 /turf/closed/wall/mineral/decostone/end{
 	dir = 8
@@ -42819,12 +42880,6 @@
 	wallclimb = 0
 	},
 /area/indoors/town/rmh/garrison/wall)
-"oMA" = (
-/obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/access/keyset/town/inn,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/concrete,
-/area/under/town/rmh/basement/tavern)
 "oMC" = (
 /turf/open/floor/wood,
 /area/indoors/town/rmh/magician)
@@ -42982,6 +43037,10 @@
 /obj/structure/carpet/green,
 /turf/open/floor/carpet/green,
 /area/indoors/town/rmh/town_hall)
+"oOw" = (
+/obj/structure/flora/tree/newtree2,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh)
 "oOE" = (
 /obj/structure/flora/grass/crawlvines,
 /turf/open/floor/dirt,
@@ -43008,14 +43067,6 @@
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh)
-"oOS" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/debris/stone,
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 4
-	},
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
 "oPy" = (
 /obj/structure/flora/grass/fullgrass,
 /obj/structure/fluff/railing/corner/south_west,
@@ -43171,16 +43222,23 @@
 /obj/structure/rack/rogue/shelf/alizeria/shelf1,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
-"oRu" = (
-/obj/item/grown/log/tree/stick,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "oRw" = (
 /obj/structure/lever/hidden{
 	redstone_id = "maskl3"
 	},
 /turf/closed/wall/mineral/stone/moss,
 /area/under/rmh_dungeon/jergal)
+"oRz" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-e"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "oRD" = (
 /obj/structure/carpet/red,
 /obj/structure/chair/bench/coucha,
@@ -43398,14 +43456,6 @@
 	dir = 8
 	},
 /area/outdoors/town/rmh/roofs)
-"oVx" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 6
-	},
-/obj/structure/flora/grass/crawlvines,
-/obj/structure/vine,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "oVL" = (
 /obj/structure/fermentation_keg/random/water,
 /obj/effect/decal/edge_corner{
@@ -43489,10 +43539,6 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/churchrough,
 /area/indoors/town/rmh/merchant)
-"oXL" = (
-/obj/machinery/light/fueled/wallfire/candle/l,
-/turf/open/floor/cobble,
-/area/under/town/rmh/basement/farm)
 "oXN" = (
 /obj/structure/flora/grass/fullgrass,
 /obj/structure/flora/grass/bush/green{
@@ -43599,29 +43645,12 @@
 /obj/structure/flora/grass/fullgrass,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_air)
-"oZR" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-w"
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/obj/effect/spawner/map_spawner/loot/cheap_jewelry_spawner,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "oZY" = (
 /obj/structure/fluff/railing/wood/east,
 /obj/structure/fluff/railing/corner/south_west,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/town_hall)
-"pab" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/effect/decal/cleanable/dirt/paper,
-/turf/open/floor/dirt,
-/area/under/town/rmh/basement)
 "pan" = (
 /obj/effect/decal/edge{
 	dir = 6;
@@ -43918,8 +43947,9 @@
 /turf/closed/wall/mineral/pipe,
 /area/under/town/rmh/basement/blacksmith)
 "peQ" = (
-/obj/structure/flora/grass/sparegrass,
-/turf/open/floor/grass/healthy,
+/obj/effect/decal/cleanable/debris/stone,
+/obj/structure/vine,
+/turf/open/floor/cobblerock,
 /area/outdoors/town/rmh/ruinedzone)
 "peT" = (
 /obj/item/storage/backpack/satchel/surgbag,
@@ -43944,6 +43974,13 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/outdoors/town/rmh/roofs)
+"pff" = (
+/obj/structure/fluff/walldeco/vinez{
+	opacity = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/ruinedzone)
 "pfo" = (
 /turf/closed/mineral,
 /area/indoors/cave/rmh_cave/southern)
@@ -44051,10 +44088,6 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/bath)
-"phj" = (
-/obj/structure/flora/field/poppy,
-/turf/open/floor/dirt/road,
-/area/outdoors/rmh_field/west)
 "phz" = (
 /turf/closed/wall/mineral/decostone/cand,
 /area/under/town/rmh/basement)
@@ -44115,6 +44148,10 @@
 /obj/item/natural/rock/random_ore,
 /turf/open/floor/cobble,
 /area/under/rmh_dungeon/catacombs_town)
+"piL" = (
+/obj/structure/rack/shelf/biggest,
+/turf/open/floor/cobble,
+/area/under/town/rmh/basement/farm)
 "piO" = (
 /obj/machinery/light/fueled/wallfire/floorcandle/alt{
 	pixel_x = 32
@@ -44233,13 +44270,6 @@
 /obj/structure/hotspring/border,
 /turf/open/water/bath,
 /area/indoors/town/rmh/bath)
-"pjO" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 8
-	},
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "pjR" = (
 /obj/machinery/light/fueled/campfire/densefire,
 /turf/open/floor/naturalstone,
@@ -44300,13 +44330,6 @@
 /obj/structure/barricade/wooden,
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/catacombs_town)
-"plG" = (
-/obj/structure/flora/grass/fullgrass,
-/obj/structure/fluff/walldeco/vinez{
-	opacity = 1
-	},
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
 "plI" = (
 /obj/structure/flora/grass/fullgrass,
 /obj/structure/fluff/railing/wood/west,
@@ -44389,6 +44412,11 @@
 /obj/effect/spawner/map_spawner/loot/dungeon/armor,
 /turf/open/floor/hexstone,
 /area/indoors/cave/rmh_cave/minotaur)
+"pnp" = (
+/obj/structure/flora/grass/crawlvines,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "pns" = (
 /obj/effect/decal/cobblerockedge{
 	dir = 8
@@ -44656,6 +44684,13 @@
 "prH" = (
 /turf/closed/mineral/random/med,
 /area/under/rmh_dungeon/catacombs_town)
+"prS" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/roofs)
 "pse" = (
 /turf/open/floor/carpet/royalblack,
 /area/indoors/town/rmh/garrison)
@@ -44912,10 +44947,8 @@
 /turf/open/floor/cobblerock,
 /area/outdoors/rmh_air)
 "pwa" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/vine,
-/turf/open/floor/dirt,
+/obj/structure/flora/grass/crawlvines,
+/turf/open/floor/cobblerock,
 /area/outdoors/town/rmh/ruinedzone)
 "pwe" = (
 /obj/structure/fluff/railing/border,
@@ -45118,6 +45151,10 @@
 /obj/structure/curtain/purple,
 /turf/open/floor/concrete,
 /area/indoors/town/rmh/magician)
+"pyZ" = (
+/obj/structure/flora/grass/crawlvines,
+/turf/open/floor/dirt,
+/area/under/town/rmh/basement)
 "pzg" = (
 /obj/structure/fluff/walldeco/customflag{
 	name = "rivermist hollow flag"
@@ -45376,10 +45413,6 @@
 /obj/structure/chair/stool,
 /turf/open/floor/cobble,
 /area/indoors/town/rmh/garrison/wall)
-"pDO" = (
-/obj/structure/vine,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "pDP" = (
 /obj/structure/stairs/stone{
 	dir = 4
@@ -45507,6 +45540,17 @@
 /obj/effect/decal/alizeria/decals/wooddecal1,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/rmh/farm/house)
+"pGE" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-w"
+	},
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "pGF" = (
 /obj/structure/ladder/hatch{
 	pixel_y = 5
@@ -45618,6 +45662,10 @@
 "pJj" = (
 /turf/open/water/clean,
 /area/under/rmh_dungeon/catacombs_church)
+"pJw" = (
+/obj/item/natural/stone,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh)
 "pJE" = (
 /obj/effect/landmark/start/grove_druid,
 /turf/open/floor/cobblerock,
@@ -46261,10 +46309,6 @@
 	},
 /turf/closed/mineral,
 /area/indoors/cave/rmh_cave/mine)
-"pTs" = (
-/obj/item/natural/rock/random_ore,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
 "pTB" = (
 /turf/closed/wall/mineral/roofwall/middle{
 	dir = 4
@@ -46499,8 +46543,9 @@
 /turf/open/floor/naturalstone,
 /area/outdoors/rmh_air)
 "pYn" = (
-/turf/closed/wall/mineral/stone/moss,
-/area/outdoors/town/rmh/roofs)
+/obj/structure/flora/grass/sparegrass,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "pYo" = (
 /obj/structure/hay_stack,
 /obj/structure/hay_stack/rope{
@@ -46651,18 +46696,6 @@
 	},
 /turf/open/floor/cobble,
 /area/under/rmh_dungeon/jergal)
-"qaE" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-e"
-	},
-/obj/effect/decal/cobbleedge/alt{
-	dir = 1
-	},
-/obj/item/natural/stone,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "qaL" = (
 /obj/structure/vine{
 	icon_state = "Light2d"
@@ -46775,9 +46808,16 @@
 /turf/open/floor/blocks/paving,
 /area/under/town/rmh/sewer)
 "qds" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-w"
+	},
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/obj/effect/spawner/map_spawner/loot/cheap_clutter_spawner,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "qdu" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/structure/rack/shelf/biggest,
@@ -46959,6 +46999,13 @@
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/garrison)
+"qgL" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/turf/open/floor/blocks,
+/area/under/rmh_dungeon/catacombs_town)
 "qgO" = (
 /obj/structure/table/vtable,
 /obj/machinery/essence/reservoir{
@@ -47392,11 +47439,6 @@
 "qlT" = (
 /turf/open/floor/cobble/mossy,
 /area/outdoors/rmh_air)
-"qmb" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/structure/vine,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "qmo" = (
 /obj/structure/fluff/railing/wood/east,
 /obj/item/natural/stone,
@@ -47453,21 +47495,9 @@
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/tavern)
-"qnq" = (
-/obj/item/natural/rock/random_ore,
-/obj/effect/decal/cleanable/debris/stone,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "qnr" = (
 /turf/closed/wall/mineral/stone/window,
 /area/outdoors/town/rmh/roofs)
-"qnA" = (
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/turf/open/floor/cobblerock,
-/area/under/rmh_dungeon/catacombs_town)
 "qnD" = (
 /obj/effect/spawner/map_spawner/treeorbush,
 /obj/structure/flora/alizeria/decor/leavesr,
@@ -47710,6 +47740,12 @@
 /obj/structure/flora/grass/bush_meagre/green3,
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh)
+"qqr" = (
+/obj/structure/fluff/walldeco/vinez{
+	opacity = 1
+	},
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/ruinedzone)
 "qqy" = (
 /obj/structure/door/fancy{
 	name = "Wizard Adept's Bedroom"
@@ -47815,19 +47851,10 @@
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/town_hall)
-"qsz" = (
-/obj/item/natural/stoneblock,
-/obj/structure/vine,
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
 "qsA" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/turned,
 /area/outdoors/rmh_river)
-"qsD" = (
-/obj/structure/flora/grass/crawlvines,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "qsI" = (
 /obj/structure/stairs/stone{
 	dir = 4
@@ -47879,25 +47906,12 @@
 /obj/structure/fluff/railing/wood/east,
 /turf/open/floor/grass/healthy,
 /area/indoors/town/rmh/town_hall)
-"qtq" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 1
-	},
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/roofs)
 "qtv" = (
 /obj/structure/flora/tree/pine{
 	icon_state = "pine2"
 	},
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/east)
-"qtw" = (
-/obj/effect/decal/cleanable/dirt/paper{
-	dir = 1
-	},
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "qtx" = (
 /obj/structure/closet/crate/chest/crate,
 /turf/open/floor/cobble,
@@ -48202,15 +48216,15 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement/townhall)
-"qyv" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/cobble,
-/area/under/town/rmh/basement/farm)
 "qyx" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/weapon/pick/copper,
 /turf/open/floor/cobblerock,
 /area/indoors/cave/rmh_cave/mine)
+"qyI" = (
+/obj/structure/fake_machine/vendor/soilson,
+/turf/closed/wall/mineral/wooddark,
+/area/outdoors/exposed/town/rmh/farm)
 "qyJ" = (
 /obj/effect/decal/edge_corner{
 	dir = 4;
@@ -48433,6 +48447,7 @@
 /turf/closed/wall/mineral/wooddark/window,
 /area/indoors/town/rmh/herbalist)
 "qDz" = (
+/obj/structure/vine,
 /turf/open/floor/dirt,
 /area/outdoors/town/rmh/ruinedzone)
 "qDA" = (
@@ -48628,6 +48643,10 @@
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/jergal)
+"qHU" = (
+/obj/structure/vine,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/ruinedzone)
 "qHW" = (
 /obj/structure/stairs{
 	dir = 1
@@ -48665,13 +48684,6 @@
 /obj/item/bin,
 /turf/open/floor/cobblerock,
 /area/outdoors/town/rmh)
-"qIR" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 9
-	},
-/obj/effect/spawner/map_spawner/loot/dungeon/misc,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "qIU" = (
 /obj/structure/flora/grass/sparegrass,
 /turf/open/floor/grass,
@@ -48693,6 +48705,11 @@
 	},
 /turf/open/floor/church/violet,
 /area/under/town/rmh/basement/bdsm)
+"qJA" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/dirt,
+/area/under/town/rmh/basement)
 "qJG" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/debris/wood,
@@ -48771,6 +48788,11 @@
 "qKz" = (
 /turf/closed/wall/mineral/decostone/moss/end,
 /area/under/rmh_dungeon/jergal)
+"qKE" = (
+/obj/structure/rack,
+/obj/item/storage/sack,
+/turf/open/floor/dirt/road,
+/area/outdoors/exposed/town/rmh/farm)
 "qKN" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -48941,6 +48963,10 @@
 	},
 /turf/open/floor/tile/tilerg,
 /area/indoors/town/rmh/bath)
+"qNy" = (
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement/tavern)
 "qNQ" = (
 /obj/effect/decal/cobblerockedge{
 	dir = 1
@@ -49185,13 +49211,6 @@
 	},
 /turf/open/floor/concrete,
 /area/indoors/town/rmh/garrison/wall)
-"qRj" = (
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/obj/effect/spawner/map_spawner/loot/cheap_jewelry_spawner,
-/turf/open/floor/blocks,
-/area/under/rmh_dungeon/catacombs_town)
 "qRk" = (
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/ruinedwood/turned,
@@ -49401,17 +49420,6 @@
 /obj/structure/table/map,
 /turf/open/floor/carpet/red,
 /area/indoors/town/rmh/merchant)
-"qUN" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-e"
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 1
-	},
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "qUQ" = (
 /obj/item/natural/rock,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -49453,10 +49461,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/west)
-"qVt" = (
-/obj/structure/fermentation_keg/blackgoat,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement/farm)
 "qVz" = (
 /obj/effect/decal/edge{
 	dir = 8;
@@ -49718,6 +49722,9 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/farm/house)
+"qZu" = (
+/turf/closed/wall/mineral/stone,
+/area/outdoors/town/rmh/ruinedzone)
 "qZz" = (
 /obj/effect/decal/edge{
 	dir = 4;
@@ -49917,11 +49924,8 @@
 	},
 /area/under/rmh_dungeon/catacombs_town)
 "rdd" = (
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 4
-	},
-/turf/open/openspace,
-/area/outdoors/town/rmh/roofs)
+/turf/closed/wall/mineral/wooddark/window,
+/area/indoors/town/rmh/farm/ambar)
 "rdm" = (
 /obj/structure/table/vtable,
 /obj/structure/bookcase/random_recipes{
@@ -50042,9 +50046,9 @@
 	mineralChance = 5
 	},
 /area/indoors/cave/underhamlet)
-"rhm" = (
-/obj/item/grown/log/tree/stick,
-/turf/open/floor/dirt,
+"rha" = (
+/obj/item/natural/stone,
+/turf/open/floor/cobble/alt,
 /area/outdoors/town/rmh/ruinedzone)
 "rhn" = (
 /obj/structure/fermentation_keg/random/water,
@@ -50536,13 +50540,6 @@
 	},
 /turf/open/floor/ruinedwood/turned,
 /area/indoors/town/rmh/farm/ambar)
-"rpy" = (
-/obj/structure/fluff/walldeco/vinez{
-	opacity = 1
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "rpz" = (
 /obj/structure/fluff/railing/corner/south_west,
 /obj/structure/fluff/walldeco/customflag{
@@ -50627,13 +50624,6 @@
 /obj/structure/alizeria/curtainaliz/yellow,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/living)
-"rqO" = (
-/obj/structure/fluff/walldeco/vinez{
-	opacity = 1
-	},
-/obj/structure/vine,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "rqR" = (
 /obj/structure/fluff/railing/corner/south_east,
 /obj/effect/decal/cobblerockedge{
@@ -50647,6 +50637,10 @@
 	},
 /turf/open/floor/ruinedwood/chevron,
 /area/indoors/town/rmh/farm/house)
+"rqX" = (
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh)
 "rqY" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /turf/open/floor/wood,
@@ -50914,12 +50908,6 @@
 	},
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/wet/lake)
-"ruZ" = (
-/obj/item/natural/stoneblock,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "rvh" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/woodturned,
@@ -50928,6 +50916,10 @@
 /obj/structure/flora/grass/bush_meagre/green3,
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh/livingquart)
+"rvx" = (
+/obj/structure/flora/grass/bush/wall/tall/green,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "rvy" = (
 /obj/structure/fluff/railing/wood/north{
 	plane = -6;
@@ -51025,10 +51017,6 @@
 "rwZ" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/indoors/town/rmh/farm/ambar)
-"rxb" = (
-/obj/structure/vine,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "rxg" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/naturalstone,
@@ -51205,12 +51193,6 @@
 	},
 /turf/open/floor/cobble/mossy,
 /area/outdoors/town/rmh/livingquart)
-"ryI" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/structure/barricade/wooden/crude,
-/obj/structure/alizeria/decor/barricade5,
-/turf/open/floor/cobble,
-/area/under/town/rmh/basement/tavern)
 "ryN" = (
 /turf/open/floor/cobblerock,
 /area/indoors/cave/east)
@@ -51254,6 +51236,14 @@
 	},
 /turf/open/floor/cobble,
 /area/outdoors/town/rmh)
+"rzH" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
+/obj/structure/vine,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "rzK" = (
 /obj/effect/decal/edge{
 	dir = 2;
@@ -51431,6 +51421,10 @@
 /obj/structure/rack/shelf/biggest,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement/bank)
+"rDj" = (
+/obj/item/natural/rock/random_ore,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement/tavern)
 "rDm" = (
 /turf/open/floor/grass/red,
 /area/outdoors/town/rmh)
@@ -51693,14 +51687,6 @@
 	},
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/east)
-"rHU" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-w"
-	},
-/obj/item/natural/stone,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "rHX" = (
 /obj/item/natural/glass/shard,
 /obj/effect/decal/cleanable/debris/glass,
@@ -51808,6 +51794,10 @@
 /obj/item/servant_bell/lord,
 /turf/open/floor/carpet,
 /area/indoors/town/rmh/town_hall)
+"rKE" = (
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "rKK" = (
 /obj/item/natural/rock,
 /turf/open/floor/grass/healthy,
@@ -51955,18 +51945,6 @@
 /obj/structure/flora/grass/bush/wall/green,
 /turf/open/floor/grass/red,
 /area/outdoors/rmh_field/druid)
-"rNW" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-w"
-	},
-/obj/effect/decal/cleanable/debris/stone,
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/obj/effect/spawner/map_spawner/loot/cheap_candle_spawner,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "rNY" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -51975,12 +51953,6 @@
 /obj/structure/flora/grass/bush/wall/green,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_air)
-"rOa" = (
-/obj/structure/fluff/walldeco/vinez{
-	opacity = 1
-	},
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "rOb" = (
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/dirt/road,
@@ -52003,6 +51975,11 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/outdoors/rmh_river)
+"rOr" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/storage/sack,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement/farm)
 "rOs" = (
 /obj/structure/stairs/stone{
 	dir = 8
@@ -52027,6 +52004,13 @@
 	},
 /turf/open/floor/blocks/green,
 /area/under/town/rmh/sewer)
+"rOD" = (
+/obj/structure/handcart{
+	dir = 8
+	},
+/obj/item/storage/sack,
+/turf/open/floor/dirt/road,
+/area/outdoors/exposed/town/rmh/farm)
 "rOF" = (
 /obj/effect/decal/edge_corner{
 	dir = 1;
@@ -52036,6 +52020,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks/stonered,
 /area/under/town/rmh/basement/townhall)
+"rOM" = (
+/obj/structure/barricade/wooden,
+/obj/structure/alizeria/decor/barricade4,
+/turf/open/floor/cobble,
+/area/under/town/rmh/basement/tavern)
 "rOP" = (
 /obj/structure/flora/grass/crawlvines,
 /turf/open/floor/tile/masonic{
@@ -52111,11 +52100,6 @@
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/merchant)
-"rPA" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/structure/vine,
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
 "rPD" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/ruinedwood/turned,
@@ -52240,10 +52224,6 @@
 /obj/structure/rousman_hole,
 /turf/open/floor/naturalstone,
 /area/under/cavewet)
-"rSc" = (
-/obj/structure/fermentation_keg/jagt,
-/turf/open/floor/wood,
-/area/under/town/rmh/basement/farm)
 "rSi" = (
 /turf/closed/wall/mineral/wooddark/slitted,
 /area/indoors/town/rmh/herbalist)
@@ -52283,11 +52263,6 @@
 	},
 /turf/open/floor/churchrough,
 /area/under/rmh_dungeon/underdarkmaze)
-"rSN" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/vine,
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
 "rSU" = (
 /obj/effect/decal/edge{
 	dir = 2;
@@ -52330,6 +52305,10 @@
 	},
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/under/town/rmh/basement/townhall)
+"rTl" = (
+/obj/item/natural/rock/random_ore,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "rTm" = (
 /obj/structure/flora/tree/pine{
 	icon_state = "pine2"
@@ -52366,12 +52345,9 @@
 /turf/open/floor/dirt/road,
 /area/indoors/town/rmh)
 "rTz" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/turf/open/floor/blocks,
-/area/under/rmh_dungeon/catacombs_town)
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "rTB" = (
 /obj/item/bin/water,
 /turf/open/floor/cobblerock,
@@ -52387,6 +52363,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/cave/rmh_cave/west)
+"rTK" = (
+/obj/structure/vine,
+/turf/closed/wall/mineral/stone,
+/area/outdoors/town/rmh/ruinedzone)
 "rTL" = (
 /obj/effect/decal/wood/herringbone2{
 	dir = 4
@@ -52425,11 +52405,9 @@
 	},
 /area/indoors/town/rmh/town_hall)
 "rUE" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 1
-	},
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
+/obj/structure/flora/grass/bush/wall/green,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "rUH" = (
 /obj/structure/flora/grass/fullgrass,
 /turf/open/floor/dirt/road,
@@ -52492,13 +52470,13 @@
 /obj/structure/flora/grass/bush/wall,
 /turf/open/floor/dirt/road,
 /area/outdoors/exposed/rmh/chapel)
-"rWk" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 2
+"rWj" = (
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
 	},
-/obj/item/natural/stone,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
+/obj/effect/spawner/map_spawner/loot/cheap_tableware_spawner,
+/turf/open/floor/cobble,
+/area/under/rmh_dungeon/catacombs_town)
 "rWs" = (
 /obj/structure/closet/crate/chest/wicker,
 /turf/open/floor/blocks,
@@ -53428,6 +53406,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/church,
 /area/indoors/town/rmh/library)
+"snZ" = (
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/cobble,
+/area/under/town/rmh/basement/farm)
 "soe" = (
 /obj/structure/chair/stool,
 /obj/effect/decal/alizeria/decals/wooddecal4,
@@ -53453,10 +53435,6 @@
 "soK" = (
 /turf/open/floor/carpet/green,
 /area/under/town/rmh/basement/townhall)
-"soO" = (
-/obj/item/natural/stone,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "spo" = (
 /obj/structure/flora/tree/dead_bush,
 /turf/open/floor/grass/healthy,
@@ -53521,10 +53499,6 @@
 	pixel_y = 8
 	},
 /turf/open/floor/cobblerock,
-/area/outdoors/town/rmh)
-"sqB" = (
-/obj/structure/flora/tree/newtree2,
-/turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh)
 "sqS" = (
 /turf/open/floor/ruinedwood/darker,
@@ -53652,6 +53626,10 @@
 "stl" = (
 /turf/open/floor/metal,
 /area/under/town/rmh/basement/artificer)
+"sts" = (
+/obj/item/natural/rock/random_ore,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "stt" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/reagent_containers/glass/bottle,
@@ -53712,10 +53690,6 @@
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/churchrough,
 /area/under/rmh_dungeon/underdarkmaze)
-"svb" = (
-/obj/structure/fake_machine/scomm,
-/turf/open/floor/cobble/mossy,
-/area/outdoors/exposed/town/rmh/farm)
 "svh" = (
 /turf/open/floor/grass/healthy,
 /area/indoors/cave/east)
@@ -54023,10 +53997,6 @@
 /mob/living/simple_animal/hostile/retaliate/goat,
 /turf/open/floor/dirt,
 /area/outdoors/rmh_field)
-"sBb" = (
-/obj/structure/door/viewport/stone/broken,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "sBd" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 8
@@ -54141,12 +54111,6 @@
 	},
 /turf/open/floor/blocks/stonered/tiny,
 /area/indoors/town/rmh/bank)
-"sDh" = (
-/obj/structure/vine{
-	icon_state = "Light2d"
-	},
-/turf/open/openspace,
-/area/under/town/rmh/basement)
 "sDi" = (
 /obj/effect/mapping_helpers/access/keyset/church/grave,
 /obj/structure/door/iron/bars,
@@ -54260,10 +54224,6 @@
 	name = "solid rock"
 	},
 /area/under/rmh_bedrock)
-"sFl" = (
-/obj/structure/fake_machine/scomm/l,
-/turf/open/floor/cobblerock,
-/area/indoors/cave/rmh_cave/west)
 "sFm" = (
 /obj/effect/spawner/map_spawner/loot/dungeon/misc,
 /turf/open/floor/naturalstone,
@@ -54465,6 +54425,10 @@
 	dir = 8
 	},
 /area/indoors/town/rmh)
+"sIQ" = (
+/obj/structure/closet/crate/chest/wicker,
+/turf/open/floor/grass/healthy,
+/area/outdoors/exposed/town/rmh/farm)
 "sIR" = (
 /turf/open/floor/church/green,
 /area/indoors/town/rmh/magician)
@@ -54567,6 +54531,11 @@
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/concrete,
 /area/outdoors/rmh_field/rmh_mageporch)
+"sKZ" = (
+/obj/structure/flora/grass/crawlvines,
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "sLe" = (
 /obj/structure/stairs{
 	dir = 4
@@ -54849,11 +54818,6 @@
 /obj/structure/fluff/railing/border/east,
 /turf/open/floor/concrete,
 /area/outdoors/town/rmh)
-"sPc" = (
-/obj/structure/rack,
-/obj/item/storage/sack,
-/turf/open/floor/cobble,
-/area/under/town/rmh/basement/farm)
 "sPe" = (
 /obj/structure/water_pipe,
 /turf/closed/wall/mineral/pipe,
@@ -54911,6 +54875,10 @@
 /obj/item/natural/stone,
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/catacombs_town)
+"sPG" = (
+/obj/structure/fermentation_keg/random/water,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement/farm)
 "sPX" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
@@ -55534,11 +55502,6 @@
 	name = "solid rock"
 	},
 /area/indoors/cave/rmh_cave/mine)
-"tbB" = (
-/obj/item/natural/stoneblock,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt,
-/area/under/town/rmh/basement)
 "tbE" = (
 /turf/closed/wall/mineral/stone,
 /area/under/town/rmh/basement/mages)
@@ -55586,6 +55549,12 @@
 	dir = 4
 	},
 /area/indoors/town/rmh)
+"tcw" = (
+/obj/structure/fluff/walldeco/vinez{
+	opacity = 1
+	},
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "tcH" = (
 /obj/structure/fluff/railing/corner/south_east,
 /obj/effect/decal/edge_corner{
@@ -55595,6 +55564,10 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/churchmarble/green,
 /area/indoors/town/rmh/craft/apothecary)
+"tcK" = (
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "tcN" = (
 /obj/effect/decal/edge{
 	dir = 4;
@@ -55727,10 +55700,6 @@
 /obj/item/recipe_book/medical,
 /turf/open/floor/tile/diamond/blue,
 /area/indoors/town/rmh/magician)
-"teS" = (
-/obj/structure/vine,
-/turf/open/floor/naturalstone,
-/area/outdoors/town/rmh/roofs)
 "teT" = (
 /obj/structure/carpet/green,
 /turf/open/floor/woodturned,
@@ -56053,6 +56022,10 @@
 	},
 /turf/closed/basic,
 /area/under/town/rmh/basement/artificer)
+"tlf" = (
+/obj/effect/spawner/map_spawner/loot/dungeon/misc,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "tlg" = (
 /obj/structure/flora/grass/crawlvines,
 /turf/open/floor/naturalstone,
@@ -56159,6 +56132,13 @@
 /obj/structure/fluff/walldeco/bath/wallpipes/innie,
 /turf/closed/wall/mineral/craftstone,
 /area/under/town/rmh/basement/townhall)
+"tmY" = (
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/obj/effect/spawner/map_spawner/loot/cheap_jewelry_spawner,
+/turf/open/floor/cobble/alt,
+/area/under/rmh_dungeon/catacombs_town)
 "tnd" = (
 /obj/structure/table/wood/counter/alt,
 /obj/item/natural/cloth,
@@ -56242,6 +56222,13 @@
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/herringbone,
 /area/indoors/cave/rmh_cave/to_underdark)
+"toq" = (
+/obj/structure/flora/grass/fullgrass,
+/obj/structure/fluff/walldeco/vinez{
+	opacity = 1
+	},
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "tor" = (
 /obj/effect/decal/edge{
 	color = "#7a684b";
@@ -56250,13 +56237,6 @@
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/cobble/mossy,
 /area/outdoors/town/rmh/roofs)
-"tos" = (
-/obj/structure/fluff/railing/wood,
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 1
-	},
-/turf/open/floor/woodturned,
-/area/under/town/rmh/basement)
 "tov" = (
 /obj/structure/flora/grass/fullgrass,
 /turf/open/water/swamp,
@@ -56361,13 +56341,6 @@
 /obj/structure/flora/crystal,
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement/tavern)
-"tpu" = (
-/obj/machinery/light/fueled/torchholder/c,
-/obj/structure/stairs{
-	dir = 4
-	},
-/turf/open/floor/ruinedwood,
-/area/under/town/rmh/basement/farm)
 "tpy" = (
 /obj/structure/rotation_piece{
 	dir = 4
@@ -56415,6 +56388,14 @@
 /obj/structure/flora/grass/crawlvines,
 /turf/open/floor/blocks,
 /area/under/rmh_dungeon/catacombs_town)
+"tqP" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-e"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "tqY" = (
 /obj/structure/fluff/railing/wood/north{
 	pixel_y = 7
@@ -56447,6 +56428,12 @@
 	},
 /turf/open/floor/dirt/road,
 /area/outdoors/rmh_river)
+"trn" = (
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/access/keyset/town/inn,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/concrete,
+/area/under/town/rmh/basement/tavern)
 "trp" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -56545,13 +56532,6 @@
 /obj/structure/flora/grass/sparegrass,
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh)
-"tsy" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 10;
-	icon_state = "cobbleedgealt-w"
-	},
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "tsB" = (
 /obj/structure/spider/stickyweb/mirespider,
 /turf/open/floor/churchmarble,
@@ -56676,6 +56656,13 @@
 "tuT" = (
 /turf/closed/wall/mineral/stone,
 /area/under/rmh_dungeon/jergal)
+"tuY" = (
+/obj/structure/fluff/walldeco/vinez{
+	opacity = 1
+	},
+/obj/structure/vine,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "tuZ" = (
 /obj/structure/door/weak/bolt{
 	name = "Bedroom";
@@ -57079,10 +57066,6 @@
 /obj/structure/spider/stickyweb/solo,
 /turf/open/floor/church,
 /area/under/rmh_dungeon/underdarkmaze)
-"tBG" = (
-/obj/item/natural/stone,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh)
 "tBT" = (
 /obj/structure/flora/pillar{
 	pixel_y = 6
@@ -57352,6 +57335,10 @@
 	color = "#c2c1be"
 	},
 /area/indoors/town/rmh/cell)
+"tHF" = (
+/obj/structure/flora/grass/crawlvines,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh/ruinedzone)
 "tHV" = (
 /obj/item/natural/stone,
 /obj/effect/decal/cleanable/debris/stone,
@@ -57366,10 +57353,6 @@
 /turf/open/floor/rooftop{
 	dir = 4
 	},
-/area/outdoors/town/rmh/roofs)
-"tIk" = (
-/obj/item/natural/stone,
-/turf/open/floor/cobblerock,
 /area/outdoors/town/rmh/roofs)
 "tII" = (
 /obj/structure/flora/grass/fullgrass,
@@ -57508,6 +57491,13 @@
 /obj/structure/hotspring/border/seven,
 /turf/open/water/bath,
 /area/indoors/town/rmh/bath)
+"tKT" = (
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/obj/effect/spawner/map_spawner/loot/cheap_jewelry_spawner,
+/turf/open/floor/blocks,
+/area/under/rmh_dungeon/catacombs_town)
 "tLc" = (
 /obj/structure/flora/grass/bush/green{
 	plane = -7
@@ -57696,11 +57686,10 @@
 	dir = 1
 	},
 /area/indoors/town/rmh/town_hall)
-"tNA" = (
-/obj/effect/decal/cleanable/dirt/paper{
-	dir = 8
-	},
-/turf/open/floor/dirt/road,
+"tNr" = (
+/obj/structure/flora/grass/crawlvines,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
 /area/outdoors/town/rmh/ruinedzone)
 "tNC" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -58168,6 +58157,17 @@
 /obj/structure/fluff/railing/wood/west,
 /turf/open/floor/grass,
 /area/outdoors/rmh_field/oldmill)
+"tXB" = (
+/obj/item/natural/stone,
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
+"tXH" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/turf/open/openspace,
+/area/outdoors/town/rmh/roofs)
 "tXT" = (
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/farm/ambar)
@@ -58349,6 +58349,11 @@
 /obj/structure/fluff/railing/tall/palisade,
 /turf/open/floor/ruinedwood,
 /area/outdoors/town/rmh/roofs)
+"ubz" = (
+/obj/item/natural/stoneblock,
+/obj/structure/vine,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "ubG" = (
 /obj/structure/flora/grass/fullgrass,
 /obj/structure/fluff/railing/wood{
@@ -58633,13 +58638,6 @@
 	},
 /turf/open/floor/cobble/alt,
 /area/under/rmh_dungeon/jergal)
-"ufq" = (
-/obj/structure/flora/grass/crawlvines,
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 4
-	},
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "ufx" = (
 /turf/open/floor/cobble/mossy,
 /area/outdoors/rmh_field/druid)
@@ -58761,6 +58759,15 @@
 	},
 /turf/open/floor/cobble,
 /area/outdoors/rmh_air)
+"uil" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-e"
+	},
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/cleanable/dirt/paper,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "uin" = (
 /obj/structure/flora/tree/pine{
 	icon_state = "pine3"
@@ -59190,10 +59197,6 @@
 /obj/structure/fluff/railing/wood/east,
 /turf/open/openspace,
 /area/indoors/town/rmh/library)
-"upn" = (
-/obj/structure/wild_plant/nospread/poppy,
-/turf/open/floor/dirt/road,
-/area/outdoors/rmh_field/oldmill)
 "upt" = (
 /obj/item/book_crafting_kit,
 /obj/item/book_crafting_kit,
@@ -59209,6 +59212,11 @@
 /obj/structure/flora/tree/newtree2,
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh/livingquart)
+"upH" = (
+/obj/item/natural/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/roofs)
 "upQ" = (
 /obj/structure/fluff/walldeco/vinez/offset,
 /turf/open/floor/naturalstone,
@@ -59365,10 +59373,20 @@
 	},
 /turf/open/floor/church/green,
 /area/indoors/town/rmh/magician)
+"usQ" = (
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "usS" = (
 /obj/item/natural/rock,
 /turf/open/floor/naturalstone,
 /area/outdoors/rmh_field/north_mountain)
+"uta" = (
+/obj/item/natural/rock/random_ore,
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "utg" = (
 /turf/open/floor/twig,
 /area/outdoors/rmh_air)
@@ -59486,6 +59504,18 @@
 /obj/item/natural/stone,
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/wet/lake)
+"uvx" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 2
+	},
+/obj/effect/decal/cobbleedge/alt{
+	dir = 6;
+	pixel_y = -8
+	},
+/obj/structure/flora/grass/crawlvines,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "uvC" = (
 /obj/effect/landmark/start/adventurer{
 	dir = 4
@@ -59606,6 +59636,10 @@
 	},
 /turf/open/floor/dirt/road,
 /area/outdoors/rmh_field/west)
+"uxg" = (
+/obj/structure/vine,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "uxi" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -59680,6 +59714,11 @@
 "uyv" = (
 /turf/closed/wall/mineral/stonebrick,
 /area/under/rmh_bedrock)
+"uyU" = (
+/obj/structure/rack,
+/obj/item/storage/sack,
+/turf/open/floor/dirt,
+/area/outdoors/exposed/town/rmh/farm)
 "uze" = (
 /obj/structure/chair/wood/alt{
 	dir = 4
@@ -59783,10 +59822,6 @@
 	},
 /turf/open/floor/hexstone,
 /area/under/town/rmh/basement/tavern)
-"uBq" = (
-/obj/item/natural/stoneblock,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "uBz" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/woodturned,
@@ -59962,9 +59997,6 @@
 /obj/structure/flora/driftwood,
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/northern)
-"uFO" = (
-/turf/closed/wall/mineral/stone/window/moss,
-/area/outdoors/town/rmh/ruinedzone)
 "uFU" = (
 /obj/structure/rack,
 /obj/item/weapon/chisel/iron,
@@ -60084,11 +60116,6 @@
 /obj/structure/fluff/railing/border/north,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/merchant)
-"uIL" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "uIT" = (
 /obj/structure/fluff/nest,
 /obj/item/reagent_containers/food/snacks/crow,
@@ -60549,10 +60576,6 @@
 /obj/item/natural/feather,
 /turf/open/floor/tile,
 /area/indoors/town/rmh/chapel/basement)
-"uRC" = (
-/obj/item/natural/stone,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "uRE" = (
 /obj/structure/flora/grass/crawlvines,
 /turf/open/floor/cobblerock,
@@ -60723,10 +60746,6 @@
 "uVc" = (
 /turf/open/floor/dirt,
 /area/indoors/town/rmh/farm/ambar)
-"uVp" = (
-/obj/structure/rack/shelf/biggest,
-/turf/open/floor/wood,
-/area/under/town/rmh/basement/farm)
 "uVq" = (
 /obj/structure/fluff/railing/wood,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -60928,9 +60947,23 @@
 	},
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/jergal)
+"uZj" = (
+/obj/structure/fluff/railing/wood/north{
+	plane = -6;
+	pixel_y = 7
+	},
+/obj/item/grown/log/tree/stick,
+/turf/open/floor/grass/healthy,
+/area/outdoors/town/rmh)
 "uZp" = (
 /turf/open/floor/tile/bath,
 /area/under/town/rmh/basement/artificer)
+"uZr" = (
+/obj/structure/fluff/walldeco/vinez{
+	opacity = 1
+	},
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh)
 "uZv" = (
 /obj/structure/flora/tree/pine/dead{
 	icon_state = "dead2"
@@ -61047,14 +61080,6 @@
 	},
 /turf/open/floor/cobble,
 /area/indoors/town/rmh/library)
-"vbx" = (
-/obj/structure/rack,
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_y = -32
-	},
-/obj/item/reagent_containers/glass/bottle,
-/turf/open/floor/wood,
-/area/under/town/rmh/basement/farm)
 "vbC" = (
 /obj/effect/decal/edge{
 	dir = 1;
@@ -61092,10 +61117,6 @@
 /obj/item/natural/stone,
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement/tavern)
-"vcp" = (
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "vcw" = (
 /obj/effect/particle_effect/smoke{
 	lifetime = 999999
@@ -61275,6 +61296,10 @@
 /obj/structure/fluff/railing/border/east,
 /turf/open/openspace,
 /area/indoors/town/rmh/chapel)
+"vfO" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh)
 "vfR" = (
 /obj/structure/vine,
 /turf/open/floor/grass/healthy,
@@ -61312,11 +61337,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/catacombs)
-"vgB" = (
-/obj/structure/barricade/wooden,
-/obj/structure/alizeria/decor/barricade4,
-/turf/open/floor/cobble,
-/area/under/town/rmh/basement/tavern)
 "vgC" = (
 /obj/structure/fluff/railing/wood/west,
 /obj/structure/fluff/railing/wood{
@@ -61324,10 +61344,6 @@
 	},
 /turf/open/floor/grass,
 /area/outdoors/town/rmh)
-"vgD" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt,
-/area/under/town/rmh/basement)
 "vgG" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/ruinedwood/herringbone,
@@ -61540,6 +61556,12 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/turned,
 /area/indoors/town/rmh/craft/tailor)
+"vlj" = (
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/turf/open/floor/cobblerock,
+/area/under/rmh_dungeon/catacombs_town)
 "vlo" = (
 /obj/structure/hotspring,
 /obj/item/alch/herb/valeriana,
@@ -61980,13 +62002,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/under/rmh_dungeon/catacombs_church)
-"vuz" = (
-/obj/item/statue/bronze/bust{
-	pixel_y = 0;
-	pixel_x = -32
-	},
-/turf/open/floor/cobble,
-/area/under/rmh_dungeon/catacombs_town)
 "vuG" = (
 /obj/effect/decal/edge{
 	dir = 2;
@@ -62069,6 +62084,11 @@
 /obj/item/clothing/neck/goldamulet,
 /turf/open/floor/cobble,
 /area/under/rmh_dungeon/catacombs_church)
+"vvO" = (
+/obj/item/grown/log/tree/stick,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh)
 "vvQ" = (
 /obj/effect/decal/edge{
 	dir = 9;
@@ -62296,9 +62316,8 @@
 /turf/open/floor/dirt,
 /area/outdoors/rmh_field/east)
 "vzA" = (
-/obj/item/natural/rock/random_ore,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
+/turf/open/floor/wood,
+/area/under/town/rmh/basement/farm)
 "vzC" = (
 /obj/machinery/light/fueled/wallfire/floorcandle,
 /obj/machinery/light/fueled/wallfire/floorcandle/alt{
@@ -62321,6 +62340,13 @@
 /obj/item/natural/rock,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/east)
+"vzR" = (
+/obj/structure/fluff/railing/wood,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/woodturned,
+/area/under/town/rmh/basement)
 "vzS" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/grass,
@@ -62455,11 +62481,6 @@
 /obj/structure/spider/stickyweb/solo,
 /turf/open/floor/cobblerock,
 /area/under/cavewet)
-"vCr" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/storage/sack,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement/farm)
 "vCE" = (
 /obj/effect/decal/edge{
 	dir = 1;
@@ -62485,6 +62506,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/church,
 /area/indoors/town/rmh/library)
+"vCZ" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "vDb" = (
 /obj/structure/stairs/stone,
 /obj/structure/flora/grass/crawlvines,
@@ -62528,6 +62556,10 @@
 	dir = 8
 	},
 /area/outdoors/rmh_air)
+"vDH" = (
+/obj/structure/flora/grass/bush/green,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "vDJ" = (
 /obj/machinery/light/fueled/firebowl/church,
 /obj/structure/fluff/statue,
@@ -62668,11 +62700,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood,
 /area/outdoors/rmh_river)
-"vGv" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/structure/vine,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "vGA" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
@@ -62792,12 +62819,6 @@
 "vIP" = (
 /turf/open/water/swamp,
 /area/indoors/cave/east)
-"vIT" = (
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/turf/open/floor/naturalstone,
-/area/under/rmh_dungeon/catacombs_town)
 "vIV" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/cobble,
@@ -62852,6 +62873,10 @@
 "vKl" = (
 /turf/open/floor/hexstone,
 /area/under/rmh_dungeon/catacombs)
+"vKE" = (
+/obj/structure/flora/grass/crawlvines,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "vKL" = (
 /obj/structure/stairs{
 	dir = 1
@@ -62900,6 +62925,11 @@
 /obj/item/ore/coal,
 /turf/open/floor/volcanic,
 /area/indoors/cave/rmh_cave/minotaur)
+"vLh" = (
+/obj/structure/flora/grass/crawlvines,
+/obj/structure/vine,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "vLi" = (
 /obj/structure/fermentation_keg/random/beer,
 /obj/structure/fluff/walldeco/bath/wallpipes/outie{
@@ -62945,11 +62975,6 @@
 /obj/structure/flora/grass/bush/wall/tall/green,
 /turf/open/floor/dirt/road,
 /area/outdoors/town/rmh/roofs)
-"vLA" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "vLK" = (
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/cobblerock,
@@ -63163,6 +63188,10 @@
 /obj/structure/chair/stool/crafted,
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/indoors/town/rmh/tavern)
+"vPE" = (
+/obj/effect/decal/cleanable/debris/stone,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "vPJ" = (
 /obj/structure/hotspring,
 /obj/effect/lily_petal,
@@ -63212,6 +63241,13 @@
 	},
 /turf/open/floor/volcanic,
 /area/indoors/cave/rmh_cave/minotaur)
+"vQK" = (
+/obj/structure/fluff/walldeco/vinez{
+	opacity = 1
+	},
+/obj/structure/vine,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "vQL" = (
 /obj/structure/bookcase/random_recipes{
 	density = 0;
@@ -63236,6 +63272,11 @@
 "vQM" = (
 /turf/closed/wall/mineral/stone,
 /area/indoors/cave/rmh_cave/mine)
+"vQV" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/structure/fluff/statue/alizeriadecor/stolb3,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "vRo" = (
 /obj/structure/flora/grass/crawlvines,
 /obj/item/carvedgem/onyxa/fancyvase{
@@ -63379,6 +63420,10 @@
 "vTk" = (
 /turf/open/floor/church/purple,
 /area/outdoors/rmh_air)
+"vTu" = (
+/obj/structure/fermentation_keg/blackgoat,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement/farm)
 "vTx" = (
 /obj/structure/flora/grass/herb/valeriana{
 	pixel_y = 9;
@@ -63407,12 +63452,6 @@
 	},
 /turf/open/floor/church,
 /area/indoors/town/rmh/library)
-"vUf" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/vine,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "vUg" = (
 /obj/effect/decal/edge{
 	dir = 5;
@@ -63717,6 +63756,10 @@
 /obj/item/natural/stoneblock,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/north)
+"vYy" = (
+/obj/item/natural/stoneblock,
+/turf/open/floor/dirt,
+/area/under/town/rmh/basement)
 "vYD" = (
 /obj/structure/fluff/railing/wood/east,
 /obj/structure/fluff/railing/wood/north{
@@ -63813,6 +63856,14 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/tile/brick,
 /area/indoors/town/rmh/crafters_guild)
+"waT" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "waX" = (
 /obj/structure/fluff/steamvent,
 /obj/machinery/light/fueled/torchholder/hotspring{
@@ -63861,9 +63912,12 @@
 /turf/open/openspace,
 /area/under/town/rmh/basement)
 "wbE" = (
-/obj/structure/flora/grass/crawlvines,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
+/obj/effect/decal/cobbleedge/alt{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "wbF" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/ruinedwood/spiral,
@@ -64610,11 +64664,6 @@
 /obj/structure/carpet/red,
 /turf/open/floor/carpet,
 /area/indoors/town/rmh/town_hall)
-"wmM" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/storage/sack,
-/turf/open/floor/wood,
-/area/under/town/rmh/basement/farm)
 "wmT" = (
 /obj/machinery/light/fueled/firebowl/church/unholyfire,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -64772,9 +64821,10 @@
 /turf/open/floor/tile/masonic/single,
 /area/indoors/town/rmh/craft/tailor)
 "wpG" = (
-/obj/structure/flora/grass,
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
+/obj/structure/fluff/statue/alizeriadecor/stolb3,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/roofs)
 "wpM" = (
 /obj/item/grown/log/tree/stick,
 /turf/open/floor/grass/healthy,
@@ -64893,11 +64943,6 @@
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/cobblerock,
 /area/under/rmh_dungeon/jergal)
-"wrn" = (
-/obj/item/grown/log/tree/stick,
-/obj/effect/decal/cleanable/dirt/cobweb,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "wrq" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 4
@@ -65103,12 +65148,6 @@
 /obj/structure/flora/tree/burnt,
 /turf/open/floor/dirt,
 /area/outdoors/rmh_field/west)
-"wvs" = (
-/obj/structure/closet/crate/coffin/sarcophagus{
-	color = "#878787"
-	},
-/turf/open/floor/blocks,
-/area/under/rmh_dungeon/catacombs_town)
 "wvF" = (
 /obj/structure/carpet/red,
 /obj/structure/bed/inn/double,
@@ -65497,10 +65536,6 @@
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/tavern)
-"wCO" = (
-/obj/item/natural/stone,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "wDg" = (
 /turf/closed/wall/mineral/wood,
 /area/indoors/town/rmh/living)
@@ -65810,6 +65845,10 @@
 	},
 /turf/open/floor/cobble,
 /area/outdoors/town/rmh/roofs)
+"wIT" = (
+/obj/structure/flora/grass,
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "wJd" = (
 /mob/living/simple_animal/hostile/retaliate/trufflepig/male,
 /turf/open/floor/grass/healthy,
@@ -65939,6 +65978,11 @@
 	},
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh/livingquart)
+"wLi" = (
+/obj/item/grown/log/tree/stick,
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "wLk" = (
 /obj/effect/wisp/prestidigitation{
 	pixel_x = 0;
@@ -65958,10 +66002,6 @@
 	},
 /turf/open/openspace,
 /area/indoors/shelter/woods)
-"wLz" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/ruinedzone)
 "wLB" = (
 /obj/structure/window/openclose/reinforced,
 /turf/open/floor/ruinedwood,
@@ -66385,8 +66425,8 @@
 /area/indoors/town/rmh)
 "wTW" = (
 /obj/structure/flora/grass/crawlvines,
-/obj/structure/barricade/wooden,
-/obj/structure/alizeria/decor/barricade3,
+/obj/structure/barricade/wooden/crude,
+/obj/structure/alizeria/decor/barricade5,
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement/tavern)
 "wUb" = (
@@ -66566,12 +66606,6 @@
 /obj/structure/chair/bench/ancientlog,
 /turf/open/floor/naturalstone,
 /area/outdoors/rmh_field/north_mountain)
-"wWf" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 9
-	},
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "wWg" = (
 /obj/structure/spider/stickyweb/mirespider,
 /obj/structure/flora/new_shroom/cyanf,
@@ -66588,6 +66622,12 @@
 /obj/machinery/light/fueledstreet,
 /turf/closed/wall/mineral/stonebrick,
 /area/under/rmh_bedrock)
+"wWL" = (
+/obj/structure/vine{
+	icon_state = "Light2d"
+	},
+/turf/open/openspace,
+/area/under/town/rmh/basement)
 "wWM" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/fluff/railing/border,
@@ -66904,6 +66944,12 @@
 /obj/effect/decal/wood/herringbone2,
 /turf/open/floor/ruinedwood/herringbone,
 /area/indoors/town/rmh/merchant)
+"xbm" = (
+/obj/effect/decal/cleanable/dirt/paper{
+	dir = 8
+	},
+/turf/open/floor/dirt/road,
+/area/outdoors/town/rmh/ruinedzone)
 "xbq" = (
 /obj/structure/door/window,
 /turf/open/floor/wood,
@@ -66925,6 +66971,10 @@
 /obj/structure/flora/grass/bush/wall/green,
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh/roofs)
+"xbC" = (
+/obj/item/fertilizer/bone_meal,
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "xbE" = (
 /obj/structure/roguerock,
 /turf/open/floor/cobblerock,
@@ -67272,11 +67322,6 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh/livingquart)
-"xiR" = (
-/obj/item/natural/stone,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "xiS" = (
 /turf/closed/wall/mineral/stone/window/moss,
 /area/indoors/town/rmh/garrison/wall)
@@ -67453,6 +67498,11 @@
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/hexstone,
 /area/indoors/cave/rmh_cave/minotaur)
+"xkq" = (
+/obj/structure/flora/grass/crawlvines,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "xky" = (
 /obj/structure/flora/grass/crawlvines{
 	dir = 2
@@ -67478,11 +67528,6 @@
 /obj/structure/fluff/railing/border/east,
 /turf/open/openspace,
 /area/indoors/town/rmh/magician)
-"xkU" = (
-/obj/structure/rack,
-/obj/item/storage/sack,
-/turf/open/floor/dirt,
-/area/outdoors/exposed/town/rmh/farm)
 "xlb" = (
 /turf/closed/wall/mineral/stone,
 /area/outdoors/rmh_river)
@@ -67520,9 +67565,6 @@
 /obj/structure/chair/wood,
 /turf/open/floor/carpet/inn,
 /area/indoors/town/rmh/town_hall)
-"xlV" = (
-/turf/closed/wall/mineral/wooddark/window,
-/area/indoors/town/rmh/farm/ambar)
 "xmw" = (
 /obj/structure/flora/hotspring_rocks/grassy,
 /turf/open/floor/naturalstone,
@@ -67716,10 +67758,6 @@
 	},
 /turf/open/floor/concrete,
 /area/outdoors/town/rmh)
-"xpX" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "xqm" = (
 /obj/structure/window/openclose/reinforced{
 	dir = 4
@@ -67787,12 +67825,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/twig,
 /area/indoors/cave/rmh_cave/mine)
-"xrG" = (
-/obj/structure/fluff/walldeco/vinez{
-	opacity = 1
-	},
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
 "xrM" = (
 /obj/structure/flora/tree/pine,
 /obj/structure/flora/grass/fullgrass,
@@ -67822,9 +67854,10 @@
 "xsz" = (
 /turf/closed/wall/mineral/pipe,
 /area/indoors/town/rmh/craft/blacksmith)
-"xsF" = (
+"xsD" = (
 /obj/structure/flora/grass/crawlvines,
-/turf/open/floor/grass/healthy,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt,
 /area/outdoors/town/rmh/ruinedzone)
 "xsI" = (
 /obj/structure/fluff/walldeco/selune_banner/ban1{
@@ -67832,12 +67865,6 @@
 	},
 /turf/open/floor/churchrough,
 /area/indoors/town/rmh/chapel)
-"xsJ" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 5
-	},
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "xsK" = (
 /obj/structure/curtain/black,
 /obj/structure/closet/crate/drawer,
@@ -68254,10 +68281,6 @@
 	},
 /turf/open/floor/tile/harem,
 /area/indoors/town/rmh/merchant)
-"xzL" = (
-/obj/structure/flora/grass/crawlvines,
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh/roofs)
 "xzW" = (
 /turf/closed/wall/mineral/wooddark/end{
 	dir = 1
@@ -68315,11 +68338,6 @@
 	},
 /turf/open/floor/carpet/red,
 /area/indoors/town/rmh/garrison)
-"xCa" = (
-/obj/item/grown/log/tree/stick,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/dirt/road,
-/area/outdoors/town/rmh/ruinedzone)
 "xCd" = (
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_magelake)
@@ -68414,6 +68432,10 @@
 /obj/structure/flora/grass/fullgrass,
 /turf/open/floor/cobble/mossy,
 /area/outdoors/rmh_field)
+"xEj" = (
+/obj/item/natural/stone,
+/turf/open/floor/cobblerock,
+/area/outdoors/town/rmh/ruinedzone)
 "xEm" = (
 /obj/effect/decal/edge{
 	dir = 6;
@@ -68553,11 +68575,6 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/concrete,
 /area/under/town/rmh/basement/tavern)
-"xGJ" = (
-/obj/item/natural/stone,
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh/ruinedzone)
 "xGS" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/weapon/hammer/steel,
@@ -68609,6 +68626,9 @@
 /obj/effect/decal/wood/herringbone,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors)
+"xHH" = (
+/turf/open/floor/cobble/alt,
+/area/outdoors/town/rmh/ruinedzone)
 "xHM" = (
 /obj/effect/decal/edge_corner{
 	dir = 2;
@@ -68644,13 +68664,6 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass/healthy,
 /area/outdoors/town/rmh/roofs)
-"xIG" = (
-/obj/structure/fluff/walldeco/vinez{
-	opacity = 1
-	},
-/obj/item/natural/stone,
-/turf/open/floor/grass/healthy,
-/area/outdoors/town/rmh/ruinedzone)
 "xIH" = (
 /obj/effect/decal/cleanable/debris/stone,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -69337,6 +69350,11 @@
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/churchrough,
 /area/indoors/town/rmh/library)
+"xUH" = (
+/obj/item/natural/stoneblock,
+/obj/structure/vine,
+/turf/open/floor/cobble/alt,
+/area/under/town/rmh/basement)
 "xUT" = (
 /turf/closed/wall/mineral/craftstone,
 /area/indoors/town/rmh/garrison)
@@ -69481,18 +69499,13 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/dirt/road,
 /area/outdoors/exposed/town/rmh/farm)
-"xXT" = (
-/obj/effect/decal/cobbleedge/alt{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement)
 "xXW" = (
-/obj/structure/rack,
-/obj/item/storage/sack,
-/turf/open/floor/dirt/road,
-/area/outdoors/exposed/town/rmh/farm)
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/obj/effect/spawner/map_spawner/loot/dungeon/materials,
+/turf/open/floor/cobblerock,
+/area/under/rmh_dungeon/catacombs_town)
 "xYa" = (
 /obj/effect/decal/edge{
 	color = "#575757";
@@ -69520,11 +69533,6 @@
 /obj/structure/chair/bench/coucha/r,
 /turf/open/floor/wood,
 /area/indoors)
-"xYO" = (
-/obj/effect/decal/cleanable/debris/stone,
-/obj/structure/vine,
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
 "xYQ" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/open/floor/cobble,
@@ -69732,10 +69740,8 @@
 /turf/open/floor/metal/alt,
 /area/indoors/town/rmh/magician)
 "ybi" = (
-/obj/item/natural/stone,
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/cobble/alt,
-/area/under/town/rmh/basement)
+/turf/closed/wall/mineral/stone/moss,
+/area/outdoors/town/rmh/ruinedzone)
 "ybB" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/dirt,
@@ -69757,6 +69763,12 @@
 	},
 /turf/open/floor/blocks,
 /area/indoors/town/rmh/garrison/wall)
+"ybL" = (
+/obj/structure/closet/crate/coffin/sarcophagus{
+	color = "#878787"
+	},
+/turf/open/floor/cobble/alt,
+/area/under/rmh_dungeon/catacombs_town)
 "ybT" = (
 /obj/structure/fluff/railing/border/west,
 /obj/machinery/light/fueled/torchholder{
@@ -69889,6 +69901,10 @@
 /mob/living/simple_animal/hostile/retaliate/trufflepig/female,
 /turf/open/floor/grass/healthy,
 /area/outdoors/rmh_field/west)
+"yed" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt,
+/area/outdoors/town/rmh/ruinedzone)
 "yee" = (
 /obj/structure/fluff/walldeco/vinez{
 	opacity = 1
@@ -70089,12 +70105,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/cobblerock,
 /area/indoors/town/rmh)
-"ygO" = (
-/obj/structure/flora/grass/jungle{
-	color = "#92967a"
-	},
-/turf/open/floor/dirt,
-/area/outdoors/town/rmh/ruinedzone)
 "ygP" = (
 /obj/structure/closet/crate/crafted_closet/steward,
 /obj/effect/spawner/map_spawner/loot/coin/absurd,
@@ -70217,6 +70227,15 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/inn,
 /area/indoors/town/rmh/town_hall)
+"yje" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10;
+	icon_state = "cobbleedgealt-e"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/vine,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "yji" = (
 /turf/closed/wall/mineral/wooddark,
 /area/outdoors/rmh_field/north)
@@ -70402,10 +70421,6 @@
 /obj/structure/leyline,
 /turf/open/floor/dirt/road,
 /area/outdoors/rmh_field/east)
-"ymi" = (
-/obj/structure/fermentation_keg/random/water,
-/turf/open/floor/cobblerock,
-/area/under/town/rmh/basement/farm)
 
 (1,1,1) = {"
 gLU
@@ -88772,12 +88787,12 @@ xfE
 jez
 fyI
 cZt
-qRj
+tKT
 xfE
 jez
 tqE
 cZt
-wvs
+hWJ
 iOH
 dfA
 dfA
@@ -89020,7 +89035,7 @@ jez
 oNC
 gmJ
 xfE
-qRj
+tKT
 jez
 kbh
 gVh
@@ -89519,7 +89534,7 @@ kbh
 kbh
 kbh
 mZt
-rTz
+qgL
 jez
 kbh
 kbh
@@ -92365,7 +92380,7 @@ eZo
 oyo
 oyo
 oyo
-mDx
+iSy
 fyI
 oNC
 eZo
@@ -92870,7 +92885,7 @@ bLr
 gVh
 gVh
 oNC
-aHI
+ybL
 eZo
 oNC
 oNC
@@ -93179,7 +93194,7 @@ xWO
 mub
 cWi
 xWO
-vuz
+mUP
 fVI
 ggu
 gLU
@@ -93431,7 +93446,7 @@ gLU
 gLU
 gLU
 ggu
-mJJ
+rWj
 xWO
 piG
 qDe
@@ -93693,8 +93708,8 @@ xWO
 xWO
 fVI
 uoJ
-vgB
-wTW
+rOM
+aGT
 iMG
 iMG
 oGi
@@ -93949,7 +93964,7 @@ fRm
 vMe
 fVI
 fVI
-ryI
+wTW
 oHU
 gon
 gJH
@@ -94206,7 +94221,7 @@ rbW
 iUq
 plT
 xWO
-fPM
+aqT
 gon
 gon
 tpj
@@ -94470,7 +94485,7 @@ hWP
 oHU
 oHU
 bjO
-fHp
+rDj
 oGi
 gLU
 gLU
@@ -95492,7 +95507,7 @@ nfA
 nfA
 gLU
 iMG
-fHp
+rDj
 bjO
 gOf
 blG
@@ -96011,7 +96026,7 @@ gLU
 gLU
 oGi
 wSO
-oMA
+trn
 wSO
 oGi
 gLU
@@ -96969,7 +96984,7 @@ jez
 gVh
 qdU
 xWg
-eXh
+tmY
 eZo
 eZo
 uzR
@@ -101930,21 +101945,21 @@ bjO
 jQC
 odw
 tez
-blO
-inf
-tsy
+uvx
+gau
+cVt
 tez
 tez
-aGQ
-aGQ
-fSc
+jLp
+jLp
+iEA
 phz
 tez
-tbB
-gau
-rUE
-aGQ
-mlg
+fJE
+qJA
+cWU
+jLp
+usQ
 tez
 pNI
 gLU
@@ -102187,22 +102202,22 @@ oqh
 pfI
 qSs
 bbh
-rWk
-oqz
-dVz
-xsJ
-oiA
-kMS
-xXT
-ruZ
+fUQ
+iEv
+lEk
+dAj
+hHk
+ndc
+vCZ
+nNG
 tez
-isO
-hJP
-mMM
-cgy
-aGQ
-aGQ
-oOS
+bEC
+pyZ
+xkq
+huA
+jLp
+jLp
+waT
 tez
 gLU
 eTt
@@ -102444,22 +102459,22 @@ wSO
 pbi
 gqo
 rMo
-cuM
-nhP
-kgu
-kgu
-fzR
-oZR
-cIh
-lgl
+tlf
+ieA
+vKE
+vKE
+eFB
+dWb
+gVa
+kte
 eRb
-cIh
-mMM
-lDw
-soO
-ofx
-qsz
-gON
+gVa
+xkq
+epj
+kyE
+dFY
+xUH
+rTz
 tez
 gLU
 eTt
@@ -102694,29 +102709,29 @@ olE
 ydN
 ydN
 oGi
-oMA
+trn
 iMG
 gqo
 ctS
 dmH
 jVi
 bbh
-gON
-aGQ
-kgu
-rxb
-oIt
-nwb
-jNB
-wWf
+rTz
+jLp
+vKE
+uxg
+tqP
+cml
+uil
+aBY
 nTR
-kMS
-gON
-fNA
-kgu
-cIh
-rNW
-tsy
+ndc
+rTz
+wbE
+vKE
+gVa
+iPZ
+cVt
 nTR
 gLU
 eTt
@@ -102958,21 +102973,21 @@ eeV
 jMJ
 dMV
 eRb
-gON
-gON
+rTz
+rTz
 eXi
-dNC
-rPA
-aGQ
-kMS
-rPA
+iVG
+vLh
+jLp
+ndc
+vLh
 phz
 nTR
-mlg
-kMS
-hJP
-dVz
-hJP
+usQ
+ndc
+pyZ
+lEk
+pyZ
 nTR
 phz
 gLU
@@ -103213,24 +103228,24 @@ oGi
 gqo
 rjY
 dMV
-cSk
+qNy
 tez
-oiA
-rSN
-cIh
-mlg
-ava
-kMS
-kMS
-oVx
+hHk
+iVd
+gVa
+usQ
+sKZ
+ndc
+ndc
+ftd
 nTR
-rPA
-xYO
-kMS
-mVq
-vgD
-mMM
-qIR
+vLh
+nfq
+ndc
+vYy
+mll
+xkq
+avb
 tez
 gLU
 jzy
@@ -103470,24 +103485,24 @@ oGi
 gqo
 oxm
 dMV
-cSk
+qNy
 rMo
-rHU
-avp
+bVk
+qds
 eXi
-kMS
-kMS
-gCa
-iFi
-dXe
+ndc
+ndc
+mHR
+cXx
+grj
 eRb
-mMM
+xkq
 eXi
-dVz
-pab
-hdc
-qaE
-ybi
+lEk
+goJ
+yje
+kra
+cVT
 tez
 gLU
 jzy
@@ -103729,22 +103744,22 @@ ses
 dMV
 pyG
 tez
-lgl
-hJP
-kgu
-chI
-ljG
-rxb
-meY
-gON
-tez
+kte
+pyZ
+vKE
 kCl
-lgl
+pGE
+uxg
+gJd
+rTz
+tez
+imT
+kte
 bXn
 crf
-rSN
-aGQ
-aGQ
+iVd
+jLp
+jLp
 nTR
 gLU
 eTt
@@ -103986,21 +104001,21 @@ sCg
 dMV
 pyG
 tez
-qUN
-oIt
-iVG
+oRz
+tqP
+hPC
 nTR
 tez
-cyI
-gON
-gON
+rzH
+rTz
+rTz
 pNI
 nTR
-oqz
-wWf
-mlg
-aGQ
-mlg
+iEv
+aBY
+usQ
+jLp
+usQ
 tez
 phz
 gLU
@@ -110932,7 +110947,7 @@ gLU
 gLU
 gVh
 wox
-vIT
+kYL
 oyo
 uVW
 fyI
@@ -112989,7 +113004,7 @@ hHO
 hHO
 wox
 fyI
-kAq
+xXW
 fyI
 fyI
 oNC
@@ -115817,7 +115832,7 @@ dpq
 xeC
 xFS
 oyo
-oxG
+ouv
 oNC
 oyo
 oyo
@@ -116577,7 +116592,7 @@ dHw
 pbM
 gLU
 jQj
-qnA
+vlj
 ljA
 eZo
 mkA
@@ -155641,12 +155656,12 @@ myi
 myi
 myi
 myi
-ymi
-eYo
-oXL
+sPG
+fFG
+hGa
 lJl
-bmw
-hzq
+cif
+far
 iXQ
 iXQ
 myi
@@ -155894,7 +155909,7 @@ dfA
 tBw
 tBw
 lSj
-csd
+cnm
 myi
 iXQ
 iXQ
@@ -155908,7 +155923,7 @@ iXQ
 myi
 myi
 myi
-bmw
+cif
 iFO
 dfA
 dfA
@@ -156151,7 +156166,7 @@ dfA
 tBw
 tBw
 iFO
-csd
+cnm
 myi
 iXQ
 iXQ
@@ -156161,11 +156176,11 @@ myi
 iXQ
 iXQ
 myi
-eYo
+fFG
 myi
 myi
-qyv
-csd
+eAi
+cnm
 lSj
 dfA
 dfA
@@ -156410,13 +156425,13 @@ tBw
 lSj
 iXQ
 iXQ
-qVt
+vTu
 lSj
 iFO
 lSj
 lIR
-tpu
-dAz
+eOq
+oMa
 rMB
 lSj
 iFO
@@ -156667,13 +156682,13 @@ dfA
 lSj
 iXQ
 iXQ
-vCr
+rOr
 lSj
-uVp
-kCS
-eOe
-kCS
-kCS
+gku
+vzA
+mXZ
+vzA
+vzA
 lSj
 tBw
 dfA
@@ -156924,13 +156939,13 @@ tBw
 lSj
 iXQ
 iXQ
-jLp
+gtA
 lSj
-cof
-kCS
-kCS
-kCS
-wmM
+nDY
+vzA
+vzA
+vzA
+otk
 lSj
 dfA
 tBw
@@ -157179,15 +157194,15 @@ dfA
 tBw
 tBw
 lIR
-hVw
+snZ
 iXQ
 iXQ
 lIR
-ghL
-kCS
-kCS
-kCS
-vbx
+azl
+vzA
+vzA
+vzA
+fnJ
 lIR
 dfA
 tBw
@@ -157439,12 +157454,12 @@ iFO
 myi
 myi
 iXQ
-bEC
-kCS
-kCS
-kCS
-kCS
-eat
+jgJ
+vzA
+vzA
+vzA
+vzA
+brz
 lSj
 dfA
 dfA
@@ -157693,15 +157708,15 @@ gLU
 tBw
 tBw
 iFO
-sPc
+oni
 myi
 iXQ
-bEC
-kCS
-rSc
-juq
-kCS
-cof
+jgJ
+vzA
+hNJ
+ovi
+vzA
+nDY
 lSj
 dfA
 dfA
@@ -157950,7 +157965,7 @@ gLU
 tBw
 tBw
 iFO
-ftp
+piL
 myi
 iXQ
 lIR
@@ -158464,7 +158479,7 @@ gLU
 tBw
 dfA
 lIR
-hVw
+snZ
 iXQ
 iXQ
 iFO
@@ -158721,7 +158736,7 @@ dfA
 tBw
 tBw
 lSj
-cKy
+fcy
 iXQ
 iXQ
 iFO
@@ -159749,7 +159764,7 @@ xid
 omv
 mWT
 nos
-sFl
+kdP
 uwS
 lmK
 dlg
@@ -161553,7 +161568,7 @@ mOG
 mOG
 sMg
 sMg
-hPG
+hax
 gLU
 gLU
 gLU
@@ -161807,7 +161822,7 @@ jHp
 jHp
 jHp
 jHp
-hZS
+rqX
 vWv
 sMg
 hVx
@@ -162064,10 +162079,10 @@ mOG
 jHp
 jHp
 vWv
-mnK
-mnK
-eOU
-dYF
+uZr
+uZr
+vvO
+vfO
 gLU
 gLU
 gLU
@@ -162319,12 +162334,12 @@ hVx
 mOG
 mOG
 lyL
-nMi
-nMi
+ybi
+ybi
 yfl
-nMi
-nMi
-nWH
+ybi
+ybi
+yed
 gLU
 gLU
 gLU
@@ -162576,12 +162591,12 @@ mOG
 mOG
 jHp
 sMg
-mMl
-iMT
-wbE
-ufq
-nMi
-rOa
+qZu
+dqW
+dpj
+inX
+ybi
+aEv
 gLU
 gLU
 gLU
@@ -162833,12 +162848,12 @@ jHp
 mOG
 jHp
 hVx
+qZu
 mMl
-qDz
-kNp
-xGJ
-fkE
-aXP
+hVw
+tXB
+gmb
+hkY
 gLU
 gLU
 gLU
@@ -163089,13 +163104,13 @@ jHp
 jHp
 jHp
 lyL
-rOa
-nMi
-gsC
-nMi
-nMi
-nMi
-qds
+aEv
+ybi
+eeQ
+ybi
+ybi
+ybi
+nIR
 gLU
 gLU
 gLU
@@ -163346,14 +163361,14 @@ jHp
 mOG
 jHp
 hVx
-ygO
-wbE
-vcp
-tNA
-aXP
-ood
-aXP
-vUf
+bqi
+dpj
+nWH
+xbm
+hkY
+glW
+hkY
+irt
 gLU
 gLU
 gLU
@@ -163603,14 +163618,14 @@ mOG
 mOG
 hVx
 vWv
-pDO
-wbE
-mMl
-mMl
+qDz
+dpj
+qZu
+qZu
 yfl
-nMi
-nMi
-vUf
+ybi
+ybi
+irt
 gLU
 gLU
 gLU
@@ -163859,15 +163874,15 @@ mOG
 mOG
 jHp
 dhG
-pDO
-eIl
-wbE
-cpt
-vcp
-dqi
+qDz
+baz
+dpj
+qqr
 nWH
-nMi
-ood
+xbC
+yed
+ybi
+glW
 lRr
 gLU
 gLU
@@ -164116,16 +164131,16 @@ mOG
 mOG
 lyL
 lyL
-jdw
-wbE
-uBq
-nMi
-avR
-iHN
-kyv
-uFO
-qDz
-gjH
+eXb
+dpj
+oiD
+ybi
+hkU
+kyM
+cbM
+eaz
+mMl
+ozY
 lRr
 gLU
 gLU
@@ -164373,17 +164388,17 @@ mOG
 lyL
 hVx
 hVx
-dDU
-nMi
-nMi
-nMi
-avR
-dnf
-kda
+xEj
+ybi
+ybi
+ybi
+hkU
+pnp
+aZQ
+qZu
 mMl
-qDz
-vLA
-xpX
+bHq
+jep
 gLU
 gLU
 gLU
@@ -164628,21 +164643,21 @@ tgG
 dhG
 lyL
 lyL
-sqB
+eee
 vWv
-cpt
-mMl
-wrn
-imT
-wbE
-qds
-ygO
-sBb
-ygO
-dOA
-wbE
-xpX
-oRu
+qqr
+qZu
+wLi
+xHH
+dpj
+nIR
+bqi
+jGI
+bqi
+nxj
+dpj
+jep
+mZs
 gLU
 gLU
 gLU
@@ -164881,26 +164896,26 @@ eUR
 jHp
 jHp
 hVx
-fCS
+uZj
 hVx
 iCS
 iCS
 hVx
 sMg
-cpt
+qqr
 yfl
-wbE
-wbE
-kNp
-dMA
-dMA
-gVa
-wpG
-wbE
-wbE
-wbE
-wbE
-peQ
+dpj
+dpj
+hVw
+vPE
+vPE
+qHU
+rKE
+dpj
+dpj
+dpj
+dpj
+pYn
 gLU
 gLU
 gLU
@@ -165144,21 +165159,21 @@ hVx
 fBh
 sMg
 iCS
-nFJ
-nMi
-kNp
-vzA
-cdu
-vcp
-wbE
-nMi
-qDz
-kNp
-dMA
-fFl
+fGV
+ybi
+hVw
+aXd
+iet
 nWH
-iMT
-peQ
+dpj
+ybi
+mMl
+hVw
+vPE
+iaE
+yed
+dqW
+pYn
 gLU
 gLU
 gLU
@@ -165399,23 +165414,23 @@ iCS
 vWv
 hVx
 hVx
-jmS
+eIF
 hVx
-hax
-nMi
-aXP
-fqS
-qDz
-imT
-pjO
-nMi
-qDz
-iMT
-ygO
-pwa
-cdu
-wpG
-vzA
+rvx
+ybi
+hkY
+wIT
+mMl
+xHH
+mMy
+ybi
+mMl
+dqW
+bqi
+dsf
+iet
+rKE
+aXd
 gLU
 gLU
 gLU
@@ -165654,26 +165669,26 @@ jHp
 eUR
 lyL
 lyL
-sqB
+eee
 sMg
 vWv
 vWv
-mng
-rOa
-qDz
-nMi
-dpj
-uFO
-nMi
-nMi
-qDz
-nMi
-nMi
+aKK
+aEv
 mMl
-nFJ
-nMi
-kNp
-mng
+ybi
+rTK
+eaz
+ybi
+ybi
+mMl
+ybi
+ybi
+qZu
+fGV
+ybi
+hVw
+aKK
 gLU
 gLU
 gLU
@@ -165914,23 +165929,23 @@ lyL
 hVx
 lyL
 lyL
-sqB
-peQ
-mng
-rpy
-fkE
-jdw
-ygO
-dMA
+eee
+pYn
+aKK
+pff
+gmb
+eXb
+bqi
+vPE
+yed
+bqi
+fGV
+pwa
+dpj
 nWH
-ygO
-nFJ
-lRf
-wbE
-vcp
-mMl
-kNp
-kNp
+qZu
+hVw
+hVw
 iXh
 gLU
 gLU
@@ -166167,27 +166182,27 @@ lUk
 jHp
 lWw
 sit
-jmS
+eIF
 sMg
 lyL
 lyL
 hVx
-rhm
-mng
-mng
-xIG
-nFJ
-jVU
-uIL
-uIL
-qDz
-nMi
-wbE
-wbE
-gsC
+lFh
+aKK
+aKK
+boS
+fGV
+tNr
+aGQ
+aGQ
+mMl
+ybi
+dpj
+dpj
+eeQ
 yfl
-mng
-xsF
+aKK
+tHF
 iXh
 gLU
 gLU
@@ -166431,20 +166446,20 @@ qZA
 xsN
 tTi
 qpk
-mng
-eeH
-peQ
-lRf
-ore
-ore
-keu
-mMl
-nDY
-kNp
-wLz
-fkE
-rhm
-peQ
+aKK
+bDe
+pYn
+pwa
+xsD
+xsD
+eyl
+qZu
+fOF
+hVw
+kZJ
+gmb
+lFh
+pYn
 gLU
 gLU
 gLU
@@ -166689,19 +166704,19 @@ nJD
 skC
 gQC
 qpk
-hax
-dsf
-gWJ
-ore
-nWH
-uIL
-nMi
-nMi
-nMi
-fkE
-jdw
-qDz
-mng
+rvx
+rUE
+sts
+xsD
+yed
+aGQ
+ybi
+ybi
+ybi
+gmb
+eXb
+mMl
+aKK
 gLU
 gLU
 gLU
@@ -166946,19 +166961,19 @@ jcC
 hWc
 wKx
 skC
-nXC
+coE
+rUE
+vDH
+wIT
+bqi
+aGQ
 dsf
-mZs
-fqS
-ygO
-uIL
-pwa
-pDO
 qDz
-dMA
-qDz
-aXP
-dTH
+mMl
+vPE
+mMl
+hkY
+mNb
 gLU
 gLU
 gLU
@@ -167203,20 +167218,20 @@ jcC
 hWc
 lix
 skC
-pDO
-peQ
-vGv
-vGv
 qDz
-nMi
+pYn
+peQ
+peQ
 mMl
-qDz
-ygO
-qds
-xiR
-vLA
-biK
-peQ
+ybi
+qZu
+mMl
+bqi
+nIR
+kIW
+bHq
+krF
+pYn
 gLU
 nTR
 nTR
@@ -167460,20 +167475,20 @@ hxf
 hxf
 nKd
 skC
-peQ
-xCa
-wLz
-nMi
+pYn
+fEa
+kZJ
+ybi
+mMl
+ubz
 qDz
-lPT
-pDO
-cdu
-qds
-qds
-wbE
-wbE
-kda
-bXT
+iet
+nIR
+nIR
+dpj
+dpj
+aZQ
+dCo
 phz
 tez
 nXQ
@@ -167717,20 +167732,20 @@ gmc
 ckl
 gQC
 qpk
-bAW
-qds
-kNp
-nMi
-vcp
-dqi
-imT
-qDz
-qDz
-qsD
-kNp
-wbE
-vcp
-peQ
+nGh
+nIR
+hVw
+ybi
+nWH
+xbC
+xHH
+mMl
+mMl
+kgu
+hVw
+dpj
+nWH
+pYn
 tez
 nXQ
 nXQ
@@ -167973,28 +167988,28 @@ qpk
 dXa
 dXa
 qpk
-mng
-mng
-qsD
-ygO
-qDz
-vcp
-dnf
-wbE
-fQa
+aKK
+aKK
+kgu
+bqi
+mMl
+nWH
+pnp
+dpj
+vQV
+vDH
+mMl
+mMl
+dpj
+dpj
 mZs
-qDz
-qDz
-wbE
-wbE
-oRu
 tez
-sDh
+wWL
 nXQ
 nXQ
 kTi
-czN
-czN
+mUO
+mUO
 nXQ
 rOv
 gLU
@@ -168230,27 +168245,27 @@ dXa
 uCR
 wxU
 skC
-mng
-mng
-mng
-fqS
-sBb
-xpX
-dnf
-dnf
-wbE
-pDO
-ygO
-wpG
-bid
-ore
-dqi
+aKK
+aKK
+aKK
+wIT
+jGI
+jep
+pnp
+pnp
+dpj
+qDz
+bqi
+rKE
+jKJ
+xsD
+xbC
 nTR
-sDh
-sDh
+wWL
+wWL
 nXQ
 kTi
-czN
+mUO
 nXQ
 nXQ
 rOv
@@ -168487,21 +168502,21 @@ mFc
 nfM
 jXv
 skC
-pTs
-mng
-peQ
-wCO
-nMi
-qtw
-imT
-ore
-wbE
-oRu
-nMi
-nMi
-qds
-nWH
-kzj
+rTl
+aKK
+pYn
+aFY
+ybi
+ixp
+xHH
+xsD
+dpj
+mZs
+ybi
+ybi
+nIR
+yed
+vQK
 phz
 tez
 uUq
@@ -168745,20 +168760,20 @@ mpq
 gAP
 qpk
 wCy
-jgr
-mng
-lRf
-uFO
-oRu
-mMl
-iHN
-xpX
-vLA
-imT
-wLz
-qds
-aXP
-rqO
+akH
+aKK
+pwa
+eaz
+mZs
+qZu
+kyM
+jep
+bHq
+xHH
+kZJ
+nIR
+hkY
+tuY
 nTR
 pLU
 rmd
@@ -169002,20 +169017,20 @@ rVr
 uVw
 xgm
 wCy
-dsf
-qDz
-lRf
-nMi
-uBq
-wbE
+rUE
+mMl
+pwa
+ybi
+oiD
+dpj
+yed
+uta
 nWH
-qnq
-vcp
-imT
-jdw
-fkE
-aBj
-wLz
+xHH
+eXb
+gmb
+gdj
+kZJ
 bQY
 apR
 sJF
@@ -169259,26 +169274,26 @@ gnq
 ddN
 dvs
 wCy
-mng
-peQ
-qDz
-nMi
-qDz
-wpG
-qds
-vcp
-kda
-wpG
-nMi
-fkE
-jdw
-mZs
+aKK
+pYn
+mMl
+ybi
+mMl
+rKE
+nIR
+nWH
+aZQ
+rKE
+ybi
+gmb
+eXb
+vDH
 nTR
 apR
 apR
 crf
 kTi
-czN
+mUO
 nXQ
 nXQ
 rOv
@@ -169516,23 +169531,23 @@ qOz
 dNw
 eXD
 wCy
-hax
-dsf
-xrG
-wLz
-fkE
-imT
-uRC
-imT
-nMi
-nFJ
-nMi
-qsD
-gjH
+rvx
+rUE
+tcw
+kZJ
+gmb
+xHH
+rha
+xHH
+ybi
+fGV
+ybi
+kgu
+ozY
 gLU
 pNI
 tez
-tos
+vzR
 nZb
 kTi
 nXQ
@@ -169775,17 +169790,17 @@ qpk
 wCy
 fBh
 vWv
-plG
-nfU
-jdw
-nMi
-nMi
-wLz
-nMi
-mZs
-qsD
-qmb
-rhm
+toq
+etc
+eXb
+ybi
+ybi
+kZJ
+ybi
+vDH
+kgu
+kne
+lFh
 gLU
 gLU
 tez
@@ -170029,20 +170044,20 @@ bNh
 tyg
 aad
 skC
-jmS
+eIF
 hVx
 lyL
-hax
-dsf
-cpt
-lRf
-lRf
-qds
-emy
-aXP
-nfU
-pTs
-fUK
+rvx
+rUE
+qqr
+pwa
+pwa
+nIR
+tcK
+hkY
+etc
+rTl
+dMN
 gLU
 gLU
 gLU
@@ -170289,12 +170304,12 @@ otM
 hVx
 lyL
 lyL
-gOw
+oOw
 sMg
 hVx
-dsf
-qDz
-mng
+rUE
+mMl
+aKK
 gLU
 gLU
 gLU
@@ -170543,14 +170558,14 @@ qpk
 tRU
 rYy
 skC
-tBG
+pJw
 hVx
 lyL
 vWv
 hVx
-jmS
-dsf
-dsf
+eIF
+rUE
+rUE
 gLU
 gLU
 gLU
@@ -170806,8 +170821,8 @@ ncf
 hVx
 vWv
 hVx
-hax
-dsf
+rvx
+rUE
 gLU
 gLU
 gLU
@@ -171062,7 +171077,7 @@ wDp
 lep
 sMg
 vWv
-tBG
+pJw
 sMg
 fBh
 gLU
@@ -171319,7 +171334,7 @@ wDp
 gIf
 lyL
 lyL
-sqB
+eee
 hVx
 hVx
 gLU
@@ -171578,7 +171593,7 @@ mOG
 lyL
 iCS
 hVx
-jmS
+eIF
 gLU
 gLU
 gLU
@@ -172348,7 +172363,7 @@ ozE
 mOG
 mOG
 mOG
-eby
+efu
 gLU
 gLU
 gLU
@@ -215269,11 +215284,11 @@ ruF
 fQQ
 bvR
 uiS
-gts
+sIQ
 aXo
 oBg
-oAi
-xkU
+dQB
+uyU
 xMB
 aXo
 rni
@@ -216040,7 +216055,7 @@ fQQ
 ohy
 rAW
 nvh
-bgA
+cfc
 dGA
 wvS
 tMQ
@@ -216553,7 +216568,7 @@ fQQ
 ohy
 ohy
 tnd
-xlV
+rdd
 dGA
 wRF
 oBg
@@ -217060,7 +217075,7 @@ oBg
 nvh
 brO
 brO
-xlV
+rdd
 brO
 nvh
 brO
@@ -217582,7 +217597,7 @@ fQQ
 vmS
 wkF
 uiS
-xXW
+qKE
 dGA
 oBg
 oBg
@@ -217825,9 +217840,9 @@ slI
 qqG
 meX
 fHN
-svb
+aXX
 oBg
-dVQ
+rOD
 oLV
 edu
 vpF
@@ -217853,7 +217868,7 @@ muO
 kYp
 qDI
 qDI
-phj
+jWo
 tBn
 iuW
 leW
@@ -219109,7 +219124,7 @@ eyL
 pYS
 bgU
 cYd
-eyL
+qyI
 dGA
 dGA
 spZ
@@ -219161,7 +219176,7 @@ kIf
 xYk
 aZZ
 xYk
-dEh
+dUS
 gYg
 gSQ
 tif
@@ -219671,7 +219686,7 @@ gYg
 gYg
 xYk
 xYk
-jVJ
+oIt
 uRZ
 fdp
 iaD
@@ -219916,7 +219931,7 @@ scr
 jEN
 dUw
 iiG
-dEh
+dUS
 eXx
 wob
 oOE
@@ -221735,7 +221750,7 @@ qJG
 dJr
 sBX
 bKP
-upn
+bVe
 kOc
 iaD
 tma
@@ -221962,7 +221977,7 @@ qDI
 tma
 all
 jJs
-jpq
+eZJ
 jJs
 qDI
 qDI
@@ -221979,7 +221994,7 @@ vvW
 vvW
 xYk
 gYg
-jVJ
+oIt
 vvW
 aJD
 vXX
@@ -222228,7 +222243,7 @@ iXV
 leW
 vnD
 vnD
-dEh
+dUS
 xYk
 wmw
 oOE
@@ -228114,7 +228129,7 @@ lzI
 lzI
 qGU
 xBK
-xzL
+aGr
 lzI
 lzI
 lzI
@@ -228370,7 +228385,7 @@ lzI
 lzI
 lzI
 qGU
-kdQ
+upH
 lzI
 lzI
 lzI
@@ -229143,7 +229158,7 @@ lzI
 lzI
 qGU
 qGU
-pYn
+eOe
 lzI
 lzI
 lzI
@@ -229400,7 +229415,7 @@ lzI
 lzI
 lzI
 xBK
-eXb
+jlC
 lzI
 lzI
 lzI
@@ -229659,7 +229674,7 @@ lzI
 xBK
 lzI
 lzI
-pYn
+eOe
 lzI
 lzI
 gLU
@@ -229916,7 +229931,7 @@ lzI
 lzI
 lzI
 lzI
-pYn
+eOe
 lzI
 lzI
 lzI
@@ -230167,7 +230182,7 @@ lzI
 lzI
 lzI
 lzI
-pYn
+eOe
 lzI
 lzI
 lzI
@@ -230424,7 +230439,7 @@ lzI
 lzI
 lzI
 lzI
-pYn
+eOe
 lzI
 lzI
 xBK
@@ -230684,8 +230699,8 @@ lzI
 lzI
 lzI
 lzI
-xzL
-hkY
+aGr
+wpG
 xBK
 lzI
 lzI
@@ -230941,9 +230956,9 @@ lzI
 lzI
 lzI
 xBK
-tIk
-grs
-grs
+hKe
+fCS
+fCS
 lzI
 lzI
 lzI
@@ -231461,9 +231476,9 @@ lzI
 lzI
 lzI
 lzI
-xzL
-xzL
-xzL
+aGr
+aGr
+aGr
 xBK
 lzI
 lzI
@@ -231718,8 +231733,8 @@ lzI
 lzI
 lzI
 qGU
-grs
-tIk
+fCS
+hKe
 lzI
 qGU
 lzI
@@ -231975,7 +231990,7 @@ lzI
 lzI
 lzI
 qGU
-xzL
+aGr
 lzI
 lzI
 qGU
@@ -232234,8 +232249,8 @@ lzI
 lzI
 lzI
 lzI
-pYn
-pYn
+eOe
+eOe
 lzI
 lzI
 gLU
@@ -232745,7 +232760,7 @@ lzI
 lzI
 lzI
 lzI
-pYn
+eOe
 lzI
 lzI
 lzI
@@ -233002,8 +233017,8 @@ lzI
 lzI
 lzI
 lzI
-pYn
-pYn
+eOe
+eOe
 lzI
 lzI
 lzI
@@ -234027,13 +234042,13 @@ sHw
 lzI
 lzI
 lzI
-pYn
-qtq
-grs
+eOe
+prS
+fCS
 lzI
 lzI
 lzI
-pYn
+eOe
 qGU
 lzI
 lzI
@@ -234284,13 +234299,13 @@ qpk
 lzI
 lzI
 lzI
-pYn
+eOe
 xBK
-aeX
+htc
 lzI
 lzI
 lzI
-rdd
+tXH
 qGU
 lzI
 lzI
@@ -234541,10 +234556,10 @@ skC
 lzI
 lzI
 lzI
-pYn
-tIk
+eOe
+hKe
 xBK
-grs
+fCS
 lzI
 lzI
 lzI
@@ -234801,7 +234816,7 @@ lzI
 lzI
 lzI
 xBK
-hkY
+wpG
 lzI
 lzI
 lzI
@@ -235057,10 +235072,10 @@ lzI
 lzI
 lzI
 lzI
-xzL
+aGr
 xBK
 lzI
-pYn
+eOe
 lzI
 lzI
 lzI
@@ -235314,8 +235329,8 @@ lzI
 lzI
 lzI
 lzI
-pYn
-pYn
+eOe
+eOe
 lzI
 lzI
 lzI
@@ -280540,11 +280555,11 @@ lzI
 nvh
 brO
 brO
-xlV
+rdd
 brO
 nvh
 brO
-xlV
+rdd
 brO
 brO
 nvh
@@ -281051,7 +281066,7 @@ lzI
 lzI
 lzI
 wtb
-xlV
+rdd
 paD
 oFW
 paD
@@ -281061,7 +281076,7 @@ oFW
 paD
 oFW
 paD
-xlV
+rdd
 yiQ
 lzI
 lzI
@@ -282079,7 +282094,7 @@ ydq
 lzI
 lzI
 wtb
-xlV
+rdd
 tXT
 tXT
 sLV
@@ -282089,7 +282104,7 @@ tXT
 sxO
 sxO
 vGK
-xlV
+rdd
 yiQ
 lzI
 lzI
@@ -282596,11 +282611,11 @@ hBD
 nvh
 brO
 lur
-xlV
+rdd
 brO
 nvh
 brO
-xlV
+rdd
 brO
 brO
 nvh
@@ -301115,7 +301130,7 @@ lzI
 lzI
 lzI
 lzI
-teS
+gvT
 tnZ
 gLU
 gLU
@@ -301372,7 +301387,7 @@ lzI
 lzI
 tnZ
 tnZ
-teS
+gvT
 gLU
 gLU
 gLU
@@ -301625,7 +301640,7 @@ lzI
 lzI
 lzI
 lzI
-gaA
+mnK
 tym
 tnZ
 gLU
@@ -348895,7 +348910,7 @@ ist
 dpv
 nUL
 fHN
-gRx
+cbl
 ydq
 yiQ
 lzI
@@ -363569,7 +363584,7 @@ lzI
 lzI
 tnZ
 tnZ
-teS
+gvT
 tnZ
 gLU
 gLU
@@ -367161,7 +367176,7 @@ lzI
 lzI
 lzI
 lzI
-gaA
+mnK
 tym
 lzI
 gLU
@@ -367416,7 +367431,7 @@ lzI
 lzI
 lzI
 lzI
-gaA
+mnK
 tym
 tym
 gLU
