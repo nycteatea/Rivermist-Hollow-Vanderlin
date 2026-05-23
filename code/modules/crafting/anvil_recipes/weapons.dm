@@ -486,7 +486,7 @@
 
 /datum/anvil_recipe/weapons/iron/throwingdagger
 	name = "5x Iron Throwing Daggers"
-	created_item = /obj/item/weapon/knife/throwingknife/iron
+	created_item = /obj/item/weapon/knife/throwingknife
 	createditem_extra = 4
 
 // --------- STEEL ------------  Fancy gear for Knights
