@@ -73,6 +73,7 @@
 	static_inventory += quad_intents
 
 	def_intent = new /atom/movable/screen/def_intent(null, src)
+	def_intent.update_icon()
 	static_inventory += def_intent
 
 	cmode_button = new /atom/movable/screen/cmode(null, src)

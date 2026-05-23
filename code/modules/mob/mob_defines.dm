@@ -264,7 +264,7 @@
 
 	/// Combat Mode
 	var/cmode = FALSE
-	var/d_intent = INTENT_DODGE
+	var/d_intent = INTENT_PARRY
 	var/islatejoin = FALSE
 
 	var/list/mob_timers = list()
