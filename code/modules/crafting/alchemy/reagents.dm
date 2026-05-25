@@ -124,6 +124,9 @@
 	alpha = 173
 
 /datum/reagent/medicine/gender_potion/on_mob_life(mob/living/carbon/M, efficiency)
+	if(!M.get_erp_pref(/datum/erp_preference/boolean/allow_gender_bender))
+		to_chat(M, span_warning("Your body refuses the potion!"))
+		return
 	var/old_gender
 	if(!istype(M) || M.stat == DEAD)
 		to_chat(M, span_warning("The potion can only be used on living things!"))

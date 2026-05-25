@@ -404,7 +404,7 @@
 	SEND_SIGNAL(action_user_final, COMSIG_SEX_GET_AROUSAL, arousal_data_user)
 	res_send = arousal_data_user["resistance_to_pleasure"]
 
-	SEND_SIGNAL(action_user_final, COMSIG_SEX_RECEIVE_ACTION, sex_act, action_initiator, action_target, arousal_amt, pain_amt, orgasm_prog_amt, giving, force, speed, res_send)
+	SEND_SIGNAL(action_user_final, COMSIG_SEX_RECEIVE_ACTION, sex_act, action_initiator, action_target, arousal_amt, pain_amt, orgasm_prog_amt, giving, force, speed, res_send, user)
 
 /datum/sex_session/proc/handle_passive_ejaculation(mob/living/handler)
 	if(!handler)
@@ -489,7 +489,7 @@
 		return TRUE
 	return FALSE
 
-/datum/sex_session/proc/on_climax(mob/source)
+/datum/sex_session/proc/on_climax(mob/source, datum/sex_action/action, mob/living/action_receiver, mob/living/action_partner, mob/living/action_performer)
 	if(!do_until_finished)
 		return
 	just_climaxed = TRUE

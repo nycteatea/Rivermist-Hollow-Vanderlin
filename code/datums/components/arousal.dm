@@ -306,11 +306,11 @@
 	adjust_orgasm_prog(parent, orgasm_prog_amt)
 
 	damage_from_pain(pain_amt, giving)
-	try_ejaculate(s_action, action_initiator, action_target, giving)
+	try_ejaculate(s_action, action_initiator, action_target, giving, action_initiator)
 	try_do_moan(arousal_amt, pain_amt, applied_force, giving)
 	try_do_pain_effect(pain_amt, giving)
 
-/datum/component/arousal/proc/receive_sex_action(datum/source, datum/sex_action/s_action, mob/living/action_initiator, mob/living/action_target, arousal_amt, pain_amt, orgasm_prog_amt, giving, applied_force, applied_speed, applied_resist)
+/datum/component/arousal/proc/receive_sex_action(datum/source, datum/sex_action/s_action, mob/living/action_initiator, mob/living/action_target, arousal_amt, pain_amt, orgasm_prog_amt, giving, applied_force, applied_speed, applied_resist, mob/living/action_performer)
 	var/mob/living/user = parent
 
 	// Apply multipliers
@@ -440,7 +440,7 @@
 	adjust_orgasm_prog(parent, orgasm_prog_amt)
 
 	damage_from_pain(pain_amt, giving)
-	try_ejaculate(s_action, action_initiator, action_target, giving)
+	try_ejaculate(s_action, action_initiator, action_target, giving, action_performer)
 	try_do_moan(arousal_amt, pain_amt, applied_force, giving)
 	try_do_pain_effect(pain_amt, giving)
 
@@ -451,17 +451,17 @@
 	handle_statuses()
 	//update_erect_state()
 
-/datum/component/arousal/proc/try_ejaculate(datum/sex_action/s_action, mob/living/action_initiator, mob/living/action_target, giving = FALSE)
+/datum/component/arousal/proc/try_ejaculate(datum/sex_action/s_action, mob/living/action_initiator, mob/living/action_target, giving = FALSE, mob/living/action_performer)
 	if(orgasm_progress < PASSIVE_EJAC_THRESHOLD)
 		return
 	if(!can_climax())
 		return
-	ejaculate(s_action, action_initiator, action_target, giving)
+	ejaculate(s_action, action_initiator, action_target, giving, action_performer)
 
 /datum/component/arousal/proc/manual_orgasm(datum/source)
 	ejaculate()
 
-/datum/component/arousal/proc/ejaculate(datum/sex_action/s_action, mob/living/action_initiator, mob/living/action_target, giving = FALSE)
+/datum/component/arousal/proc/ejaculate(datum/sex_action/s_action, mob/living/action_initiator, mob/living/action_target, giving = FALSE, mob/living/action_performer)
 
 	var/mob/living/mob = parent
 	var/list/parent_sessions = return_sessions_with_user(parent)
@@ -476,6 +476,8 @@
 
 	if(!action_initiator)
 		action_initiator = parent
+	if(!action_performer)
+		action_performer = action_initiator
 
 	var/mob/living/target
 	if(parent == action_initiator)
@@ -488,7 +490,7 @@
 	// Special cases for when the user has a penis but no testicles & for eunuchs
 	if((!mob.getorganslot(ORGAN_SLOT_TESTICLES) && mob.getorganslot(ORGAN_SLOT_PENIS)) || (!mob.getorganslot(ORGAN_SLOT_TESTICLES) && !mob.getorganslot(ORGAN_SLOT_VAGINA)))
 		mob.visible_message(span_love("[mob] climaxes, yet nothing is released!"))
-		after_ejaculation(FALSE, parent)
+		after_ejaculation(FALSE, parent, null, action, action_initiator, action_target, action_performer)
 		return
 	if(!action || !target)
 		mob.visible_message(span_love("[mob] orgasms!"))
@@ -505,7 +507,7 @@
 				var/femcum_to_take = min(3, vag.reagents.total_volume*0.3)
 				if(vag.reagents)
 					turf.add_liquid_from_reagents(vag.reagents, amount = femcum_to_take)
-		after_ejaculation(FALSE, mob, null)
+		after_ejaculation(FALSE, mob, null, action, action_initiator, action_target, action_performer)
 	else
 		var/return_type = action.handle_climax_message(mob, target, must_flip)
 		if(!return_type)
@@ -522,9 +524,9 @@
 					if(vag.reagents)
 						var/femcum_to_take = min(3, vag.reagents.total_volume*0.3)
 						turf.add_liquid_from_reagents(vag.reagents, amount = femcum_to_take)
-			after_ejaculation(FALSE, mob, target)
+			after_ejaculation(FALSE, mob, target, action, action_initiator, action_target, action_performer)
 		else
-			handle_climax(action, return_type, mob, target, giving)
+			handle_climax(action, return_type, mob, target, giving, action_initiator, action_target, action_performer)
 
 		var/knot_finished = FALSE
 		if(action.knot_on_finish) //no idea how to stop other partner from triggering the knotting yet sorry
@@ -536,7 +538,7 @@
 			target_human.handle_werewolf_creampie_conversion(source_human, knot_finished)
 
 
-/datum/component/arousal/proc/handle_climax(datum/sex_action/action, climax_type, mob/living/user, mob/living/target, giving)
+/datum/component/arousal/proc/handle_climax(datum/sex_action/action, climax_type, mob/living/user, mob/living/target, giving, mob/living/action_initiator, mob/living/action_target, mob/living/action_performer)
 	var/obj/item/organ/genitals/filling_organ/testicles/testes
 	var/obj/item/organ/genitals/filling_organ/vagina/vag
 	if(user.getorganslot(ORGAN_SLOT_TESTICLES) && user.getorganslot(ORGAN_SLOT_PENIS))
@@ -632,7 +634,7 @@
 		if(testes.reagents)
 			if(testes.reagents.total_volume <= testes.reagents.maximum_volume / 4)
 				to_chat(user, span_info("Damn, my [pick(testes.altnames)] are pretty dry now."))
-	after_ejaculation(climax_type == ORGASM_LOCATION_INTO || climax_type == ORGASM_LOCATION_ORAL, user, target)
+	after_ejaculation(climax_type == ORGASM_LOCATION_INTO || climax_type == ORGASM_LOCATION_ORAL, user, target, action, action_initiator, action_target, action_performer)
 
 /datum/component/arousal/proc/apply_facial_effect(mob/living/recipient)
 	if(!recipient)
@@ -652,7 +654,7 @@
 	else
 		recipient.apply_status_effect(/datum/status_effect/facial/internal)
 
-/datum/component/arousal/proc/after_ejaculation(intimate = FALSE, mob/living/user, mob/living/target)
+/datum/component/arousal/proc/after_ejaculation(intimate = FALSE, mob/living/user, mob/living/target, datum/sex_action/action, mob/living/action_initiator, mob/living/action_target, mob/living/action_performer)
 	switch(edging_charge)
 		if(10 to 20)
 			to_chat(user, span_love("Feels good to finally cum!"))
@@ -674,7 +676,7 @@
 
 	set_arousal(parent, arousal * (arousal_falloff_coeff + edging_charge / MAX_EDGING))
 	set_orgasm_prog(parent, 0)
-	SEND_SIGNAL(user, COMSIG_SEX_CLIMAX)
+	SEND_SIGNAL(user, COMSIG_SEX_CLIMAX, action, action_initiator, action_target, action_performer)
 
 	if(user.has_quirk(/datum/quirk/vice/lovefiend))
 		user.sate_addiction(/datum/quirk/vice/lovefiend)

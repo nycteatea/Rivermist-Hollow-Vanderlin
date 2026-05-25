@@ -140,7 +140,7 @@
 /datum/component/ovipositor/proc/sync_storage_capacity()
 	eggs_stored = min(eggs_stored, get_max_stored_eggs())
 
-/datum/component/ovipositor/proc/on_climax(datum/source)
+/datum/component/ovipositor/proc/on_climax(datum/source, datum/sex_action/action, mob/living/action_initiator, mob/living/action_target, mob/living/action_performer)
 	SIGNAL_HANDLER
 
 	if(!carrier || eggs_stored <= 0)

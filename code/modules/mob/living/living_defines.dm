@@ -69,6 +69,26 @@
 	var/lying_prev = 0
 
 	var/last_special = 0 //Used by the resist verb, likely used to prevent players from bypassing next_move by logging in/out.
+	/// How much threat aggressive AI assigns to whoever grabs it.
+	var/hostile_grab_retarget_threat = 30
+	/// Chance for aggressive AI to try breaking out of a grab each scheduled check.
+	var/hostile_grab_resist_chance = 25
+	/// Minimum delay between aggressive AI grab-resist checks.
+	var/hostile_grab_resist_min_delay = 2 SECONDS
+	/// Maximum delay between aggressive AI grab-resist checks.
+	var/hostile_grab_resist_max_delay = 5 SECONDS
+	/// Timer id for the current aggressive AI grab-resist check.
+	var/hostile_grab_resist_timer
+	/// How long a horny-valid grabber can hold aggressive AI before becoming a hostile target.
+	var/hostile_grab_horny_hostility_delay = 2 MINUTES
+	/// Timer id for the current horny-valid grab hold hostility check.
+	var/hostile_grab_horny_hostility_timer
+	/// Grabber-caused climaxes during the horny hold window before aggressive AI is knocked out.
+	var/hostile_grab_horny_climax_count = 0
+	/// How many grabber-caused climaxes knock out aggressive AI during the horny hold window.
+	var/hostile_grab_horny_climax_threshold = 2
+	/// How long aggressive AI is knocked out after losing the horny grab contest.
+	var/hostile_grab_horny_climax_knockout_duration = 4 MINUTES
 	var/timeofdeath = 0
 
 	//Allows mobs to move through dense areas without restriction. For instance, in space or out of holder objects.

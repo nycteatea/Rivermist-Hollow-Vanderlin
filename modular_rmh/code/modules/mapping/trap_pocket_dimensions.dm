@@ -392,7 +392,7 @@
 	to_chat(captive, span_notice("I steady myself and press on. If the trap breaks me again, it will have to ask anew."))
 	return TRUE
 
-/datum/trap_pocket_tracker/proc/handle_captive_climax(mob/living/carbon/source)
+/datum/trap_pocket_tracker/proc/handle_captive_climax(mob/living/carbon/source, datum/sex_action/action, mob/living/action_initiator, mob/living/action_target, mob/living/action_performer)
 	SIGNAL_HANDLER
 
 	orgasm_count += 1

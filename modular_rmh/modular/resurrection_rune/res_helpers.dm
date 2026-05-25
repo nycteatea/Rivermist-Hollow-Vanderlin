@@ -109,7 +109,7 @@ GLOBAL_LIST_EMPTY(global_resurrune_markers)
 	SIGNAL_HANDLER
 	ease_trauma("Prayer steadies your nerves.")
 
-/datum/status_effect/debuff/resurrection_trauma/proc/on_owner_climaxed(datum/source)
+/datum/status_effect/debuff/resurrection_trauma/proc/on_owner_climaxed(datum/source, datum/sex_action/action, mob/living/action_initiator, mob/living/action_target, mob/living/action_performer)
 	SIGNAL_HANDLER
 	ease_trauma("Pleasure briefly dulls the memory of death.")
 

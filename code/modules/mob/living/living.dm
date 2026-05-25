@@ -37,6 +37,8 @@
 			AddComponent(/datum/component/arousal)
 
 /mob/living/Destroy()
+	clear_hostile_grab_resist_timer()
+	clear_hostile_grab_horny_hostility_timer()
 	if(FACTION_MATTHIOS in faction)
 		SSmatthios_mobs.unregister_mob(src)
 	if(cached_island_id)
@@ -2916,6 +2918,7 @@
 	refresh_looping_ambience()
 
 /mob/living/set_pulledby(new_pulledby)
+	var/atom/movable/old_pulledby = pulledby
 	. = ..()
 	if(. == FALSE) //null is a valid value here, we only want to return if FALSE is explicitly passed.
 		return
@@ -2928,6 +2931,162 @@
 	for(var/hand in hud_used?.hand_slots)
 		var/atom/movable/screen/inventory/hand/H = hud_used.hand_slots[hand]
 		H?.update_appearance(UPDATE_OVERLAYS)
+
+	if(old_pulledby != pulledby)
+		handle_hostile_ai_grab_reaction()
+
+/mob/living/proc/handle_hostile_ai_grab_reaction()
+	if(!pulledby || pulledby == src || !isliving(pulledby))
+		clear_hostile_grab_resist_timer()
+		clear_hostile_grab_horny_hostility_timer()
+		return
+
+	var/mob/living/grabber = pulledby
+	if(!can_hostile_ai_react_to_grabber(grabber))
+		clear_hostile_grab_resist_timer()
+		clear_hostile_grab_horny_hostility_timer()
+		return
+
+	clear_hostile_grab_horny_hostility_timer()
+	retarget_hostile_ai_to_grabber(grabber)
+	schedule_hostile_grab_resist()
+	schedule_hostile_grab_horny_hostility(grabber)
+
+/mob/living/proc/can_hostile_ai_react_to_grabber(mob/living/grabber)
+	if(!ai_controller || QDELETED(grabber) || grabber == src)
+		return FALSE
+
+	if(!GetComponent(/datum/component/ai_aggro_system))
+		return FALSE
+
+	return TRUE
+
+/mob/living/proc/retarget_hostile_ai_to_grabber(mob/living/grabber)
+	if(!can_hostile_ai_react_to_grabber(grabber))
+		return FALSE
+
+	var/datum/component/ai_aggro_system/aggro_system = GetComponent(/datum/component/ai_aggro_system)
+	if(!aggro_system)
+		return FALSE
+
+	aggro_system.add_threat_to_mob(grabber, hostile_grab_retarget_threat)
+	ai_controller.set_blackboard_key(BB_HIGHEST_THREAT_MOB, grabber)
+	ai_controller.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, grabber)
+	ai_controller.clear_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET_HIDING_LOCATION)
+	ai_controller.CancelActions()
+	return TRUE
+
+/mob/living/proc/schedule_hostile_grab_resist()
+	if(hostile_grab_resist_timer || !pulledby || pulledby == src || !isliving(pulledby))
+		return
+
+	var/mob/living/grabber = pulledby
+	if(!can_hostile_ai_react_to_grabber(grabber))
+		return
+
+	hostile_grab_resist_timer = addtimer(CALLBACK(src, PROC_REF(try_hostile_grab_resist)), rand(hostile_grab_resist_min_delay, hostile_grab_resist_max_delay), TIMER_STOPPABLE)
+
+/mob/living/proc/clear_hostile_grab_resist_timer()
+	if(!hostile_grab_resist_timer)
+		return
+
+	deltimer(hostile_grab_resist_timer)
+	hostile_grab_resist_timer = null
+
+/mob/living/proc/schedule_hostile_grab_horny_hostility(mob/living/grabber)
+	if(hostile_grab_horny_hostility_timer || !hostile_grab_horny_hostility_delay)
+		return
+
+	if(!can_hostile_ai_react_to_grabber(grabber))
+		return
+
+	var/datum/targetting_datum/targetting_datum = ai_controller.blackboard[BB_TARGETTING_DATUM]
+	if(!targetting_datum?.is_selected_horny_target(src, grabber))
+		return
+	if(targetting_datum.is_horny_target_now_hostile(src, grabber))
+		return
+
+	hostile_grab_horny_climax_count = 0
+	RegisterSignal(src, COMSIG_SEX_CLIMAX, PROC_REF(on_hostile_grab_horny_climax))
+	hostile_grab_horny_hostility_timer = addtimer(CALLBACK(src, PROC_REF(trigger_hostile_grab_horny_hostility), WEAKREF(grabber)), hostile_grab_horny_hostility_delay, TIMER_STOPPABLE)
+
+/mob/living/proc/clear_hostile_grab_horny_hostility_timer()
+	if(hostile_grab_horny_hostility_timer)
+		deltimer(hostile_grab_horny_hostility_timer)
+	hostile_grab_horny_hostility_timer = null
+	hostile_grab_horny_climax_count = 0
+	UnregisterSignal(src, COMSIG_SEX_CLIMAX)
+
+/mob/living/proc/trigger_hostile_grab_horny_hostility(datum/weakref/grabber_ref)
+	hostile_grab_horny_hostility_timer = null
+	hostile_grab_horny_climax_count = 0
+	UnregisterSignal(src, COMSIG_SEX_CLIMAX)
+	var/mob/living/grabber = grabber_ref?.resolve()
+	if(!grabber || pulledby != grabber || stat >= UNCONSCIOUS)
+		return
+
+	if(!can_hostile_ai_react_to_grabber(grabber))
+		return
+
+	make_hostile_grabber_horny_hostile(grabber)
+
+/mob/living/proc/make_hostile_grabber_horny_hostile(mob/living/grabber)
+	if(!can_hostile_ai_react_to_grabber(grabber))
+		return FALSE
+
+	var/datum/targetting_datum/targetting_datum = ai_controller.blackboard[BB_TARGETTING_DATUM]
+	if(!targetting_datum?.set_horny_target_hostile(src, grabber))
+		return FALSE
+
+	retarget_hostile_ai_to_grabber(grabber)
+	ai_controller.clear_blackboard_key(BB_BASIC_MOB_CURRENT_HORNY_TARGET)
+	ai_controller.clear_blackboard_key(BB_HORNY_PORTAL_LIGHT)
+	ai_controller.CancelActions()
+	return TRUE
+
+/mob/living/proc/on_hostile_grab_horny_climax(mob/living/source, datum/sex_action/action, mob/living/action_receiver, mob/living/action_partner, mob/living/action_performer)
+	SIGNAL_HANDLER
+	if(source != src || !hostile_grab_horny_hostility_timer)
+		return
+	if(!pulledby || pulledby == src || !isliving(pulledby))
+		return
+
+	var/mob/living/grabber = pulledby
+	if(action_receiver != src || action_partner != grabber || action_performer != grabber)
+		return
+	if(!can_hostile_ai_react_to_grabber(grabber))
+		return
+
+	hostile_grab_horny_climax_count++
+	if(hostile_grab_horny_climax_count < hostile_grab_horny_climax_threshold)
+		return
+
+	knockout_from_hostile_grab_horny_climax(grabber)
+
+/mob/living/proc/knockout_from_hostile_grab_horny_climax(mob/living/grabber)
+	if(!can_hostile_ai_react_to_grabber(grabber))
+		return FALSE
+
+	visible_message(span_warning("[src] goes limp from overstimulation!"))
+	clear_hostile_grab_horny_hostility_timer()
+	clear_hostile_grab_resist_timer()
+	Unconscious(hostile_grab_horny_climax_knockout_duration, ignore_canstun = TRUE)
+	return TRUE
+
+/mob/living/proc/try_hostile_grab_resist()
+	hostile_grab_resist_timer = null
+	if(!pulledby || pulledby == src || !isliving(pulledby) || stat >= UNCONSCIOUS)
+		return
+
+	var/mob/living/grabber = pulledby
+	if(!can_hostile_ai_react_to_grabber(grabber))
+		return
+
+	if(prob(hostile_grab_resist_chance))
+		resist_grab()
+
+	if(pulledby && pulledby != src && isliving(pulledby))
+		schedule_hostile_grab_resist()
 
 /// Proc for giving a mob a new 'friend', generally used for AI control and targeting. Returns false if already friends.
 /mob/living/proc/befriend(mob/living/new_friend)
