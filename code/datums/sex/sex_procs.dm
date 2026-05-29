@@ -563,6 +563,137 @@
 
 	COOLDOWN_DECLARE(npc_sneak_detect_cd)
 
+/datum/component/gender_potion_genital_backup
+	var/original_gender
+	var/list/stored_organs = list()
+	var/list/stored_zones = list()
+
+/datum/component/gender_potion_genital_backup/Initialize(original_gender)
+	if(!isliving(parent))
+		return COMPONENT_INCOMPATIBLE
+	src.original_gender = original_gender
+
+/datum/component/gender_potion_genital_backup/Destroy(force = FALSE)
+	QDEL_LIST(stored_organs)
+	stored_zones = null
+	return ..()
+
+/datum/component/gender_potion_genital_backup/proc/store_current_genitals(mob/living/owner)
+	if(!owner)
+		return FALSE
+	for(var/organ_slot in owner.get_gender_potion_genital_slots())
+		for(var/obj/item/organ/genitals/organ as anything in owner.getorganslotlist(organ_slot))
+			if(QDELETED(organ))
+				continue
+			stored_organs += organ
+			stored_zones[organ] = organ.current_zone
+			owner.remove_gender_potion_genital_organ(organ, TRUE)
+	return TRUE
+
+/datum/component/gender_potion_genital_backup/proc/restore_genitals(mob/living/owner)
+	if(!owner)
+		return FALSE
+	owner.clear_gender_potion_genitals()
+	for(var/obj/item/organ/genitals/organ as anything in stored_organs)
+		if(QDELETED(organ))
+			continue
+		var/saved_zone = null
+		if(stored_zones)
+			saved_zone = stored_zones[organ]
+		DISABLE_BITFIELD(organ.organ_flags, ORGAN_CUT_AWAY)
+		organ.Insert(owner, special = TRUE, drop_if_replaced = FALSE, new_zone = saved_zone)
+	stored_organs = null
+	stored_zones = null
+	qdel(src)
+	return TRUE
+
+/mob/living/proc/get_gender_potion_genital_slots()
+	var/static/list/gender_potion_genital_slots = list(
+		ORGAN_SLOT_PENIS,
+		ORGAN_SLOT_TESTICLES,
+		ORGAN_SLOT_BREASTS,
+		ORGAN_SLOT_VAGINA
+	)
+	return gender_potion_genital_slots
+
+/mob/living/proc/remove_gender_potion_genital_organ(obj/item/organ/genitals/organ, preserve = FALSE)
+	if(!organ || organ.owner != src)
+		return FALSE
+	organ.Remove(src, special = TRUE)
+	if(preserve)
+		organ.moveToNullspace()
+		DISABLE_BITFIELD(organ.organ_flags, ORGAN_CUT_AWAY)
+		STOP_PROCESSING(SSobj, organ)
+	else
+		qdel(organ)
+	return TRUE
+
+/mob/living/proc/clear_gender_potion_genitals()
+	for(var/organ_slot in get_gender_potion_genital_slots())
+		for(var/obj/item/organ/genitals/organ as anything in getorganslotlist(organ_slot))
+			remove_gender_potion_genital_organ(organ)
+
+/mob/living/proc/give_gender_potion_genitals_for_gender(target_gender)
+	if(target_gender == MALE)
+		var/obj/item/organ/genitals/filling_organ/testicles/testicles = getorganslot(ORGAN_SLOT_TESTICLES)
+		if(!testicles)
+			if(!show_genitals)
+				testicles = new /obj/item/organ/genitals/filling_organ/testicles/invisible
+			else
+				testicles = new ball_organ
+			testicles.organ_size = rand(ball_min, ball_max)
+			testicles.Insert(src, TRUE)
+
+		var/obj/item/organ/genitals/penis/penis = getorganslot(ORGAN_SLOT_PENIS)
+		if(!penis)
+			if(!show_genitals)
+				penis = new /obj/item/organ/genitals/penis
+			else
+				penis = new penis_organ
+			penis.organ_size = rand(penis_min, penis_max)
+			penis.Insert(src, TRUE)
+
+	else if(target_gender == FEMALE)
+		var/obj/item/organ/genitals/filling_organ/breasts/breasts = getorganslot(ORGAN_SLOT_BREASTS)
+		if(!breasts)
+			if(!show_genitals)
+				breasts = new /obj/item/organ/genitals/filling_organ/breasts
+			else
+				breasts = new breast_organ
+			breasts.organ_size = rand(breast_min, breast_max)
+			breasts.Insert(src, TRUE)
+
+		var/obj/item/organ/genitals/filling_organ/vagina/vagina = getorganslot(ORGAN_SLOT_VAGINA)
+		if(!vagina)
+			if(!show_genitals)
+				vagina = new /obj/item/organ/genitals/filling_organ/vagina
+			else
+				vagina = new vagina_organ
+			vagina.Insert(src, TRUE)
+
+	if(iscarbon(src))
+		var/mob/living/carbon/carbon_owner = src
+		carbon_owner.update_body_parts(TRUE)
+	return TRUE
+
+/mob/living/proc/apply_gender_potion_genital_change(old_gender)
+	if(gender != MALE && gender != FEMALE)
+		return FALSE
+	var/datum/component/gender_potion_genital_backup/backup = GetComponent(/datum/component/gender_potion_genital_backup)
+	if(backup && gender == backup.original_gender)
+		return backup.restore_genitals(src)
+
+	if(!backup)
+		backup = AddComponent(/datum/component/gender_potion_genital_backup, old_gender)
+		if(!backup)
+			return FALSE
+		backup.store_current_genitals(src)
+	else
+		clear_gender_potion_genitals()
+
+	give_gender_potion_genitals_for_gender(gender)
+	return TRUE
+
 /mob/living/Initialize()
 	. = ..()
 	refresh_erp_preference_cache()

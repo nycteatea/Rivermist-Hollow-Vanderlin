@@ -217,6 +217,24 @@
 	human.cache_erp_preferences_from_prefs(prefs)
 	TEST_ASSERT(burrowing.can_lay_leech_egg(human, vagina), "Burrowing leeches should lay eggs when both breeding and oviposition are allowed.")
 
+/datum/unit_test/oviposition_scan_ignores_internal_burrowing_leeches
+#ifdef FOCUS_LEECH_TEST
+	focus = TRUE
+#endif
+
+/datum/unit_test/oviposition_scan_ignores_internal_burrowing_leeches/Run()
+	var/mob/living/carbon/human/human = allocate(/mob/living/carbon/human)
+	var/obj/item/organ/genitals/filling_organ/anus/anus = allocate(/obj/item/organ/genitals/filling_organ/anus)
+	anus.Insert(human, TRUE, FALSE)
+	var/obj/item/natural/worms/leech/erotic/burrowing/burrowing = allocate(/obj/item/natural/worms/leech/erotic/burrowing)
+
+	SEND_SIGNAL(anus, COMSIG_BODYSTORAGE_FORCE_INSERT, burrowing, STORAGE_LAYER_DEEP)
+
+	TEST_ASSERT_EQUAL(length(anus.get_oviposition_eggs()), 0, "Oviposition egg scans should ignore non-egg items in the deep storage layer.")
+	TEST_ASSERT(!anus.has_oviposition_pregnancy(), "Internal burrowing leeches should not be treated as growing oviposition pregnancies.")
+	var/reagent_capacity = anus.get_reagent_capacity()
+	TEST_ASSERT(reagent_capacity >= 0 && reagent_capacity <= anus.reagents.maximum_volume, "A deep burrowing leech should let filling organs recalculate a sane reagent capacity without runtime.")
+
 /datum/unit_test/leech_egg_profile_hatches_burrowing_leech_item
 #ifdef FOCUS_LEECH_TEST
 	focus = TRUE

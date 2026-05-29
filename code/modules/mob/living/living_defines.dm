@@ -88,7 +88,7 @@
 	/// How many grabber-caused climaxes knock out aggressive AI during the horny hold window.
 	var/hostile_grab_horny_climax_threshold = 2
 	/// How long aggressive AI is knocked out after losing the horny grab contest.
-	var/hostile_grab_horny_climax_knockout_duration = 4 MINUTES
+	var/hostile_grab_horny_climax_knockout_duration = 10 MINUTES
 	var/timeofdeath = 0
 
 	//Allows mobs to move through dense areas without restriction. For instance, in space or out of holder objects.

@@ -162,6 +162,7 @@
 		M.gender = MALE
 		M.visible_message(span_boldnotice("[M] suddenly looks more masculine!"), span_boldwarning("You suddenly feel more masculine!"))
 	M.dna?.species?.on_gender_update(M, old_gender)
+	M.apply_gender_potion_genital_change(old_gender)
 	M.regenerate_icons()
 	..()
 

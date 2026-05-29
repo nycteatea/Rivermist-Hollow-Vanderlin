@@ -353,7 +353,10 @@
 	if(!storage)
 		return eggs
 
-	for(var/obj/item/oviposition_egg/egg as anything in storage.deep_layer_contents)
+	for(var/obj/item/stored_item as anything in storage.deep_layer_contents)
+		if(!istype(stored_item, /obj/item/oviposition_egg))
+			continue
+		var/obj/item/oviposition_egg/egg = stored_item
 		var/growing = egg.has_pregnancy()
 		if(isnull(include_growing) || include_growing == growing)
 			eggs += egg
