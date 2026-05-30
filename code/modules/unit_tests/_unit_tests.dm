@@ -63,6 +63,7 @@
 
 // BEGIN_INCLUDE
 #include "anchored_mobs.dm"
+#include "ai_idle_detection.dm"
 #include "belly_fullness.dm"
 #include "bellyriding.dm"
 #include "body_storage.dm"
@@ -73,6 +74,7 @@
 #include "craftable_clothes.dm"
 #include "craftable_turfs.dm"
 #include "create_and_destroy.dm"
+#include "dye_bin.dm"
 #include "faction_supply_packs.dm"
 #include "focus_only_tests.dm"
 #include "hostile_ai_grab.dm"

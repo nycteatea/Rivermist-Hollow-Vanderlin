@@ -177,9 +177,9 @@
 // checks whether the injury has been appropriately treated
 /datum/injury/proc/is_treated()
 	switch(damage_type)
-		if(WOUND_SLASH, WOUND_PIERCE, WOUND_BITE)
+		if(WOUND_SLASH, WOUND_PIERCE, WOUND_BITE, WOUND_LASH)
 			return (is_bandaged() || is_sutured() || parent_bodypart.bandage)
-		if(WOUND_BLUNT, WOUND_LASH, WOUND_DIVINE)
+		if(WOUND_BLUNT, WOUND_DIVINE)
 			return (is_bandaged() || parent_bodypart.bandage)
 		if(WOUND_BURN)
 			return (is_salved() || (is_disinfected() && (is_bandaged() || parent_bodypart.bandage) ) )
@@ -349,6 +349,12 @@
 /datum/injury/proc/unsuture_injury()
 	injury_flags &= ~INJURY_SUTURED
 	return TRUE
+
+/datum/injury/proc/can_suture_with_needle()
+	var/static/list/needle_suturable_wounds = list(WOUND_SLASH, WOUND_PIERCE, WOUND_BITE, WOUND_LASH)
+	if(!(damage_type in needle_suturable_wounds))
+		return FALSE
+	return is_bleeding() || (damage_per_injury() > autoheal_cutoff)
 
 // bandages the injury
 /datum/injury/proc/bandage_injury()

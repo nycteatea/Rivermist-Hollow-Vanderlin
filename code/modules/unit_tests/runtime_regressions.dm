@@ -41,6 +41,36 @@
 
 	TEST_ASSERT_EQUAL(holder.has_language(/datum/language/elvish), FALSE, "Detached language holders should not ask a null atom for shadow languages.")
 
+/datum/unit_test/pain_feedback_uses_tiered_chat_before_audible_emotes
+#ifdef FOCUS_RUNTIME_REGRESSION_TEST
+	focus = TRUE
+#endif
+
+/datum/unit_test/pain_feedback_uses_tiered_chat_before_audible_emotes/Run()
+	var/mob/living/carbon/human/patient = allocate(/mob/living/carbon/human)
+	var/obj/item/bodypart/left_arm = patient.get_bodypart(BODY_ZONE_L_ARM)
+	TEST_ASSERT_NOTNULL(left_arm, "Test patient should have a left arm.")
+
+	left_arm.brute_dam = 5
+	TEST_ASSERT(patient.custom_pain("old raw limb message", 5, TRUE, left_arm, nopainloss = TRUE), "Low limb pain should still produce player feedback.")
+	TEST_ASSERT_EQUAL(patient.last_pain_message, "My left arm hurts a little.", "Low brute/burn limb pain should use a gentle standardized limb message.")
+
+	patient.next_pain_time = 0
+	patient.next_pain_message_time = 0
+	left_arm.brute_dam = 45
+	TEST_ASSERT(patient.custom_pain("old raw severe limb message", 45, TRUE, left_arm, nopainloss = TRUE), "Higher limb pain should still produce player feedback.")
+	TEST_ASSERT_EQUAL(patient.last_pain_message, "My left arm hurts badly!", "Higher brute/burn limb pain should use a more urgent standardized limb message.")
+
+	patient.next_pain_time = 0
+	patient.next_pain_message_time = 0
+	left_arm.brute_dam = 0
+	TEST_ASSERT(patient.custom_pain("old raw general message", 12, TRUE, left_arm, nopainloss = TRUE), "Non-brute/burn pain should still produce player feedback.")
+	TEST_ASSERT_EQUAL(patient.last_pain_message, "My body hurts.", "Pain without brute or burn damage should use a general body pain message.")
+
+	var/datum/species/species = allocate(/datum/species)
+	TEST_ASSERT_NULL(species.get_pain_emote(80), "Pain at 80 or below should not pick an audible emote.")
+	TEST_ASSERT_NOTNULL(species.get_pain_emote(81), "Pain over 80 should still be allowed to pick an audible emote.")
+
 /*/datum/unit_test/loinspent_ignores_nonhuman_owner
 #ifdef FOCUS_RUNTIME_REGRESSION_TEST
 	focus = TRUE
@@ -363,6 +393,60 @@
 
 	TEST_ASSERT(injury.is_disinfected(), "A disinfectant-soaked bandage should disinfect the injury as soon as it is applied.")
 	TEST_ASSERT(injury.germ_level < 10, "A disinfectant-soaked bandage should reduce injury germs when it is applied.")
+
+/datum/unit_test/bandages_heal_burns_more_than_brute
+#ifdef FOCUS_RUNTIME_REGRESSION_TEST
+	focus = TRUE
+#endif
+
+/datum/unit_test/bandages_heal_burns_more_than_brute/Run()
+	var/mob/living/carbon/human/patient = allocate(/mob/living/carbon/human)
+	var/obj/item/bodypart/chest = patient.get_bodypart(BODY_ZONE_CHEST)
+	TEST_ASSERT_NOTNULL(chest, "Test human should have a chest bodypart.")
+
+	var/datum/injury/slash = chest.create_injury(WOUND_SLASH, 20)
+	TEST_ASSERT_NOTNULL(slash, "Test setup should create a slash injury.")
+	var/datum/injury/burn = chest.create_injury(WOUND_BURN, 20)
+	TEST_ASSERT_NOTNULL(burn, "Test setup should create a burn injury.")
+
+	var/slash_damage_before = slash.damage
+	var/burn_damage_before = burn.damage
+	var/obj/item/natural/cloth/bandage/test_bandage = allocate(/obj/item/natural/cloth/bandage)
+
+	TEST_ASSERT(chest.try_bandage(test_bandage), "Applying a bandage should succeed.")
+	var/brute_healed = slash_damage_before - slash.damage
+	var/burn_healed = burn_damage_before - burn.damage
+	TEST_ASSERT(brute_healed > 0, "Bandages should still heal a small amount of brute damage.")
+	TEST_ASSERT(burn_healed > brute_healed, "Bandages should heal burns more effectively than brute wounds.")
+
+/datum/unit_test/needle_suture_scope_includes_bleeding_open_injuries
+#ifdef FOCUS_RUNTIME_REGRESSION_TEST
+	focus = TRUE
+#endif
+
+/datum/unit_test/needle_suture_scope_includes_bleeding_open_injuries/Run()
+	var/mob/living/carbon/human/patient = allocate(/mob/living/carbon/human)
+	var/obj/item/bodypart/chest = patient.get_bodypart(BODY_ZONE_CHEST)
+	TEST_ASSERT_NOTNULL(chest, "Test human should have a chest bodypart.")
+
+	var/datum/injury/small_cut = chest.create_injury(WOUND_SLASH, 5)
+	TEST_ASSERT_NOTNULL(small_cut, "Test setup should create a small slash injury.")
+	small_cut.bleed_timer = 30
+	TEST_ASSERT(small_cut.is_bleeding(), "Test setup should make the small cut actively bleed.")
+	TEST_ASSERT(small_cut.can_suture_with_needle(), "Actively bleeding open injuries should be valid needle suture targets even if they are below autoheal cutoff.")
+	small_cut.suture_injury()
+	TEST_ASSERT(!small_cut.is_bleeding(), "Suturing an actively bleeding open injury should stop its bleeding.")
+
+	var/datum/injury/bleeding_bruise = chest.create_injury(WOUND_BLUNT, 50)
+	TEST_ASSERT_NOTNULL(bleeding_bruise, "Test setup should create a blunt injury.")
+	TEST_ASSERT(bleeding_bruise.is_bleeding(), "Test setup should make the blunt injury actively bleed.")
+	TEST_ASSERT(!bleeding_bruise.can_suture_with_needle(), "Blunt bleeding should stay outside needle suture scope; use bandaging instead.")
+
+	var/datum/injury/lash = chest.create_injury(WOUND_LASH, 20)
+	TEST_ASSERT_NOTNULL(lash, "Test setup should create a lash injury.")
+	TEST_ASSERT(lash.can_suture_with_needle(), "Bleeding lash injuries should be valid needle suture targets.")
+	lash.suture_injury()
+	TEST_ASSERT(lash.is_treated(), "Sutured lash injuries should count as treated so they can recover like other sewn open wounds.")
 
 /datum/unit_test/artery_wound_handles_missing_usable_artery
 #ifdef FOCUS_RUNTIME_REGRESSION_TEST

@@ -129,7 +129,7 @@ GLOBAL_LIST_INIT(colorlist, list(
 		return
 
 
-	if(!(I.dyeable)) // ????
+	if(!(I.dyeable || I.sewrepair))
 		if(I.force < 8) // ?????????
 			to_chat(user, span_warning("I do not think \the [I] can be dyed this way."))
 		return ..()

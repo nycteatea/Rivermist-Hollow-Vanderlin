@@ -403,7 +403,18 @@
 	bandage_limb()
 	new_bandage.forceMove(src)
 	apply_bandage_reagents()
+	apply_bandage_healing()
 	return TRUE
+
+/obj/item/bodypart/proc/apply_bandage_healing()
+	if(!istype(bandage, /obj/item/natural/cloth))
+		return FALSE
+
+	var/obj/item/natural/cloth/cloth = bandage
+	if(!cloth.bandage_brute_heal && !cloth.bandage_burn_heal)
+		return FALSE
+
+	return heal_damage(cloth.bandage_brute_heal, cloth.bandage_burn_heal, BODYPART_ORGANIC)
 
 /obj/item/bodypart/proc/apply_bandage_reagents()
 	if(!istype(bandage, /obj/item/natural/cloth))

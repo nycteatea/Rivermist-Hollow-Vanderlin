@@ -288,13 +288,19 @@
 		else
 			adjustPainLoss(CEILING(power, 1))
 
-	// Anti message spam checks
-	if(forced || (message != last_pain_message) || (world.time >= next_pain_message_time))
-		last_pain_message = message
-		if(world.time >= next_pain_message_time)
-			to_chat(src, span_animatedpain("[message]"))
+	var/pain_message = message
+	if(pain_emote)
+		pain_message = get_pain_feedback_message(power, affecting)
 
-		if(pain_emote)
+	// Anti message spam checks
+	var/sent_pain_message = FALSE
+	if(forced || (pain_message != last_pain_message) || (world.time >= next_pain_message_time))
+		last_pain_message = pain_message
+		if(world.time >= next_pain_message_time)
+			to_chat(src, span_animatedpain("[pain_message]"))
+			sent_pain_message = TRUE
+
+		if(pain_emote && sent_pain_message && power > 80)
 			var/force_emote
 			if(ishuman(src))
 				var/mob/living/carbon/human/human_src = src
@@ -308,6 +314,32 @@
 	next_pain_time = world.time + (rand(100, 150) + power)
 	next_pain_message_time = world.time + (60 SECONDS + power)
 	return TRUE
+
+/mob/living/carbon/proc/get_pain_feedback_message(power, obj/item/bodypart/affecting)
+	var/has_limb_damage = affecting && (affecting.brute_dam > 0 || affecting.burn_dam > 0)
+	if(has_limb_damage)
+		var/pain_word = (affecting.burn_dam > affecting.brute_dam) ? "burns" : "hurts"
+		switch(CEILING(power, 1))
+			if(-INFINITY to 9)
+				return "My [affecting.name] [pain_word] a little."
+			if(10 to 39)
+				return "My [affecting.name] [pain_word]."
+			if(40 to 79)
+				return "My [affecting.name] [pain_word] badly!"
+			if(80 to INFINITY)
+				if(pain_word == "burns")
+					return "My [affecting.name] is burning terribly!"
+				return "My [affecting.name] is in terrible pain!"
+
+	switch(CEILING(power, 1))
+		if(-INFINITY to 9)
+			return "My body hurts a little."
+		if(10 to 39)
+			return "My body hurts."
+		if(40 to 79)
+			return "My whole body hurts badly!"
+		if(80 to INFINITY)
+			return "My whole body is in terrible pain!"
 
 /mob/living/carbon/can_feel_pain()
 	return !HAS_TRAIT(src, TRAIT_NOPAIN)

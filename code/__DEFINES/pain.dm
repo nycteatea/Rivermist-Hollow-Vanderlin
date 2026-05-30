@@ -1,5 +1,5 @@
 // ~pain levels when using the custom_pain proc and shit
-#define PAIN_EMOTE_MINIMUM 10
+#define PAIN_EMOTE_MINIMUM 81
 #define PAIN_LEVEL_1 0
 #define PAIN_LEVEL_2 10
 #define PAIN_LEVEL_3 40

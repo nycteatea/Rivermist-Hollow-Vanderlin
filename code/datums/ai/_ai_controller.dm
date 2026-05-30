@@ -282,6 +282,8 @@ have ways of interacting with a specific atom and control it. They posses a blac
 		return
 	if(should_idle())
 		set_ai_status(AI_STATUS_IDLE)
+	else if(ai_status == AI_STATUS_IDLE)
+		set_ai_status(AI_STATUS_ON)
 
 /datum/ai_controller/proc/on_client_enter(datum/source, atom/target)
 	SIGNAL_HANDLER
