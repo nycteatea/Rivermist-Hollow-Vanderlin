@@ -127,6 +127,11 @@
 		trauma = _trauma
 	return ..()
 
+/mob/living/split_personality/Destroy()
+	body = null
+	trauma = null
+	return ..()
+
 /mob/living/split_personality/Life()
 	if(QDELETED(body))
 		qdel(src) //in case trauma deletion doesn't already do it

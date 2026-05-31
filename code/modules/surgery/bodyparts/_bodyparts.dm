@@ -384,6 +384,10 @@
 
 /// Adding/removing germs
 /obj/item/bodypart/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)
+	if(add_germs > 0)
+		// RMH TODO: Infections are disabled for the casual RP build. Rework this
+		// as an opt-in dungeon/environment mechanic before allowing new germs.
+		return
 	. = ..()
 	if(germ_level >= INFECTION_LEVEL_THREE && !CHECK_BITFIELD(limb_flags, BODYPART_DEAD))
 		if(can_necrose_from_infection())

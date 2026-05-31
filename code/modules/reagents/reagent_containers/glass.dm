@@ -7,6 +7,7 @@
 	reagent_flags = OPENCONTAINER
 	spillable = TRUE
 	possible_item_intents = list(INTENT_POUR, /datum/intent/fill, INTENT_SPLASH, INTENT_GENERIC)
+	default_item_intent = INTENT_POUR
 	resistance_flags = ACID_PROOF
 
 /obj/item/reagent_containers/glass/Initialize(mapload, vol)

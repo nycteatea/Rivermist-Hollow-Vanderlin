@@ -385,7 +385,7 @@
 
 	var/datum/injury/injury = chest.create_injury(WOUND_SLASH, 20)
 	TEST_ASSERT_NOTNULL(injury, "Test setup should create a slash injury.")
-	injury.adjust_germ_level(10)
+	injury.germ_level = 10
 
 	var/obj/item/natural/cloth/bandage/soaked_bandage = allocate(/obj/item/natural/cloth/bandage)
 	soaked_bandage.reagents.add_reagent(/datum/reagent/consumable/ethanol, 3)
@@ -652,12 +652,12 @@
 
 	TEST_ASSERT_EQUAL(prosthetic_leg.get_bleed_rate(), 0, "Severe prosthetic burn damage should not create blood loss.")
 
-/datum/unit_test/poison_splash_contaminates_wounds
+/datum/unit_test/poison_splash_does_not_contaminate_wounds
 #ifdef FOCUS_RUNTIME_REGRESSION_TEST
 	focus = TRUE
 #endif
 
-/datum/unit_test/poison_splash_contaminates_wounds/Run()
+/datum/unit_test/poison_splash_does_not_contaminate_wounds/Run()
 	var/mob/living/carbon/human/patient = allocate(/mob/living/carbon/human)
 	var/obj/item/bodypart/chest = patient.get_bodypart(BODY_ZONE_CHEST)
 	TEST_ASSERT_NOTNULL(chest, "Test human should have a chest bodypart.")
@@ -668,7 +668,42 @@
 	var/datum/reagent/strongpoison/poison = allocate(/datum/reagent/strongpoison)
 	poison.reaction_mob(patient, TOUCH, 2, target_zone = BODY_ZONE_CHEST)
 
-	TEST_ASSERT(injury.germ_level > 0, "Poison splashes should explicitly contaminate wounds.")
+	TEST_ASSERT_EQUAL(injury.germ_level, 0, "Poison splashes should no longer create wound infections.")
+
+/datum/unit_test/organic_tissues_ignore_new_germ_application
+#ifdef FOCUS_RUNTIME_REGRESSION_TEST
+	focus = TRUE
+#endif
+
+/datum/unit_test/organic_tissues_ignore_new_germ_application/Run()
+	var/mob/living/carbon/human/patient = allocate(/mob/living/carbon/human)
+	var/obj/item/bodypart/chest = patient.get_bodypart(BODY_ZONE_CHEST)
+	TEST_ASSERT_NOTNULL(chest, "Test human should have a chest bodypart.")
+
+	var/datum/injury/injury = chest.create_injury(WOUND_SLASH, 20)
+	TEST_ASSERT_NOTNULL(injury, "Test setup should create a slash injury.")
+	var/obj/item/organ/heart = patient.getorganslot(ORGAN_SLOT_HEART)
+	TEST_ASSERT_NOTNULL(heart, "Test human should have a heart organ.")
+
+	injury.adjust_germ_level(100)
+	chest.adjust_germ_level(100)
+	heart.adjust_germ_level(100)
+
+	TEST_ASSERT_EQUAL(injury.germ_level, 0, "New wound infections should be disabled.")
+	TEST_ASSERT_EQUAL(chest.germ_level, 0, "New limb infections should be disabled.")
+	TEST_ASSERT_EQUAL(heart.germ_level, 0, "New organ infections should be disabled.")
+
+	injury.germ_level = 50
+	chest.germ_level = 50
+	heart.germ_level = 50
+
+	injury.adjust_germ_level(-10)
+	chest.adjust_germ_level(-10)
+	heart.adjust_germ_level(-10)
+
+	TEST_ASSERT_EQUAL(injury.germ_level, 40, "Disabled infection gain should still allow wound sanitization.")
+	TEST_ASSERT_EQUAL(chest.germ_level, 40, "Disabled infection gain should still allow limb sanitization.")
+	TEST_ASSERT_EQUAL(heart.germ_level, 40, "Disabled infection gain should still allow organ sanitization.")
 
 /datum/unit_test/health_potions_heal_organ_damage_by_strength
 #ifdef FOCUS_RUNTIME_REGRESSION_TEST

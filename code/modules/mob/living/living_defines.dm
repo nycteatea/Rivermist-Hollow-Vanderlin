@@ -166,6 +166,7 @@
 	//Speech
 	var/stuttering = 0
 	var/slurring = 0
+	var/aroused_slurring = 0
 	var/cultslurring = 0
 	var/derpspeech = 0
 

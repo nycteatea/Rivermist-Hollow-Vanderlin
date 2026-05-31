@@ -160,7 +160,6 @@
 		SSfield_of_vision.processing |= src
 	RegisterSignal(source, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(on_mob_login))
 	RegisterSignal(source, COMSIG_MOB_LOGOUT, PROC_REF(on_mob_logout))
-	RegisterSignal(source, COMSIG_MOB_VISIBLE_MESSAGE, PROC_REF(on_visible_message))
 	RegisterSignal(source, COMSIG_MOB_EXAMINATE, PROC_REF(on_examinate))
 	RegisterSignal(source, COMSIG_MOB_CLIENT_CHANGE_VIEW, PROC_REF(on_change_view))
 	RegisterSignal(source, COMSIG_MOB_RESET_PERSPECTIVE, PROC_REF(on_reset_perspective))
@@ -181,7 +180,6 @@
 		QDEL_NULL(adj_mask)
 	UnregisterSignal(source, COMSIG_MOB_CLIENT_LOGIN)
 	UnregisterSignal(source, COMSIG_MOB_LOGOUT)
-	UnregisterSignal(source, COMSIG_MOB_VISIBLE_MESSAGE)
 	UnregisterSignal(source, COMSIG_MOB_EXAMINATE)
 	UnregisterSignal(source, COMSIG_MOB_CLIENT_CHANGE_VIEW)
 	UnregisterSignal(source, COMSIG_MOB_RESET_PERSPECTIVE)
@@ -569,11 +567,6 @@
 	SIGNAL_HANDLER
 	if(fov_holder?.alpha)
 		FOV_ANGLE_CHECK(source, target, return, return COMPONENT_EXAMINATE_BLIND)
-
-/datum/component/field_of_vision/proc/on_visible_message(mob/living/source, atom/target, message, range, list/ignored_mobs)
-	SIGNAL_HANDLER
-	if(fov_holder?.alpha)
-		FOV_ANGLE_CHECK(source, target, return, return COMPONENT_VISIBLE_MESSAGE_BLIND)
 
 /datum/component/field_of_vision/proc/in_fov_view(mob/living/source, atom/center, dist, list/viewed_list)
 	SIGNAL_HANDLER

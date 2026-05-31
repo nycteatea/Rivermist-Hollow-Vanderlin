@@ -406,6 +406,10 @@
 	adjust_germ_level(rand(min_decay_factor,max_decay_factor) * delta_time)
 
 /obj/item/organ/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)
+	if(add_germs > 0)
+		// RMH TODO: Infections are disabled for the casual RP build. Rework this
+		// as an opt-in dungeon/environment mechanic before allowing new germs.
+		return
 	. = ..()
 	if((germ_level >= INFECTION_LEVEL_THREE) && !CHECK_BITFIELD(organ_flags, ORGAN_DEAD))
 		if(can_necrose_from_infection())

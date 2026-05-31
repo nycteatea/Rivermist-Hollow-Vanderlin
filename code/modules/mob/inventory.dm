@@ -166,6 +166,12 @@
 		held_items[hand_index] = null
 		return FALSE
 	if(I.possible_item_intents)
+		var/default_intent_index = I.get_default_item_intent_index()
+		if(default_intent_index)
+			if(hand_index == LEFT_HANDS)
+				l_index = default_intent_index
+			else if(hand_index == RIGHT_HANDS)
+				r_index = default_intent_index
 		update_a_intents()
 	if(I.pulledby)
 		I.pulledby.stop_pulling()

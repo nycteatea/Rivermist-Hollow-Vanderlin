@@ -467,6 +467,8 @@
 
 	if(slurring)
 		message = slur(message)
+	else if(aroused_slurring)
+		message = aroused_slur(message)
 
 	if(cultslurring)
 		message = cultslur(message)

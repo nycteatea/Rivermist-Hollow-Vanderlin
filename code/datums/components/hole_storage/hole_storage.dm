@@ -106,9 +106,17 @@
 	UnregisterSignal(parent, COMSIG_BODYSTORAGE_SWAP_LAYERS_RAND)
 
 /datum/component/body_storage/Destroy()
-	. = ..()
-	for (var/obj/item/I in outer_overlays)
+	for(var/obj/item/I as anything in outer_overlays)
 		remove_outer_overlay(I)
+	organ_storing = null
+	owner = null
+	applied_slot = null
+	outer_layer_contents.Cut()
+	inner_layer_contents.Cut()
+	deep_layer_contents.Cut()
+	all_layers.Cut()
+	outer_overlays.Cut()
+	return ..()
 /**
  * Tries to insert an item into a hole
  * @param incoming_item - The incoming item

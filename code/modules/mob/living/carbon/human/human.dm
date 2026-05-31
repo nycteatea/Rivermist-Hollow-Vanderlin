@@ -209,6 +209,9 @@
 	return ..()
 
 /mob/living/carbon/human/ZImpactDamage(turf/T, levels)
+	. = check_z_impact_damage_cancellation(T, levels)
+	if(. & ZIMPACT_CANCEL_DAMAGE)
+		return .
 	var/mob/living/carbon/V = src
 	var/obj/item/bodypart/affecting
 	var/dam = levels * rand(5,10) // less damage
@@ -246,6 +249,7 @@
 		to_chat(src, chat_message)
 
 	AdjustKnockdown(levels * 15)
+	return .
 
 /mob/living/carbon/human/proc/setup_human_dna()
 	//initialize dna. for spawned humans; overwritten by other code

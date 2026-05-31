@@ -330,6 +330,8 @@
 			var/damage = 30 - (distance * 5)
 			if(damage > 0)
 				L.adjustBruteLoss(damage, damage_type = BCLASS_BLUNT)
+				if(QDELETED(L))
+					continue
 
 			// Knockdown based on distance
 			if(distance <= 3)

@@ -140,6 +140,18 @@
 	return ..()
 
 /mob/living/proc/ZImpactDamage(turf/impacted_turf, levels)
+	. = check_z_impact_damage_cancellation(impacted_turf, levels)
+	if(. & ZIMPACT_CANCEL_DAMAGE)
+		return .
+	playsound(src, 'sound/foley/zfall.ogg', 100, FALSE)
+	if(!iscarbon(src)) // carbons need to do their own damage calculations based on bodyparts
+		var/encumbrance_multiplier = 0.5 + (ENCUMBRANCE_TO_SIGMOID(encumbrance) * 0.5) // half base falling damage. scale up to 100% based on encumbrance
+		adjustBruteLoss(((levels * 10) * encumbrance_multiplier) ** 1.5, damage_type = BCLASS_BLUNT)
+		AdjustStun(levels * 2 SECONDS * encumbrance_multiplier)
+		AdjustKnockdown(levels * 2 SECONDS * encumbrance_multiplier)
+	return .
+
+/mob/living/proc/check_z_impact_damage_cancellation(turf/impacted_turf, levels)
 	. = SEND_SIGNAL(src, COMSIG_LIVING_Z_IMPACT, levels, impacted_turf)
 	if(. & ZIMPACT_CANCEL_DAMAGE)
 		return .
@@ -162,12 +174,6 @@
 			if(m_intent != MOVE_INTENT_SNEAK) // If we're sneaking, don't make a sound
 				playsound(src, 'sound/foley/bodyfall (1).ogg', 100, FALSE)
 			return . | ZIMPACT_CANCEL_DAMAGE
-	playsound(src, 'sound/foley/zfall.ogg', 100, FALSE)
-	if(!iscarbon(src)) // carbons need to do their own damage calculations based on bodyparts
-		var/encumbrance_multiplier = 0.5 + (ENCUMBRANCE_TO_SIGMOID(encumbrance) * 0.5) // half base falling damage. scale up to 100% based on encumbrance
-		adjustBruteLoss(((levels * 10) * encumbrance_multiplier) ** 1.5, damage_type = BCLASS_BLUNT)
-		AdjustStun(levels * 2 SECONDS * encumbrance_multiplier)
-		AdjustKnockdown(levels * 2 SECONDS * encumbrance_multiplier)
 	return .
 
 /mob/living/proc/OpenCraftingMenu()
@@ -1170,6 +1176,7 @@
 
 	stuttering = 0
 	slurring = 0
+	aroused_slurring = 0
 	slowdown = 0
 
 	if(heal_flags & HEAL_ADMIN)

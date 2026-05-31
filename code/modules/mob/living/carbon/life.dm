@@ -318,6 +318,9 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	if(slurring)
 		slurring = max(slurring-1,0)
 
+	if(aroused_slurring)
+		aroused_slurring = max(aroused_slurring-1,0)
+
 	if(cultslurring)
 		cultslurring = max(cultslurring-1, 0)
 

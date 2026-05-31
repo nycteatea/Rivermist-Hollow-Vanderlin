@@ -137,6 +137,10 @@
 
 //increase or decrease infection
 /datum/injury/proc/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)
+	if(add_germs > 0)
+		// RMH TODO: Infections are disabled for the casual RP build. Rework this
+		// as an opt-in dungeon/environment mechanic before allowing new germs.
+		return
 	germ_level = clamp(germ_level + add_germs, minimum_germs, maximum_germs)
 
 //makes the injury get infected more when the victim is moving around

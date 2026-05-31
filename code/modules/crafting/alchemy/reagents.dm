@@ -1,5 +1,6 @@
 //Potions
 #define HEALTH_POTION_ORGAN_HEAL 1
+#define HEALTH_POTION_TOXIN_HEAL 4
 #define STRONG_HEALTH_POTION_ORGAN_HEAL 4
 
 /datum/reagent/medicine/proc/heal_organ_damage(mob/living/carbon/M, healing_amount)
@@ -48,6 +49,7 @@
 	if(volume > 0.99)
 		M.adjustBruteLoss(-1.75*REM * efficiency, 0)
 		M.adjustFireLoss(-1.75*REM * efficiency, 0)
+		M.adjustToxLoss(-HEALTH_POTION_TOXIN_HEAL * efficiency, 0)
 		M.adjustOxyLoss(-1.25 * efficiency, 0)
 		M.adjustCloneLoss(-1.75*REM * efficiency, 0)
 		heal_organ_damage(M, HEALTH_POTION_ORGAN_HEAL * efficiency)
@@ -105,6 +107,7 @@
 	. = 1
 
 #undef HEALTH_POTION_ORGAN_HEAL
+#undef HEALTH_POTION_TOXIN_HEAL
 #undef STRONG_HEALTH_POTION_ORGAN_HEAL
 
 /datum/reagent/medicine/rosawater

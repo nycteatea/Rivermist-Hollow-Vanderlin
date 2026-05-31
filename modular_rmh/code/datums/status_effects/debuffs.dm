@@ -184,7 +184,7 @@
 /datum/status_effect/debuff/cumbrained/on_apply()
 	. = ..()
 	owner.add_stress(/datum/stress_event/cumbrained)
-	owner.slurring = max(owner.slurring, 4)
+	owner.aroused_slurring = max(owner.aroused_slurring, 4)
 
 /datum/status_effect/debuff/cumbrained/on_remove()
 	owner.remove_stress(/datum/stress_event/cumbrained)
@@ -201,7 +201,7 @@
 	if(!owner)
 		return
 
-	owner.slurring = max(owner.slurring, 3)
+	owner.aroused_slurring = max(owner.aroused_slurring, 3)
 
 	if(!MOBTIMER_FINISHED(owner, "cumbrained_ticker", rand(30,90)SECONDS))
 		return

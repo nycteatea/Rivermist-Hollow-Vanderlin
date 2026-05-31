@@ -62,8 +62,9 @@
 //Keep this sorted alphabetically
 
 // BEGIN_INCLUDE
-#include "anchored_mobs.dm"
 #include "ai_idle_detection.dm"
+#include "alchemy_medicine.dm"
+#include "anchored_mobs.dm"
 #include "belly_fullness.dm"
 #include "bellyriding.dm"
 #include "body_storage.dm"
@@ -71,10 +72,12 @@
 #include "component_tests.dm"
 #include "connect_loc.dm"
 #include "container_collision.dm"
+#include "container_intents.dm"
 #include "craftable_clothes.dm"
 #include "craftable_turfs.dm"
 #include "create_and_destroy.dm"
 #include "dye_bin.dm"
+#include "fall_damage.dm"
 #include "faction_supply_packs.dm"
 #include "focus_only_tests.dm"
 #include "hostile_ai_grab.dm"
@@ -99,10 +102,12 @@
 #include "resurrection_rune.dm"
 #include "rogue_inhands.dm"
 #include "roguetown_clothing.dm"
+#include "runtime_gc_regressions.dm"
 #include "runtime_regressions.dm"
 #include "spawn_humans.dm"
 #include "spawn_mobs.dm"
 #include "species_whitelists.dm"
+#include "speech_slur.dm"
 #include "spell_aoe_on_turf.dm"
 #include "spell_invocations.dm"
 #include "spell_names.dm"
@@ -111,6 +116,7 @@
 #include "surgeries.dm"
 #include "timer_sanity.dm"
 #include "unit_test.dm"
+#include "visible_message_fov.dm"
 #include "weapon_icons.dm"
 // END_INCLUDE
 

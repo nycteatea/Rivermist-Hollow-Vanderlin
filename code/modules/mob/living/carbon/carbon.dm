@@ -23,6 +23,9 @@
 			qdel(thing) // Lazylist
 
 /mob/living/carbon/ZImpactDamage(turf/T, levels)
+	. = check_z_impact_damage_cancellation(T, levels)
+	if(. & ZIMPACT_CANCEL_DAMAGE)
+		return .
 	var/obj/item/bodypart/affecting
 	if(prob(66))
 		affecting = get_bodypart("[pick("r","l")]_leg")
@@ -53,6 +56,7 @@
 
 	AdjustStun(levels * 20)
 	AdjustKnockdown(levels * 20)
+	return .
 
 /mob/living/carbon/swap_hand(held_index)
 	if(!held_index)

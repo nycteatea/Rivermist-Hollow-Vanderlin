@@ -179,6 +179,11 @@
 	cost = 50
 	contains = /obj/item/reagent_containers/glass/bottle/healthpot
 
+/datum/supply_pack/tools/medical/antidote
+	name = "Poison Antidote"
+	cost = 50
+	contains = /obj/item/reagent_containers/glass/bottle/antidote
+
 /datum/supply_pack/tools/medical/mana
 	name = "Mana Potion"
 	cost = 50
@@ -208,5 +213,4 @@
 	name = "Pegleg Right Leg"
 	cost = 20
 	contains = /obj/item/bodypart/r_leg/prosthetic/wood
-
 

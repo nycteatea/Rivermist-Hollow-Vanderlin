@@ -1108,7 +1108,7 @@
 			user.remove_status_effect(/datum/status_effect/debuff/cumbrained)
 	else
 		if(orgasm_strain >= MED_ORGASM_STRAIN_GAIN + nymph_mod)
-			user.apply_status_effect(/datum/status_effect/debuff/cumbrained)
+			user.apply_status_effect(/datum/status_effect/debuff/)
 
 	if(user.has_status_effect(/datum/status_effect/debuff/orgasmbroken))
 		if(orgasm_strain <= HIGH_ORGASM_STRAIN_LOSS + nymph_mod)

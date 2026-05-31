@@ -259,6 +259,15 @@
  * Makes you speak like you're drunk
  */
 /proc/slur(n)
+	return slur_words(n, TRUE)
+
+/**
+ * Makes you sound breathless without drunk interjections.
+ */
+/proc/aroused_slur(n)
+	return slur_words(n, FALSE)
+
+/proc/slur_words(n, include_drunk_interjections = TRUE)
 	var/phrase = html_decode(n)
 	var/leng = length(phrase)
 	var/counter=length(phrase)
@@ -277,7 +286,7 @@
 				newletter="oo"
 			if(lowertext(newletter)=="c")
 				newletter="k"
-		if(rand(1,20)==20)
+		if(include_drunk_interjections && rand(1,20)==20)
 			if(newletter==" ")
 				newletter="...huuuhhh..."
 			if(newletter==".")
@@ -554,9 +563,9 @@
 			intents = Masteritem.alt_intents
 	else
 		if(active_hand_index == 1)
-			r_index = r_ua_index
-		else
 			l_index = l_ua_index
+		else
+			r_index = r_ua_index
 		intents = base_intents.Copy()
 	for(var/defintent in intents)
 		if(Masteritem)
@@ -572,9 +581,9 @@
 			intents = Masteritem.alt_intents
 	else
 		if(active_hand_index == 1)
-			l_index = l_ua_index
-		else
 			r_index = r_ua_index
+		else
+			l_index = l_ua_index
 		intents = base_intents.Copy()
 	for(var/defintent in intents)
 		if(Masteritem)

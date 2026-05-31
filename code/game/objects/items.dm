@@ -174,6 +174,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	var/boob_sized = FALSE
 	var/list/possible_item_intents = list(/datum/intent/use)
+	/// Optional intent type to select when this item first enters a hand.
+	var/default_item_intent
 
 	// Used to center screen_loc when in hand
 	var/bigboy = FALSE
@@ -338,6 +340,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 
 	var/toggle_state // Needed for grandmaster/martyr weapons, might be shitcode, might be usable for the future, *shrug, it works
+
+/obj/item/proc/get_default_item_intent_index()
+	if(!default_item_intent || !length(possible_item_intents))
+		return
+	return possible_item_intents.Find(default_item_intent)
 
 /obj/item/proc/set_quality(quality)
 	recipe_quality = clamp(quality, 0, 4)
